@@ -1,0 +1,301 @@
+# show sxhkd help
+super + F1
+	$TERMINAL --class floating -d 100 30 -e bash ~/bin/scripts/wm/sxhkd-help.sh
+
+# reload sxhkd configuration file
+super + shift + s
+	pkill -USR1 -x sxhkd ;\
+	notify-send "sxhkd: sxhkd has been restarted."
+
+## applications
+
+# terminal and file browser
+super + {_, shift +} Return
+	{$TERMINAL, $FILEBROWSER}
+
+# dmenu
+super + d
+	dmenu_run -fn "Monospace" -l 10
+
+# rofi
+alt + Tab
+	rofi -theme ~/.cache/wal/rofi.rasi -show window -modi drun,window,run
+
+super + space
+	rofi -show drun -show-icons
+
+# calculator
+super + 1
+	gnome-calculator
+
+# toggle bottom bar
+super + b
+	barPID=$(pgrep -f "^polybar.*bottom$" | head -1); \
+	polybar-msg -p "$barPID" cmd toggle; \
+	xdo raise -p $barPID
+
+# works, but requires bar to be hidden before first execution
+# super + b
+# 	action={show,hide}; \
+# 	barPID="$(pgrep -f "^polybar.*bottom$" | head -1)"; \
+# 	polybar-msg -p "$barPID" cmd $action; \
+# 	newPadding=$((`bspc config -m primary bottom_padding` + 30)); \
+# 	[ "$action" == "hide" ] && newPadding=$((newPadding - 60)); \
+# 	bspc config -m primary bottom_padding "$newPadding"
+
+## volume
+
+# change master/default pulseaudio sink
+super + XF86AudioMute
+	pactl list short sinks | sed 's/\t/ -- /g' | dmenu -sb "#005588" -fn "SauceCodePro Nerd Font:size=12" -l 15 -i -p "Set master sound device: " | cut -d ' ' -f 1 | xargs pactl set-default-sink; \
+	play -q /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga -t alsa
+
+# mute microphone
+XF86AudioMicMute
+	amixer set Capture toggle
+
+# mute volume
+XF86AudioMute
+	amixer -qD pulse sset Master toggle; \
+	play -q /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga -t alsa
+
+# adjust volume, but don't go over 100% (or 200%, if already over 100%)
+XF86Audio{Lower,Raise}Volume
+	curr=$(amixer -D pulse sget Master | sed -nr 's/.*Left.*\[([0-9]+)%\].*/\1/p'); \
+	next=$(( curr {-,+} 5 )); \
+	setVol() \{ pactl set-sink-volume @DEFAULT_SINK@ "$1"%; play -q /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga -t alsa; \}; \
+	if [ $curr -lt 100 ]; then \
+		[ $next -gt 100 ] && next=100; \
+		setVol "$next"; \
+	elif [ $curr -eq 100 ] && [ $next -lt 100 ] || [ $curr -gt 100 ]; then \
+		[ $next -gt 200 ] && next=200; \
+		setVol "$next"; \
+	fi
+	
+# adjust volume up to 200
+shift + XF86Audio{Lower,Raise}Volume
+	next=$(( $(amixer -D pulse sget Master | sed -nr 's/.*Left.*\[(.+)%\].*/\1/p') {-,+} 5 )); \
+	[ $next -gt 200 ] && next=200; \
+	pactl set-sink-volume @DEFAULT_SINK@ "$next"%; \
+	play -q /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga -t alsa
+
+# adjust brightness
+{_, shift +}XF86MonBrightness{Down,Up}
+	echo "{2,10}" | xargs light -{U,A}
+
+## music
+
+# use media keys
+XF86Audio{Pause,Play,Prev,Next}
+	mpc {pause,play,prev,next}
+
+# playerctl handles most gui music players
+#alt + shift + {j,k,l,semicolon,apostrophe}
+#	playerctl {position 10-,position 10+,previous,next,play-pause}
+
+# for mpd, mpc is required
+super + {n,m,comma,period,slash}
+	mpc {seek -5%,seek +5%,prev,next,toggle}
+
+# ncmpcpp
+super + p
+	alacritty --class floating -o "window.dimensions.columns=110" -o "window.dimensions.rows=40" -e ncmpcpp -q
+
+# pavucontrol
+super + shift + p
+	pavucontrol
+
+## close/kill/exit
+
+# lock screen
+super + Escape
+	light-locker-command -l
+
+# blank screen
+super + shift + Escape
+	sleep 0.5; \
+	xset dpms force off
+
+# exit bspwm
+ctrl+ alt + Delete
+	bash ~/bin/dmenu/system.sh
+
+# perform system suspend
+ctrl + alt + Escape
+	systemctl suspend
+
+# close or kill
+# super + {_,shift + }w
+# 	bspc node -{c,k}
+super + shift {_, control + }w
+	bspc node -{c,k}
+
+# alternate between tiled and monocle layout
+super + shift + m
+	bspc desktop -l next
+
+# send focused node to newest preselected node
+super + y
+	bspc node focused -n newest.!automatic.local
+
+# rotate parent by 90 degrees
+super + {_, shift +} r
+	bspc node @parent -R {+,-}90
+
+# give desktop a persistent custom name using desknamer.sh
+super + shift + t
+	bash ~/bin/scripts/wm/desknamer-custom.sh
+
+# swap current node with biggest local node
+super + shift + b
+	bspc node -s biggest.local
+
+# change inner gaps
+super + {_, shift +} g
+	cgap=$(bspc config -d focused window_gap); \
+	{ bspc config -d focused window_gap $((cgap + 10)), \
+	[ "$cgap" -ge 10 ] && bspc config -d focused window_gap $((cgap - 10)) }
+
+## outer gaps mode
+super + ctrl + shift + v: {_, shift +} {h,j,k,l}
+	bash ~/bin/scripts/wm/bspwm-padding.sh {-10,10} {left, bottom, top, right}
+
+## nodes
+
+# focus the node in the given direction
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+super + shift + {j,k}
+	bspc node -s {south,north}
+super + shift + h
+	bspc node -s west || bspc node -s prev
+super + shift + l
+	bspc node -s east || bspc node -s next
+
+# focus the next/previous node in the current desktop
+super + {_,shift + }c
+	bspc node -f '{next,prev}.local.!hidden.window'
+
+# focus the last desktop on this monitor
+super + {grave,Tab}
+	bspc desktop -f last.local
+
+# control node layer
+super + {control + shift + o, shift + o, o}
+	bspc node -l {below,normal,above}
+
+# send focused node to another desktop
+super + shift + {1-9,0}
+	bspc node focused -d focused:'^{1-9,10}'
+
+# move a floating node
+super + {Left,Down,Up,Right}
+	bspc node -v {-25 0,0 25,0 -25,25 0}
+
+## desktops
+
+# focus desktop by index
+super + {1-9,0}
+	bspc desktop -f focused:'^{1-9,10}'
+
+# focus previous/next local occupied desktop
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local.occupied
+
+# focus previous/next local desktop
+super + shift + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# swap focused desktop across monitors
+super + shift + {u,i}
+	bspc desktop focused -s {west,east}:focused --follow
+
+# swap focused desktop with another desktop
+super + shift + ctrl + {u,i}
+	bspc desktop focused -s '{prev,next}' --follow
+super + shift + ctrl + {1-9,0}
+	bspc desktop focused -s ^'{1-9,10}' --follow
+
+## monitors
+
+# focus previous/next monitor
+super + {u,i}
+	bspc monitor -f {prev,next}
+
+# swap monitors
+# super + shift + ctrl + 
+# 	bspc monitor focused -s {west,east}
+
+## window states/flags
+
+# toggle node states: tiled|pseudo_tiled|floating|fullscreen
+super + {t,s,shift+f,f}
+	bspc node -t ~{tiled,pseudo_tiled,floating,fullscreen}
+
+# set node flags: hidden|sticky|private|locked|marked
+super + shift + {m,a,x,y,z}
+	action = "{marked,hidden,locked,sticky,private}"; \
+	bspc node -g "$action"; \
+	notify-send "Toggled a node flag: $action"
+
+# restore last hidden window
+super + shift + ctrl + r
+	bspc node "$(bspc query -N -n .hidden | tail -n1)" -g hidden=off
+
+## pre-selection
+
+# preselect split direction and set default split ratio
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}; \
+	echo "0.5" > /tmp/BSPWM_RATIO; \
+	bspc node -o 0.5
+
+# preselect split ratio
+super + ctrl + shift + {h,j,k,l}
+	current="$(echo $(cat /tmp/BSPWM_RATIO) {-,+,-,+} 0.1 | bc -l)"; \
+	[ $(echo "$current <= 0" | bc -l) -eq 1 ] && current=0.1; \
+	[ $(echo "$current >= 1" | bc -l) -eq 1 ] && current=0.9; \
+	bspc node -o "$current"; \
+	echo "$current" > /tmp/BSPWM_RATIO
+
+# cancel preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+# cancel preselection for the focused desktop
+super + ctrl + shift + space
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+## resize
+
+# expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+## other
+
+# take screenshot
+super + Print
+	import png:- | xclip -selection clipboard -t image/png
+
+super + shift + Print
+	filename="$(echo '' | dmenu -p Enter\ filename\:\  | sed 's/.png//g')"; \
+	mkdir -p ~/Pictures/screenshots; \
+	import ~/Pictures/screenshots/"$filename".png
+
+# generate qr code from clipboard text
+super + v
+	xclip -selection clipboard -o | qrencode --size 8 -o /tmp/qr.png && sxiv /tmp/qr.png
+
+# invert focused node's colors using compositor
+super + ctrl + i
+	window="$(bspc query -n focused -T | cut -d ',' -f 1 | sed 's/\{"id"://g')"; \
+	status="$(xprop -id "$window" 8c TAG_INVERT | cut -d " " -f 3)"; \
+	[ "$status" != 0 ] && status=0 || status=1; \
+	xprop -id "$window" -format TAG_INVERT 8c -set TAG_INVERT "$status"
+	

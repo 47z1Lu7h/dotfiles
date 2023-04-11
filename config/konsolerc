@@ -1,0 +1,23 @@
+[Desktop Entry]
+DefaultProfile=47z!.profile
+
+[General]
+ConfigVersion=1
+
+[KonsoleWindow]
+AllowMenuAccelerators=true
+FocusFollowsMouse=true
+RemoveWindowTitleBarAndFrame=true
+
+[MainWindow]
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAQAAAAAAAAAAAAAAAPwCAAAAAvsAAAAcAFMAUwBIAE0AYQBuAGEAZwBlAHIARABvAGMAawAAAAAA/////wAAARMBAAAF+wAAACIAUQB1AGkAYwBrAEMAbwBtAG0AYQBuAGQAcwBEAG8AYwBrAAAAAAD/////AAABdgEAAAUAAAKrAAAC3AAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIAAAAAAP////8AAAAAAAAAAAAAABwAcwBlAHMAcwBpAG8AbgBUAG8AbwBsAGIAYQByAAAAAOf/////AAAAAAAAAAA=
+ToolBarsMovable=Disabled
+eDP-1=eDP-1
+eDP-1 Height 1366x768 eDP-1=675
+eDP-1 Width 1366x768 eDP-1=1090
+eDP-1 XPosition 1366x768 eDP-1=45
+eDP-1 YPosition 1366x768 eDP-1=28
+
+[UiSettings]
+ColorScheme=Kali-Dark
