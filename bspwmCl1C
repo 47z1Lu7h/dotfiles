@@ -72,7 +72,20 @@ function main(){
 	sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh/plugins/zsh-autocomplete
 	sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/plugins/
 
+	echo 'deb http://download.opensuse.org/repositories/shells:/zsh-users:/zsh-completions/Debian_10/ /' | sudo tee /etc/apt/sources.list.d/shells:zsh-users:zsh-completions.list
+	if [ $? -eq 0 ]; then
+		curl -fsSL https://download.opensuse.org/repositories/shells:zsh-users:zsh-completions/Debian_10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells_zsh-users_zsh-completions.gpg > /dev/null
+		if [ $? -eq 0 ]; then
+			sudo apt update && sudo apt install zsh-completions; sleep 2
+		else
+			echo -e "\n\n\t\t${bold}${cyan}-|[!]|-> ${red} Something went bad installing zsh-completions${cyan}:/ ${end}\n\n\n"
+		fi
+	else
+		echo -e "\n\n\t\t${bold}${cyan}-|[!]|-> ${red} Something went wrong Something went bad installing zsh-completions ${cyan}:/ ${end}\n\n\n"
+	fi
+
 	echo -ne "\n\t\t${bold}${red}<|[*]|> ~~~~  ${yellow}Zsh plugins done!${red} ~~~~\n\n\n"
+	sleep 2
 
 	echo -ne "\n\n\t\t${bold}${cyan}-|[+]|-> ${green}Making necesary folders in ${cyan}~/.config ${blue}& copy files ...${end}\n"
 	sleep 2
@@ -114,7 +127,7 @@ function main(){
 	cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
 	if [ $? -eq 0 ]; then
 		rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
-		#sudo rm -rf /root/.config/nvim; rm -rf /root/.local/share/nvim; rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
+		sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
 		git clone "https://github.com/NvChad/NvChad" ~/.config/nvim --depth 1
 		sudo git clone "https://github.com/NvChad/NvChad" /root/.config/nvim --depth 1
 		if [ $? -eq 0 ]; then
@@ -262,7 +275,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 	if cat /etc/*release | grep "^NAME" | grep -Ei "kali" > /dev/null; then
 
 		echo -e "${blue}}${bold} ============================================================== "
-		echo -e "${blue}${bold}    =========== ${yellow}~~~ ${cyan}Installing package for ${red}Kali ${yelow}~~~ ${blue}======"
+		echo -e "${blue}${bold}    =========== ${yellow}~~~ ${cyan}Installing package for ${red}Kali ${yellow}~~~ ${blue}======"
 		echo -e "${blue}${bold} ============================================================== \n\n"
 		echo -ne "\n\t${cyan}${bold}-|[+]|->\t${blue}Upgrading System${cyan}:\n\n"
 		sudo apt update && sudo apt upgrade -y
@@ -293,7 +306,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Parrot" > /dev/null; then
 
 		echo -e "${blue}}${bold} ============================================================== "
-		echo -e "${blue}${bold}    =========== ${yellow}~~~ ${cyan}Installing package for ${red}Parrot ${yelow}~~~ ${blue}======"
+		echo -e "${blue}${bold}    =========== ${yellow}~~~ ${cyan}Installing package for ${red}Parrot ${yellow}~~~ ${blue}======"
 		echo -e "${blue}${bold} ============================================================== \n\n"
 		echo -ne "\n\t${cyan}${bold}-|[+]|->\t${blue}Upgrading System${cyan}:\n\n"
 		sudo apt update && sudo parrot-upgrade -y
@@ -324,10 +337,10 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Ubuntu" > /dev/null; then
 
 		echo -e "${blue}}${bold} ============================================================== "
-		echo -e "${blue}${bold}    =========== ${yellow}~~~ ${cyan}Installing package for ${red}Parrot ${yelow}~~~ ${blue}======"
+		echo -e "${blue}${bold}    =========== ${yellow}~~~ ${cyan}Installing package for ${red}Ubuntu ${yellow}~~~ ${blue}======"
 		echo -e "${blue}${bold} ============================================================== \n\n"
 		echo -ne "\n\t${cyan}${bold}-|[+]|->\t${blue}Upgrading System${cyan}:\n\n"
-		sudo apt update && sudo parrot-upgrade -y
+		sudo apt update && sudo apt-upgrade -y
 	        if [ $? -eq 0 ]; then
 			echo -ne "${bold}${cyan}-|[+]|->${blue}Installing Packages & dependecies${cyan}: \n\n\n"
 			sudo apt install -y $dependencies_Bspwm_deb $dependencies_Picom_deb $dependencies_Poly_deb $packages
