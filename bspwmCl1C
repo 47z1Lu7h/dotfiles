@@ -345,8 +345,6 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 			exit 1
 		fi
 
-
-
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Parrot" > /dev/null; then
 
 		echo -e "${blue}${bold}==================================================================== "
@@ -390,6 +388,52 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 			sleep 2
 			exit 1
 		fi
+
+	elif cat /etc/*release | grep "^NAME" | grep -Ei "Ubuntu" > /dev/null; then
+
+		echo -e "${blue}${bold}==================================================================== "
+		echo -e "${blue}${bold}   -|-|-|-|- ${cyan}Installing package for ${red}Ubuntu ${cyan}distribution ${blue}-|-|-|-|-"
+		echo -e "${blue}${bold}===================================================================="
+		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System${cyan}: \n\n"
+		sleep 2
+		sudo apt update && sudo apt upgrade -y -y
+		if [ $? -eq 0 ]; then
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan}: \n\n\n"
+			sleep 2
+			sudo apt install -y $packages
+		    if [ $? -eq 0 ]; then
+				htb-Xplorer
+			    if [ $? -eq 0 ]; then
+					main
+					if [ $? -eq 0 ]; then
+						sudo apt purge zsh\* -y && sudo apt install zsh -y
+						sleep 2
+						echo -ne "\n\n\t\t${bold}${yellow}<|[*]|> ${bold}${cyan}Done!!${yellow}:~)\n\n"
+						sleep 2
+						echo -ne "\n\t${bold}${yellow}<|[*]|>${cyan} Now try reboot and select Bspwm as desktop evironment.\n"
+						echo -ne "\n\t${bold}${yellow}<|[*]|>${cyan} & open a temrinal & type nvim to finsih the configuration ${red}:~D${end}\n\n\n"
+					else
+						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the installation ${red}${standout}:/ \n\n\n"
+						sleep 2
+						exit 1
+					fi
+				else
+					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with cloning de repo ${red}${standout}:/  ${end}\n\n\n"
+					sleep 2
+					exit 1
+			fi
+			else
+				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}\n\n\n"
+				sleep 2
+				exit 1
+			fi
+		else
+			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!!   ${red}${standout}:/ ${end}\n\n\n"
+			sleep 2
+			exit 1
+		fi
+
+
 
 	else
 		sleep 2
