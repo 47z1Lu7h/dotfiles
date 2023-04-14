@@ -23,8 +23,8 @@ if test -t 1; then
 fi
 
 # --> Globals
-declare -r packages="linux-headers-$(uname -r) bspwm sxhkd polybar rofi picom kitty git cmake cmake-data extra-cmake-modules npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text rlwrap gpick meson trash-cli xbacklight brightnessctl qt5ct python3-sphinx python3-packaging"
-w
+declare -r packages="linux-headers-$(uname -r) bspwm sxhkd polybar rofi picom kitty git cmake cmake-data extra-cmake-modules npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text rlwrap gpick meson trash-cli xbacklight brightnessctl qt5ct python3-sphinx python3-packaging jsbeautifier"
+
 declare -r depen_Bspwm_deb="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
 declare -r depen_Poly_deb="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev"
 declare -r depen_Picom_deb="libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev"
@@ -62,7 +62,8 @@ function ctrl_c(){
 
 function main(){
 	tput cnorm
-	echo -ne "\n\t\t${bold}${cyan}<|[+]|> ${cyan}Installing ${red}Main ${cyan}package!${cyan} \n\n"
+
+	echo -ne "\n\t\t${bold}${cyan}<|[+]|> ${cyan}Installing ${red}Main ${cyan}package!${cyan} \n\n\n"
 	sleep 2
 	echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Downloading Iosevka Font ${end}${cyan}--> \n\n"
 	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Iosevka.zip" -O Iosevka.zip
@@ -87,30 +88,30 @@ function main(){
 					sudo git clone "https://github.com/zsh-users/zsh-autosuggestions" /usr/share/zsh/plugins/zsh-autosuggestions
 					sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" /usr/share/zsh/plugins/zsh-syntax-highlightiqng
 					sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh/plugins/zsh-autocomplete
-							sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/plugins/
+					sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/plugins/
+					if [ $? -eq 0 ]; then
+						echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Zsh plugins done!   ${red}~!~!~!~\n\n${cyan}"
+						# -->  Nvim
+						sleep 2
+						git clone "https://github.com/neovim/neovim" && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
+						if [ $? -eq 0 ]; then
+							rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
+							sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
+							git clone "https://github.com/NvChad/NvChad" ~/.config/nvim --depth 1 && sudo git clone "https://github.com/NvChad/NvChad" /root/.config/nvim --depth 1
+							sleep 2
 							if [ $? -eq 0 ]; then
-								echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Zsh plugins done!   ${red}~!~!~!~\n\n${cyan}"
-								# -->  Nvim
-								sleep 2
-								git clone "https://github.com/neovim/neovim" && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
+								cd .. && rm -rf neovim
+								# -->  Copy files
 								if [ $? -eq 0 ]; then
-									rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
-									sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
-									git clone "https://github.com/NvChad/NvChad" ~/.config/nvim --depth 1 && sudo git clone "https://github.com/NvChad/NvChad" /root/.config/nvim --depth 1
+									echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${standout}${black}:~D${end}\n\n"
 									sleep 2
-									if [ $? -eq 0 ]; then
-										cd .. && rm -rf neovim
-										# -->  Copy files
-										if [ $? -eq 0 ]; then
-											echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${standout}${black}:~D${end}\n\n"
-											sleep 2
-										else
-											echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad removing neovim folder ${red}${standout}:/  ${end}\n\n\n"
-										exit 1
-									fi
+								else
+									echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad removing neovim folder ${red}${standout}:/  ${end}\n\n\n"
+									exit 1
+								fi
 								else
 									echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad copying the files ${red}${standout}:/ ${end}\n\n\n"
-								exit 1
+									exit 1
 								fi
 							else
 								echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad installing lsd ${red}${standout}:/ ${end}\n\n\n"
@@ -151,6 +152,7 @@ function main(){
 		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black}Something bad happen coping the files${red}${standout}:~/${end}\n\n\n"
 		exit 1
 	fi
+
 	tput civis
 }
 
@@ -257,7 +259,7 @@ function htb-Xplorer(){
 	tput cnorm
 
 	if [ -d "/opt/h4Ck/htbXplorer-Plus" ]; then
-		echo -ne "\n${bold}${cyan}<|[+]|> ${end}${white}htb-Xplorer already in the system ${bold}${cyan}[:~)${end}${cyan}\n\n"
+		echo -ne "\n${bold}${cyan}<|[+]|> ${end}${yellow}htb-Xplorer already in the system ${bold}${cyan}[:~)${end}${cyan}\n\n"
 		sleep 2
 	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Cloning htbXplorer from github${cyan}: ${end}${cyan}\n\n"
@@ -306,6 +308,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 		echo -e "${blue}${bold}==================================================================== "
 		echo -e "${blue}${bold}   -|-|-|-|- ${cyan}Installing package for ${red}Kali ${cyan}distribution ${blue}-|-|-|-|-"
 		echo -e "${blue}${bold}===================================================================="
+
 		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System${cyan}: \n\n"
 		sleep 2
 		sudo apt update && sudo apt upgrade -y

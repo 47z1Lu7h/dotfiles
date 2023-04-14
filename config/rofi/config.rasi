@@ -1,5 +1,5 @@
 configuration {
-	font:				"Iosevka Term 12";
+	font:				"Iosevka Term 13";
 	show-icons:			true;
 	icon-theme:			"WhiteSur-dark";
 	display-drun:			"";
@@ -112,7 +112,7 @@ element-icon {
 	text-color:			inherit;
 	horizontal-align:		0.5;
 	vertical-align:			0.5;
-	size:				5%;
+	size:				7%;
 }
 
 element-text {
