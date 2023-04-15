@@ -1,5 +1,5 @@
 configuration {
-	font:				"Iosevka Term 13";
+	font:				"Iosevka Term 10";
 	show-icons:			true;
 	icon-theme:			"WhiteSur-dark";
 	display-drun:			"";
@@ -50,7 +50,7 @@ textbox-prompt-colon {
 	background-color:		@BGA;
 	text-color:			@yellow;
 	paccing:			0 0 0 0;
-	font:				"Iosevka Term Thin 20";
+	font:				"Iosevka Term Thin 25";
 }
 
 entry {
@@ -60,7 +60,7 @@ entry {
 	expand:                         true;
 	horizontal-align:               0;
 	placeholder:                    "Tell your mother you LOVE her sometimes ...";
-	font:                           "Iosevka Term Light 12";
+	font:                           "Iosevka Term Light 11";
 	blink:                          true;
 	padding:                        0.3%;
 }
@@ -112,7 +112,7 @@ element-icon {
 	text-color:			inherit;
 	horizontal-align:		0.5;
 	vertical-align:			0.5;
-	size:				7%;
+	size:				5%;
 }
 
 element-text {
