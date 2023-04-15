@@ -63,78 +63,69 @@ function ctrl_c(){
 function main(){
 	tput cnorm
 
-	echo -ne "\n\t\t${bold}${cyan}<|[+]|> ${cyan}Installing ${red}Main ${cyan}package!${cyan} \n\n\n"
+	echo -ne "\n\t\t${bold}${cyan}<|[+]|> ${cyan}Installing ${magenta}Main ${cyan}package!${cyan} \n\n\n"
 	sleep 2
+	# -->  Fonts
 	echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Downloading Iosevka Font ${end}${cyan}--> \n\n"
-	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Iosevka.zip" -O Iosevka.zip
+	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Iosevka.zip" -O Iosevka.zip &&
+	unzip Iosevka.zip -d ~/.local/share/fonts && rm -rf Iosevka.zip && fc-cache -v
 	if [ $? -eq 0 ]; then
-		unzip Iosevka.zip -d ~/.local/share/fonts && rm -rf Iosevka.zip && fc-cache -v
+		echo -ne "\n\t\t${bold}${red}<|[*]|>${yellow}Fonts done!${red}<|[*]|>\n\n"
+		sleep 2
+		# -->  Lsd
+		echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Downloading lsd ${end}${cyan}--> \n\n"
+		wget "https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb" -O lsd.deb &&
+		sudo dpkg -i lsd.deb && rm lsd.deb
 		if [ $? -eq 0 ]; then
-			echo -ne "\n\t\t${bold}${red}<|[*]|>${yellow}Fonts done!${red}<|[*]|>\n\n"
+			echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}Lsd installed!   ${red}~!~!~!~\n\n"
 			sleep 2
-			# -->  Lsd
-			echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Getting lsd ${end}${cyan}--> \n\n"
-			wget "https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb" -O lsd.deb
+			# -->  Zsh plugins
+			echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning zsh Plugins${cyan} -->\n\n\n"
+			sleep 2
+			sudo rm -rf /usr/share/zsh*
+			sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git" /usr/share/zsh/powerlevel10k
+			sudo git clone "https://github.com/zsh-users/zsh-autosuggestions" /usr/share/zsh/plugins/zsh-autosuggestions
+			sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" /usr/share/zsh/plugins/zsh-syntax-highlightiqng
+			sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh/plugins/zsh-autocomplete
+			sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/plugins/
 			if [ $? -eq 0 ]; then
-				sudo dpkg -i lsd.deb && rm lsd.deb
+				echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Zsh plugins done!   ${red}~!~!~!~\n\n${cyan}"
+				# -->  Nvim
+				sleep 2
+				echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Compiling neovim & coling NvChad${cyan} -->\n\n\n"
+				git clone "https://github.com/neovim/neovim" && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
 				if [ $? -eq 0 ]; then
-					echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}Lsd installed!   ${red}~!~!~!~\n\n"
+					rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
+					sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
+					git clone "https://github.com/NvChad/NvChad" ~/.config/nvim --depth 1 && sudo git clone "https://github.com/NvChad/NvChad" /root/.config/nvim --depth 1
 					sleep 2
-					# -->  Zsh plugins
-					echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning zsh Plugins${cyan} -->\n\n\n"
-					sleep 2
-					sudo rm -rf /usr/share/zsh*
-					sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git" /usr/share/zsh/powerlevel10k
-					sudo git clone "https://github.com/zsh-users/zsh-autosuggestions" /usr/share/zsh/plugins/zsh-autosuggestions
-					sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" /usr/share/zsh/plugins/zsh-syntax-highlightiqng
-					sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh/plugins/zsh-autocomplete
-					sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/plugins/
 					if [ $? -eq 0 ]; then
-						echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Zsh plugins done!   ${red}~!~!~!~\n\n${cyan}"
-						# -->  Nvim
-						sleep 2
-						git clone "https://github.com/neovim/neovim" && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
+						cd .. && rm -rf neovim
 						if [ $? -eq 0 ]; then
-							rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
-							sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
-							git clone "https://github.com/NvChad/NvChad" ~/.config/nvim --depth 1 && sudo git clone "https://github.com/NvChad/NvChad" /root/.config/nvim --depth 1
+							echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${standout}${black}:~D${end}\n\n"
 							sleep 2
-							if [ $? -eq 0 ]; then
-								cd .. && rm -rf neovim
-								# -->  Copy files
-								if [ $? -eq 0 ]; then
-									echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${standout}${black}:~D${end}\n\n"
-									sleep 2
-								else
-									echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad removing neovim folder ${red}${standout}:/  ${end}\n\n\n"
-									exit 1
-								fi
-								else
-									echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad copying the files ${red}${standout}:/ ${end}\n\n\n"
-									exit 1
-								fi
-							else
-								echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad installing lsd ${red}${standout}:/ ${end}\n\n\n"
-								exit 1
-							fi
 						else
-							echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad downloading lsd ${red}${standout}:/ ${end}\n\n\n"
+							echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad removing neovim folder ${red}${standout}:/  ${end}\n\n\n"
+							exit 1
+						fi
+					else
+						echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad cloning NvChad repo ${red}${standout}:/ ${end}\n\n\n"
 						exit 1
 					fi
 				else
-					echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad installing the fonts ${red}${standout}:/ ${end}\n\n\n"
+					echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red}  Something went bad compiling neovim ${red}${standout}:/ ${end}\n\n\n"
 					exit 1
 				fi
 			else
-				echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went wrong downloading Iosevka font ${red}${standout}:/ ${end}\n\n\n"
+				echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad cloning the zsh-plugins ${red}${standout}:/ ${end}\n\n\n"
 				exit 1
 			fi
 		else
-			echo -e "\n\n\t\t${bold}${red}<|[!]|>${black} Something went wrong cloning NvChad repo ${red}${standout}:/ ${end}\n\n\n"
+			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting lsd  ${red}${standout} :/\n\n\n"
 			exit 1
 		fi
 	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black}Something bad happen compiling Nvin${red}${standout} :/\n\n\n"
+		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading Iosevka font ${red}${standout} :/\n\n\n"
 		exit 1
 	fi
 
@@ -142,14 +133,14 @@ function main(){
 	sleep 2
 	rm -rf ~/.config/bspwm ~/.config/sxhkd/ ~/.config/picom ~/.config/polybar ~/.config/rofi
 	cp -r ./config/* ~/.config/
-	cp misc/p10k.zsh ~/.p10k.zsh; cp misc/Xresources ~/.Xresources; sudo cp misc/root.p10k.zsh /root/.p10k.zsh
-	cp misc/zshrc ~/.zshrc && sudo ln -s -f $HOME/.zshrc /root
+	cp misc/home/* ~ && sudo ln -s -f $HOME/.zshrc /root
+	sudo cp misc/home/root.p10k.zsh /root/.p10k.zsh
 	sudo cp -r misc/usrShare/* /usr/share/
 	sudo sed -i "s/bash/zsh/g" /etc/passwd
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}All config done!${red}   ~!~!~!~ ${standout}${black}:~D${end}\n\n"
 	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black}Something bad happen coping the files${red}${standout}:~/${end}\n\n\n"
+		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black}Something bad happen! ${red}${standout}:~/${end}\n\n\n"
 		exit 1
 	fi
 
@@ -259,7 +250,7 @@ function htb-Xplorer(){
 	tput cnorm
 
 	if [ -d "/opt/h4Ck/htbXplorer-Plus" ]; then
-		echo -ne "\n${bold}${cyan}<|[+]|> ${end}${yellow}htb-Xplorer already in the system ${bold}${cyan}[:~)${end}${cyan}\n\n"
+		echo -ne "\n\n${bold}${cyan}<|[+]|> ${end}${yellow}htb-Xplorer already in the system ${bold}${cyan}[:~)${end}${cyan}\n\n"
 		sleep 2
 	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Cloning htbXplorer from github${cyan}: ${end}${cyan}\n\n"
@@ -351,15 +342,15 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Parrot" > /dev/null; then
 
 		echo -e "${blue}${bold}==================================================================== "
-		echo -e "${blue}${bold}   -|-|-|-|- ${cyan}Installing package for ${red}Kali ${cyan}distribution ${blue}-|-|-|-|-"
+		echo -e "${blue}${bold}   -|-|-|-|- ${cyan}Installing package for ${red}Parrot ${cyan}distribution ${blue}-|-|-|-|-"
 		echo -e "${blue}${bold}===================================================================="
 		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System${cyan}: \n\n"
 		sleep 2
-		sudo apt update && sudo apt upgrade -y -y
+		sudo apt update -y && sudo parrot-upgrade -y
 		if [ $? -eq 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan}: \n\n\n"
 			sleep 2
-			sudo apt install -y $packages $depen_Bspwm_deb
+			sudo apt install -y $packages
 		    if [ $? -eq 0 ]; then
 				htb-Xplorer
 			    if [ $? -eq 0 ]; then
@@ -370,6 +361,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 						echo -ne "\n\n\t\t${bold}${yellow}<|[*]|> ${bold}${cyan}Done!!${yellow}:~)\n\n"
 						sleep 2
 						echo -ne "\n\t${bold}${yellow}<|[*]|>${cyan} Now try reboot and select Bspwm as desktop evironment.\n"
+						echo -ne "\n\t\t${bold}${white}<|[*]|>${yellow} Open a temrinal & type nvim to finsih the configuration ${standout}${red}:D{end}\n\n\n"
 						echo -ne "\n\t${bold}${yellow}<|[*]|>${cyan} & open a temrinal & type nvim to finsih the configuration ${red}:~D${end}\n\n\n"
 					else
 						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the installation ${red}${standout}:/ \n\n\n"
@@ -414,7 +406,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 						echo -ne "\n\n\t\t${bold}${yellow}<|[*]|> ${bold}${cyan}Done!!${yellow}:~)\n\n"
 						sleep 2
 						echo -ne "\n\t${bold}${yellow}<|[*]|>${cyan} Now try reboot and select Bspwm as desktop evironment.\n"
-						echo -ne "\n\t${bold}${yellow}<|[*]|>${cyan} & open a temrinal & type nvim to finsih the configuration ${red}:~D${end}\n\n\n"
+						echo -ne "\n\t${bold}${yellow}<|[*]|>${cyan} & type nvim in a terminal to finsih the configuration ${yellow}:D${end}\n\n\n"
 					else
 						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the installation ${red}${standout}:/ \n\n\n"
 						sleep 2
@@ -436,7 +428,93 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 			exit 1
 		fi
 
+	elif cat /etc/*release | grep "^NAME" | grep -Ei "Arch" > /dev/null; then
 
+		echo -e "${blue}${bold}==================================================================== "
+		echo -e "${blue}${bold}   -|-|-|-|- ${cyan}Installing package for ${red}Arch ${cyan}distribution ${blue}-|-|-|-|-"
+		echo -e "${blue}${bold}===================================================================="
+		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System${cyan}: \n\n"
+		sleep 2
+		sudo pacman -Syu
+		if [ $? -eq 0 ]; then
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan}: \n\n\n"
+			sleep 2
+			sudo pacman -S $packages
+		    if [ $? -eq 0 ]; then
+				htb-Xplorer
+			    if [ $? -eq 0 ]; then
+					main
+					if [ $? -eq 0 ]; then
+						sudo pacman -S zsh\* -y && sudo pacman -Syu zsh -y
+						sleep 2
+						echo -ne "\n\n\t\t${bold}${yellow}<|[*]|> ${bold}${cyan}Done!!${yellow}:~)\n\n"
+						sleep 2
+						echo -ne "\n\t${bold}${yellow}<|[*]|>${cyan} Now try reboot and select ${yellow}Bspwm ${cyan}as desktop evironment.\n"
+						echo -ne "\n\t${bold}${yellow}<|[*]|>${cyan} & type nvim in a terminal to finsih the configuration ${yellow}:D${end}\n\n\n"
+					else
+						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the installation ${red}${standout}:/ \n\n\n"
+						sleep 2
+						exit 1
+					fi
+				else
+					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with cloning de repo ${red}${standout}:/  ${end}\n\n\n"
+					sleep 2
+					exit 1
+			fi
+			else
+				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}\n\n\n"
+				sleep 2
+				exit 1
+			fi
+		else
+			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!!   ${red}${standout}:/ ${end}\n\n\n"
+			sleep 2
+			exit 1
+		fi
+
+	elif cat /etc/*release | grep "^NAME" | grep -Ei "Fedora" > /dev/null; then
+
+		echo -e "${blue}${bold}==================================================================== "
+		echo -e "${blue}${bold}   -|-|-|-|- ${cyan}Installing package for ${red}Fedora ${cyan}distribution ${blue}-|-|-|-|-"
+		echo -e "${blue}${bold}===================================================================="
+		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System${cyan}: \n\n"
+		sleep 2
+		sudo  && sudo
+		if [ $? -eq 0 ]; then
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan}: \n\n\n"
+			sleep 2
+			$packages
+		    if [ $? -eq 0 ]; then
+				htb-Xplorer
+			    if [ $? -eq 0 ]; then
+					main
+					if [ $? -eq 0 ]; then
+						sudo apt purge zsh\* -y && sudo apt install zsh -y
+						sleep 2
+						echo -ne "\n\n\t\t${bold}${yellow}<|[*]|> ${bold}${cyan}Done!!${yellow}:~)\n\n"
+						sleep 2
+						echo -ne "\n\t${bold}${yellow}<|[*]|>${cyan} Now try reboot and select Bspwm as desktop evironment.\n"
+						echo -ne "\n\t${bold}${yellow}<|[*]|>${cyan} & open a temrinal & type nvim to finsih the configuration ${red}:~D${end}\n\n\n"
+					else
+						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the installation ${red}${standout}:/ \n\n\n"
+						sleep 2
+						exit 1
+					fi
+				else
+					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with cloning de repo ${red}${standout}:/  ${end}\n\n\n"
+					sleep 2
+					exit 1
+			fi
+			else
+				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}\n\n\n"
+				sleep 2
+				exit 1
+			fi
+		else
+			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!!   ${red}${standout}:/ ${end}\n\n\n"
+			sleep 2
+			exit 1
+		fi
 
 	else
 		sleep 2
