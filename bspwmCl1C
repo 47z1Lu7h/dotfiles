@@ -23,7 +23,7 @@ if test -t 1; then
 fi
 
 # --> Globals
-declare -r packages="linux-headers-$(uname -r) bspwm sxhkd polybar rofi picom kitty git cmake cmake-data extra-cmake-modules npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text rlwrap gpick meson trash-cli xbacklight brightnessctl qt5ct python3-sphinx python3-packaging jsbeautifier"
+declare -r packages="linux-headers-$(uname -r) bspwm sxhkd polybar rofi picom kitty git cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli xbacklight brightnessctl qt5ct jsbeautifier"
 
 declare -r depen_Bspwm_deb="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
 declare -r depen_Poly_deb="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev"
@@ -391,7 +391,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 		echo -e "${blue}${bold}===================================================================="
 		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System${cyan}: \n\n"
 		sleep 2
-		sudo apt update && sudo apt upgrade -y -y
+		sudo apt update && sudo apt upgrade -y
 		if [ $? -eq 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan}: \n\n\n"
 			sleep 2
@@ -489,8 +489,6 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 			    if [ $? -eq 0 ]; then
 					main
 					if [ $? -eq 0 ]; then
-						sudo apt purge zsh\* -y && sudo apt install zsh -y
-						sleep 2
 						echo -ne "\n\n\t\t${bold}${yellow}<|[*]|> ${bold}${cyan}Done!!${yellow}:~)\n\n"
 						sleep 2
 						echo -ne "\n\t${bold}${yellow}<|[*]|>${cyan} Now try reboot and select Bspwm as desktop evironment.\n"

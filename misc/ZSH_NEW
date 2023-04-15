@@ -37,16 +37,15 @@ LISTMAX=10000
 # Jobs: Fish-like suggestion for command history
 # Select all suggestion instead of top on result only
 
-zstyle ':autocomplete:tab:*' insert-unambiguous no
-zstyle ':autocomplete:tab:*' widget-style menu-select
-zstyle ':autocomplete:*' min-input 2
+#zstyle ':autocomplete:tab:*' insert-unambiguous yes
+#zstyle ':autocomplete:tab:*' widget-style menu-select
+#zstyle ':autocomplete:*' min-input 2
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
 
-eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -57,7 +56,6 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
 
 unsetopt extended_history
 setopt hist_find_no_dups
@@ -145,7 +143,6 @@ setopt short_loops
 setopt auto_param_slash
 # Completion key Completion candidate is complemented automatically in order by repeated hitting
 setopt auto_menu
-
 # Completion of sudo
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 
@@ -159,14 +156,7 @@ zstyle ':completion:*:cd:*' tag-order local-directories path-directories
 # Process name completion of ps command
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 # Color a completion candidate
-eval `dircolors -b`
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-# prompt
-PROMPT="%{%(?.$fg_bold[cyan].$fg_bold[red])%}%m%{$fg_bold[white]%}%%%{$reset_color%} "
-PROMPT2="%{$fg[magenta]%}%_%{$reset_color%}%{$fg_bold[white]%}>>%{$reset_color%} "
-# Show your current location on the right prompt
-RPROMPT="%{$fg_bold[white]%}[%{$reset_color%}%{$fg[cyan]%}%~%{$reset_color%}%{$fg_bold[white]%}]%{$reset_color%}"
 
 # emacs keybind
 bindkey -e
@@ -238,8 +228,6 @@ zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
-
-
 
 # Delete by word with C-w
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
