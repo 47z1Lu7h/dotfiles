@@ -1,5 +1,5 @@
 configuration {
-	font:				"Iosevka Term 10";
+	font:				"Iosevka Term 16";
 	show-icons:			true;
 	icon-theme:			"WhiteSur-dark";
 	display-drun:			"";
@@ -33,9 +33,9 @@ window {
 	background-color:		@BG;
 	text-color:			@FG;
 	border-radius:			1.5%;
-	width:				38%;
+	width:				35%;
 	x-offset:			0%;
-	y-offset:			-6%;
+	y-offset:			-4%;
 }
 
 prompt {
@@ -50,7 +50,7 @@ textbox-prompt-colon {
 	background-color:		@BGA;
 	text-color:			@yellow;
 	paccing:			0 0 0 0;
-	font:				"Iosevka Term Thin 25";
+	font:				"Iosevka Term Thin 40";
 }
 
 entry {
@@ -60,7 +60,7 @@ entry {
 	expand:                         true;
 	horizontal-align:               0;
 	placeholder:                    "Tell your mother you LOVE her sometimes ...";
-	font:                           "Iosevka Term Light 11";
+	font:                           "Iosevka Term Light 20";
 	blink:                          true;
 	padding:                        0.3%;
 }

@@ -14,7 +14,7 @@ super + x
 super + Escape 
 	pkill -USR1 -x sxhkd 
 
-# bspwm hotkeys 
+# # bspwm hotkeys 
 # quit/restart bspwm 
 super + alt + {q,r} 
 	bspc {quit,wm -r} 
@@ -33,9 +33,9 @@ super + g
 	bspc node -s biggest 
 
 # # state/flags 
-# toggle node states: tiled|pseudo_tiled|floating|fullscreen
-super + {t,s,shift+f,f}
-        bspc node -t ~{tiled,pseudo_tiled,floating,fullscreen}
+# set the window state 
+super + {shift + r,t,f} 
+	bspc node -t {floating,tiled,fullscreen} 
 
 # set the node flags 
 super + alt + {m,x,y,z} 
@@ -151,7 +151,7 @@ super + alt + c
 	$HOME/.config/polybar/bin/xcolor-pick
 # Polybar
 super + alt + p
-	$HOME/.config/polybar/launch.sh
+	$HOME/.config/polybar/b5PWm-p@ly.sh
 # Kill Polybar
 super + alt + k
 	sudo killall openvpn
@@ -160,4 +160,7 @@ super + e
 	dolphin
 # Openvpn
 super + alt + v
-	sudo openvpn $HOME/d35kT@p/h7B/vp3n3s/47z1.ovpn
+	sudo openvpn $HOME/d35Kt@p/h7B/vp3n3s/47z1.ovpn
+# Preferences
+super + alt + h
+	systemsettings5

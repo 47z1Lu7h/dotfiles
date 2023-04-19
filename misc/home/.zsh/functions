@@ -1,0 +1,402 @@
+##################################################
+#    ~~~~~~~~~~~~~~~~ Functions ~~~~~~~~~~~~~~~
+##################################################
+
+function hacker_quote(){
+	ZSH_HACKER_QUOTES_ENABLE_WHEN_INTERACTIVE= zsh -i
+}
+
+	# - Set Linux terminal/framebuffer color scheme
+function set_linux_colors(){
+   if [[ $TERM == 'linux' ]] ; then
+        echo -en "\e]P0000005" #black
+        echo -en "\e]P83d3d3d" #darkgrey
+        echo -en "\e]P1f03669" #darkred
+        echo -en "\e]P9c75b79" #red
+        echo -en "\e]P2b8e346" #darkgreen
+        echo -en "\e]PAc8e37e" #green
+        echo -en "\e]P3ffa402" #brown
+        echo -en "\e]PBffbe4a" #yellow
+        echo -en "\e]P402a2ff" #darkblue
+        echo -en "\e]PC71cbff" #blue
+        echo -en "\e]P5875c8d" #darkmagenta
+        echo -en "\e]PDe41f66" #magenta
+        echo -en "\e]P66fa923" #darkcyan
+        echo -en "\e]PE0078ce" #cyan
+        echo -en "\e]P7ffffff" #lightgrey
+        echo -en "\e]PFc0c0c0" #white
+        clear # bring us back to default input colours
+  fi
+}
+set_linux_colors()
+
+	# - Function extraction Multiple files
+alias xtr4Ct=extract
+
+function extract() {
+	local remove_archive
+	local success
+	local extract_dir
+
+	if (( $# == 0 )); then
+		cat <<-'EOF' >&2
+			Usage: extract [-option] [file ...]
+
+			Options:
+			   -r, --remove    Remove archive after unpacking.
+		EOF
+	fi
+
+	remove_archive=1
+	if [[ "$1" == "-r" ]] || [[ "$1" == "--remove" ]]; then
+		remove_archive=0
+		shift
+	fi
+
+	while (( $# > 0 )); do
+		if [[ ! -f "$1" ]]; then
+			echo "extract: '$1' is not a valid file" >&2
+			shift
+			continue
+		fi
+
+		success=0
+		extract_dir="${1:t:r}"
+		case "$1" in
+			(*.tar.gz|*.tgz) (( $+commands[pigz] )) && { pigz -dc "$1" | tar xv } || tar zxvf "$1" ;;
+			(*.tar.bz2|*.tbz|*.tbz2) tar xvjf "$1" ;;
+			(*.tar.xz|*.txz)
+				tar --xz --help &> /dev/null \
+				&& tar --xz -xvf "$1" \
+				|| xzcat "$1" | tar xvf - ;;
+			(*.tar.zma|*.tlz)
+				tar --lzma --help &> /dev/null \
+				&& tar --lzma -xvf "$1" \
+				|| lzcat "$1" | tar xvf - ;;
+			(*.tar) tar xvf "$1" ;;
+			(*.gz) (( $+commands[pigz] )) && pigz -d "$1" || gunzip "$1" ;;
+			(*.bz2) bunzip2 "$1" ;;
+			(*.xz) unxz "$1" ;;
+			(*.lzma) unlzma "$1" ;;
+			(*.Z) uncompress "$1" ;;
+			(*.zip|*.war|*.jar|*.sublime-package|*.ipsw|*.xpi|*.apk) unzip "$1" -d $extract_dir ;;
+			(*.rar) unrar x -ad "$1" ;;
+			(*.7z) 7za x "$1" ;;
+			(*.deb)
+				mkdir -p "$extract_dir/control"
+				mkdir -p "$extract_dir/data"
+				cd "$extract_dir"; ar vx "../${1}" > /dev/null
+				cd control; tar xzvf ../control.tar.gz
+				cd ../data; extract ../data.tar.*
+				cd ..; rm *.tar.* debian-binary
+				cd ..
+			;;
+			(*)
+				echo "extract: '$1' cannot be extracted" >&2
+				success=1
+			;;
+		esac
+
+		(( success = $success > 0 ? $success : $? ))
+		(( $success == 0 )) && (( $remove_archive == 0 )) && rm "$1"
+		shift
+	done
+}
+
+	# - FZF
+function nice-fzf(){
+
+	if [ "$1" = "h" ]; then
+		fzf -m --reverse --preview-window down:20 --preview '[[ $(file --mime {}) =~ binary ]] &&
+ 	               echo {} is a binary file ||
+	                (bat --style=numbers --color=always {} ||
+	                 highlight -O ansi -l {} ||
+	                 coderay {} ||
+	                 rougify {} ||
+	                 cat {}) 2> /dev/null | head -500'
+
+	else
+	       fzf -m --preview '[[ $(file --mime {}) =~ binary ]] &&
+	                        echo {} is a binary file ||
+	                        (bat --style=numbers --color=always {} ||
+	                         highlight -O ansi -l {} ||
+	                         coderay {} ||
+	                         rougify {} ||
+	                         cat {}) 2> /dev/null | head -500'
+	fi
+}
+
+	# - Quickly jump right after the first word (e.g. to insert switches)
+function _after-first-word() {
+	zle beginning-of-line
+	zle forward-word
+}
+zle -N _after-first-word
+bindkey '\C-X1' _after-first-word
+
+	# - Extended word movements/actions
+autoload -Uz select-word-style
+function _zle-with-style() {
+	setopt localoptions
+	unsetopt warn_create_global
+	local style
+	[[ -n "$3" ]] && WORDCHARS=${WORDCHARS/$3}
+	[[ $BUFFER = '^\s+$' ]] && style=shell || style=$2
+	select-word-style $style
+	zle $1
+	[[ -n "$3" ]] && WORDCHARS="${WORDCHARS}${3}"
+	select-word-style normal
+}
+zle -N select-word-style
+
+function _backward-word()		{ _zle-with-style backward-word			bash }
+function _forward-word()		{ _zle-with-style forward-word			bash }
+function _backward-arg()		{ _zle-with-style backward-word			shell }
+function _forward-arg()			{ _zle-with-style forward-word			shell }
+function _backward-kill-arg()		{ _zle-with-style backward-kill-word 		shell }
+function _forward-kill-arg()		{ _zle-with-style kill-word 			shell }
+function _backward-kill-word()		{ _zle-with-style backward-kill-word		normal }
+function _backward-kill-path()		{ _zle-with-style backward-kill-word 		normal	'/' }
+
+zle -N _backward-word
+zle -N _forward-word
+zle -N _backward-arg
+zle -N _forward-arg
+zle -N _backward-kill-arg
+zle -N _forward-kill-arg
+zle -N _backward-kill-word
+zle -N _backward-kill-path
+
+# optionally support putty-style cursor keys (application mode when ctrl is pressed).
+# this is kind of broken in normal linux terminals that often use application mode by
+# default, so we have to make it opt-in. if you use putty, you may want to patch it to
+# send proper escape sequences for ctrl/alt/shift+cursor key combinations.
+if [[ _custom_zsh_putty_cursor_keys == 1 ]]; then
+	bindkey '\C-[OD'	_backward-word	# ctrl-left
+	bindkey '\C-[OC'	_forward-word	# ctrl-right
+fi
+
+function _delete-char-or-region() {
+	[[ $REGION_ACTIVE -eq 1 ]] && zle kill-region || zle delete-char}
+zle -N _delete-char-or-region
+
+	# - Allow more powerful history-i-search (multiple uses in the same line)
+autoload -Uz narrow-to-region
+function _history-incremental-preserving-pattern-search-backward() {
+	local state tmp
+	MARK=CURSOR  # magick, else multiple ^R don't work
+	narrow-to-region -p "$LBUFFER${BUFFER:+>>}" -P "${BUFFER:+<<}$RBUFFER" -S state
+	zle end-of-history
+	zle history-incremental-pattern-search-backward
+	narrow-to-region -R state
+}
+zle -N _history-incremental-preserving-pattern-search-backward
+bindkey '^r' _history-incremental-preserving-pattern-search-backward
+bindkey -M isearch '^r' history-incremental-pattern-search-backward
+bindkey '^s' history-incremental-pattern-search-forward
+
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+  function zle-line-init() {
+    echoti smkx  }
+  function zle-line-finish() {
+    echoti rmkx  }
+  zle -N zle-line-init
+  zle -N zle-line-finish
+fi
+
+autoload -Uz vcs_info
+precmd() {
+  vcs_info
+  # Format the vcs_info_msg_0_ variable
+  zstyle ":vcs_info:git:*" formats "(%b) "
+
+  echo -e -n "\x1b[\x33 q"
+  PROMPT="%B%1~ $%b %F{004}${vcs_info_msg_0_}%f> "
+  RPROMPT=" %F{005}%T%f"
+}
+
+autoload -Uz add-zsh-hook
+ofunction _update_vcs_info_msg() {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+add-zsh-hook precmd _update_vcs_info_msg
+
+function mkl()          	{ mkdir {nmap,content,exploits} }
+function htb-Xpl@r3r() 		{ sudo /opt/h4Ck/htbXplorer-Plus/htbXplorer $1 $2 $3 }
+function tun0()         	{ echo -n "\n $(ip a | grep tun0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/') \n\n" }
+function eth()          	{ ip a | grep eth0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/' }
+function wlan()         	{ ip a | grep wlan0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/' }
+function my_Public-IP() 	{ sudo curl ifconfig.co }
+function settarget()    	{ ip_address=$1; machine_name=$2; echo "$ip_address $machine_name" > /$HOME/.config/polybar/bin/target }
+function k1ll_@p3nvpn()		{ sudo killall openvpn }
+function k1ll_p@ly()		{ sudo killall polybar }
+function p@ly()			{ bash ~/.config/polybar/launch }
+function p@ly-plasma()		{ bash ~/.config/polybar/plasma }
+function c@l@r-p1Ck3r()		{ bash ~/.config/bspwm/scripts/c@l@r_P1Ck3r }
+function upd4t1N6() 		{ sudo apt update }
+function up654D1N6()		{ sudo apt update && sudo apt upgrade -y }
+function in5t4ll1N6()		{ sudo apt install -y }
+function re1n5t4ll1N6()		{ sudo apt reinstall -y }
+function un15t4ll1N6()		{ sudo apt purge -y }
+function auT@R3m@V3()		{ sudo apt autoremove -y }
+function auT@Cl34n()		{ sudo apt autoclean -y }
+function x4MP()			{ sudo /opt/lampp/xampp }
+function sys()			{ sudo systemctl }
+function set_backgroung()	{ feh --bg-fill }
+function lab-HTB()		{ sudo openvpn ~/d35kT@p/h7B/vp3n3s/lab_47z1Lu7h.ovpn & disown }
+function lab_Seassonal-HTB()	{ sudo openvpn ~/d35kT@p/h7B/vp3n3s/competitive_47z1Lu7h.ovpn & disown }
+function lab_Fortress-HTB()	{ sudo openvpn ~/d35kT@p/h7B/vp3n3s/fortresses_47z1Lu7h.ovpn & disown }
+function lab_Strtng-Point-HTB()	{ sudo openvpn ~/d35kT@p/h7B/vp3n3s/starting_point_47z1Lu7h.ovpn & disown }
+function rmk()			{ scrub -p dod $1; shred -zun 10 -v $1 }
+
+
+
+function extractPorts(){
+	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
+	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
+	echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
+	echo -e "\t[*] IP Address: $ip_address"  >> extractPorts.tmp
+	echo -e "\t[*] Open ports: $ports\n"  >> extractPorts.tmp
+	echo $ports | tr -d '\n' | xclip -sel clip
+	echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
+	cat extractPorts.tmp; rm extractPorts.tmp
+}
+
+function set_dpi_polybar-bspwm {
+	dpi=$(cat ~/.config/polybar/bspwm.ini | grep dpi | head -1)
+	echo -e "  ~ Current $dpi   \n  ~ Enter a new DPI to resice Polybar:"
+	read NEW_DPI;
+	new_dpi="dpi = ${NEW_DPI}"
+	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/bspwm.ini
+	echo -ne "\t~ Setting $new_dpi in bspwm.ini \n\t~ Just press 'ctrl+alt+p' to restart polybar\n\n"
+	sleep 1
+}
+
+function set_dpi-polybar-plasma {
+	dpi=$(cat ~/.config/polybar/plasma.ini | grep dpi | head -1)
+	echo -e "  - Current $dpi   \n  - Enter a new DPI to resice Polybar:"
+	read NEW_DPI;
+	new_dpi="dpi = ${NEW_DPI}"
+	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/plasma.ini
+	echo -ne "\t~ Setting $new_dpi in plasma.ini \n\t~ Just press 'ctrl+alt+p' to restart polybar\n\n"
+	sleep 1
+}
+
+function git_add-commit-push() {
+    git add -A
+    git commit -a -m "$1"
+    git push
+}
+
+	# - Some git alias
+function g { git status }
+function gd { git diff }
+function ge { git commit --allow-empty -m "Empty commit" }
+function gf { git push --force }
+function gg { git checkout main || git checkout master; git pull; git status }
+function gi { ee git cherry-pick $(vv $@) }
+function gm { git add --all; git commit --amend --allow-empty }
+function gn { gg; ee git checkout -b $(vv $@) }
+function gP { git pull }
+function gp { git push }
+function gr { git log --all --grep="$@" --regexp-ignore-case --pretty=format:'%C(yellow)%h %C(magenta)%ad %C(green)%s %C(cyan)%an' --date=short }
+# [b]ranch delete
+function gb { git branch --merged | grep --invert-match "main$" | grep --invert-match "^\*" }
+function gbb { gb | xargs git branch --delete; git remote prune origin }
+function gbd { git branch --delete --force $@; git push origin --delete $@ }
+# rebase
+function gx { git add --all; ee git commit --fixup $(vv $@) }
+function gxx { (git fetch origin main && git rebase --interactive --autosquash origin/main) || (git fetch origin master && git rebase --interactive --autosquash origin/master) }
+function gxb { git rebase --interactive --autosquash HEAD~$(($@ + 1)) }
+# rebase conflict
+function gxa { git add --all; git rebase --abort }
+function gxc { git add --all; git rebase --continue }
+# [u]ndo and discard
+function gu { git reset --soft HEAD~$@ }
+function gz { git add --all; git reset --hard }
+function guz { gu $@; gz }
+# stash
+function gc { git stash clear }
+function gl { git stash list }
+function gs { git add --all; git stash save }
+function ga { git stash apply "stash@{${@:-0}}" }
+
+function scat() {
+  for arg in "$@"; do
+    pygmentize -g "$arg" 2> /dev/null || cat "$arg"
+  done
+}
+
+function ranger_cd() {
+    tmp="$(mktemp)"
+    ranger --choosedir="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ --datadir "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+
+function up() {
+         uptime=$(awk -F. '{print $1}' /proc/uptime)
+         secs=$((${uptime}%60))
+         mins=$((${uptime}/60%60))
+         hours=$((${uptime}/3600%24))
+         days=$((${uptime}/86400))
+         uptime="${mins}m"
+         if [ "${hours}" -ne "0" ]; then
+                uptime="${hours}h ${uptime}"
+                if [ "${days}" -ne "0" ]; then
+                uptime="${days}d ${uptime}"
+                fi
+        fi
+        echo ${uptime}
+}
+
+function xp() {
+	xprop | awk '
+	   /^WM_CLASS/{sub(/.* =/, "instance:"); sub(/,/, "\nclass:"); print}
+	   /^WM_NAME/{sub(/.* =/, "title:"); print}'
+}
+
+function fzf-pre() {
+fzf -m --height 50% --layout=reverse --inline-info \
+  --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200' \
+  --preview-window 'right,50%,+{2}+3/3,~3,noborder' \
+  --bind '?:toggle-preview'
+}
+
+function rga-fzf() {
+	RG_PREFIX="rga --files-with-matches"
+	local file
+	file="$(
+		FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
+			fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
+				--phony -q "$1" \
+				--bind "change:reload:$RG_PREFIX {q}" \
+				--preview-window="70%:wrap"
+	)" &&
+	echo "opening $fiole" &&
+	xdg-open "$file"
+}
+
+matrix() { echo -e "\e[1;40m" ; clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|awk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4;        letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}' }
+
+autoload -Uz compinit
+compinit
