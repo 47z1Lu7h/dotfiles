@@ -93,7 +93,7 @@ function main(){
 							sleep 1
 							cp -r misc/home/.* $HOME && sudo cp misc/root.p10k.zsh /root/.p10k.zsh
 							if [ $? -eq 0 ]; then
-								echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Setting mozilla theme ${cyan} -->\n\n\n"
+								echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Setting mozilla & code themes ${cyan} -->\n\n\n"
 								sleep 1
 								cp -r misc/chrome ~/.mozilla/firefox/*default-esr/ && cp -r misc/code/user/* ~/.config/Code/User
 								if [ $? -eq 0 ]; then
@@ -104,19 +104,19 @@ function main(){
 										echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Plugins & all config done!   ${red}~!~!~!~\n\n${cyan}"
 										sleep 2
 									else
-										echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping home config ${red}${standout}: /\n\n\n"
+										echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad making default shell zsh ${red}${standout}: /\n\n\n"
 										exit 1
 									fi
 								else
-									echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong modifing /etc/passwd ${red}${standout}: /\n\n\n"
+									echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla & code themes  ${red}${standout}: /\n\n\n"
 									exit 1
 								fi
 							else
-								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla theme ${red}${standout}: /\n\n\n"
+								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping home files ${red}${standout}: /\n\n\n"
 								exit 1
 							fi
 						else
-							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla theme ${red}${standout}: /\n\n\n"
+							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something removing & coping config folders ${red}${standout}: /\n\n\n"
 							exit 1
 						fi
 					else
@@ -132,37 +132,49 @@ function main(){
 				exit 1
 			fi
 		else
-			mkdir -p $HOME/.zsh/plugins
+			mkdir -p $HOME/.zsh/plugins	
 			git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" ~/.zsh/plugins/zsh-autocomplete
 			if [ $? -eq 0 ]; then
+				echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning sudo.plugin.zsh ${cyan} -->\n\n\n"
+				sleep 1
 				wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P ~/.zsh/plugins/sudo.plugin.zsh
 				if [ $? -eq 0 ]; then
+					echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning antigen plugin manager ${cyan} -->\n\n\n"
+					sleep 1
 					curl -L git.io/antigen > ~/.zsh/antigen.zsh
 					if [ $? -eq 0 ]; then
+						echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Removing & coping folders${cyan} -->\n\n\n"
+						sleep 1
 						rm -rf ~/.config/bspwm ~/.config/sxhkd/ ~/.config/picom ~/.config/polybar ~/.config/rofi && cp -r config/* ~/.config/
 						if [ $? -eq 0 ]; then
+							echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan} -->\n\n\n"
+							sleep 1
 							cp -r misc/home/.* $HOME && sudo cp misc/root.p10k.zsh /root/.p10k.zsh
 							if [ $? -eq 0 ]; then
+								echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Setting mozilla & code themes ${cyan} -->\n\n\n"
+								sleep 1
 								cp -r misc/chrome ~/.mozilla/firefox/*default-esr/ && cp -r misc/code/user/* ~/.config/Code/User
 								if [ $? -eq 0 ]; then
+									echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Setting zsh default shell ${cyan} -->\n\n\n"
+									sleep 1
 									sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root
 									if [ $? -eq 0 ]; then
 										echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Plugins & all config done!   ${red}~!~!~!~\n\n${cyan}"
 										sleep 2
 									else
-										echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping home config ${red}${standout}: /\n\n\n"
+										echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad making default shell zsh ${red}${standout}: /\n\n\n"
 										exit 1
 									fi
 								else
-									echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong modifing /etc/passwd ${red}${standout}: /\n\n\n"
+									echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla & code themes  ${red}${standout}: /\n\n\n"
 									exit 1
 								fi
 							else
-								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla theme ${red}${standout}: /\n\n\n"
+								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping home files ${red}${standout}: /\n\n\n"
 								exit 1
 							fi
 						else
-							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla theme ${red}${standout}: /\n\n\n"
+							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something removing & coping config folders ${red}${standout}: /\n\n\n"
 							exit 1
 						fi
 					else
@@ -177,6 +189,7 @@ function main(){
 				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${standout}: /\n\n\n"
 				exit 1
 			fi
+
 		fi
 	else
 		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading Iosevka font ${red}${standout} :/\n\n\n"
@@ -401,7 +414,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 							\n\t}${red}--> ${cyan}To-Dos${red}: \
 							\n\t\t${blue}~ Open a terminal & type ${red}nvim ${blue}to finish its configuration. \
 							\n\t\t${blue}~ Open Firefox and type: ${red}<${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${red}> ${blue}and set it to ${cyan}True${blue}. \
-							\n\n${red}-|-|-|-|-> ${blue}Try reboot and select ${cyan}Bspwm ${end}${blue}as desktop evironment ${standout}${red};)${end}"
+							\n\n${red}-|-|-|-|-> ${blue}Try reboot and select ${cyan}Bspwm ${end}${blue}as desktop evironment ${red}Enjoy${blue}!! ${standout}${red};)${end}"
 							sleep 2
 						else
 							echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${standout}:/ ${end}\n\n\n"
