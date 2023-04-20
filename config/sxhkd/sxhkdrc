@@ -148,10 +148,10 @@ super + alt + b
 	burpsuite
 # Color Picker
 super + alt + c
-	$HOME/.config/polybar/bin/xcolor-pick
+	$HOME/.config/bspwm/scripts/c@l@r_picker
 # Polybar
 super + alt + p
-	$HOME/.config/polybar/b5PWm-p@ly.sh
+	$HOME/.config/polybar/launch
 # Kill Polybar
 super + alt + k
 	sudo killall openvpn
