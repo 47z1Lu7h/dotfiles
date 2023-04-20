@@ -72,21 +72,33 @@ function main(){
 		echo -ne "\n\t\t${bold}${red} ~!~!~!~  ${yellow}Fonts done!   ${red}~!~!~!~\n\n"
 		sleep 2
 			# -->  Zsh plugins
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning antigen & zsh plugins ${cyan} -->\n\n\n"
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning zsh-autocomplete plugin ${cyan} -->\n\n\n"
 		sleep 2
 		if [ -d "~/.zsh/plugins/zsh-autocomplete" ]; then
 			git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" ~/.zsh/plugins/zsh-autocomplete
 			if [ $? -eq 0 ]; then
+				echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning sudo.plugin.zsh ${cyan} -->\n\n\n"
+				sleep 1
 				wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P ~/.zsh/plugins/sudo.plugin.zsh
 				if [ $? -eq 0 ]; then
+					echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning antigen plugin manager ${cyan} -->\n\n\n"
+					sleep 1
 					curl -L git.io/antigen > ~/.zsh/antigen.zsh
 					if [ $? -eq 0 ]; then
+						echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Removing & coping folders${cyan} -->\n\n\n"
+						sleep 1
 						rm -rf ~/.config/bspwm ~/.config/sxhkd/ ~/.config/picom ~/.config/polybar ~/.config/rofi && cp -r config/* ~/.config/
 						if [ $? -eq 0 ]; then
+							echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan} -->\n\n\n"
+							sleep 1
 							cp -r misc/home/.* $HOME && sudo cp misc/root.p10k.zsh /root/.p10k.zsh
 							if [ $? -eq 0 ]; then
+								echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Setting mozilla theme ${cyan} -->\n\n\n"
+								sleep 1
 								cp -r misc/chrome ~/.mozilla/firefox/*default-esr/ && cp -r misc/code/user/* ~/.config/Code/User
-								if [ $? -eq 0 ]; then	
+								if [ $? -eq 0 ]; then
+									echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Setting zsh default shell ${cyan} -->\n\n\n"
+									sleep 1
 									sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root
 									if [ $? -eq 0 ]; then
 										echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Plugins & all config done!   ${red}~!~!~!~\n\n${cyan}"
@@ -106,7 +118,7 @@ function main(){
 						else
 							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla theme ${red}${standout}: /\n\n\n"
 							exit 1
-						fi									
+						fi
 					else
 						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting antigen ${red}${standout}: /\n\n\n"
 						exit 1
@@ -132,7 +144,7 @@ function main(){
 							cp -r misc/home/.* $HOME && sudo cp misc/root.p10k.zsh /root/.p10k.zsh
 							if [ $? -eq 0 ]; then
 								cp -r misc/chrome ~/.mozilla/firefox/*default-esr/ && cp -r misc/code/user/* ~/.config/Code/User
-								if [ $? -eq 0 ]; then	
+								if [ $? -eq 0 ]; then
 									sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root
 									if [ $? -eq 0 ]; then
 										echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Plugins & all config done!   ${red}~!~!~!~\n\n${cyan}"
@@ -152,7 +164,7 @@ function main(){
 						else
 							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla theme ${red}${standout}: /\n\n\n"
 							exit 1
-						fi									
+						fi
 					else
 						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting antigen ${red}${standout}: /\n\n\n"
 						exit 1
@@ -170,7 +182,7 @@ function main(){
 		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading Iosevka font ${red}${standout} :/\n\n\n"
 		exit 1
 	fi
-	
+
 	tput civis
 }
 
@@ -356,10 +368,10 @@ fi
 
 banner
 
-echo -ne "\n${bold}${cyan}|[*]|> ${end}${blue}This Script Will Add ${bold}${cyan}Bspwm ${end}${blue}Desktop Eviroment To Your Linux."
+echo -ne "\n${bold}${cyan}|[*]|> ${end}${blue}This Script Will Add ${cyan}Bspwm ${end}${blue}Desktop Eviroment To Your Linux."
 echo -ne "\n\t${blue}- It Will ${cyan}Overwrite ${blue}Some Files Stored In Your ${yellow}~/.config/${blue}.\n"
 echo -ne "\t${blue}- Which includes: ${cyan}Bspwm${blue},${cyan} Sxhkd${blue},${cyan} Polybar${blue}, ${cyan}Rofi${blue}, ${cyan}Picom ${blue}& ${cyan}Kitty${blue}.\n\n"
-echo -ne "${bold}${cyan}|[*]|> ${end}${blue}If you have any personal configuration in any of this folders, \n"
+echo -ne "${bold}${cyan}|[*]|>${end}${blue}	~ If you have any personal configuration in any of this folders, \n"
 echo -ne "\t${blue}it is better to use a virtual machine or create a new user instead${bold}${blue} :)${end}\n\n\n"
 echo -ne "\t${red}${bold}<|[!]|> ${cyan}Are you sure you want to ${red}continue? ${cyan}--> ${yellow}(y/n)${end}\n\n"
 
@@ -367,7 +379,6 @@ read answer
 
 if [ "$answer" != "${answer#[Yy]}" ]; then
 	if cat /etc/*release | grep "^NAME" | grep -Ei "Kali" > /dev/null; then
-
 		echo -e "${blue}${bold}==================================================================== "
 		echo -e "${blue}${bold}   -|-|-|-|- ${cyan}Installing package for ${red}Kali ${cyan}distribution ${blue}-|-|-|-|-"
 		echo -e "${blue}${bold}===================================================================="
@@ -379,14 +390,18 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan}: \n\n\n"
 			sleep 2
 			sudo apt install -y $deb_packages
-		    if [ $? -eq 0 ]; then
+			if [ $? -eq 0 ]; then
 				htb-Xplorer
 				if [ $? -eq 0 ]; then
-				 	nvim
+					nvim
 					if [ $? -eq 0 ]; then
 						main
 						if [ $? -eq 0 ]; then
-							echo -ne "\n${bold}${red}<|[*]|> ${red} All Done!! \t${blue} ~ Try reboot and select ${cyan}Bspwm ${end}${bold}${blue}as desktop evironment ${standout}${red}; )${end}\n\t\t\t${blue}${bold}~ Open a temrinal & type ${cyan}nvim ${end}${bold}${blue}to finsih the configuration ${red}:~D${end}\n\n\n"
+							echo -ne "\n${bold}${red}<|[*]|> ${cyan} All Done${red}!!
+							\n\t}${red}--> ${cyan}To-Dos${red}: \
+							\n\t\t${blue}~ Open a terminal & type ${red}nvim ${blue}to finish its configuration. \
+							\n\t\t${blue}~ Open Firefox and type: ${red}<${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${red}> ${blue}and set it to ${cyan}True${blue}. \
+							\n\n${red}-|-|-|-|-> ${blue}Try reboot and select ${cyan}Bspwm ${end}${blue}as desktop evironment ${standout}${red};)${end}"
 							sleep 2
 						else
 							echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${standout}:/ ${end}\n\n\n"
