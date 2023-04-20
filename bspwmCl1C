@@ -53,23 +53,24 @@ echo -ne "\n\n\t\t ${red}${bold}
 function ctrl_c(){
 
 	tput cnorm
-	echo -ne "\n\n\t\t${bold}${red}<|[!]|> ${black}--->  ${cyan}Ctrl+C ${red}Exiting ${cyan}!! ${red}\n\n\n"
+	echo -ne "\n\n\t\t${bold}${red}<|[!]|> ${black}---> ${cyan}Ctrl+C ${red}Exiting${cyan}!! ${red}\n\n\n"
 	sudo rm -rf *.?  2>/dev/null
 	exit 1
 	tput civis
 }
 
+	# --> Zsh stuff & cp dotfiles
 function main(){
 	tput cnorm
 
-	echo -ne "\n\t\t${bold}${red}<|[+]|> ${cyan}Installing ${red}Main ${cyan}package ${red}!!! ${cyan} \n\n\n"
+	echo -ne "\n\t\t${bold}${red}<|[+]|> ${cyan}Installing ${red}Main ${cyan}package ${red}!!! ${cyan} \n\n"
 	sleep 2
 	# -->  Fonts
 	echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Downloading Fonts ${end}${cyan}--> \n\n"
 	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Iosevka.zip" -O  Iosevka.zip  &&
 	unzip  Iosevka.zip -d ~/.local/share/fonts && rm -rf  Iosevka.zip && fc-cache -v
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t\t${bold}${red} ~!~!~!~  ${yellow}Fonts done!   ${red}~!~!~!~\n\n"
+		echo -ne "\n\t\t${bold}${red} ~!~!~!~  ${yellow}Fonts done!   ${red}~!~!~!~\n\n\n"
 		sleep 2
 			# -->  Zsh plugins
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning zsh-autocomplete plugin ${cyan} -->\n\n\n"
@@ -81,124 +82,133 @@ function main(){
 				sleep 1
 				wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P ~/.zsh/plugins/sudo.plugin.zsh
 				if [ $? -eq 0 ]; then
-					echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning antigen plugin manager ${cyan} -->\n\n\n"
-					sleep 1
+					echo -ne "\n${blue}${blue}>> ${cyan}Sudo plugin done${blue}!!!\n\n"
+					sleep 2 
+					echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning antigen plugin manager ${cyan} -->\n\n"
 					curl -L git.io/antigen > ~/.zsh/antigen.zsh
 					if [ $? -eq 0 ]; then
-						echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Removing & coping folders${cyan} -->\n\n\n"
-						sleep 1
+						echo -ne "\n${bold}${blue}>> ${cyan}Antigen done${blue}!!!\n\n"
+						sleep 2 
+						echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Removing & coping folders${cyan}\n"
 						rm -rf ~/.config/bspwm ~/.config/sxhkd/ ~/.config/picom ~/.config/polybar ~/.config/rofi && cp -r config/* ~/.config/
 						if [ $? -eq 0 ]; then
-							echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan} -->\n\n\n"
-							sleep 1
+							echo -ne "\n${bold}${blue}>> ${cyan}Config folders done${blue}!!!\n\n"
+							sleep 2 
+							echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan}\n"
 							cp -r misc/home/.* $HOME && sudo cp misc/root.p10k.zsh /root/.p10k.zsh
 							if [ $? -eq 0 ]; then
-								echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Setting mozilla & code themes ${cyan} -->\n\n\n"
-								sleep 1
-								cp -r misc/chrome ~/.mozilla/firefox/*default-esr/ && cp -r misc/code/user/* ~/.config/Code/User
+								echo -ne "\n${bold}${blue}>> ${cyan}Files done${blue}!!!\n\n"
+								sleep 2 
+								echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting mozilla & code themes ${cyan}\n"
+								cp -r misc/chrome ~/.mozilla/firefox/*default-esr/ && mkdir -p ~/.config/Code/User && cp -r misc/code/user/* ~/.config/Code/User
 								if [ $? -eq 0 ]; then
-									echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Setting zsh default shell ${cyan} -->\n\n\n"
-									sleep 1
+									echo -ne "\n${bold}${blue}>>${cyan}Themes done${blue}!!!\n\n"
+									sleep 2 
+									echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting zsh default shell ${cyan}\n"
 									sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root
 									if [ $? -eq 0 ]; then
-										echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Plugins & all config done!   ${red}~!~!~!~\n\n${cyan}"
+										echo -ne "\n\n${bold}${red}<|[~]|> ${blue}All config done${red}!!!${cyan}\n\n\n"
 										sleep 2
 									else
-										echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad making default shell zsh ${red}${standout}: /\n\n\n"
+										echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad making default shell zsh ${red}${standout}: /${end}${end}\n\n\n"
 										exit 1
 									fi
 								else
-									echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla & code themes  ${red}${standout}: /\n\n\n"
+									echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla & code themes  ${red}${standout}: /${end}${end}\n\n\n"
 									exit 1
 								fi
 							else
-								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping home files ${red}${standout}: /\n\n\n"
+								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping home files ${red}${standout}: /${end}${end}\n\n\n"
 								exit 1
 							fi
 						else
-							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something removing & coping config folders ${red}${standout}: /\n\n\n"
+							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something removing & coping config folders ${red}${standout}: /${end}${end}\n\n\n"
 							exit 1
 						fi
 					else
-						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting antigen ${red}${standout}: /\n\n\n"
+						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting antigen ${red}${standout}: /${end}${end}\n\n\n"
 						exit 1
 					fi
 				else
-					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting sudo.plugin ${red}${standout}: /\n\n\n"
+					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting sudo.plugin ${red}${standout}: /${end}${end}\n\n\n"
 					exit 1
 				fi
 			else
-				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${standout}: /\n\n\n"
+				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${standout}: /${end}${end}\n\n\n"
 				exit 1
 			fi
 		else
-			mkdir -p $HOME/.zsh/plugins	
+			mkdir -p ~/.zsh/plugins &&
 			git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" ~/.zsh/plugins/zsh-autocomplete
 			if [ $? -eq 0 ]; then
 				echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning sudo.plugin.zsh ${cyan} -->\n\n\n"
 				sleep 1
 				wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P ~/.zsh/plugins/sudo.plugin.zsh
 				if [ $? -eq 0 ]; then
-					echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning antigen plugin manager ${cyan} -->\n\n\n"
-					sleep 1
+					echo -ne "\n${blue}${blue}>> ${cyan}Sudo plugin done${blue}!!!\n\n"
+					sleep 2 
+					echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning antigen plugin manager ${cyan} -->\n\n"
 					curl -L git.io/antigen > ~/.zsh/antigen.zsh
 					if [ $? -eq 0 ]; then
-						echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Removing & coping folders${cyan} -->\n\n\n"
-						sleep 1
+						echo -ne "\n${bold}${blue}>> ${cyan}Antigen done${blue}!!!\n\n"
+						sleep 2 
+						echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Removing & coping folders${cyan}\n"
 						rm -rf ~/.config/bspwm ~/.config/sxhkd/ ~/.config/picom ~/.config/polybar ~/.config/rofi && cp -r config/* ~/.config/
 						if [ $? -eq 0 ]; then
-							echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan} -->\n\n\n"
-							sleep 1
+							echo -ne "\n${bold}${blue}>> ${cyan}Config folders done${blue}!!!\n\n"
+							sleep 2 
+							echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan}\n"
 							cp -r misc/home/.* $HOME && sudo cp misc/root.p10k.zsh /root/.p10k.zsh
 							if [ $? -eq 0 ]; then
-								echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Setting mozilla & code themes ${cyan} -->\n\n\n"
-								sleep 1
-								cp -r misc/chrome ~/.mozilla/firefox/*default-esr/ && cp -r misc/code/user/* ~/.config/Code/User
+								echo -ne "\n${bold}${blue}>> ${cyan}Files done${blue}!!!\n\n"
+								sleep 2 
+								echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting mozilla & code themes ${cyan}\n"
+								cp -r misc/chrome ~/.mozilla/firefox/*default-esr/ && mkdir -p ~/.config/Code/User && cp -r misc/code/user/* ~/.config/Code/User
 								if [ $? -eq 0 ]; then
-									echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Setting zsh default shell ${cyan} -->\n\n\n"
-									sleep 1
+									echo -ne "\n${bold}${blue}>>${cyan}Themes done${blue}!!!\n\n"
+									sleep 2 
+									echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting zsh default shell ${cyan}\n"
 									sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root
 									if [ $? -eq 0 ]; then
-										echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Plugins & all config done!   ${red}~!~!~!~\n\n${cyan}"
+										echo -ne "\n\n${bold}${red}<|[~]|> ${blue}All config done${red}!!!${cyan}\n\n\n"
 										sleep 2
 									else
-										echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad making default shell zsh ${red}${standout}: /\n\n\n"
+										echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad making default shell zsh ${red}${standout}: /${end}${end}\n\n\n"
 										exit 1
 									fi
 								else
-									echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla & code themes  ${red}${standout}: /\n\n\n"
+									echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla & code themes  ${red}${standout}: /${end}${end}\n\n\n"
 									exit 1
 								fi
 							else
-								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping home files ${red}${standout}: /\n\n\n"
+								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping home files ${red}${standout}: /${end}${end}\n\n\n"
 								exit 1
 							fi
 						else
-							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something removing & coping config folders ${red}${standout}: /\n\n\n"
+							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something removing & coping config folders ${red}${standout}: /${end}${end}\n\n\n"
 							exit 1
 						fi
 					else
-						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting antigen ${red}${standout}: /\n\n\n"
+						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting antigen ${red}${standout}: /${end}${end}\n\n\n"
 						exit 1
 					fi
 				else
-					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting sudo.plugin ${red}${standout}: /\n\n\n"
+					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting sudo.plugin ${red}${standout}: /${end}${end}\n\n\n"
 					exit 1
 				fi
 			else
-				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${standout}: /\n\n\n"
+				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${standout}: /${end}${end}\n\n\n"
 				exit 1
 			fi
-
 		fi
 	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading Iosevka font ${red}${standout} :/\n\n\n"
+		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading Iosevka font ${red}${standout} :/${end}${end}\n\n\n"
 		exit 1
 	fi
 
 	tput civis
 }
-
+	# --> downloading & installing Lsd
 function lsd(){
 		# -->  Lsd
 	echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Downloading lsd ${end}${cyan}--> \n\n"
@@ -208,11 +218,11 @@ function lsd(){
 		echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}Lsd installed!   ${red}~!~!~!~\n\n"
 		sleep 2
 	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting lsd  ${red}${standout} :/\n\n\n"
+		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting lsd  ${red}${standout} :/${end}${end}\n\n\n"
 		exit 1
 	fi
 }
-
+	# --> Complie Nvim & cloning NvChad
 function nvim() {
 	echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning & compiling neovim + coling NvChad${cyan} -->\n\n\n"
 	git clone "https://github.com/neovim/neovim" && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
@@ -224,22 +234,22 @@ function nvim() {
 			if [ $? -eq 0 ]; then
 				cd .. && rm -rf neovim
 				if [ $? -eq 0 ]; then
-					echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${standout}${black}:~D${end}\n\n"
+					echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${standout}${black}:~D${end}${end}\n\n"
 					sleep 2
 				else
-					echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad removing neovim folder ${red}${standout}:/  ${end}\n\n\n"
+					echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad removing neovim folder ${red}${standout}:/  ${end}${end}\n\n\n"
 					exit 1
 				fi
 			else
-				echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad cloning NvChad repo ${red}${standout}:/ ${end}\n\n\n"
+				echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad cloning NvChad repo ${red}${standout}:/ ${end}${end}\n\n\n"
 				exit 1
 			fi
 		else
-			echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red}  Something went bad removing od folders ${red}${standout}:/ ${end}\n\n\n"
+			echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red}  Something went bad removing od folders ${red}${standout}:/ ${end}${end}\n\n\n"
 			exit 1
 		fi
 	else
-		echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red}  Something went bad compiling neovim ${red}${standout}:/ ${end}\n\n\n"
+		echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red}  Something went bad compiling neovim ${red}${standout}:/ ${end}${end}\n\n\n"
 		exit 1
 	fi
 }
@@ -259,11 +269,11 @@ function compile_bspwm(){
 			echo -ne "\n\t\t${bold}${red}<|[*]|> ~!~!~!~   ${yellow}Bspwm & sxhkd done!   ${red}~!~!~!~\n\n"
 			rm -rf ../../bspwm
 		else
-			echo -e "\n\t\t${bold}${red}<|[!]|> ${green} Failing compiling Sxhkd ${cyan}${standout}:/ ${end}\n"
+			echo -e "\n\t\t${bold}${red}<|[!]|> ${green} Failing compiling Sxhkd ${cyan}${standout}:/ ${end}${end}\n"
 			exit 1
 		fi
 	else
-		echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}Failing Compliling bspwm ${red}${standout}:/  ${end}\n"
+		echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}Failing Compliling bspwm ${red}${standout}:/  ${end}${end}\n"
 		exit 1
 	fi
 	tput civis
@@ -271,7 +281,7 @@ function compile_bspwm(){
 
 	# --> Compile Picom
 function compile_picom(){
-	echo -ne "\n\t${bold}${cyan}|[+]|> ${end}${bold}${white}${bold} Cloning & compliling Picom ${end}${cyan}-->${blue}\n\n\n"
+	echo -ne "\n\t${bold}${cyan}|[+]|> ${end}${bold}${white}${bold} Cloning & compliling Picom ${end}${cyan}-->${cyan}\n\n\n"
 	sleep 2
 
 	git clone "https://github.com/yshui/picom.git" && cd picom
@@ -283,15 +293,15 @@ function compile_picom(){
 				echo -ne "\n\t\t${bold}${red}<|[*]|> ~!~!~!~   ${yellow}Picom done!   ${red}~!~!~!~\n\n"
 				rm -rf ../picom
 			else
-				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Something went wrong Compiling Picom ${red}${standout}:/ ${end}\n"
+				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Something went wrong Compiling Picom ${red}${standout}:/ ${end}${end}\n"
 				exit 1
 			fi
 		else
-			echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend compiling Picom ${red}${standout}:/ ${end}\n"
+			echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend compiling Picom ${red}${standout}:/ ${end}${end}\n"
 			exit 1
 		fi
 	else
-		echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}We Cant Download From Github ${red}${standout}:/ ${end}\n"
+		echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}We Cant Download From Github ${red}${standout}:/ ${end}${end}\n"
 		exit 1
 	fi
 	tput civis
@@ -300,7 +310,7 @@ function compile_picom(){
 	# --> Compile polybar
 function compile_polybar(){
 	tput cnorm
-	echo -ne "\n\t${bold}${cyan}|[+]|> ${green}Cloning & compiling Polybar${cyan}--> ${end}\n\n\n"
+	echo -ne "\n\t${bold}${cyan}|[+]|> ${green}Cloning & compiling Polybar${cyan}--> ${end}${cyan}\n\n\n"
 	sleep 2
 
 	git clone --recursive "https://github.com/polybar/polybar" && cd polybar
@@ -311,18 +321,18 @@ function compile_polybar(){
 				echo -ne "\n\t\t${bold}${red}<|[*]|> ~!~!~!~   ${yellow}Polybar done!   ${red}~!~!~!~\n\n"
 				rm -rf ../../polybar
 			else
-				echo -e "\n\n\t\t${bold}${red}|[!]|> ${cyan}Failing compiling Polybar ${red}${standout}:/  ${end}\n"
+				echo -e "\n\n\t\t${bold}${red}|[!]|> ${cyan}Failing compiling Polybar ${red}${standout}:/  ${end}${end}\n"
 				exit 1
 			fi
 		else
-        	echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Failing compiling Polybar ${red}${standout}:/ ${end}\n"
+        	echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Failing compiling Polybar ${red}${standout}:/ ${end}${end}\n"
 		fi
 }
 
 	# --> Rofi form source
 function clone_rofi(){
 	tput cnorm
-	echo -ne "\n\t${bold}${cyan}|[+]|> ${green}Cloning & installing Rofi${cyan}:${end}\n\n\n"
+	echo -ne "\n\t${bold}${cyan}|[+]|> ${green}Cloning & installing Rofi${cyan}:${end}${end}\n\n\n"
 	sleep 2
 
 	git clone --depth=1 "https://github.com/adi1090x/rofi.git" && cd rofi
@@ -332,11 +342,11 @@ function clone_rofi(){
 			echo -ne "\n\t\t${bold}${red}<|[*]|> ~!~!~!~   ${yellow}Rofi done!   ${red}~!~!~!~"
                       	rm -rf ../rofi
                 else
-                	echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Failing setup Rofi ${red}${standout}:/ ${end}\n"
+                	echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Failing setup Rofi ${red}${standout}:/ ${end}${end}\n"
 					exit 1
                 fi
 	else
-        echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Failing cloning Rofi ${red}${standout}:/ ${end}\n"
+        echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Failing cloning Rofi ${red}${standout}:/ ${end}${end}\n"
 		exit 1
 	fi
 	tput civis
@@ -359,11 +369,11 @@ function htb-Xplorer(){
 				sudo chmod +x /opt/h4Ck/htbXplorer-Plus/htbXplorer
 				echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}HtbXplorer-Plus done!   ${red} ~!~!~!~\n\n"
 			else
-		                echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad cloning the repo ${red}${standout}:/ ${end}\n"
+		                echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad cloning the repo ${red}${standout}:/ ${end}${end}\n"
 				exit 1
 			fi
 		else
-        		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad creating the folder ${red}${standout}:/ ${end}\n"
+        		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad creating the folder ${red}${standout}:/ ${end}${end}\n"
 			exit 1
 		fi
 	fi
@@ -382,11 +392,11 @@ fi
 banner
 
 echo -ne "\n${bold}${cyan}|[*]|> ${end}${blue}This Script Will Add ${cyan}Bspwm ${end}${blue}Desktop Eviroment To Your Linux."
-echo -ne "\n\t${blue}- It Will ${cyan}Overwrite ${blue}Some Files Stored In Your ${yellow}~/.config/${blue}.\n"
+echo -ne "\n\t${blue}- It Will ${cyan}Overwrite ${blue}Some Files Stored In Your ${bold}${purple}~/.config/${end}${blue}.\n"
 echo -ne "\t${blue}- Which includes: ${cyan}Bspwm${blue},${cyan} Sxhkd${blue},${cyan} Polybar${blue}, ${cyan}Rofi${blue}, ${cyan}Picom ${blue}& ${cyan}Kitty${blue}.\n\n"
 echo -ne "${bold}${cyan}|[*]|>${end}${blue}	~ If you have any personal configuration in any of this folders, \n"
-echo -ne "\t${blue}it is better to use a virtual machine or create a new user instead${bold}${blue} :)${end}\n\n\n"
-echo -ne "\t${red}${bold}<|[!]|> ${cyan}Are you sure you want to ${red}continue? ${cyan}--> ${yellow}(y/n)${end}\n\n"
+echo -ne "\t${blue}it is better to use a virtual machine or create a new user instead${bold}${cyan} :)${end}\n\n\n"
+echo -ne "\t${red}${bold}<|[!]|> ${cyan}Are you sure you want to ${red}continue? ${cyan}--> ${purple}(y/n)${end}\n\n"
 
 read answer
 
@@ -410,35 +420,36 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 					if [ $? -eq 0 ]; then
 						main
 						if [ $? -eq 0 ]; then
-							echo -ne "\n${bold}${red}<|[*]|> ${cyan} All Done${red}!!
-							\n\t}${red}--> ${cyan}To-Dos${red}: \
-							\n\t\t${blue}~ Open a terminal & type ${red}nvim ${blue}to finish its configuration. \
-							\n\t\t${blue}~ Open Firefox and type: ${red}<${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${red}> ${blue}and set it to ${cyan}True${blue}. \
-							\n\n${red}-|-|-|-|-> ${blue}Try reboot and select ${cyan}Bspwm ${end}${blue}as desktop evironment ${red}Enjoy${blue}!! ${standout}${red};)${end}"
+							echo -ne "\n${bold}${red}-> ${bue}To-Dos${red}:${end} \
+							\n\t${bold}${blue}~ Open a terminal & type ${bold}${cyan}nvim ${blue}to finish its configuration.\n \
+							\n\t${blue}~ For dark theme Firefox, open it & type:\
+							\n\n\t${bold}${blue}<${white}toolkit.legacyUserProfileCustomizations.stylesheets${blue}>, and set it to ${cyan}True${blue}.${end}${end}\n"
+							sleep 2
+							echo -ne "\n\n\n${bold}${blue}-|-|-|-|-|-|-> ${end}${bold}${white}Try reboot and select ${blue}Bspwm ${end}${bold}${white}as desktop evironment. ${red}Enjoy${white}!!${bold}${blue}<-|-|-|-|-|-|-${end}${end}${end}"
 							sleep 2
 						else
-							echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${standout}:/ ${end}\n\n\n"
+							echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${standout}:/ ${end}${end}\n\n\n"
 							sleep 2
 							exit 1
 						fi
 					else
-						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with nvim package ${red}${standout}:/ ${end}\n\n\n"
+						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with nvim package ${red}${standout}:/ ${end}${end}\n\n\n"
 						sleep 2
 						exit 1
 					fi
 				else
-					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with cloning htb-Xplorer repo ${red}${standout}:/ ${end}\n\n\n"
+					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with cloning htb-Xplorer repo ${red}${standout}:/ ${end}${end}\n\n\n"
 					sleep 2
 					exit 1
 				fi
 			fi
 			else
-				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}\n\n\n"
+				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}${end}\n\n\n"
 				sleep 2
 				exit 1
 			fi
 		else
-			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!! ${red}${standout}:/ ${end}\n\n\n"
+			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!! ${red}${standout}:/ ${end}${end}\n\n\n"
 			sleep 2
 			exit 1
 		fi
@@ -461,7 +472,6 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 
 	else
 		sleep 2
-		echo -ne "\n\t${bold}${red}<|[!]|> ${green}Sorry, this OS ${green}is ${red}not ${green}supported ${standout}${black}:~/${end}\n\n\n"
+		echo -ne "\n\t${bold}${red}<|[!]|> ${blue}Sorry, this ${green}OS ${blue}is ${red}not supported ${standout}${black}:~/${end}\n\n\n"
 	fi
-fi
 
