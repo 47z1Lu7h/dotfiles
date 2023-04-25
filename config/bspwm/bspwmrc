@@ -18,8 +18,8 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-feh --bg-fill $HOME/.wallpapers/netBlue.jpg
-$HOME/.config/polybar/launch
+feh --bg-fill ~/.wallpapers/netBlue.jpg
+$HOME/.config/polybar/themes/4tz1/launch
 picom --experimental-backends --config $HOME/.config/picom/picom.conf &
 xsetroot -cursor_name left_ptr &
 

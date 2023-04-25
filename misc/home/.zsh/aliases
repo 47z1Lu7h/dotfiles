@@ -1,6 +1,13 @@
-##################################################
-#    ~~~~~~~~~~~~~~~~ Aliases ~~~~~~~~~~~~~~~
-##################################################
+###########################################################
+#░░░░░░░░░░░░   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░#
+#▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒#
+#▒▒▒▒   ▒▒▒▒▒   ▒▒▒▒▒▒▒▒   ▒▒▒▒▒▒     ▒▒▒▒▒   ▒▒▒▒▒▒     ▒#
+#▓▓   ▓▓   ▓▓   ▓   ▓▓   ▓▓   ▓▓   ▓▓▓▓▓▓  ▓▓▓   ▓▓   ▓▓▓▓#
+#▓   ▓▓▓   ▓▓   ▓   ▓   ▓▓▓   ▓▓▓▓    ▓▓         ▓▓▓▓    ▓#
+#▓   ▓▓▓   ▓▓   ▓   ▓   ▓▓▓   ▓▓▓▓▓▓   ▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓   #
+#███   █    █   █   ███   █    █      ████     ████      █#
+#█████████████████████████████████████████████████████████#
+###########################################################
 
 # enable color support of ls, less and man, and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -9,7 +16,7 @@ if [ -x /usr/bin/dircolors ]; then
 	alias dir='dir --color=auto'
 	alias vdir='vdir --color=auto'
 	alias gr='grep --color=auto'
-	alias g53p='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+	alias g53p='grep  --color=auto --exclude-dir=.bzr,CVS,.git,.hg,.svn'
 	alias grep='grep --color=auto'
 	alias fgrep='fgrep --color=auto'
 	alias egrep='egrep --color=auto'
@@ -34,16 +41,41 @@ if [ -x /usr/bin/dircolors ]; then
 	export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 fi
 
-alias ..='cd ..'
-alias s='sudo'
-alias r3B@@t='sudo reboot'
-alias p@W35@ff='sudo poweroff'
-alias n='neofetch'
-alias na='nano'
-alias rr='trash -frv'
-alias nv='nvim'
-alias ki='kitty +kitten icat'
+alias	..='cd ..'
+alias	s='sudo'
+alias	r3B@@t='sudo reboot'
+alias	p@W35@ff='sudo poweroff'
+alias	n='neofetch'
+alias	na='nano'
+alias	rr='trash -frv'
+alias	nv='nvim'
+alias	ki='kitty +kitten icat'
 
-alias n4ZSH5C='nano ~/.zshrc'
+alias	theme-47z1='kitty -c ~/.config/kitty/configs/47z1.conf & disown'
+alias	theme-hack='kitty -c ~/.config/kitty/configs/hack.conf & disown'
+alias	set-backgroung='feh --bg-fill $1'
+
+alias mkl='mkdir nmap content exploits'
+alias htb-Xpl@r3r='sudo /opt/h4Ck/htbXplorer-Plus/htbXplorer $1 $2 $3'
+
+alias p@ly='bash ~/.config/polybar/launch'
+alias p@ly-plasma='bash ~/.config/polybar/plasma'
 alias k1ll_p@ly='sudo killall polybar'
+alias c@l@r-p1Ck3r='bash ~/.config/bspwm/scripts/c@l@r_P1Ck3r'
+
+alias upd4t1N6='sudo apt update'
+alias up654D1N6='sudo apt update && sudo apt upgrade -y'
+alias in5t4ll1N6='sudo apt install -y'
+alias re1n5t4ll1N6='sudo apt reinstall -y'
+alias un15t4ll1N6='sudo apt purge -y'
+alias auT@R3m@V3='sudo apt autoremove -y'
+alias auT@Cl34n='sudo apt autoclean -y'
+alias x4MP='sudo /opt/lampp/xampp'
+alias sys='sudo systemctl'
+
+alias lab-HTB='sudo openvpn ~/d35kT@p/h7B/vp3n3s/lab_47z1Lu7h.ovpn & disown'
+alias lab-Seassonal-HTB='sudo openvpn ~/d35kT@p/h7B/vp3n3s/competitive_47z1Lu7h.ovpn & disown'
+alias lab-Fortress-HTB='sudo openvpn ~/d35kT@p/h7B/vp3n3s/fortresses_47z1Lu7h.ovpn & disown'
+alias lab-Strtng-Point-HTB='sudo openvpn ~/d35kT@p/h7B/vp3n3s/starting_point_47z1Lu7h.ovpn & disown'
+alias k1ll_@p3nvpn='sudo killall openvpn'
 

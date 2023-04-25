@@ -41,12 +41,11 @@ function banner(){
 echo -ne "\n\n\t\t ${red}${bold}
  ▄█████  ██████ ██▓███  █     █░███▄ ▄███▓▄████▄  ██▓    ██▓▄████▄
 ▓██████▒██    ▒▓██░  ██▓█░ █ ░█▓██▒▀█▀ ██▒██▀ ▀█ ▓██▒   ▓██▒██▀ ▀█
-█▒ ▄█░ ▓██▄  ▓██░ ██▓▒█░ █ ░█▓██    ▓██▒▓█    ▄▒██░   ▒██▒▓██
+█    ▄█░ ▓██▄  ▓██░ ██▓▒█░ █ ░█▓██    ▓██▒▓█    ▄▒██░   ▒██▒▓██
 ▒██░█▀   ▒   ██▒██▄█▓▒ ░█░ █ ░█▒██    ▒██▒▓▓▄ ▄██▒██░   ░██▒▓▓▄ ▄██▒
 ░▓█  ▀█▒█████▒▒██▒ ░  ░░██▒██▓▒██▒   ░██▒ ▓███▀ ░██████░██▒ ▓███▀ ░
 ░▒▓███▀▒ ▒▓▒ ▒ ▒▓▒░ ░  ░ ▓░▒ ▒ ░ ▒░   ░  ░ ░▒ ▒  ░ ▒░▓  ░▓ ░ ░▒ ▒░
-░▒░  ░░ ░▒${bold}${cyan}By ${black}47z!Lu7h${end}${bold}${cyan}${tandout} :)${red}  ░ ░▒ ░     ▒ ░ ░ ░  ░      ░ ░  ▒  ░
- ░   ░   ░    ░░  ░ ░    ░ ░   ░ ░    ░   ░ ░   ░  ░    ░
+░▒░  ░░ ${bold}${red}By ${cyan}47z!Lu7h${end}${bold}${red}${tandout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
  ░ ░		▒ ░	░	░	░${end}${end}"
 }
 
@@ -59,7 +58,7 @@ function ctrl_c(){
 	tput civis
 }
 
-	# --> Zsh stuff & cp dotfiles
+	# --> Fonts, Zsh stuff & cp dotfiles
 function main(){
 	tput cnorm
 
@@ -75,131 +74,66 @@ function main(){
 			# -->  Zsh plugins
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning zsh-autocomplete plugin ${cyan} -->\n\n\n"
 		sleep 2
-		if [ -d "~/.zsh/plugins/zsh-autocomplete" ]; then
-			git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" ~/.zsh/plugins/zsh-autocomplete
+		rm -rf ~/.zsh && mkdir -p ~/.zsh/plugins && git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" ~/.zsh/plugins/zsh-autocomplete
+		if [ $? -eq 0 ]; then
+			echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning sudo.plugin.zsh ${cyan} -->\n\n\n"
+			sleep 1
+			wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P ~/.zsh/plugins/sudo.plugin.zsh
 			if [ $? -eq 0 ]; then
-				echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning sudo.plugin.zsh ${cyan} -->\n\n\n"
-				sleep 1
-				wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P ~/.zsh/plugins/sudo.plugin.zsh
+				echo -ne "\n${blue}${blue}>> ${cyan}Sudo plugin done${blue}!!!\n\n"
+				sleep 2
+				echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning antigen plugin manager ${cyan} -->\n\n"
+				curl -L git.io/antigen > ~/.zsh/antigen.zsh
 				if [ $? -eq 0 ]; then
-					echo -ne "\n${blue}${blue}>> ${cyan}Sudo plugin done${blue}!!!\n\n"
-					sleep 2 
-					echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning antigen plugin manager ${cyan} -->\n\n"
-					curl -L git.io/antigen > ~/.zsh/antigen.zsh
+					echo -ne "\n${bold}${blue}>> ${cyan}Antigen done${blue}!!!\n\n"
+					sleep 2
+					echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Removing & coping folders${cyan}\n"
+					rm -rf ~/.config/bspwm ~/.config/sxhkd/ ~/.config/picom ~/.config/polybar ~/.config/rofi && cp -r config/* ~/.config/
 					if [ $? -eq 0 ]; then
-						echo -ne "\n${bold}${blue}>> ${cyan}Antigen done${blue}!!!\n\n"
-						sleep 2 
-						echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Removing & coping folders${cyan}\n"
-						rm -rf ~/.config/bspwm ~/.config/sxhkd/ ~/.config/picom ~/.config/polybar ~/.config/rofi && cp -r config/* ~/.config/
+						echo -ne "\n${bold}${blue}>> ${cyan}Config folders done${blue}!!!\n\n"
+						sleep 2
+						echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan}\n"
+						cp -r misc/home/.* $HOME && sudo cp misc/root.p10k.zsh /root/.p10k.zsh
 						if [ $? -eq 0 ]; then
-							echo -ne "\n${bold}${blue}>> ${cyan}Config folders done${blue}!!!\n\n"
-							sleep 2 
-							echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan}\n"
-							cp -r misc/home/.* $HOME && sudo cp misc/root.p10k.zsh /root/.p10k.zsh
+							echo -ne "\n${bold}${blue}>> ${cyan}Files done${blue}!!!\n\n"
+							sleep 2
+							echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting mozilla & code themes ${cyan}\n"
+							cp -r misc/chrome ~/.mozilla/firefox/*default-esr/ && mkdir -p ~/.config/Code/User && cp -r misc/code/user/* ~/.config/Code/User
 							if [ $? -eq 0 ]; then
-								echo -ne "\n${bold}${blue}>> ${cyan}Files done${blue}!!!\n\n"
-								sleep 2 
-								echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting mozilla & code themes ${cyan}\n"
-								cp -r misc/chrome ~/.mozilla/firefox/*default-esr/ && mkdir -p ~/.config/Code/User && cp -r misc/code/user/* ~/.config/Code/User
+								echo -ne "\n${bold}${blue}>>${cyan}Themes done${blue}!!!\n\n"
+								sleep 2
+								echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting zsh default shell ${cyan}\n"
+								sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root
 								if [ $? -eq 0 ]; then
-									echo -ne "\n${bold}${blue}>>${cyan}Themes done${blue}!!!\n\n"
-									sleep 2 
-									echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting zsh default shell ${cyan}\n"
-									sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root
-									if [ $? -eq 0 ]; then
-										echo -ne "\n\n${bold}${red}<|[~]|> ${blue}All config done${red}!!!${cyan}\n\n\n"
-										sleep 2
-									else
-										echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad making default shell zsh ${red}${standout}: /${end}${end}\n\n\n"
-										exit 1
-									fi
+									echo -ne "\n\n${bold}${red}<|[~]|> ${blue}All config done${red}!!!${cyan}\n\n\n"
+									sleep 2
 								else
-									echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla & code themes  ${red}${standout}: /${end}${end}\n\n\n"
-									exit 1
+									echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad making default shell zsh ${red}${standout}: /${end}${end}\n\n\n"
+									exit 1									fi
 								fi
 							else
-								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping home files ${red}${standout}: /${end}${end}\n\n\n"
+								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong setting mozilla & code themes  ${red}${standout}: /${end}${end}\n\n\n"
 								exit 1
 							fi
 						else
-							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something removing & coping config folders ${red}${standout}: /${end}${end}\n\n\n"
+							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping home files ${red}${standout}: /${end}${end}\n\n\n"
 							exit 1
 						fi
 					else
-						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting antigen ${red}${standout}: /${end}${end}\n\n\n"
+						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something removing & coping config folders ${red}${standout}: /${end}${end}\n\n\n"
 						exit 1
 					fi
 				else
-					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting sudo.plugin ${red}${standout}: /${end}${end}\n\n\n"
+					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting antigen ${red}${standout}: /${end}${end}\n\n\n"
 					exit 1
 				fi
 			else
-				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${standout}: /${end}${end}\n\n\n"
+				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting sudo.plugin ${red}${standout}: /${end}${end}\n\n\n"
 				exit 1
 			fi
 		else
-			mkdir -p ~/.zsh/plugins &&
-			git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" ~/.zsh/plugins/zsh-autocomplete
-			if [ $? -eq 0 ]; then
-				echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning sudo.plugin.zsh ${cyan} -->\n\n\n"
-				sleep 1
-				wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P ~/.zsh/plugins/sudo.plugin.zsh
-				if [ $? -eq 0 ]; then
-					echo -ne "\n${blue}${blue}>> ${cyan}Sudo plugin done${blue}!!!\n\n"
-					sleep 2 
-					echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning antigen plugin manager ${cyan} -->\n\n"
-					curl -L git.io/antigen > ~/.zsh/antigen.zsh
-					if [ $? -eq 0 ]; then
-						echo -ne "\n${bold}${blue}>> ${cyan}Antigen done${blue}!!!\n\n"
-						sleep 2 
-						echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Removing & coping folders${cyan}\n"
-						rm -rf ~/.config/bspwm ~/.config/sxhkd/ ~/.config/picom ~/.config/polybar ~/.config/rofi && cp -r config/* ~/.config/
-						if [ $? -eq 0 ]; then
-							echo -ne "\n${bold}${blue}>> ${cyan}Config folders done${blue}!!!\n\n"
-							sleep 2 
-							echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan}\n"
-							cp -r misc/home/.* $HOME && sudo cp misc/root.p10k.zsh /root/.p10k.zsh
-							if [ $? -eq 0 ]; then
-								echo -ne "\n${bold}${blue}>> ${cyan}Files done${blue}!!!\n\n"
-								sleep 2 
-								echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting mozilla & code themes ${cyan}\n"
-								cp -r misc/chrome ~/.mozilla/firefox/*default-esr/ && mkdir -p ~/.config/Code/User && cp -r misc/code/user/* ~/.config/Code/User
-								if [ $? -eq 0 ]; then
-									echo -ne "\n${bold}${blue}>>${cyan}Themes done${blue}!!!\n\n"
-									sleep 2 
-									echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting zsh default shell ${cyan}\n"
-									sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root
-									if [ $? -eq 0 ]; then
-										echo -ne "\n\n${bold}${red}<|[~]|> ${blue}All config done${red}!!!${cyan}\n\n\n"
-										sleep 2
-									else
-										echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad making default shell zsh ${red}${standout}: /${end}${end}\n\n\n"
-										exit 1
-									fi
-								else
-									echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping mozilla & code themes  ${red}${standout}: /${end}${end}\n\n\n"
-									exit 1
-								fi
-							else
-								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong coping home files ${red}${standout}: /${end}${end}\n\n\n"
-								exit 1
-							fi
-						else
-							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something removing & coping config folders ${red}${standout}: /${end}${end}\n\n\n"
-							exit 1
-						fi
-					else
-						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting antigen ${red}${standout}: /${end}${end}\n\n\n"
-						exit 1
-					fi
-				else
-					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting sudo.plugin ${red}${standout}: /${end}${end}\n\n\n"
-					exit 1
-				fi
-			else
-				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${standout}: /${end}${end}\n\n\n"
-				exit 1
-			fi
+			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${standout}: /${end}${end}\n\n\n"
+			exit 1
 		fi
 	else
 		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading Iosevka font ${red}${standout} :/${end}${end}\n\n\n"
@@ -442,7 +376,6 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 					sleep 2
 					exit 1
 				fi
-			fi
 			else
 				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}${end}\n\n\n"
 				sleep 2
@@ -474,4 +407,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 		sleep 2
 		echo -ne "\n\t${bold}${red}<|[!]|> ${blue}Sorry, this ${green}OS ${blue}is ${red}not supported ${standout}${black}:~/${end}\n\n\n"
 	fi
-
+else
+	sleep 2
+	echo -ne "\n\t${bold}${red}<|[!]|> ${blue}Sorry, this ${green}by3${blue}${red}${standout}:~/${end}\n\n\n"
+fi

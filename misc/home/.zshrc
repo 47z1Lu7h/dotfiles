@@ -1,6 +1,25 @@
-##################################################
-  ##  ~!~!~!~!~!~ .zshrc c0nfig ~!~!~!~!~!~  ##
-##################################################
+#####################################################################################
+# ░ ░░▒ ▒ ░▒ ░▒░  ░▒░▒▒ ▒ ░▒░  ░ ░▒ ░▒░░░ ▒▒░░▒ ░░▒░░ ░▒▒ ▒ ░ ░▒░░▒ ▒ ░▒░ ░░▒ ░ ▒░▒ #
+# ░ ████  ░▒░ ░▒░  █ ░▒ ███████████ ░░░░ ████  ██ ░░░░ ███████ ████  ░░░▒ ██ ███ ░▒ #
+#  █  █████████████ ▒░ ██ █ ██ █████ ░ █ ██  █  ████  ████████  ████ ░░▒ ███  ████  #
+# █ ░░  ██████████ ▒▒░ ██       ███  ██  ██  ██████  ██ ░ █  █ ░ ███ ▒  ██  █ ░████ #
+# █ ░░▒         █ ▒ ░░ ███ ░▒░▒ ██  █ ░░▒░  ██ █ █   █ ░░ █  █ ▒░ ██ ░ ██  ██ ░ ███ #
+#  ██ ░▒░░▒ ░  █ ▒░░ ░▒ ████ ░▒░ █ ░▒░▒ █  █   █ █  ░▒░░░ █  █ ░░ ██  ███ ▒ ░▒ ░░░▒ #
+# ░▒░░▒▒ ▒ ░▒ █ ▒░▒░░░ ██ ████ ░▒░▒░▒░ ██ ██   █ █ ░▒░░▒  ██ ██ ▒ ██░ ██ ▒ ██  ░ ▒  #
+# ▒░░▒░▒░░▒░ █ ░░░ ░▒░▒ ███ ████ ░░▒░▒ ██ ██   █ █  ░▒░▒  ██ ██  ██░▒ ██ ▒ ██  ░░░░ #
+# ▒ ▒ ░▒░ ▒ █ ░▒▒░▒░ ░░░ ███ ████ ▒░ ▒ ██ ███████████ ▒░░ ████████    ██ ▒ ██ ░░▒ ░ #
+# ░▒░▒░░░░ █ ░░ ▒░▒ ░░▒▒░▒ ███ ███ ░▒▒ ██ ██ ▒ █ ██  ░▒░ ███ ██  ███  ██ ░ ██ ░▒░░▒ #
+# ░▒ ▒ ░░ █ ░▒░▒▒ ░░▒▒ ▒░▒ ▒ ██ ███ ░░ ██ ██ ░ █ ██  ░░▒ ███ ██ ░ ███ ██ ░ ██  ░ ░░ #
+# ▒▒░░▒░ █ ▒ ▒ ░▒░▒▒ ▒░░░▒▒▒░ ██ ██ ░▒ ██ ██ ▒ █ ██  ░░▒ ███ ██ ▒ ███  ██  ██   ░▒░ #
+# ░▒░░ █ ▒░▒░▒▒░░░░░▒▒ ▒ ░▒░░  █ █ ░░▒ █░▒ █ ▒ █ ██ ░▒▒░▒███   ░▒ ███  ██ ▒ ░▒ ██ ▒ #
+# ░ ████ ▒ ░░░ ░ ▒▒  █  ███ ░░   █ ▒ █████  ▒░░█ ██  ░  ████  ░░  ███ ░ ███ ▒  ██ ░ #
+# █   █████████████  █  █████████ ░░ █  █████ ▒█ ██   ██████ ░▒░  ███ ░░ ███████▒ ░ #
+# ██░░▒  ██████████  █▒▒ ▒ █████  ▒▒ █ ░░▒ ██ ▒█ ███ ░▒░  ██ ░░▒  ███ ▒░▒  ███ ░▒ ▒ #
+#  ██ ▒ ▒ ░ ░░  ▒░ ▒ █▒█▒ ░░▒ ░░▒▒ ▒ █ ▒ ░░▒ ▒▒█ ███ ░▒░ ░░ ▒ ░░░ ███  ░██▒ ▒ ░ ▒ ░ #
+# ▒ ████░▒░▒░░░▒░▒░░ █ █░  █▒ ▒▒ ▒░███ ░░▒░░▒ ▒  ████ ░▒░░▒░░▒░░▒▒ ███ ████░░░▒ ░░▒ #
+#    ███  ░▒▒ ▒ ▒ ▒  ████░ █░ ░ ▒░          ▒░░  ████ ░░▒ ░░▒░▒ ▒░▒ █████░ ▒░░    ░ #
+# by  ░░░▒░▒▒ ░ ░░▒░  ░░░ ▒ ▒ ░▒░  47z!Lu7h  ░▒ ░▒ ░░▒ ░▒░▒ ░░░░▒ ░▒ ███▒░▒▒░  :) ░ #
+#####################################################################################
 
 if [ -f ~/.zsh/bindkeys ]; then
 	source ~/.zsh/bindkeys
@@ -34,17 +53,85 @@ select-word-style bash
 
 export WORDCHARS='.-'
 
+	# - Keep 900000  lines of history within the shell and save it to ~/.zsh_history:
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+HISTSIZE=9000000
+SAVEHIST=9000000
+
+	# - Job Control
+unsetopt	INC_APPEND_HISTORY		# Write to the history file immediately, not when the shell exits.
+unsetopt	listambiguous
+setopt		appendhistory
+setopt		SHARE_HISTORY			# Share history between all sessions.
+setopt		menu_complete
+#setopt		notify
+#setopt		auto_list
+#setopt		autocd				# change directory just by typing its name
+#setopt		correct				# auto correct mistakes
+#setopt		interactivecomments		# allow comments in interactive mode
+#setopt		magicequalsubst			# enable filename expansion for arguments of the form ‘anything=expression’
+#setopt		nonomatch			# hide error message if there is no match for the pattern
+#setopt		notify				# report the status of background jobs immediately
+#setopt		numericglobsort			# sort filenames numerically when it makes sense
+#setopt		promptsubst			# enable command substitution in prompt
+#setopt		BANG_HIST               	# Treat the '!' character specially during expansion.
+setopt		EXTENDED_HISTORY	        # Write the history file in the ":start:elapsed;command" format.
+#setopt		HIST_EXPIRE_DUPS_FIRST    	# Expire duplicate entries first when trimming history.
+setopt		HIST_IGNORE_DUPS          	# Don't record an entry that was just recorded again.
+setopt		HIST_IGNORE_ALL_DUPS      	# Delete old recorded entry if new entry is a duplicate.
+setopt		HIST_FIND_NO_DUPS        	# Do not display a line previously found.
+#setopt 	HIST_IGNORE_SPACE       	# Don't record an entry starting with a space.
+#setopt 	HIST_SAVE_NO_DUPS		# Don't write duplicate entries in the history file.
+#setopt 	HIST_REDUCE_BLANKS        	# Remove superfluous blanks before recording entry.
+#setopt 	HIST_VERIFY               	# Don't execute immediately upon history expansion.
+#setopt 	HIST_BEEP                 	# Beep when accessing nonexistent history.
+
 zle -N zle-keymap-select
 autoload -Uz +X compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
 autoload -Uz +X promptinit && promptinit
 zmodload -i zsh/complist
 
+bindkey "${key[Up]}" up-line-or-local-history
+bindkey "${key[Down]}" down-line-or-local-history
+
+# Cycle through history based on characters already typed on the line
+autoload -Uz history-search-end
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey "$key[Up]" up-line-or-beginning-search
+bindkey "$key[Down]" down-line-or-beginning-search
+
+## Page UP and Page Down through History
+zle -N history-beginning-search-backward-end \
+                history-search-end
+zle -N history-beginning-search-forward-end \
+                history-search-end
+bindkey "\e[5~" history-beginning-search-backward-end
+bindkey "\e[6~" history-beginning-search-forward-end
+
+up-line-or-local-history() {
+    zle set-local-history 1
+    zle up-line-or-history
+    zle set-local-history 0
+}
+zle -N up-line-or-local-history
+
+down-line-or-local-history() {
+    zle set-local-history 1
+    zle down-line-or-history
+    zle set-local-history 0
+}
+zle -N down-line-or-local-history
+
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
 zstyle ':completion:*' group-name ''
-zstyle ':completion:*' menu select=2
+zstyle ':completion:*' menu select long
 eval "$(dircolors -b)"
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-colors ''
@@ -142,8 +229,8 @@ export ZSHSELECT_ACTIVE_TEXT="reverse"		# Mark current element with reversed tex
 export ZSHSELECT_START_IN_SEARCH_MODE="1"	# Starts Zsh-Select with searching active. "0" will not invoke searching at start.
 
 	# - For working rofi
-export LC_CTYPE=es_ES.UTF-8
-export LC_ALL=es_ES.UTF-8
+#export LC_CTYPE=es_ES.UTF-8
+#export LC_ALL=es_ES.UTF-8
 
 	# - c@lRs
 export RESET='\e[0m'
@@ -164,47 +251,14 @@ export LIGHT_CYAN='\e[1;36m'
 export LIGHT_GRAY='\e[0;37m'
 export WHITE='\e[1;37m'
 
-	# - Keep 500000  lines of history within the shell and save it to ~/.zsh_history:
-HISTFILE='~/.zsh_history'
-HISTSIZE=500000
-SAVEHIST=500000
-setopt appendhistory
-setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
-setopt SHARE_HISTORY             # Share history between all sessions.
-setopt BANG_HIST                 # Treat the '!' character specially during expansion.
-#setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
-#setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
-#setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
-#setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
-#setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
-#setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
-#setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
-#setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
-#setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
-#setopt HIST_BEEP                 # Beep when accessing nonexistent history.
-
-	# - Job Control
-unsetopt		listambiguous
-setopt			menu_complete
-setopt			notify
-# setopt		prompt_subst			# Enable substitution in the prompt
-setopt			auto_list
-setopt			autocd				# change directory just by typing its name
-# setopt		correct				# auto correct mistakes
-setopt			interactivecomments		# allow comments in interactive mode
-setopt			magicequalsubst			# enable filename expansion for arguments of the form ‘anything=expression’
-setopt			nonomatch			# hide error message if there is no match for the pattern
-setopt			notify				# report the status of background jobs immediately
-setopt			numericglobsort			# sort filenames numerically when it makes sense
-setopt			promptsubst			# enable command substitution in prompt
-
 	# - Enable command-not-found if installed
 if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
 	# - Zsh autosuggestion settings
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)AUTOSUGGESTION_ACCEPT_RIGHT_ARROW=1
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+AUTOSUGGESTION_ACCEPT_RIGHT_ARROW=1
 
 	# - Enable auto-suggestions based on the history
 if [ -f ~/.zsh/antigen/bundles/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -212,11 +266,6 @@ if [ -f ~/.zsh/antigen/bundles/zsh-users/zsh-autosuggestions/zsh-autosuggestions
 	# - Change suggestion color
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#539775,bold'
 fi
-
-#export ZSH_AUTOSUGGEST_STRATEGY=(
-#    history
-#   completion
-#)
 
 	# - Enable syntax-highlighting
 if [ -f .zsh/antigen/bundles/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] && [ "$prompt" = yes ]; then

@@ -1,6 +1,13 @@
-##################################################
-#    ~~~~~~~~~~~~~~~~ Functions ~~~~~~~~~~~~~~~
-##################################################
+###############################################################################
+#░░░░░   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░#
+#▒▒▒  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒▒  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒#
+#▒    ▒  ▒▒   ▒▒   ▒   ▒   ▒▒▒▒▒▒    ▒    ▒  ▒▒▒▒▒▒▒▒   ▒▒▒▒▒   ▒   ▒▒▒▒     ▒#
+#▓▓▓   ▓▓▓▓   ▓▓   ▓▓   ▓▓   ▓▓   ▓▓▓▓▓▓   ▓▓▓   ▓▓   ▓▓   ▓▓▓   ▓▓   ▓   ▓▓▓▓#
+#▓▓▓   ▓▓▓▓   ▓▓   ▓▓   ▓▓   ▓   ▓▓▓▓▓▓▓   ▓▓▓   ▓   ▓▓▓▓   ▓▓   ▓▓   ▓▓▓    ▓#
+#▓▓▓   ▓▓▓▓   ▓▓   ▓▓   ▓▓   ▓▓   ▓▓▓▓▓▓   ▓ ▓   ▓▓   ▓▓   ▓▓▓   ▓▓   ▓▓▓▓▓  ▓#
+#███   ██████      █    ██   ████    ████   ██   ████   █████    ██   █      █#
+#█████████████████████████████████████████████████████████████████████████████#
+###############################################################################
 
 function hacker_quote(){
 	ZSH_HACKER_QUOTES_ENABLE_WHEN_INTERACTIVE= zsh -i
@@ -28,12 +35,32 @@ function set_linux_colors(){
         clear # bring us back to default input colours
   fi
 }
+
 set_linux_colors()
 
-	# - Function extraction Multiple files
-alias xtr4Ct=extract
+setopt share_history
 
-function extract() {
+up-line-or-local-history() {
+    zle set-local-history 1
+    zle up-line-or-history
+    zle set-local-history 0
+}
+zle -N up-line-or-local-history
+down-line-or-local-history() {
+    zle set-local-history 1
+    zle down-line-or-history
+    zle set-local-history 0
+}
+zle -N down-line-or-local-history
+
+bindkey '^[OA' up-line-or-history     # Cursor up
+bindkey '^[OB' down-line-or-history   # Cursor down
+bindkey '^[[1;5A' up-line-or-local-history    # [CTRL] + Cursor up
+bindkey '^[[1;5B' down-line-or-local-history  # [CTRL] + Cursor down
+
+
+	# - Function extraction Multiple files
+function xtr4Ct() {
 	local remove_archive
 	local success
 	local extract_dir
@@ -108,7 +135,7 @@ function nice-fzf(){
 
 	if [ "$1" = "h" ]; then
 		fzf -m --reverse --preview-window down:20 --preview '[[ $(file --mime {}) =~ binary ]] &&
- 	               echo {} is a binary file ||
+	               echo {} is a binary file ||
 	                (bat --style=numbers --color=always {} ||
 	                 highlight -O ansi -l {} ||
 	                 coderay {} ||
@@ -153,10 +180,10 @@ function _backward-word()		{ _zle-with-style backward-word			bash }
 function _forward-word()		{ _zle-with-style forward-word			bash }
 function _backward-arg()		{ _zle-with-style backward-word			shell }
 function _forward-arg()			{ _zle-with-style forward-word			shell }
-function _backward-kill-arg()		{ _zle-with-style backward-kill-word 		shell }
-function _forward-kill-arg()		{ _zle-with-style kill-word 			shell }
+function _backward-kill-arg()		{ _zle-with-style backward-kill-word		shell }
+function _forward-kill-arg()		{ _zle-with-style kill-word			shell }
 function _backward-kill-word()		{ _zle-with-style backward-kill-word		normal }
-function _backward-kill-path()		{ _zle-with-style backward-kill-word 		normal	'/' }
+function _backward-kill-path()		{ _zle-with-style backward-kill-word		normal	'/' }
 
 zle -N _backward-word
 zle -N _forward-word
@@ -216,81 +243,19 @@ precmd() {
 }
 
 autoload -Uz add-zsh-hook
-ofunction _update_vcs_info_msg() {
+function _update_vcs_info_msg() {
     psvar=()
     LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
-function mkl()          	{ mkdir {nmap,content,exploits} }
-function htb-Xpl@r3r() 		{ sudo /opt/h4Ck/htbXplorer-Plus/htbXplorer $1 $2 $3 }
-function tun0()         	{ echo -n "\n $(ip a | grep tun0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/') \n\n" }
-function eth()          	{ ip a | grep eth0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/' }
-function wlan()         	{ ip a | grep wlan0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/' }
-function my_Public-IP() 	{ sudo curl ifconfig.co }
-function settarget()    	{ ip_address=$1; machine_name=$2; echo "$ip_address $machine_name" > /$HOME/.config/polybar/bin/target }
-function k1ll_@p3nvpn()		{ sudo killall openvpn }
-function k1ll_p@ly()		{ sudo killall polybar }
-function p@ly()			{ bash ~/.config/polybar/launch }
-function p@ly-plasma()		{ bash ~/.config/polybar/plasma }
-function c@l@r-p1Ck3r()		{ bash ~/.config/bspwm/scripts/c@l@r_P1Ck3r }
-function upd4t1N6() 		{ sudo apt update }
-function up654D1N6()		{ sudo apt update && sudo apt upgrade -y }
-function in5t4ll1N6()		{ sudo apt install -y }
-function re1n5t4ll1N6()		{ sudo apt reinstall -y }
-function un15t4ll1N6()		{ sudo apt purge -y }
-function auT@R3m@V3()		{ sudo apt autoremove -y }
-function auT@Cl34n()		{ sudo apt autoclean -y }
-function x4MP()			{ sudo /opt/lampp/xampp }
-function sys()			{ sudo systemctl }
-function set_backgroung()	{ feh --bg-fill }
-function lab-HTB()		{ sudo openvpn ~/d35kT@p/h7B/vp3n3s/lab_47z1Lu7h.ovpn & disown }
-function lab_Seassonal-HTB()	{ sudo openvpn ~/d35kT@p/h7B/vp3n3s/competitive_47z1Lu7h.ovpn & disown }
-function lab_Fortress-HTB()	{ sudo openvpn ~/d35kT@p/h7B/vp3n3s/fortresses_47z1Lu7h.ovpn & disown }
-function lab_Strtng-Point-HTB()	{ sudo openvpn ~/d35kT@p/h7B/vp3n3s/starting_point_47z1Lu7h.ovpn & disown }
-function rmk()			{ scrub -p dod $1; shred -zun 10 -v $1 }
-
-
-
-function extractPorts(){
-	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
-	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
-	echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
-	echo -e "\t[*] IP Address: $ip_address"  >> extractPorts.tmp
-	echo -e "\t[*] Open ports: $ports\n"  >> extractPorts.tmp
-	echo $ports | tr -d '\n' | xclip -sel clip
-	echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
-	cat extractPorts.tmp; rm extractPorts.tmp
-}
-
-function set_dpi_polybar-bspwm {
-	dpi=$(cat ~/.config/polybar/bspwm.ini | grep dpi | head -1)
-	echo -e "  ~ Current $dpi   \n  ~ Enter a new DPI to resice Polybar:"
-	read NEW_DPI;
-	new_dpi="dpi = ${NEW_DPI}"
-	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/bspwm.ini
-	echo -ne "\t~ Setting $new_dpi in bspwm.ini \n\t~ Just press 'ctrl+alt+p' to restart polybar\n\n"
-	sleep 1
-}
-
-function set_dpi-polybar-plasma {
-	dpi=$(cat ~/.config/polybar/plasma.ini | grep dpi | head -1)
-	echo -e "  - Current $dpi   \n  - Enter a new DPI to resice Polybar:"
-	read NEW_DPI;
-	new_dpi="dpi = ${NEW_DPI}"
-	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/plasma.ini
-	echo -ne "\t~ Setting $new_dpi in plasma.ini \n\t~ Just press 'ctrl+alt+p' to restart polybar\n\n"
-	sleep 1
-}
-
-function git_add-commit-push() {
+	# - Some git alias
+function git-add-commit-push() {
     git add -A
     git commit -a -m "$1"
     git push
 }
-
-	# - Some git alias
 function g { git status }
 function gd { git diff }
 function ge { git commit --allow-empty -m "Empty commit" }
@@ -396,8 +361,6 @@ function rga-fzf() {
 	xdg-open "$file"
 }
 
-matrix() { echo -e "\e[1;40m" ; clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|awk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4;        letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}' }
-
 function color_grid() {
 	iter=16
 		while [ $iter -lt 52 ];do
@@ -431,3 +394,67 @@ function color_grid() {
 
 autoload -Uz compinit
 compinit
+
+function extractPorts(){
+	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
+	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
+	echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
+	echo -e "\t[*] IP Address: $ip_address"  >> extractPorts.tmp
+	echo -e "\t[*] Open ports: $ports\n"  >> extractPorts.tmp
+	echo $ports | tr -d '\n' | xclip -sel clip
+	echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
+	cat extractPorts.tmp; rm extractPorts.tmp
+}
+
+function set-dpi_polybar-bspwm() {
+	dpi=$(cat ~/.config/polybar/themes/4tz1/config.ini | grep dpi | head -1)
+	echo -e "  ~ Current $dpi   \n  ~ Enter a new DPI to resice Polybar:"
+	read NEW_DPI;
+	new_dpi="dpi = ${NEW_DPI}"
+	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/4tz1/config.ini
+	echo -ne "\t~ Setting $new_dpi in config.ini \n\t~ Just press 'ctrl+alt+p' to restart polybar\n\n"
+	sleep 1
+}
+
+function set-dpi-polybar-plasma() {
+	dpi=$(cat ~/.config/polybar/themes/plasma/config.ini | grep dpi | head -1)
+	echo -e "  - Current $dpi   \n  - Enter a new DPI to resice Polybar:"
+	read NEW_DPI;
+	new_dpi="dpi = ${NEW_DPI}"
+	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/plasma/config.ini
+	echo -ne "\t~ Setting $new_dpi in plasma.ini \n\t~ Just press 'ctrl+alt+p' to restart polybar\n\n"
+	sleep 1
+}
+
+function set-default_background_bspwm() {
+	echo -e "  -Set a default wallpaper in bspwm\n  - Enter the path of a image:"
+	read image;
+	sed -i "s/--bg-fill */--bg-fill ${image}/g" ~/.config/bspwm/bspwmrc
+	echo -ne "\t~ Setting new wallpaper\n\t~ Just press 'ctrl+alt+r' to restart bspwm\n\n"
+	sleep 1
+}
+
+function tun0()	{
+	echo -n "\t\n $(ip a | grep tun0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/') \n\n"
+}
+function eth() {
+	ip a | grep eth0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/'
+}
+function wlan()	{
+	ip a | grep wlan0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/'
+}
+function my_Public-IP() {
+	sudo curl ifconfig.co
+}
+function settarget() {
+	ip_address=$1
+	machine_name=$2
+	echo "$ip_address $machine_name" > /$HOME/.config/polybar/bin/target
+}
+function rrf() {
+	scrub -p dod $1
+	shred -zun 10 -v $1 }
+
+matrix() { echo -e "\e[1;40m" ; clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|awk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4;        letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}' }
+
+

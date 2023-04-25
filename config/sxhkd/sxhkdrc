@@ -1,7 +1,12 @@
+#
+# bspwm hotkeys
+#
  # wm independent hotkeys 
 # terminal emulator 
 super + Return 
 	kitty & disown
+ctrl + Return
+	kitty -c ~/.config/kitty/configs/hack.conf & disown	
 
 # r@fi dark
 super + d 
@@ -9,6 +14,12 @@ super + d
 # r@fi light
 super + x
 	rofi -show drun
+
+# brightnessctl keyboard
+XF86MonBrightnessUp
+	brightnessctl set +10%
+XF86MonBrightnessDown
+	brightnessctl set 10%-
 
 # make sxhkd reload its configuration files: 
 super + Escape 
@@ -43,7 +54,7 @@ super + alt + {m,x,y,z}
 
 ###################################################################################  
 ## Reload sxhkdrc 
-super + shift + r 
+super + alt + r 
     pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config' 
 
 ################################################################################### 
@@ -126,41 +137,43 @@ super + ctrl + {Left,Down,Up,Right}
 alt + super + {Left,Down,Up,Right}
 	$HOME/.config/bspwm/scripts/bspwm_resize {west,south,north,east} 
 
-# SPECIALKEYS Brightness
-XF86MonBrightness{Up,Down} 
- xbacklight -{inc,dec} 5 &  
 
-XF86MonBrightness{Up,Down}  
-  brightnessctl s 10{+,-}  
- 
-# --------------------------------------------- 
 # CUSTOM 
 # --------------------------------------------- 
+# Dolphin
+super + e
+	dolphin
 
 # Google-Chrome  
 super alt + g 
 	google-chrome
+
 # firefox
 super alt + f
 	firefox
+
 # Burpsuite 
 super + alt + b 
 	burpsuite
+
 # Color Picker
 super + alt + c
 	$HOME/.config/bspwm/scripts/c@l@r_picker
+
 # Polybar
 super + alt + p
-	$HOME/.config/polybar/launch
+	sh ~/.config/polybar/themes/4tz1/launch
+
 # Kill Polybar
+super + alt + o
+	sudo killall polybar
+
+# Lab htb
+super + alt + v
+	sudo openvpn ~/d35kT@p/h7B/vp3n3s/lab_47z1Lu7h.ovpn &
+	disown
+
+# Kill openOvpn
 super + alt + k
 	sudo killall openvpn
-# Dolphin
-super + e
-	dolphin
-# Openvpn
-super + alt + v
-	sudo openvpn $HOME/d35Kt@p/h7B/vp3n3s/47z1.ovpn
-# Preferences
-super + alt + h
-	systemsettings5
+
