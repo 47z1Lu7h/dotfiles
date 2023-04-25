@@ -391,7 +391,7 @@ echo -ne "\t${red}${bold}<|[!]|> ${cyan}Are you sure you want to ${red}continue?
 read answer
 
 if [ "$answer" != "${answer#[Yy]}" ]; then
-	if cat /etc/*release | grep "^NAME" | grep -Ei "11Kali" > /dev/null; then
+	if cat /etc/*release | grep "^NAME" | grep -Ei "Kali" > /dev/null; then
 
 		echo -e "${blue}${bold}======================================================================== "
 		echo -e "${blue}${bold}     -|-|-|-|- ${cyan}Installing package for ${red}Kali ${cyan}distribution ${blue}-|-|-|-|-"
