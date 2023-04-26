@@ -21,12 +21,6 @@
 # by  ░░░▒░▒▒ ░ ░░▒░  ░░░ ▒ ▒ ░▒░  47z!Lu7h  ░▒ ░▒ ░░▒ ░▒░▒ ░░░░▒ ░▒ ███▒░▒▒░  :) ░ #
 #####################################################################################
 
-if [ -f ~/.zsh/bindkeys ]; then
-	source ~/.zsh/bindkeys
-else
-	print "404: ~/.zsh/bindkeys not found."
-fi
-
 if [ -f ~/.zsh/aliases ]; then
 	source ~/.zsh/aliases
 else
@@ -36,7 +30,7 @@ fi
 if [ -f ~/.zsh/functions ]; then
 	source ~/.zsh/functions
 else
-	print "404: ~/.zsh/functions not found."
+	print "${red} 404: ~/.zsh/functions not found."
 fi
 
 if [ -f ~/.zsh/antigen.zsh ]; then
@@ -44,6 +38,13 @@ if [ -f ~/.zsh/antigen.zsh ]; then
 else
 	print "404: ~/.zsh/antigen.zsh not found."
 fi
+
+if [ -f ~/.zsh/bindkeys ]; then
+	source ~/.zsh/bindkeys
+else
+	echo -ne "\n\n\t${red}404!! ~~> ~/.zsh/bindkeys not found."
+fi
+
 
 source ~/.zsh/plugins/sudo.plugin.zsh/sudo.plugin.zsh
 
@@ -56,14 +57,27 @@ export WORDCHARS='.-'
 	# - Keep 900000  lines of history within the shell and save it to ~/.zsh_history:
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 HISTSIZE=9000000
-SAVEHIST=9000000
+SAVEHIST=${HISTSIZE}
 
 	# - Job Control
-unsetopt	INC_APPEND_HISTORY		# Write to the history file immediately, not when the shell exits.
 unsetopt	listambiguous
 setopt		appendhistory
-setopt		SHARE_HISTORY			# Share history between all sessions.
 setopt		menu_complete
+
+setopt BANG_HIST                 # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY             # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
+#setopt HIST_BEEP                 # Beep when accessing nonexistent history.
+
 #setopt		notify
 #setopt		auto_list
 #setopt		autocd				# change directory just by typing its name
@@ -74,20 +88,41 @@ setopt		menu_complete
 #setopt		notify				# report the status of background jobs immediately
 #setopt		numericglobsort			# sort filenames numerically when it makes sense
 #setopt		promptsubst			# enable command substitution in prompt
-#setopt		BANG_HIST               	# Treat the '!' character specially during expansion.
-setopt		EXTENDED_HISTORY	        # Write the history file in the ":start:elapsed;command" format.
-#setopt		HIST_EXPIRE_DUPS_FIRST    	# Expire duplicate entries first when trimming history.
-setopt		HIST_IGNORE_DUPS          	# Don't record an entry that was just recorded again.
-setopt		HIST_IGNORE_ALL_DUPS      	# Delete old recorded entry if new entry is a duplicate.
-setopt		HIST_FIND_NO_DUPS        	# Do not display a line previously found.
-#setopt 	HIST_IGNORE_SPACE       	# Don't record an entry starting with a space.
-#setopt 	HIST_SAVE_NO_DUPS		# Don't write duplicate entries in the history file.
-#setopt 	HIST_REDUCE_BLANKS        	# Remove superfluous blanks before recording entry.
-#setopt 	HIST_VERIFY               	# Don't execute immediately upon history expansion.
-#setopt 	HIST_BEEP                 	# Beep when accessing nonexistent history.
+
+	# - To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f /$HOME/.p10k.zsh ]] && source /$HOME/.p10k.zsh
+	# - To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+	 # - Take off rubbish of p10k
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+
+	# - Display last command
+echo -en "\e]2;   \a"
+preexec () { print -Pn "\e]0;$1 -  \a" }
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+zmodload zsh/complist
+function accept-and-complete-next-history() {
+    zle expand-or-complete-prefix
+}
+
+zmodload zsh/complist
+
+source	~/.antigen/bundles/zsh-users/zsh-completions
+
+# Load Git completion
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+fpath=(~/.zsh $fpath)
+
+autoload -Uz compinit && compinit
 
 zle -N zle-keymap-select
-autoload -Uz +X compinit && compinit
+
+#autoload -Uz +X compinit && compinit
 autoload -Uz +X bashcompinit && bashcompinit
 autoload -Uz +X promptinit && promptinit
 zmodload -i zsh/complist
@@ -126,6 +161,7 @@ down-line-or-local-history() {
     zle set-local-history 0
 }
 zle -N down-line-or-local-history
+
 
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
@@ -170,30 +206,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # zstyle ':autocomplete:history-search-backward:*'	list-lines 16
 # Override history search.
 # zstyle ':autocomplete:history-incremental-search-backward:*' list-lines 16
-
-	# - Completion
-zmodload zsh/complist
-function accept-and-complete-next-history() {
-    zle expand-or-complete-prefix
-}
-
-zmodload zsh/complist
-
-	# - To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f /$HOME/.p10k.zsh ]] && source /$HOME/.p10k.zsh
-	# - To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-	 # - Take off rubbish of p10k
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-
-	# - Display last command
-echo -en "\e]2;   \a"
-preexec () { print -Pn "\e]0;$1 -  \a" }
-
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 ##################################################
  ###  ~~~~~~~~~~~~~~~~ Plugins ~~~~~~~~~~~~   ###

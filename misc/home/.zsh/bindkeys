@@ -32,7 +32,7 @@ bindkey '^[[5~'                 beginning-of-buffer-or-history          # page u
 bindkey '^[z'                   undo                                    # [ Alt + z ] => Undo last action
 bindkey -s '^[i' '|grep -Ei "'                                          # [ Alt + g ] => Pipes to grep
 bindkey -s '^[o' '|xclip -sel clip\n'                                   # [ Alt + o ] => Saves to clipboard
-bindkey -s '^[p' '|less | batcat -l'                                    # [ Alt + p ] => Pipes to less
+bindkey -s '^[p' '|less | batcat -ljava\n'				# [ Alt + p ] => Pipes to less
 
 bindkey '\e ' autosuggest-accept
 

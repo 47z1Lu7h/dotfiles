@@ -138,6 +138,8 @@ function main(){
 function code_deb() {
 	tput cnorm
 
+	echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}--> \n\n"
+	sleep 2
 	sudo apt-get install wget gpg &&
 	wget -qO- "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > packages.microsoft.gpg
 	if [ $? -eq 0 ]; then
@@ -169,6 +171,8 @@ function code_deb() {
 function code_fed() {
 	tput cnorm
 
+	echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installin VS Code ${end}${cyan}--> \n\n"
+	sleep 2
 	sudo rpm --import "https://packages.microsoft.com/keys/microsoft.asc" &&
 	sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 	if [ $? -eq 0 ]; then

@@ -406,6 +406,14 @@ function extractPorts(){
 	cat extractPorts.tmp; rm extractPorts.tmp
 }
 
+function set-api_token-htbXplorer() {
+	echo -e "\n  ~ Enter your HTB API_TOKEN:"
+	read API;
+	sudo sed -i 's/declare -r API_TOKEN=".*"/declare -r API_TOKEN="'$API'"/g' /opt/h4Ck/htbXplorer-Plus/htbXplorer
+	sleep 1
+	echo -ne "\n\t ~ Done!!\n\n"
+}
+
 function set-dpi_polybar-bspwm() {
 	dpi=$(cat ~/.config/polybar/themes/4tz1/config.ini | grep dpi | head -1)
 	echo -e "  ~ Current $dpi   \n  ~ Enter a new DPI to resice Polybar:"
@@ -435,7 +443,7 @@ function set-default_background_bspwm() {
 }
 
 function tun0()	{
-	echo -n "\t\n $(ip a | grep tun0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/') \n\n"
+	echo -n "$(ip a | grep tun0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/') "
 }
 function eth() {
 	ip a | grep eth0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/'
@@ -456,5 +464,4 @@ function rrf() {
 	shred -zun 10 -v $1 }
 
 matrix() { echo -e "\e[1;40m" ; clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|awk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4;        letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}' }
-
 

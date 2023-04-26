@@ -10,5 +10,5 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 ## Bar5!
 
-polybar left  -c ~/.config/polybar/themes/plasma.ini &
-polybar right -c ~/.config/polybar/themes/plasma.ini &
+polybar left  -c ~/.config/polybar/themes/bottom/plasma/config.ini &
+polybar right -c ~/.config/polybar/themes/bottom/plasma/config.ini &

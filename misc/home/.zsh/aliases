@@ -28,7 +28,7 @@ if [ -x /usr/bin/dircolors ]; then
 	alias llt='lsd -lha --tree --group-dirs=first'
 	alias diff="diff --color=always --palette='ad=1;3;38;5;154:de=1;3;38;5;9'"
 	alias ip4='ip --color=auto a'
-	alias c='/usr/bin/batcat'
+	alias c='/usr/bin/batcat -ljava'
 	alias catnl= '/usr/bin/batcat --paging=never'
 
 	export LESS='-R --use-color -Dd+r$Du+b'
@@ -54,14 +54,14 @@ alias	ki='kitty +kitten icat'
 alias	theme-47z1='kitty -c ~/.config/kitty/configs/47z1.conf & disown'
 alias	theme-hack='kitty -c ~/.config/kitty/configs/hack.conf & disown'
 alias	set-backgroung='feh --bg-fill $1'
+alias	set-0wner='sudo chown $USER:$USER .'
+alias	mkl='mkdir nmap content exploits'
+alias	htb-Xpl@r3r='sudo /opt/h4Ck/htbXplorer-Plus/htbXplorer $1 $2 $3'
 
-alias mkl='mkdir nmap content exploits'
-alias htb-Xpl@r3r='sudo /opt/h4Ck/htbXplorer-Plus/htbXplorer $1 $2 $3'
-
-alias p@ly='bash ~/.config/polybar/launch'
-alias p@ly-plasma='bash ~/.config/polybar/plasma'
-alias k1ll_p@ly='sudo killall polybar'
-alias c@l@r-p1Ck3r='bash ~/.config/bspwm/scripts/c@l@r_P1Ck3r'
+alias	p@ly='bash ~/.config/polybar/themes/4tz1/launch'
+alias	p@ly-plasma='bash ~/.config/polybar/themes/plasma/launch'
+alias	k1ll_p@ly='sudo killall polybar'
+alias	c@l@r-p1Ck3r='bash ~/.config/bspwm/scripts/c@l@r_P1Ck3r'
 
 alias upd4t1N6='sudo apt update'
 alias up654D1N6='sudo apt update && sudo apt upgrade -y'

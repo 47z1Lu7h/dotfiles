@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IFACE=$(/usr/sbin/ifconfig  | grep -Ei "wlan|ens33|ens36|emp0s3" | awk '{print $1}')
+IFACE=$(/usr/sbin/ifconfig  | grep -Ei "wlan|eth0|ens33|ens36|emp0s3" | awk '{print $1}')
 IP=$(/usr/sbin/ifconfig |  grep -Ei "wlan|eth0|ens33|ens36|emp0s3"  | grep "inet 192")
 
 if [ "$IFACE" = "wlan0:" ]; then
