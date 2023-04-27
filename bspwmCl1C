@@ -23,7 +23,7 @@ if test -t 1; then
 fi
 
 # --> Globals
-declare -r packages_Deb="linux-headers-$(uname -r) zsh bspwm sxhkd polybar rofi picom kitty git cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli xbacklight brightnessctl qt5ct jsbeautifier lxappearance "
+declare -r packages_Deb="linux-headers-$(uname -r) zsh bspwm sxhkd polybar rofi picom kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli xbacklight brightnessctl qt5ct jsbeautifier lxappearance "
 
 declare -r dpnDeb_Bspwm="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
 declare -r dpnDeb_Poly="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev"
@@ -65,12 +65,12 @@ function main(){
 	echo -ne "\n\n${bold}${red}<|[+]|> ${cyan}Installing ${red}Main ${cyan}package ${red}~> ${cyan} \n\n"
 	sleep 2
 		# -->  Fonts
-#	echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Downloading Fonts ${end}${cyan}--> \n\n"
-#	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Iosevka.zip" -O  Iosevka.zip  &&
-#	unzip  Iosevka.zip -d ~/.local/share/fonts && rm -rf  Iosevka.zip && fc-cache -v
+	echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Downloading Fonts ${end}${cyan}--> \n\n"
+	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Iosevka.zip" -O  Iosevka.zip  &&
+	unzip  Iosevka.zip -d ~/.local/share/fonts && rm -rf  Iosevka.zip && fc-cache -v
 	if [ $? -eq 0 ]; then
-#		echo -ne "\n\t\t${bold}${red} ~!~!~!~  ${yellow}Fonts done!   ${red}~!~!~!~\n\n\n"
-#		sleep 2
+		echo -ne "\n\t\t${bold}${red} ~!~!~!~  ${yellow}Fonts done!   ${red}~!~!~!~\n\n\n"
+		sleep 2
 			# -->  Zsh plugins
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning zsh-autocomplete plugin ${cyan} -->\n\n\n"
 		sleep 2 && rm -rf ~/.zsh && mkdir -p ~/.zsh/plugins && git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" ~/.zsh/plugins/zsh-autocomplete
@@ -88,11 +88,11 @@ function main(){
 					rm -rf ~/.config/bspwm ~/.config/sxhkd/ ~/.config/picom ~/.config/polybar ~/.config/rofi && cp -r config/* ~/.config/
 					if [ $? -eq 0 ]; then
 						echo -ne "\n${bold}${red}>> ${yellow}Config folders done${red}!!!\n\n"
-						sleep 2 && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan}\n" && sleep 2 && cp -r misc/home/.?* $HOME 
+						sleep 2 && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan}\n" && sleep 2 && cp -r misc/home/.?* ~/.
 						if [ $? -eq 0 ]; then
 							echo -ne "\n${bold}${red}>> ${yellow}Files done${red}!!!\n\n"
 							sleep 2 && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting zsh default shell ${cyan}\n"
-							sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root
+							sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root  sudo ln -s -f $HOME/.zsh_history /root
 							if [ $? -eq 0 ]; then
 								echo -ne "\n\n${bold}${red}<|[~]|> ${yellow}All config done${red}!!! ${cyan}:~D\n\n\n" && sleep 1 && sleep 2
 							else
@@ -111,12 +111,10 @@ function main(){
 				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting sudo.plugin ${red}${standout}: /${end}${end}\n\n\n" && sleep 1 && exit 1
 			fi
 		else
-			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${standout}: /${end}${end}\n\n\n"
-			exit 1
+			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${standout}: /${end}${end}\n\n\n" && sleep 1 && exit 1
 		fi
 	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading Iosevka font ${red}${standout} :/${end}${end}\n\n\n"
-		exit 1
+		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading Iosevka font ${red}${standout} :/${end}${end}\n\n\n" && sleep 1 && exit 1
 	fi
 
 	tput civis
@@ -127,8 +125,7 @@ function code_deb() {
 
 	echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}--> \n\n"
 	sleep 2
-	sudo apt-get install wget gpg &&
-	wget -qO- "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > packages.microsoft.gpg
+	sudo apt-get install wget gpg && wget -qO- "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > packages.microsoft.gpg
 	if [ $? -eq 0 ]; then
 		sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 		sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
@@ -140,16 +137,13 @@ function code_deb() {
 				code & disown; sleep 3 && sudo killall code && cp -r misc/code/user/* ~/.config/Cod*/User/
 				echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}VS d4Rk-Code done!   ${red}~!~!~!~\n\n"
 			else
-				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}${end}\n"
-				exit 1
+				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
 			fi
 		else
-			echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}${end}\n"
-			exit 1
+			echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
 		fi
 	else
-		echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}${end}\n"
-		exit 1
+		echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
 	fi
 
 	tput civis
@@ -334,8 +328,7 @@ function htb-Xplorer(){
 #--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 if [ "$EUID" == 0 ];then
-	echo -e "\n\n\t${bold}${red}<|[!]|[!]|> ${cyan}You do not to be ${red}root ${cyan}to execute this script ${standout}${red}; )${end}\n\n"
-	exit
+	echo -e "\n\n\t${bold}${red}<|[!]|[!]|> ${cyan}You do not to be ${red}root ${cyan}to execute this script ${standout}${red}; )${end}\n\n" && sleep 1 && exit
 fi
 
 banner
@@ -392,7 +385,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!! ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 		fi
 
-	elif cat /etc/*release | grep "^NAME" | grep -Ei "Parrot" > /dev/null; then
+	elif cat /etc/*release | grep "^NAME" | grep -Ei "arrot" > /dev/null; then
 
 		echo -e "${blue}${bold}======================================================================== "
 		echo -e "${blue}${bold}   -|-|-|-|- ${cyan}Installing package for ${red}Parrot OS ${cyan}distribution ${blue}-|-|-|-|-"
@@ -406,7 +399,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 			if [ $? -eq 0 ]; then
 				htb-Xplorer && code_deb
 				if [ $? -eq 0 ]; then
-					nvim && lsd_deb 
+					nvim && lsd_deb
 					echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting Mozilla and Code theme${cyan}\n"
 					sleep 2 && firefox-esr & disown; sleep 3 && sudo killall firefox-esr && cp -r misc/chrome ~/.mozilla/*default-esr/
 					if [ $? -eq 0 ]; then
@@ -418,8 +411,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 							\n\t${blue}~ For dark theme Firefox, open it & type:\
 							\n\n\t${bold}${white}<${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${white}>${blue}, \
 							and set it to ${cyan}True${blue}.${end}${end}\n"
-							sleep 1 && echo -ne "\n\n\n${bold}${red}-----/-/-/-/-/-/-/-/--->>${yellow} Try reboot and select \
-							${red}Bspwm ${yellow}as desktop evironment. ${red}Enjoy${yellow}!! ;) ${red} <--\-\-\-\-\-\------${end}${end}${end}\n\n\n" && sleep 2
+							sleep 1 && echo -ne "\n\n\n${bold}${red}-----/-/-/-/-/-/-/-/--->>${yellow} Try reboot and select ${red}Bspwm ${yellow}as desktop evironment. ${red}Enjoy${yellow}!! ;) ${red} <--\-\-\-\-\-\------${end}${end}${end}\n\n\n" && sleep 2
 						else
 							echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 						fi
@@ -430,12 +422,10 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with cloning htb-Xplorer repo ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 				fi
 			else
-				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages \
-				${standout}${red}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
+				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 			fi
 		else
-			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!! \
-			${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
+			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!! ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 		fi
 
 
@@ -466,54 +456,38 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 								\n\t${bold}${blue}~ Open a terminal & type ${bold}${cyan}nvim ${blue}to finish its configuration.\n \
 								\n\t${blue}~ For dark theme Firefox, open it & type:\
 								\n\n\t${bold}${blue}<${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${blue}>${blue}, and set it to ${cyan}True${blue}.${end}${end}\n"
-								sleep 1 && echo -ne "\n\n\n${bold}${red}---¡-¡-¡-¡-¡-¡-¡-¡-¡--->>${yellow} Try reboot and select ${red}Bspwm ${yellow}as desktop evironment. ${red}Enjoy${yellow}!! ;) ${red}<<--!-!-!-!-!-!-!-!-!-!-!---${end}${end}${end}\n\n\n"
-								sleep 2
+								sleep 1 && echo -ne "\n\n\n${bold}${red}---¡-¡-¡-¡-¡-¡-¡-¡-¡--->>${yellow} Try reboot and select ${red}Bspwm ${yellow}as desktop evironment. ${red}Enjoy${yellow}!! ;) ${red}<<--!-!-!-!-!-!-!-!-!-!-!---${end}${end}${end}\n\n\n" && sleep 2 && exit 1
 							else
 								echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad installing firefox-esr ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2
 								exit 1
 							fi
 						else
-							echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad Installing firefox-esr ${red}${standout}:/ ${end}${end}\n\n\n"
-							sleep 2
-							exit 1
+							echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad Installing firefox-esr ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 						fi
 					else
-						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with nvim package ${red}${standout}:/ ${end}${end}\n\n\n"
-						sleep 2
-						exit 1
+						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with nvim package ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 					fi
 				else
-					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with cloning htb-Xplorer repo || getting Vscode ${red}${standout}:/ ${end}${end}\n\n\n"
-					sleep 2
-					exit 1
+					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with cloning htb-Xplorer repo || getting Vscode ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 				fi
 			else
-				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}${end}\n\n\n"
-				sleep 2
-				exit 1
+				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 			fi
 		else
-			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!! ${red}${standout}:/ ${end}${end}\n\n\n"
-			sleep 2
-			exit 1
+			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!! ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 		fi
 
 
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Arch" > /dev/null; then
 
-		echo -e "\n\n\t${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n"
-		sleep 2
+		echo -e "\n\n\t${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 2 && exit 1
 
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Fedora" > /dev/null; then
 
-		echo -e "\n\n\t${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Fedora ${cyan}Distro ${end}${blue}======= \n\n"
-		sleep 2
-
+		echo -e "\n\n\t${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Fedora ${cyan}Distro ${end}${blue}======= \n\n" && sleep 2 && exit 1
 	else
-		sleep 2
-		echo -ne "\n\t${bold}${red}<|[!]|> ${blue}Sorry, this ${red}OS ${blue}is ${white}Yet ${red}not ${blue}supported!! ${standout}${red}:~(${end}\n\n\n"
+		echo -ne "\n\t${bold}${red}<|[!]|> ${blue}Sorry, this ${red}OS ${blue}is ${white}Yet ${red}not ${blue}supported!! ${standout}${red}:~(${end}\n\n\n" && sleep 2 && sleep 1
 	fi
 else
-	sleep 1
-	echo -ne "\n\n\t${bold}${yellow}~~~~~~~~~   ${red}< ${cyan}< ${red}< ${yellow}| ${cyan}[ ${red}~ ${yellow}By3 ${red}~ ${cyan}] ${yellow}| > ${cyan}> ${red}>   ${yellow}~~~~~~~~~\n\n\n"
+	echo -ne "\n\n\t${bold}${yellow}~~~~~~~~~   ${red}< ${cyan}< ${red}< ${yellow}| ${cyan}[ ${red}~ ${yellow}By3 ${red}~ ${cyan}] ${yellow}| > ${cyan}> ${red}>   ${yellow}~~~~~~~~~\n\n\n"  && sleep 1 && sleep 1 && 
 fi
