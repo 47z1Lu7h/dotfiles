@@ -29,11 +29,14 @@ bindkey '^[[A'                  up-line-or-history                      # [Arrow
 bindkey '^[[B'                  down-line-or-history                    # [Arrow Down]
 bindkey '^[[6~'                 end-of-buffer-or-history                # page down
 bindkey '^[[5~'                 beginning-of-buffer-or-history          # page up
-bindkey '^[z'                   undo                                    # [ Alt + z ] => Undo last action
-bindkey -s '^[i' '|grep -Ei "'                                          # [ Alt + g ] => Pipes to grep
-bindkey -s '^[o' '|xclip -sel clip\n'                                   # [ Alt + o ] => Saves to clipboard
-bindkey -s '^[p' '|less | batcat -ljava\n'				# [ Alt + p ] => Pipes to less
 
+bindkey '^[z'                   undo                                    # [ Alt + z ] => Undo last action
+bindkey -s '^[i' '|grep -Ei "'                                          # [ Alt + g ] => Pipes to grep + search
+bindkey -s '^[o' '|xclip -sel clip\n'                                   # [ Alt + o ] => Saves to clipboard
+bindkey -s '^[p' '|less | batcat -ljava\n'				# [ Alt + p ] => Pipes to less & batcat java colors
+bindkey -s '^[l' 'lsd --tree --group-dirs=first  --depth='		# [ Alt + l ] => Lsd --tree + defined depth
+bindkey -s '^[k' 'lsd -lha --tree --group-dirs=first  --depth='		# [ Alt + k ] => Lsd -la --tree + defined depth
+ 
 bindkey '\e ' autosuggest-accept
 
 # By default, pressing Enter in the menu search exits the search \

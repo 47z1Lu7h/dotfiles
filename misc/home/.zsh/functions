@@ -415,21 +415,21 @@ function set-api_token-htbXplorer() {
 }
 
 function set-dpi_polybar-bspwm() {
-	dpi=$(cat ~/.config/polybar/themes/4tz1/config.ini | grep dpi | head -1)
+	dpi=$(cat ~/.config/polybar/themes/bottom/4tz1/config.ini | grep dpi | head -1)
 	echo -e "  ~ Current $dpi   \n  ~ Enter a new DPI to resice Polybar:"
 	read NEW_DPI;
 	new_dpi="dpi = ${NEW_DPI}"
-	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/4tz1/config.ini
+	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/bottom/4tz1/config.ini
 	echo -ne "\t~ Setting $new_dpi in config.ini \n\t~ Just press 'ctrl+alt+p' to restart polybar\n\n"
 	sleep 1
 }
 
 function set-dpi-polybar-plasma() {
-	dpi=$(cat ~/.config/polybar/themes/plasma/config.ini | grep dpi | head -1)
+	dpi=$(cat ~/.config/polybar/themes/bottom/plasma/config.ini | grep dpi | head -1)
 	echo -e "  - Current $dpi   \n  - Enter a new DPI to resice Polybar:"
 	read NEW_DPI;
 	new_dpi="dpi = ${NEW_DPI}"
-	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/plasma/config.ini
+	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/bottom/plasma/config.ini
 	echo -ne "\t~ Setting $new_dpi in plasma.ini \n\t~ Just press 'ctrl+alt+p' to restart polybar\n\n"
 	sleep 1
 }
