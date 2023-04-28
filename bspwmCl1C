@@ -66,8 +66,8 @@ function main(){
 	sleep 2
 		# -->  Fonts
 	echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Downloading Iosevka Font ${end}${cyan}--> \n\n"
-#	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Iosevka.zip" -O  Iosevka.zip  &&
-#	unzip  Iosevka.zip -d ~/.local/share/fonts && rm -rf  Iosevka.zip && fc-cache -v
+	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Iosevka.zip" -O  Iosevka.zip  &&
+	unzip  Iosevka.zip -d ~/.local/share/fonts && rm -rf  Iosevka.zip && fc-cache -v
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\t\t${bold}${red} ~!~!~!~  ${yellow}Fonts done!   ${red}~!~!~!~\n\n\n" && sleep 2
 			# -->  Zsh plugins
@@ -87,7 +87,7 @@ function main(){
 					rm -rf ~/.config/bspwm ~/.config/sxhkd/ ~/.config/picom ~/.config/polybar ~/.config/rofi && cp -r config/* ~/.config/ && cp -r misc/home/.?* ~ &&
 					sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
 					if [ $? -eq 0 ]; then
-						sleep 2 && echo -ne "\n\n${bold}${red}<|[~]|> ${yellow}All config done${red}!!! ${cyan}:~D\n\n\n" && sleep 1 && sleep 2
+						sleep 2 && echo -ne "\n\n${bold}${red}<|[~]|> ${yellow}All config done${red}!!! ${cyan}:D\n\n\n" && sleep 2
 					else
 						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad coping files ${red}${standout}: /${end}${end}\n\n\n" && sleep 1 && exit 1
 					fi
@@ -337,15 +337,15 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 		echo -e "${blue}${bold}======================================================================== "
 
 		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System ${cyan}--> \n\n"
-#		sleep 2 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
+		sleep 2 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
 		if [ $? -eq 0 ]; then
-#			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan} --> \n\n\n"
-#			sleep 2 && sudo apt install -y $packages_Deb lsd && sudo apt autoremove -y
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan} --> \n\n\n"
+			sleep 2 && sudo apt install -y $packages_Deb lsd && sudo apt autoremove -y
 			if [ $? -eq 0 ]; then
-#				htb-Xplorer && code_deb
+				htb-Xplorer && code_deb
 				if [ $? -eq 0 ]; then
-#					nvim && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting Mozilla and Code theme${cyan}\n"
-#					sleep 2 && firefox-esr & disown; sleep 3 && sudo killall firefox-esr && cp -r misc/chrome ~/.mozilla/firefox/*default-esr/
+					nvim && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting Mozilla and Code theme${cyan}\n"
+					sleep 2 && firefox-esr && sleep 3 && sudo killall firefox-esr && sleep 2 && cp -r misc/chrome ~/.mozilla/firefox/*default-esr/
 					if [ $? -eq 0 ]; then
 						echo -ne "\n${bold}${red}>> ${yellow}Themes done${red}!!!\n\n"
 						sleep 2 && main
@@ -387,7 +387,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 				if [ $? -eq 0 ]; then
 					nvim && lsd_deb
 					echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting Mozilla and Code theme${cyan}\n"
-					sleep 2 && firefox-esr & disown; sleep 3 && sudo killall firefox-esr && cp -r misc/chrome ~/.mozilla/*default-esr/
+					sleep 2 && firefox-esr & disown; sleep 3 && sudo killall firefox-esr && sleep 2 && cp -r misc/chrome ~/.mozilla/*default-esr/
 					if [ $? -eq 0 ]; then
 						echo -ne "\n${bold}${red}>> ${yellow}Themes done${red}!!!\n\n"
 						sleep 2 && main
@@ -433,7 +433,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 					if [ $? -eq 0 ]; then
 						echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr & setting dark theme${cyan}! \n"
 						sleep 2 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr
-						sleep 2 && firefox-esr & disown; sleep 3 && sudo killall firefox-esr && cp -r misc/chrome ~/.mozilla//*default-esr/
+						sleep 2 && firefox-esr & disown; sleep 3 && sudo killall firefox-esr && sleep 2 && cp -r misc/chrome ~/.mozilla/*default-esr*/
 						if [ $? -eq 0 ]; then
 							echo -ne "\n${bold}${red}>> ${yellow}Firefox-esr dark theme done${red}!!!\n\n"
 							sleep 2 && main
@@ -442,7 +442,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 								\n\t${bold}${blue}~ Open a terminal & type ${bold}${cyan}nvim ${blue}to finish its configuration.\n \
 								\n\t${blue}~ For dark theme Firefox, open it & type:\
 								\n\n\t${bold}${blue}<${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${blue}>${blue}, and set it to ${cyan}True${blue}.${end}${end}\n"
-								sleep 1 && echo -ne "\n\n\n${bold}${red}---¡-¡-¡-¡-¡-¡-¡-¡-¡--->>${yellow} Try reboot and select ${red}Bspwm ${yellow}as desktop evironment. ${red}Enjoy${yellow}!! ;) ${red}<<--!-!-!-!-!-!-!-!-!-!-!---${end}${end}${end}\n\n\n" && sleep 2 && exit 1
+								sleep 1 && echo -ne "\n\n\n${bold}${red} ---/-/-/-/--->>${yellow} Try reboot and select ${red}Bspwm ${yellow}as desktop evironment. ${red}Enjoy${yellow}!! ;) ${red}} <--\-\-\-\---${end}\n\n\n" && sleep 2 && exit 1
 							else
 								echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad installing firefox-esr ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2
 								exit 1
