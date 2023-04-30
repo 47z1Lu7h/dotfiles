@@ -19,7 +19,7 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 feh --bg-fill ~/.wallpapers/netBlue.jpg
-$HOME/.config/polybar/themes/bottom/4tz1/launch
+polybar -q bottom -c ~/.config/polybar/themes/bottom/47z1.ini
 picom --experimental-backends --config $HOME/.config/picom/picom.conf &
 xsetroot -cursor_name left_ptr &
 

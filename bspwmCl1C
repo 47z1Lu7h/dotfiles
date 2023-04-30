@@ -61,31 +61,27 @@ function ctrl_c(){
 	# --> Fonts, Zsh stuff & cp dotfiles
 function main(){
 	tput cnorm
-
 	echo -ne "\n\n${bold}${red}<|[+]|> ${cyan}Installing ${red}Main ${cyan}package ${red}~> ${cyan} \n\n"
 	sleep 2
 		# -->  Fonts
-	echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Downloading Iosevka Font ${end}${cyan}--> \n\n"
+	echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Getting fonts $ icons ${end}${cyan}--> \n\n"
 	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Iosevka.zip" -O  Iosevka.zip  &&
-	unzip  Iosevka.zip -d ~/.local/share/fonts && rm -rf  Iosevka.zip && fc-cache -v
+	unzip  Iosevka.zip -d ~/.local/share/fonts && rm -rf  Iosevka.zip && fc-cache - &&
+	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O icons.zip &&
+	unzip icons.zip -d  ~/.local/share/icons && rm -rf icons.zip
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t\t${bold}${red} ~!~!~!~  ${yellow}Fonts done!   ${red}~!~!~!~\n\n\n" && sleep 2
+		echo -ne "\n\t\t${bold}${red} ~!~!~!~  ${yellow}Fonts & icons done!   ${red}~!~!~!~\n\n\n" && sleep 2
 			# -->  Zsh plugins
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning zsh-autocomplete plugin ${cyan} -->\n\n\n"
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning zsh plugins ${cyan} -->\n\n\n"
 		sleep 2 && rm -rf ~/.zsh && mkdir -p ~/.zsh/plugins && git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" ~/.zsh/plugins/zsh-autocomplete
 		if [ $? -eq 0 ]; then
-			echo -ne "\n${bold}${red}>> ${yellow}autocomplete plugin done${red}!!!\n\n"
-			echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning sudo.plugin.zsh ${cyan} -->\n\n\n"
-			sleep 2 && wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P ~/.zsh/plugins/sudo.plugin.zsh
+			wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P ~/.zsh/plugins/sudo.plugin.zsh
 			if [ $? -eq 0 ]; then
-				echo -ne "\n${bold}${red}>> ${yellow}Sudo plugin done${red}!!!\n\n"
-				sleep 2 && echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${blue}Cloning antigen plugin manager ${cyan} -->\n\n"
 				curl -L git.io/antigen > ~/.zsh/antigen.zsh
 				if [ $? -eq 0 ]; then
-					echo -ne "\n${bold}${red}>> ${yellow}Antigen done${red}!!!\n\n" &&
+					echo -ne "\n${bold}${red}>> ${yellow}All Plugins done${red}!!!\n\n" &&
 					sleep 2 && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan}\n\n" &&
-					rm -rf ~/.config/bspwm ~/.config/sxhkd/ ~/.config/picom ~/.config/polybar ~/.config/rofi && cp -r config/* ~/.config/ && cp -r misc/home/.?* ~ &&
-					sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
+					cp -r config/* ~/.config/ && cp -r misc/home/.?* ~ && sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
 					if [ $? -eq 0 ]; then
 						sleep 2 && echo -ne "\n\n${bold}${red}<|[~]|> ${yellow}All config done${red}!!! ${cyan}:D\n\n\n" && sleep 2
 					else
@@ -121,7 +117,7 @@ function code_deb() {
 			sudo apt install apt-transport-https
 			sudo apt update && sudo apt install code
 			if [ $? -eq 0 ]; then
-				code & disown; sleep 3 && sudo killall code && cp -r misc/code/user/* ~/.config/Cod*/User/
+				code & sleep 5 && sudo killall code && cp -r misc/code/user/* ~/.config/Cod*/User/
 				echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}VS d4Rk-Code done!   ${red}~!~!~!~\n\n"
 			else
 				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
@@ -144,7 +140,7 @@ function code_fed() {
 	sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 	if [ $? -eq 0 ]; then
 		dnf check-update && sudo dnf install code
-		code & disown; sleep 3 && sudo killall code && cp -r misc/code/user/* ~/.config/Cod*/User/		
+		code & disown; sleep 3 && sudo killall code && cp -r misc/code/user/* ~/.config/Cod*/User/
 		echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}VS Code done!   ${red}~!~!~!~\n\n" && sleep 2
 	else
 		echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
@@ -344,7 +340,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 			if [ $? -eq 0 ]; then
 				htb-Xplorer && code_deb
 				if [ $? -eq 0 ]; then
-					nvim && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting Mozilla and Code theme${cyan}\n"
+					nvim && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting Mozilla theme${cyan}\n"
 					sleep 2 && firefox-esr && sleep 3 && sudo killall firefox-esr && sleep 2 && cp -r misc/chrome ~/.mozilla/firefox/*default-esr/
 					if [ $? -eq 0 ]; then
 						echo -ne "\n${bold}${red}>> ${yellow}Themes done${red}!!!\n\n"
@@ -354,7 +350,7 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 							\n\t${bold}${blue}~ Open a terminal & type ${bold}${cyan}nvim ${blue}to finish its configuration.\n \
 							\n\t${blue}~ For dark theme Firefox, open it & type:\
 							\n\n\t${bold}${white}<${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${white}>${blue}, and set it to ${cyan}True${blue}.${end}${end}\n"
-							sleep 1 && echo -ne "\n\n\n${bold}${red} ---/-/-/-/--->>${yellow} Try reboot and select ${red}Bspwm ${yellow}as desktop evironment. ${red}Enjoy${yellow}!! ;) ${red}<<---\-\-\-\----${end}${end}${end}\n\n\n" && sleep 2	
+							sleep 1 && echo -ne "\n\n\n${bold}${red} ---/-/-/-/--->>  ${yellow} Try reboot and select ${red}Bspwm ${yellow}as desktop evironment. ${red}Enjoy${yellow}!! ;) ${red}<<---\-\-\-\----${end}${end}${end}\n\n\n" && sleep 2	
 						else
 							echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 						fi

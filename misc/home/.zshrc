@@ -20,6 +20,8 @@
 #    ███  ░▒▒ ▒ ▒ ▒  ████░ █░ ░ ▒░          ▒░░  ████ ░░▒ ░░▒░▒ ▒░▒ █████░ ▒░░    ░ #
 # by  ░░░▒░▒▒ ░ ░░▒░  ░░░ ▒ ▒ ░▒░  47z!Lu7h  ░▒ ░▒ ░░▒ ░▒░▒ ░░░░▒ ░▒ ███▒░▒▒░  :) ░ #
 #####################################################################################
+source	~/.antigen/bundles/zsh-users/zsh-completions
+source ~/.zsh/plugins/sudo.plugin.zsh/sudo.plugin.zsh
 
 if [ -f ~/.zsh/aliases ]; then
 	source ~/.zsh/aliases
@@ -39,19 +41,9 @@ else
 	print "404: ~/.zsh/antigen.zsh not found."
 fi
 
-if [ -f ~/.zsh/bindkeys ]; then
-	source ~/.zsh/bindkeys
-else
-	echo -ne "\n\n\t${red}404!! ~~> ~/.zsh/bindkeys not found."
-fi
-
-
-source ~/.zsh/plugins/sudo.plugin.zsh/sudo.plugin.zsh
-
 	# - Use modern completion system
 autoload -U select-word-style
 select-word-style bash
-
 export WORDCHARS='.-'
 
 	# - Keep 900000  lines of history within the shell and save it to ~/.zsh_history:
@@ -63,7 +55,7 @@ SAVEHIST=${HISTSIZE}
 unsetopt	listambiguous
 setopt		appendhistory
 setopt		menu_complete
-
+setopt		complete_aliases
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.
 setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
 setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
@@ -105,14 +97,56 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+##################################################
+  ###  ~~~~~~~~~~~~ Bindkeys  ~~~~~~~~~~~~   ###
+##################################################
+
+bindkey -e
+bindkey '^[[1;5C'               forward-word                            # [ Ctrl + Right ] => Move forward one word
+bindkey '^[[1;5D'               backward-word                           # [ Ctrl + Left ] => Move backward one word
+bindkey "^[[H"                  beginning-of-line                       # [ Fn + Left ] => Move to beginning of line
+bindkey "^[[F"                  end-of-line                             # [ Fn + Right ] => Move to end of line
+bindkey '^[[3~'                 kill-word                               # [ Fn + Delete ] => Kill the word fordward
+bindkey '^H'                    _backward-kill-word                     # [ Ctrl + Delete ] => Kill the word backward
+#bindkey ''                     _backward-kill-arg                      #
+#bindkey ''                     _backward-arg                           #
+#bindkey ''                     _forward-arg                            #
+#bindkey ''                     _forward-kill-arg                       #
+#bindkey ''                     _forward-kill-arg                       #
+#bindkey ''                     copy-prev-shell-word                    # [ Alt + k ] => Copy previous word
+#bindkey ''                     _backward-kill-path                     #
+#bindkey -M menuselect ''       accept-and-infer-next-history           # [ Alt + y ] => ??
+#bindkey -M isearch ''          accept-search                           # [ ?? ]
+bindkey '^[[A'                  up-line-or-history                      # [Arrow Up]
+bindkey '^[[B'                  down-line-or-history                    # [Arrow Down]
+bindkey '^[[6~'                 end-of-buffer-or-history                # page down
+bindkey '^[[5~'                 beginning-of-buffer-or-history          # page up
+
+bindkey '^[z'                   undo                                    # [ Alt + z ] => Undo last action
+bindkey -s '^[i' '|grep -Ei "'                                          # [ Alt + g ] => Pipes to grep + search
+bindkey -s '^[o' '|xclip -sel clip\n'                                   # [ Alt + o ] => Saves to clipboard
+bindkey -s '^[p' '|less | batcat -ljava\n'				# [ Alt + p ] => Pipes to less & batcat java colors
+bindkey -s '^[l' 'lsd --tree --group-dirs=first  --depth='		# [ Alt + l ] => Lsd --tree + defined depth
+bindkey -s '^[k' 'lsd -lha --tree --group-dirs=first  --depth='		# [ Alt + k ] => Lsd -la --tree + defined depth
+
+bindkey '\e ' autosuggest-accept
+autoload -Uz compinit && compinit -C
+bindkey '^I' complete-word
+
+# By default, pressing Enter in the menu search exits the search \
+# and pressing it otherwise in the menu exits the menu. If you instead \
+# want to make Enter always submit the command line, use the following:
+autoload edit-command-line;            zle -N edit-command-line
+bindkey '^e'                           edit-command-line               # [ ctrl-e ] => Edit line in vim
+autoload -Uz copy-prev-shell-word;     zle -N copy-earlier-word
+autoload -Uz compinit && compinit -C
+bindkey '^I' complete-word
+
 zmodload zsh/complist
 function accept-and-complete-next-history() {
     zle expand-or-complete-prefix
 }
-
 zmodload zsh/complist
-
-source	~/.antigen/bundles/zsh-users/zsh-completions
 
 # Load Git completion
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
@@ -325,3 +359,5 @@ if [ -f .zsh/antigen/bundles/zsh-users/zsh-syntax-highlighting/zsh-syntax-highli
 	ZSH_HIGHLIGHT_STYLES[bracket-level-5]=fg=cyan,bold
 	ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 fi
+
+
