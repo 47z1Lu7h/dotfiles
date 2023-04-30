@@ -9,43 +9,38 @@
 #█████████████████████████████████████████████████████████#
 ###########################################################
 
-# enable color support of ls, less and man, and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias gr='grep --color=auto'
+alias g53p='grep  --color=auto --exclude-dir=.bzr,CVS,.git,.hg,.svn'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias l='lsd --group-dirs=first'
+alias ll='lsd -lh --group-dirs=first'
+alias la='lsd -ha --group-dirs=first'
+alias lla='lsd -lha --group-dirs=first'
+alias lt='lsd --tree --group-dirs=first --depth'
+alias lta='lsd -ha --tree --group-dirs=first --depth'
+alias llt='lsd -lh --tree --group-dirs=first --depth'
+alias llta='lsd -lha --tree --group-dirs=first --depth'
+alias diff="diff --color=always --palette='ad=1;3;38;5;154:de=1;3;38;5;9'"
+alias ipa='ip --color=auto a'
+alias cat='/usr/bin/cat'
+alias c='/usr/bin/batcat -ljava'
+alias catn='cat'
+alias c0nf1g='cd ~/.config/'
+alias r3p0s='cd ~/d35kT@p/r3p0s/'
+alias h7B='cd ~/d35kT@p/h7B'
 
-	alias dir='dir --color=auto'
-	alias vdir='vdir --color=auto'
-	alias gr='grep --color=auto'
-	alias g53p='grep  --color=auto --exclude-dir=.bzr,CVS,.git,.hg,.svn'
-	alias grep='grep --color=auto'
-	alias fgrep='fgrep --color=auto'
-	alias egrep='egrep --color=auto'
-	alias l='lsd --group-dirs=first'
-	alias ll='lsd -lh --group-dirs=first'
-	alias la='lsd -ha --group-dirs=first'
-	alias lla='lsd -lha --group-dirs=first'
-	alias lt='lsd --tree --group-dirs=first --depth'
-	alias lta='lsd -ha --tree --group-dirs=first --depth'
-	alias llt='lsd -lh --tree --group-dirs=first --depth'
-	alias llta='lsd -lha --tree --group-dirs=first --depth'
-	alias diff="diff --color=always --palette='ad=1;3;38;5;154:de=1;3;38;5;9'"
-	alias ipa='ip --color=auto a'
-	alias cat='/usr/bin/cat'
-	alias c='/usr/bin/batcat -ljava'
-	alias catn='cat'
-	alias c0nf1g='cd ~/.config/'
-	alias r3p0s='cd ~/d35kT@p/r3p0s/'
-	alias h7B='cd ~/d35kT@p/h7B'
-	
-	export LESS='-R --use-color -Dd+r$Du+b'
-	export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
-	export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
-	export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-	export LESS_TERMCAP_so=$'\E[01;33m'    # begin reverse video
-	export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
-	export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
-	export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
-fi
+export LESS='-R --use-color -Dd+r$Du+b'
+export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
+export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
+export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+export LESS_TERMCAP_so=$'\E[01;33m'    # begin reverse video
+export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
+export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 alias	..='cd ..'
 alias	s='sudo'
@@ -56,7 +51,7 @@ alias	na='nano'
 alias	rr='trash -frv'
 alias	nv='nvim'
 alias	ki='kitty +kitten icat'
-
+alias	p@ly='~/.config/polybar/launch'
 alias	theme-47z1='kitty -c ~/.config/kitty/themes/47z1.conf & disown'
 alias	theme-hack='kitty -c ~/.config/kitty/themes/hack.conf & disown'
 
@@ -64,8 +59,6 @@ alias	set-backgroung='feh --bg-fill $1'
 alias	set-0wner='sudo chown $USER:$USER .'
 alias	mkl='mkdir nmap content exploits'
 alias	htb-Xpl@r3r='sudo /opt/h4Ck/htbXplorer-Plus/htbXplorer $1 $2 $3'
-
-alias p@ly-l4UnCh='~/.config/polybar/launch'
 
 alias upd4t1N6='sudo apt update'
 alias up654D1N6='sudo apt update && sudo apt upgrade -y'

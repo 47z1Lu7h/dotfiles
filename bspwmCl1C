@@ -81,7 +81,7 @@ function main(){
 				if [ $? -eq 0 ]; then
 					echo -ne "\n${bold}${red}>> ${yellow}All Plugins done${red}!!!\n\n" &&
 					sleep 2 && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Coping home config files ${cyan}\n\n" &&
-					cp -r config/* ~/.config/ && cp -r misc/home/.?* ~ && sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
+					cp -r config/* ~/.config/ && cp -r misc/home/.*? ~ && sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
 					if [ $? -eq 0 ]; then
 						sleep 2 && echo -ne "\n\n${bold}${red}<|[~]|> ${yellow}All config done${red}!!! ${cyan}:D\n\n\n" && sleep 2
 					else
@@ -333,15 +333,15 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 		echo -e "${blue}${bold}======================================================================== "
 
 		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System ${cyan}--> \n\n"
-		sleep 2 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
+#		sleep 2 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
 		if [ $? -eq 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan} --> \n\n\n"
-			sleep 2 && sudo apt install -y $packages_Deb lsd && sudo apt autoremove -y
+#			sleep 2 && sudo apt install -y $packages_Deb lsd && sudo apt autoremove -y
 			if [ $? -eq 0 ]; then
-				htb-Xplorer && code_deb
+#				htb-Xplorer && code_deb
 				if [ $? -eq 0 ]; then
-					nvim && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting Mozilla theme${cyan}\n"
-					sleep 2 && firefox-esr && sleep 3 && sudo killall firefox-esr && sleep 2 && cp -r misc/chrome ~/.mozilla/firefox/*default-esr/
+#					nvim && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting Mozilla theme${cyan}\n"
+#					sleep 2 && firefox-esr && sleep 3 && sudo killall firefox-esr && sleep 2 && cp -r misc/chrome ~/.mozilla/firefox/*default-esr/
 					if [ $? -eq 0 ]; then
 						echo -ne "\n${bold}${red}>> ${yellow}Themes done${red}!!!\n\n"
 						sleep 2 && main
