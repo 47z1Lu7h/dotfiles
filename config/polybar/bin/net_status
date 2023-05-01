@@ -1,26 +1,11 @@
 #!/bin/bash
 
-IFACE=$(/usr/sbin/ifconfig  | grep -Ei "wlan|eth0|ens33|ens36|emp0s3" | awk '{print $1}')
-IP=$(/usr/sbin/ifconfig |  grep -Ei "wlan|eth0|ens33|ens36|emp0s3"  | grep "inet 192")
+IP=$(ip addr show $(ip route | awk '/default/ { print $5 }') | grep "inet" | head -n 1 | awk '/inet/ {print $2}' | cut -d'/' -f1)
+INET=$(/usr/sbin/ifconfig |  grep -Ei "wlan|eth0|ens33|ens36|emp0s3" -A3 | grep inet)
+IFACE=$(/usr/sbin/ifconfig |  grep -Ei "wlan|eth0|ens33|ens36|emp0s3" )
 
-if [ "$IFACE" = "wlan0:" ]; then
-	echo "%{T0}%{F#bbe0ff} %{T5}%{F#888A}%{T2}%{F#888AAF}$(echo $(/usr/sbin/ifconfig | grep wlan -b1 | grep inet | awk '{print $3}'))"
-fi
-
-if [ "$IFACE" = "eth0:" ]; then
-        echo "%{T0}%{F#bbe0ff} %{T5}%{F#888A}%{T2}%{F#888AAF}$(echo $(/usr/sbin/ifconfig | grep eth0 -b1 | grep inet | awk '{print $3}'))"
-fi
-
-if [ "$IFACE" = "ens33:" ]; then
-        echo "%{T0}%{F#bbe0ff} %{T5}%{F#888A}%{T2}%{F#888AAF}$(echo $(/usr/sbin/ifconfig | grep ens33 -b1 | grep inet | awk '{print $3}'))"
-fi
-
-if [ "$IFACE" = "ens36" ]; then
-        echo "%{T0}%{F#bbe0ff} %{T5}%{F#888A}%{T2}%{F#888AAF}$(echo $(/usr/sbin/ifconfig | grep ens36 -b1 | grep inet | awk '{print $3}'))"
-fi
-
-if [ "$IP" = " " ]; then
-	echo "%{T0}%{F#bbe0ff} %{T5}%{F#888A}%{T3}%{F#888AAF}Conecting.."
+if [[ -z "$INET" ]]; then
+	echo "%{T0}%{F#bbe0ff} %{T5}%{F#888A}%{T2}%{F#888AAF} Disconected!"
 else
-        echo "%{T0}%{F#bbe0ff}睊 %{u-}%{T5}%{F#888A}%{T3}%{F#218889}Disconected!"
+	echo "%{T0}%{F#bbe0ff} %{T5}%{F#888A}%{T5}%{F#888AAF}$IP"
 fi

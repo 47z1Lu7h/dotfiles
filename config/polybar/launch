@@ -9,22 +9,25 @@ launch_bar() {
 	# Wait until the processes have been shut down
 	while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-#	if [[ "$style" == "top" ]]; then
-#		dir="$HOME/.config/polybar/themes/top"
-#	elif [[ "$style" == "bottom" ]]; then
-#		dir="$HOME/.config/polybar/themes/bottom"
-#	else
+	if [[ "$zone" == "top" ]]; then
+		$top = top
+	elif [[ "$zone" == "bottom" ]]; then
+		$zone = bottom
+	fi 
 
 	# Launch the bar
 	if [[ "$style" == "47z1" ]]; then
-		polybar -q bottom -c "$dir/bottom/47z1.ini" &
+		polybar -q $zone -c "$dir/47z1.ini" &
+
 	elif [[ "$style" == "pentest" ]]; then
-		polybar -q bottom -c "$dir/bottom/pentest.ini" &
+		polybar -q $zone -c "$dir/pentest.ini" &
+
 	elif [[ "$style" == "simple" ]]; then
-		polybar -q bottom -c "$dir/bottom/simple.ini" &
+		polybar -q bottom -c "$dir/simple.ini" &
+
 	elif [[ "$style" == "plasma" ]]; then
-		polybar -q left  -c "$dir/bottom/plasma.ini" &
-		polybar -q right -c "$dir/bottom/plasma.ini" &
+		polybar -q left  -c "$dir/plasma.ini" &
+		polybar -q right -c "$dir/plasma.ini" &
 	else
 		echo -ne "\n\n\tbye!\n"
 	fi
@@ -48,9 +51,11 @@ elif [[ "$1" == "--plasma" ]]; then
 
 else
 	cat <<- EOF
-	Usage : launch --theme
+	Usage : launch --zone --theme
 
 	Available Themes :
-	--47z1 --pentest --simple --plasma
+		--top, --bottom, --both
+	Available Themes :
+		--47z1, --pentest, --simple, --plasma
 	EOF
 fi
