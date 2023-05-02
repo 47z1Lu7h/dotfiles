@@ -35,10 +35,26 @@ function set_linux_colors(){
         clear # bring us back to default input colours
   fi
 }
-
 set_linux_colors()
 
-setopt share_history
+	# - c@lRs
+export RESET='\e[0m'
+export BLACK='\e[0;30m'
+export GRAY='\e[1;30m'
+export RED='\e[0;31m'
+export LIGHT_RED='\e[1;31m'
+export GREEN='\e[0;32m'
+export LIGHT_GREEN='\e[1;32m'
+export BROWN='\e[0;33m'
+export YELLOW='\e[1;33m'
+export BLUE='\e[0;34m'
+export LIGHT_BLUE='\e[1;34m'
+export PURPLE='\e[0;35m'
+export LIGHT_PURPLE='\e[1;35m'
+export CYAN='\e[0;36m'
+export LIGHT_CYAN='\e[1;36m'
+export LIGHT_GRAY='\e[0;37m'
+export WHITE='\e[1;37m'
 
 up-line-or-local-history() {
     zle set-local-history 1
@@ -256,7 +272,7 @@ function git-add-commit-push() {
     git commit -a -m "$1"
     git push
 }
-function g { git status }
+function gs { git status }
 function gd { git diff }
 function ge { git commit --allow-empty -m "Empty commit" }
 function gf { git push --force }
@@ -285,7 +301,7 @@ function guz { gu $@; gz }
 # stash
 function gc { git stash clear }
 function gl { git stash list }
-function gs { git add --all; git stash save }
+function gss { git add --all; git stash save }
 function ga { git stash apply "stash@{${@:-0}}" }
 
 function scat() {
@@ -407,49 +423,41 @@ function extractPorts(){
 }
 
 function set-api_token-htbXplorer() {
+	echo -ne "\t${LIGHT_BLUE}~~~> ${YELLOW}Enter your ${GREEN}HTB ${RED}API_TOKEN ${YELLOW}:\n\t${LIGHT_BLUE}~~~> ${YELLOW} Enter the ${RED}full path ${YELLOW}of a image: ~~> ${CYAN}\n\n"
 	echo -e "\n  ~ Enter your HTB API_TOKEN:"
 	read API;
 	sudo sed -i 's/declare -r API_TOKEN=".*"/declare -r API_TOKEN="'$API'"/g' /opt/h4Ck/htbXplorer-Plus/htbXplorer
 	sleep 1
-	echo -ne "\n\t ~ Done!!\n\n"
+	echo -ne "\t${LIGHT_BLUE}~~~> ${YELLOW} Done${RED}!!\n\n"
 }
 
-function set-dpi_polybar-bspwm() {
-	dpi=$(cat ~/.config/polybar/themes/bottom/4tz1/config.ini | grep dpi | head -1)
-	echo -e "  ~ Current $dpi   \n  ~ Enter a new DPI to resice Polybar:"
+function set-dpi_polybar() {
+	dpi=$(cat ~/.config/polybar/themes/*.ini | grep dpi | head -1)
+	echo -e "\t\t\n${YELLOW}		Enter a new ${RED}DPI ${YELLOW}to resice Polybar${LIGHT_BLUE} ~~>${CYAN}"
 	read NEW_DPI;
 	new_dpi="dpi = ${NEW_DPI}"
-	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/bottom/4tz1/config.ini
-	echo -ne "\t~ Setting $new_dpi in config.ini \n\t~ Just press 'ctrl+alt+p' to restart polybar\n\n"
+	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/*.ini
+	echo -ne "\t${LIGHT_BLUE}~~~> ${YELLOW}Setting ${RED}$new_dpi ${YELLOW}in your conf.ini \n\t${LIGHT_BLUE}~~~> ${YELLOW}Just ${RED}relanuch ${YELLOW}your polybar\n\n"
 	sleep 1
 }
 
-function set-dpi-polybar-plasma() {
-	dpi=$(cat ~/.config/polybar/themes/bottom/plasma/config.ini | grep dpi | head -1)
-	echo -e "  - Current $dpi   \n  - Enter a new DPI to resice Polybar:"
-	read NEW_DPI;
-	new_dpi="dpi = ${NEW_DPI}"
-	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/bottom/plasma/config.ini
-	echo -ne "\t~ Setting $new_dpi in plasma.ini \n\t~ Just press 'ctrl+alt+p' to restart polybar\n\n"
-	sleep 1
-}
-
-function set-default_background_bspwm() {
-	echo -e "  -Set a default wallpaper in bspwm\n  - Enter the path of a image:"
-	read image;
-	sed -i "s/--bg-fill */--bg-fill ${image}/g" ~/.config/bspwm/bspwmrc
-	echo -ne "\t~ Setting new wallpaper\n\t~ Just press 'ctrl+alt+r' to restart bspwm\n\n"
-	sleep 1
-}
+#function set-default_background_in_bspwm() {
+#	echo -ne "\t${LIGHT_BLUE}~~~> ${YELLOW}Set a default ${RED} wallpaper ${YELLOW}in bspwm \n\t${LIGHT_BLUE}~~~> ${YELLOW} Enter the ${RED}full path ${YELLOW}of a image: ~~> ${CYAN}\n\n"
+#	read image;
+#	echo -ne "\t${image}\n"
+#	sed -i "s/fill */fill '" ${image} "'/g" ~/.config/bspwm/bspwmrc
+#	echo -ne "\t${LIGHT_BLUE}~~~> ${YELLOW}Setting new wallpaper \n\t${LIGHT_BLUE}~~~> ${YELLOW}Just press ${RED}'ctrl+alt+r' ${YELLOW}to restart bspwm\n\n"
+#	sleep 1
+#}
 
 function tun0()	{
 	echo -n "$(ip a | grep tun0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/') "
 }
 function eth() {
-	ip a | grep eth0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/'
+	echo -n "$(ip a | grep eth0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/') "
 }
 function wlan()	{
-	ip a | grep wlan0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/'
+	echo -n "$(ip a | grep wlan0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/') "
 }
 function my_Public-IP() {
 	sudo curl ifconfig.co

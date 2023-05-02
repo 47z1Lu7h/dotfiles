@@ -51,7 +51,12 @@ alias	na='nano'
 alias	rr='trash -frv'
 alias	nv='nvim'
 alias	ki='kitty +kitten icat'
+
 alias	p@ly='~/.config/polybar/launch'
+alias	47z1-p@ly='polybar -q bottom -c ~/.config/polybar/themes/47z1.ini & disown'
+alias	simple-p@ly='polybar -q bottom -c ~/.config/polybar/themes/simple.ini & disown'
+alias	pentest-p@ly='polybar -q bottom -c ~/.config/polybar/themes/pentest.ini & disown'
+alias	plasma-p@ly='polybar -q left right  -c ~/.config/polybar/themes/plasma.ini & disown'
 alias	theme-47z1='kitty -c ~/.config/kitty/themes/47z1.conf & disown'
 alias	theme-hack='kitty -c ~/.config/kitty/themes/hack.conf & disown'
 
