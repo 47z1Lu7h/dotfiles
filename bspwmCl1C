@@ -63,7 +63,7 @@ function main(){
 	tput cnorm
 	echo -ne "\n\n${bold}${red}<|[+]|> ${cyan}Installing ${red}Main ${cyan}package ${red}~> ${cyan} \n\n"
 	sleep 2
-		# -->  Fonts
+		# -->  Fonts & icons
 	echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Getting fonts $ icons ${end}${cyan}--> \n\n"
 	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Iosevka.zip" -O  Iosevka.zip  &&
 	unzip  Iosevka.zip -d ~/.local/share/fonts && rm -rf  Iosevka.zip && fc-cache - &&
@@ -333,14 +333,14 @@ if [ "$answer" != "${answer#[Yy]}" ]; then
 		echo -e "${blue}${bold}======================================================================== "
 
 		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System ${cyan}--> \n\n"
-#		sleep 2 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
+		sleep 2 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
 		if [ $? -eq 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan} --> \n\n\n"
-#			sleep 2 && sudo apt install -y $packages_Deb lsd && sudo apt autoremove -y
+			sleep 2 && sudo apt install -y $packages_Deb lsd && sudo apt autoremove -y
 			if [ $? -eq 0 ]; then
-#				htb-Xplorer && code_deb
+				htb-Xplorer && code_deb
 				if [ $? -eq 0 ]; then
-#					nvim && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting Mozilla theme${cyan}\n"
+					nvim && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting Mozilla theme${cyan}\n"
 #					sleep 2 && firefox-esr && sleep 3 && sudo killall firefox-esr && sleep 2 && cp -r misc/chrome ~/.mozilla/firefox/*default-esr/
 					if [ $? -eq 0 ]; then
 						echo -ne "\n${bold}${red}>> ${yellow}Themes done${red}!!!\n\n"

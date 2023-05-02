@@ -22,4 +22,4 @@ polybar -q bottom -c ~/.config/polybar/themes/bottom/47z1.ini &
 picom --experimental-backends --config $HOME/.config/picom/picom.conf &
 xsetroot -cursor_name left_ptr &
 setxkbmap es        # set your keayboard layout
-feh --bg-fill /home/a7z1lu7h/.wallpapers/linesPurpleBlue.jpgs
+feh --bg-fill /home/a7z1lu7h/.wallpapers/netBlue.jpgs
