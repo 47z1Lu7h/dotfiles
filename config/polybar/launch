@@ -35,7 +35,7 @@ else
 fi
 
 echo -ne "\n\n\t${BLUE}Choose a ${LIGHT_BLUE}style ${BLUE}from ${CYAN}:"
-echo -ne "\n\t\t${RED}~>${GREEN}  47z1\t\t\t\t${RED}~>${GREEN}  simple \n\t\t${RED}~>${GREEN}  pentest\t\t\t\t${RED}~>${GREEN}  plasma\n\n"
+echo -ne "\n\t\t${RED}~>${GREEN}  47z1\t\t\t\t${RED}~>${GREEN}  simple \n\t\t${RED}~>${GREEN}  pentest_kali\t\t\t\t${RED}~>${GREEN}  plasma\n\n"
 read STYLE
 sleep 1
 if [ $STYLE == 47z1 ]; then
@@ -46,9 +46,9 @@ elif [ $STYLE == simple ]; then
 	echo -ne "\n\t${BLUE}You choose ${RED}Pentest ${LIGHT_BLUE}Polybar!!\n"
 	launch_bar && purge_last_line && echo "polybar -q $ZONE -c $DIR/$STYLE.ini &" >> ~/.config/bspwm/bspwmrc
 	echo -ne "\n\t${BLUE}Done! ${CYAN}: D\n\n"
-elif [ $STYLE == pentest ]; then
-	echo -ne "\n\t${BLUE}You choose ${RED}Pentest ${LIGHT_BLUE}Polybar!!\n"
-	polybar -q $ZONE -c $DIR/$STYLE-kali.ini && purge_last_line && echo "polybar -q $ZONE -c $DIR/$STYLE_kali.ini &" >> ~/.config/bspwm/bspwmrc
+elif [ $STYLE == pentest_kali ]; then
+	echo -ne "\n\t${BLUE}You choose ${RED}Pentest_kali ${LIGHT_BLUE}Polybar!!\n"
+	polybar -q $ZONE -c $DIR/$STYLE.ini & purge_last_line && echo "polybar -q $ZONE -c $DIR/kali_$STYLE.ini &" >> ~/.config/bspwm/bspwmrc
 	echo -ne "\n\t${BLUE}Done! ${CYAN}: D\n\n"
 elif [ $STYLE == plasma ]; then
 	echo -ne "\n\t${BLUE}You choose ${RED}Plasma ${LIGHT_BLUE}Polybar!!\n"
