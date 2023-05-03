@@ -18,16 +18,16 @@ purge_last_line_bspwmrc() {
 	head -n -1 ~/.config/bspwm/bspwmrc > temp.txt; mv temp.txt ~/.config/bspwm/bspwmrc && chmod +x ~/.config/bspwm/bspwmrc
 }
 
-echo -ne "\n\t${White}<|[${Cyan}!${White}]|> ${Cyan}Choose a ${On_IBlack}${BICyan}style${Cyan} of your polybar${IWhite}:\n\n\t\t ${BIGreen}Plane ${Green}<~~  ${Cyan}[${BIWhite}p${Cyan}/${BIWhite}f${Cyan}]${Red}  ~~> ${BIRed}Full\t"
-echo -ne "\n\n${White}<[${BICyan}+${White}]> ${Purple}Full is for large ${BIWhite}DPI${end}${Purple} screens, basically has a bit more icons, split bars, etc..\n\t${BICyan}"
+echo -ne "\n\t${White}<|[${Cyan}!${White}]|> ${Cyan}Choose a ${BIPurple}style${Cyan} for your polybar${IWhite}:\n\n\t\t ${BIGreen}Plane ${Green}<~~  ${Green}[${BICyan}p${Green}/${BICyan}f${Green}]${Red}  ~~> ${IRed}Full\t"
+echo -ne "\n\n${BIYellow}<[${BICyan}+${BIYellow}]> ${Cyan}Full is for large ${BIRed}DPI${end}${Cyan} screens, basically has a bit more icons, split bars, etc..\n\t${BIRed}"
 read STYLE
 
 if [ $STYLE == "p" ]; then
-	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose ${On_IBlack}${BCyan}Plane${Cyan} Style${BIWhite}!!\n${BICyan}"
+	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose ${BIBlue}Plane${Cyan} Style${BIWhite}!!\n${BIRed}"
 	DIR="$HOME/.config/polybar/themes/plane/"
 
 elif [ $STYLE == "f" ]; then
-	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose ${On_IBlack}${BCyan}Full${Cyan} Style${BIWhite}!!\n${BICyan}"
+	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose ${BIBlue}Full${Cyan} Style${BIWhite}!!\n${BIRed}"
 	DIR="$HOME/.config/polybar/themes/full/"
 
 else
@@ -36,20 +36,19 @@ else
 fi
 
 echo -ne "\n\t${White}<|[${Cyan}!${White}]|> ${Cyan}Wich position would you like for polybar${IWhite}??\n"
-echo -ne "\n\t\t${BICyan}1${BIBlue}) ~> ${BIRed}\tTop\n\t\t${BICyan}2${BIBlue}) ~> ${BIRed}\tBottom\n\t\t${BICyan}3${BIBlue}) ~>${BIRed}\tBoth \t${BICyan}\n\t"
+echo -ne "\n\t\t${BICyan}1${BIBlue}) ~> ${BIRed}\tTop\n\t\t${BICyan}2${BIBlue}) ~> ${BIRed}\tBottom\n\t\t${BICyan}3${BIBlue}) ~>${BIRed}\tBoth \t${BIRed}\n\t"
 read ZONE
 if [ $ZONE == 1 ]; then
-	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose ${On_IBlack}${BCyan}Top${Cyan} zone${BIWhite}!!\n${BICyan}"
+	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose${BIYellow} Top${Cyan} zone${BIWhite}!!\n${BICyan}"
 	ZONE="top"
 elif [ $ZONE == 2 ]; then
 	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose ${On_IBlack}${BCyan}Bottom${Cyan} zone${BIWhite}!!\n${BICyan}"
 	ZONE="bottom"
 elif [ $ZONE == 3 ];then
-	echo -ne "\n${BICyan}Sorry${BIWhite},${Cyan} not ${On_IBlack}${BCyan}implemetened${Cyan} yet... ${On_IBlack}${BCyan}: (\n${BICyan}"
+	echo -ne "\n\n\t${BICyan}Sorry${BIWhite},${Cyan} this option is not ${On_Iwhite}${BIRed}implemetened${Cyan} yet... ${On_IBlack}${BCyan}: (\n${BICyan}\n\n"
 	exit 1
 else
-	echo -ne "\n\t${BIBlue}B${BIRed}y${BICyan}3${BIWhite}!  ${BICyan}; )"
-	exit 1
+	echo -ne "\n\t${BIBlue}B${BIRed}y${BIBlue}3${BIRed}!! ${On_IBlack}${BICyan};${Cyan}~${BICyan})" && exit 1
 fi
 
 echo -ne "\n\t${White}<|[${Cyan}!${White}]|> ${Cyan}Choose a ${On_IBlack}${BCyan}style${Cyan} of your polybar${IWhite}:\n\t\t"
