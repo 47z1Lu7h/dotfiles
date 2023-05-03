@@ -5,12 +5,46 @@
 #▓▓▓   ▓▓▓▓   ▓▓   ▓▓   ▓▓   ▓▓   ▓▓▓▓▓▓   ▓▓▓   ▓▓   ▓▓   ▓▓▓   ▓▓   ▓   ▓▓▓▓#
 #▓▓▓   ▓▓▓▓   ▓▓   ▓▓   ▓▓   ▓   ▓▓▓▓▓▓▓   ▓▓▓   ▓   ▓▓▓▓   ▓▓   ▓▓   ▓▓▓    ▓#
 #▓▓▓   ▓▓▓▓   ▓▓   ▓▓   ▓▓   ▓▓   ▓▓▓▓▓▓   ▓ ▓   ▓▓   ▓▓   ▓▓▓   ▓▓   ▓▓▓▓▓  ▓#
-#███   ██████      █    ██   ████    ████   ██   ████   █████    ██   █      █#
-#█████████████████████████████████████████████████████████████████████████████#
+#███   ████       █     ██   ████    ███  	██   ████   █████    ██   █      █#
+#███████████████████████████████████████  ████████████████████████████████████#
+#███By████████████████████████████████ 47z! ██████████████████████████████:~)█#
 ###############################################################################
 
 function hacker_quote(){
 	ZSH_HACKER_QUOTES_ENABLE_WHEN_INTERACTIVE= zsh -i
+}
+
+# From https://github.com/rothgar/mastering-zsh.git
+function fshow() {
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" \
+  | fzf --ansi --preview "echo {} \
+    | grep -o '[a-f0-9]\{7\}' \
+    | head -1 \
+    | xargs -I % sh -c 'git show --color=always %'" \
+        --bind "enter:execute:
+            (grep -o '[a-f0-9]\{7\}' \
+                | head -1 \
+                | xargs -I % sh -c 'git show --color=always % \
+                | less -R') << 'FZF-EOF'
+            {}
+FZF-EOF"
+}
+
+#From https://github.com/rothgar/mastering-zsh.git
+function  mans(){
+    man -k . \
+    | fzf -n1,2 --preview "echo {} \
+    | cut -d' ' -f1 \
+    | sed 's# (#.#' \
+    | sed 's#)##' \
+    | xargs -I% man %" --bind "enter:execute: \
+      (echo {} \
+      | cut -d' ' -f1 \
+      | sed 's# (#.#' \
+      | sed 's#)##' \
+      | xargs -I% man % \
+      | less -R)"
 }
 
 	# - Set Linux terminal/framebuffer color scheme
@@ -36,44 +70,6 @@ function set_linux_colors(){
   fi
 }
 set_linux_colors()
-
-	# - c@lRs
-export RESET='\e[0m'
-export BLACK='\e[0;30m'
-export GRAY='\e[1;30m'
-export RED='\e[0;31m'
-export LIGHT_RED='\e[1;31m'
-export GREEN='\e[0;32m'
-export LIGHT_GREEN='\e[1;32m'
-export BROWN='\e[0;33m'
-export YELLOW='\e[1;33m'
-export BLUE='\e[0;34m'
-export LIGHT_BLUE='\e[1;34m'
-export PURPLE='\e[0;35m'
-export LIGHT_PURPLE='\e[1;35m'
-export CYAN='\e[0;36m'
-export LIGHT_CYAN='\e[1;36m'
-export LIGHT_GRAY='\e[0;37m'
-export WHITE='\e[1;37m'
-
-up-line-or-local-history() {
-    zle set-local-history 1
-    zle up-line-or-history
-    zle set-local-history 0
-}
-zle -N up-line-or-local-history
-down-line-or-local-history() {
-    zle set-local-history 1
-    zle down-line-or-history
-    zle set-local-history 0
-}
-zle -N down-line-or-local-history
-
-bindkey '^[OA' up-line-or-history     # Cursor up
-bindkey '^[OB' down-line-or-history   # Cursor down
-bindkey '^[[1;5A' up-line-or-local-history    # [CTRL] + Cursor up
-bindkey '^[[1;5B' down-line-or-local-history  # [CTRL] + Cursor down
-
 
 	# - Function extraction Multiple files
 function xtr4Ct() {
@@ -147,7 +143,7 @@ function xtr4Ct() {
 }
 
 	# - FZF
-function nice-fzf(){
+function n1c3-FZF(){
 
 	if [ "$1" = "h" ]; then
 		fzf -m --reverse --preview-window down:20 --preview '[[ $(file --mime {}) =~ binary ]] &&
@@ -168,103 +164,6 @@ function nice-fzf(){
 	                         cat {}) 2> /dev/null | head -500'
 	fi
 }
-
-	# - Quickly jump right after the first word (e.g. to insert switches)
-function _after-first-word() {
-	zle beginning-of-line
-	zle forward-word
-}
-zle -N _after-first-word
-bindkey '\C-X1' _after-first-word
-
-	# - Extended word movements/actions
-autoload -Uz select-word-style
-function _zle-with-style() {
-	setopt localoptions
-	unsetopt warn_create_global
-	local style
-	[[ -n "$3" ]] && WORDCHARS=${WORDCHARS/$3}
-	[[ $BUFFER = '^\s+$' ]] && style=shell || style=$2
-	select-word-style $style
-	zle $1
-	[[ -n "$3" ]] && WORDCHARS="${WORDCHARS}${3}"
-	select-word-style normal
-}
-zle -N select-word-style
-
-function _backward-word()		{ _zle-with-style backward-word			bash }
-function _forward-word()		{ _zle-with-style forward-word			bash }
-function _backward-arg()		{ _zle-with-style backward-word			shell }
-function _forward-arg()			{ _zle-with-style forward-word			shell }
-function _backward-kill-arg()		{ _zle-with-style backward-kill-word		shell }
-function _forward-kill-arg()		{ _zle-with-style kill-word			shell }
-function _backward-kill-word()		{ _zle-with-style backward-kill-word		normal }
-function _backward-kill-path()		{ _zle-with-style backward-kill-word		normal	'/' }
-
-zle -N _backward-word
-zle -N _forward-word
-zle -N _backward-arg
-zle -N _forward-arg
-zle -N _backward-kill-arg
-zle -N _forward-kill-arg
-zle -N _backward-kill-word
-zle -N _backward-kill-path
-
-# optionally support putty-style cursor keys (application mode when ctrl is pressed).
-# this is kind of broken in normal linux terminals that often use application mode by
-# default, so we have to make it opt-in. if you use putty, you may want to patch it to
-# send proper escape sequences for ctrl/alt/shift+cursor key combinations.
-if [[ _custom_zsh_putty_cursor_keys == 1 ]]; then
-	bindkey '\C-[OD'	_backward-word	# ctrl-left
-	bindkey '\C-[OC'	_forward-word	# ctrl-right
-fi
-
-function _delete-char-or-region() {
-	[[ $REGION_ACTIVE -eq 1 ]] && zle kill-region || zle delete-char}
-zle -N _delete-char-or-region
-
-	# - Allow more powerful history-i-search (multiple uses in the same line)
-autoload -Uz narrow-to-region
-function _history-incremental-preserving-pattern-search-backward() {
-	local state tmp
-	MARK=CURSOR  # magick, else multiple ^R don't work
-	narrow-to-region -p "$LBUFFER${BUFFER:+>>}" -P "${BUFFER:+<<}$RBUFFER" -S state
-	zle end-of-history
-	zle history-incremental-pattern-search-backward
-	narrow-to-region -R state
-}
-zle -N _history-incremental-preserving-pattern-search-backward
-bindkey '^r' _history-incremental-preserving-pattern-search-backward
-bindkey -M isearch '^r' history-incremental-pattern-search-backward
-bindkey '^s' history-incremental-pattern-search-forward
-
-if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-  function zle-line-init() {
-    echoti smkx  }
-  function zle-line-finish() {
-    echoti rmkx  }
-  zle -N zle-line-init
-  zle -N zle-line-finish
-fi
-
-autoload -Uz vcs_info
-precmd() {
-  vcs_info
-  # Format the vcs_info_msg_0_ variable
-  zstyle ":vcs_info:git:*" formats "(%b) "
-
-  echo -e -n "\x1b[\x33 q"
-  PROMPT="%B%1~ $%b %F{004}${vcs_info_msg_0_}%f> "
-  RPROMPT=" %F{005}%T%f"
-}
-
-autoload -Uz add-zsh-hook
-function _update_vcs_info_msg() {
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
-}
-add-zsh-hook precmd _update_vcs_info_msg
 
 	# - Some git alias
 function git-add-commit-push() {
@@ -320,20 +219,6 @@ function ranger_cd() {
     fi
 }
 
-# Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ ${KEYMAP} == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ ${KEYMAP} == main ]] ||
-       [[ ${KEYMAP} == viins ]] ||
-       [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
-}
-zle -N zle-keymap-select
-
 function up() {
          uptime=$(awk -F. '{print $1}' /proc/uptime)
          secs=$((${uptime}%60))
@@ -377,7 +262,7 @@ function rga-fzf() {
 	xdg-open "$file"
 }
 
-function color_grid() {
+function c0l@5-6R1D() {
 	iter=16
 		while [ $iter -lt 52 ];do
 		second=$[$iter+36]
@@ -408,9 +293,6 @@ function color_grid() {
 	done
 }
 
-autoload -Uz compinit
-compinit
-
 function extractPorts(){
 	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
 	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
@@ -423,41 +305,41 @@ function extractPorts(){
 }
 
 function set-api_token-htbXplorer() {
-	echo -ne "\t${LIGHT_BLUE}~~~> ${YELLOW}Enter your ${GREEN}HTB ${RED}API_TOKEN ${YELLOW}:\n\t${LIGHT_BLUE}~~~> ${YELLOW} Enter the ${RED}full path ${YELLOW}of a image: ~~> ${CYAN}\n\n"
+	echo -ne "\t${light-blue}~~~> ${yellow}Enter your ${green}HTB ${red}API_TOKEN ${yellow}:\n\t${light-blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> ${cyan}\n\n"
 	echo -e "\n  ~ Enter your HTB API_TOKEN:"
 	read API;
 	sudo sed -i 's/declare -r API_TOKEN=".*"/declare -r API_TOKEN="'$API'"/g' /opt/h4Ck/htbXplorer-Plus/htbXplorer
 	sleep 1
-	echo -ne "\t${LIGHT_BLUE}~~~> ${YELLOW} Done${RED}!!\n\n"
+	echo -ne "\t${light-blue}~~~> ${yellow} Done${red}!!\n\n"
 }
 
 function set-dpi_polybar() {
-	dpi=$(cat ~/.config/polybar/themes/*.ini | grep dpi | head -1)
-	echo -e "\t\t\n${YELLOW}		Enter a new ${RED}DPI ${YELLOW}to resice Polybar${LIGHT_BLUE} ~~>${CYAN}"
+	dpi=$(cat ~/.config/polybar/themes/full/*.ini | grep dpi | head -1)
+	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}DPI ${yellow}to resice Polybar${light-blue} ~~>${cyan}\n\t\t\t"
 	read NEW_DPI;
 	new_dpi="dpi = ${NEW_DPI}"
-	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/*.ini
-	echo -ne "\t${LIGHT_BLUE}~~~> ${YELLOW}Setting ${RED}$new_dpi ${YELLOW}in your conf.ini \n\t${LIGHT_BLUE}~~~> ${YELLOW}Just ${RED}relanuch ${YELLOW}your polybar\n\n"
+	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/full/*.ini && sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/plane/*.ini
+	echo -ne "\t${light-blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your conf.ini \n\t${light-blue}~~~> ${yellow}Just ${red}relanuch ${yellow}your polybar\n\n"
 	sleep 1
 }
 
 #function set-default_background_in_bspwm() {
-#	echo -ne "\t${LIGHT_BLUE}~~~> ${YELLOW}Set a default ${RED} wallpaper ${YELLOW}in bspwm \n\t${LIGHT_BLUE}~~~> ${YELLOW} Enter the ${RED}full path ${YELLOW}of a image: ~~> ${CYAN}\n\n"
+#	echo -ne "\t${light-blue}~~~> ${yellow}Set a default ${red} wallpaper ${yellow}in bspwm \n\t${light-blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> ${cyan}\n\n"
 #	read image;
 #	echo -ne "\t${image}\n"
 #	sed -i "s/fill */fill '" ${image} "'/g" ~/.config/bspwm/bspwmrc
-#	echo -ne "\t${LIGHT_BLUE}~~~> ${YELLOW}Setting new wallpaper \n\t${LIGHT_BLUE}~~~> ${YELLOW}Just press ${RED}'ctrl+alt+r' ${YELLOW}to restart bspwm\n\n"
+#	echo -ne "\t${light-blue}~~~> ${yellow}Setting new wallpaper \n\t${light-blue}~~~> ${yellow}Just press ${red}'ctrl+alt+r' ${yellow}to restart bspwm\n\n"
 #	sleep 1
 #}
 
 function tun0()	{
-	echo -n "$(ip a | grep tun0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/') "
+	echo -n "${IGreen}$(ip a | grep tun0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')"
 }
 function eth() {
-	echo -n "$(ip a | grep eth0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/') "
+	echo -n "${IBlue}$(ip a | grep eth0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')"
 }
 function wlan()	{
-	echo -n "$(ip a | grep wlan0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/') "
+	echo -n "${BYellow}$(ip a | grep wlan0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')"
 }
 function my_Public-IP() {
 	sudo curl ifconfig.co

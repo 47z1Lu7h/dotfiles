@@ -7,6 +7,8 @@ if test -t 1; then
     ncolors=$(tput colors)
 
     if test -n "$ncolors" && test $ncolors -ge 8; then
+	under='$(tput smul)' # set underline
+	rem_under='$(tput rmul)' # remove underline
         bold="$(tput bold)"
         underline="$(tput smul)"
         standout="$(tput smso)"
@@ -66,9 +68,9 @@ function main(){
 		# -->  Fonts & icons
 	echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Getting fonts $ icons ${end}${cyan}--> \n\n"
 	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/Iosevka.zip" -O  Iosevka.zip  &&
-	unzip  Iosevka.zip -d ~/.local/share/fonts && rm -rf  Iosevka.zip && fc-cache - &&
-	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O icons.zip &&
-	unzip icons.zip -d  ~/.local/share/icons && rm -rf icons.zip
+	unzip  Iosevka.zip -d ~/.local/share/fonts && rm -rf  Iosevka.zip && fc-cache -v &&
+	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
+	unzip candy-icons.zip -d  ~/.local/share/icons && rm -rf icons.zip
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\t\t${bold}${red} ~!~!~!~  ${yellow}Fonts & icons done!   ${red}~!~!~!~\n\n\n" && sleep 2
 			# -->  Zsh plugins

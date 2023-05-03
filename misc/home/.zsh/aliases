@@ -6,7 +6,8 @@
 #▓   ▓▓▓   ▓▓   ▓   ▓   ▓▓▓   ▓▓▓▓    ▓▓         ▓▓▓▓    ▓#
 #▓   ▓▓▓   ▓▓   ▓   ▓   ▓▓▓   ▓▓▓▓▓▓   ▓  ▓▓▓▓▓▓▓▓▓▓▓▓▓   #
 #███   █    █   █   ███   █    █      ████     ████      █#
-#█████████████████████████████████████████████████████████#
+#█████████████████████████  ██████████████████████████████#
+#███By██████████████████ 47z! ████████████████████████:~)█#
 ###########################################################
 
 alias dir='dir --color=auto'
@@ -29,6 +30,7 @@ alias ipa='ip --color=auto a'
 alias cat='/usr/bin/cat'
 alias c='/usr/bin/batcat -ljava'
 alias catn='cat'
+alias hg='history | grep -Ei'
 alias c0nf1g='cd ~/.config/'
 alias r3p0s='cd ~/d35kT@p/r3p0s/'
 alias h7B='cd ~/d35kT@p/h7B'
@@ -52,13 +54,20 @@ alias	rr='trash -frv'
 alias	nv='nvim'
 alias	ki='kitty +kitten icat'
 
-alias	p@ly='~/.config/polybar/launch'
-alias	47z1-p@ly='polybar -q bottom -c ~/.config/polybar/themes/47z1.ini & disown'
-alias	simple-p@ly='polybar -q bottom -c ~/.config/polybar/themes/simple.ini & disown'
-alias	pentest-p@ly='polybar -q bottom -c ~/.config/polybar/themes/pentest.ini & disown'
-alias	plasma-p@ly='polybar -q left right  -c ~/.config/polybar/themes/plasma.ini & disown'
-alias	theme-47z1='kitty -c ~/.config/kitty/themes/47z1.conf & disown'
-alias	theme-hack='kitty -c ~/.config/kitty/themes/hack.conf & disown'
+alias	launch_P@lYbar='~/.config/polybar/launch'
+
+alias	full-47z1-P@lY='polybar -q bottom -c ~/.config/polybar/themes/full/47z1.ini & disown'
+alias	full-simple-P@lY='polybar -q bottom -c ~/.config/polybar/themes/full/simple.ini & disown'
+alias	full-pentest_kali-P@lY='polybar -q bottom -c ~/.config/polybar/themes/full/pentest_kali.ini & disown'
+alias	full-plasma-P@lY='polybar -q left right  -c ~/.config/polybar/full/themes/plasma.ini & disown'
+
+alias	simple-47z1-P@lY='polybar -q bottom -c ~/.config/polybar/themes/simple/47z1.ini & disown'
+alias	simple-simple-P@lY='polybar -q bottom -c ~/.config/polybar/themes/simple/simple.ini & disown'
+alias	simple-pentest_kali-P@lY='polybar -q bottom -c ~/.config/polybar/themes/simple/pentest_kali.ini & disown'
+alias	simple-plasma-P@lY='polybar -q left -c ~/.config/polybar/themes/simple/plasma.ini & disown &&  polybar -q right -c ~/.config/polybar/themes/simple/plasma.ini & disown'
+
+alias	theme-47z1='kitty -c ~/.config/kitty/themes/full/47z1.conf & disown'
+alias	theme-hack='kitty -c ~/.config/kitty/themes/full/hack.conf & disown'
 
 alias	set-backgroung='feh --bg-fill $1'
 alias	set-0wner='sudo chown $USER:$USER .'

@@ -4,6 +4,7 @@
   <property name="applications" type="empty">
     <property name="known_applications" type="array">
       <value type="string" value="ibus"/>
+      <value type="string" value="notify-send"/>
     </property>
   </property>
 </channel>
