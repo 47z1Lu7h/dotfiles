@@ -503,11 +503,11 @@ elif [ "$answer" != "${answer#[2]}" ]; then
 		echo -e "${blue}${bold}   -|-|-|-|- ${cyan}Installing package for any ${red}Debian ${cyan}distribution ${blue}-|-|-|-|-"
 		echo -e "${blue}${bold}======================================================================== "		
 		
-		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System ${cyan}--> \n\n"
+		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System ${cyan}--> \n\n" git config --global user.name
 		sleep 2 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
 		if [ $? -eq 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan} --> \n\n\n"
-			sleep 2 && sudo apt install -y $packages_Deb firefox-esr && sudo apt autoremove -y
+			sleep 2 && sudo apt install -y $packages_Deb $dpnDeb_Bspwm $dpnDeb_Picom $dpnDeb_Poly firefox-esr && sudo apt autoremove -y
 			if [ $? -eq 0 ]; then
 				code_deb && firefox-esr & disown && sleep 5
 				if [ $? -eq 0 ]; then
