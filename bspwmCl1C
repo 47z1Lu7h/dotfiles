@@ -67,9 +67,7 @@ function main(){
 	sleep 2
 		# -->  Fonts & icons
 	echo -ne "\n\t${bold}${cyan}<|[+]|>> ${blue}Getting fonts $ icons ${end}${cyan}--> \n\n"
-	wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Iosevka.zip " -O  Iosevka.zip  &&
-	unzip Iosevka.zip  -d $HOME/.local/share/fonts && rm -rf Iosevka.zip && fc-cache -v &&
-	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
+	bash $cwd/misc/fonts && wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
 	unzip candy-icons.zip -d  $HOME/.local/share/icons && rm -rf icons.zip
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\t\t${bold}${red} ~!~!~!~  ${yellow}Fonts & icons done!   ${red}~!~!~!~\n\n\n" && sleep 2
@@ -261,7 +259,7 @@ function compile_polybar() {
 		make -j$(nproc) && sudo make install
 		if [ $? -eq 0 ]; then
 			cd ../../../ && rm -rf r3p0 &&
-			echo -ne "\n\t\t${bold}${red}<|[*]|> ~!~!~!~   ${yellow}Polybar done!   ${red}~!~!~!~\n\n" && sleep 2
+			echo -ne "\n\t\t${bold}${red}<|[*]|> ~!~!~!~   ${yellow}Polybar done!   ${red}~!~!~!~\n\n" && sleep2
 		else
 			echo -ne "\n\n\t\t${bold}${red}|[!]|> ${cyan}Failing compiling Polybar ${red}${standout}:/  ${end}${end}\n" && sleep 2 && exit 1
 		fi
@@ -287,10 +285,10 @@ function htb-Xplorer(){
 				sudo chmod +x /opt/h4Ck/htbXplorer-Plus/htbXplorer
 				echo -ne "\n\t\t${bold}${purple}~!~!~!~   ${cyan}HtbXplorer-${red}Plus ${cyan}done!   ${purple} ~!~!~!~\n\n"
 			else
-		        echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad cloning the repo ${red}${standout}:/ ${end}${end}\n" && sleep 2 && exit 1
+		        echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad cloning the repo ${red}${standout}:/ ${end}${end}\n" && sleep2 && exit 1
 			fi
 		else
-        	echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad creating the folder ${red}${standout}:/ ${end}${end}\n" && sleep 2 && exit 1
+        	echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad creating the folder ${red}${standout}:/ ${end}${end}\n" && sleep2 && exit 1
 		fi
 	fi
 
@@ -312,22 +310,22 @@ function common_distros() {
 						if [ $? -eq 0 ]; then
 							cd .. && rm -rf r3p0s && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}l@@ks g@@D!!  ${cyan};) ${end}${cyan}\n\n"
 						else
-							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with the main package ${red}${standout}:/ ${end}${end}\n" && sleep 2 && exit 1
+							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with the main package ${red}${standout}:/ ${end}${end}\n" && sleep2 && exit 1
 						fi
 					else
-						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with nvim package ${red}${standout}:/ ${end}${end}\n" && sleep 2 && exit 1
+						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with nvim package ${red}${standout}:/ ${end}${end}\n" && sleep2 && exit 1
 					fi
 				else
-					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with polybar package ${red}${standout}:/ ${end}${end}\n" && sleep 2 && exit 1
+					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with polybar package ${red}${standout}:/ ${end}${end}\n" && sleep2 && exit 1
 				fi
 			else
-				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad picom the package ${red}${standout}:/ ${end}${end}\n" && sleep 2 && exit 1
+				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad picom the package ${red}${standout}:/ ${end}${end}\n" && sleep2 && exit 1
 			fi
 		else
-			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with bspwm package ${red}${standout}:/ ${end}${end}\n" && sleep 2 && exit 1
+			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with bspwm package ${red}${standout}:/ ${end}${end}\n" && sleep2 && exit 1
 		fi
 	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with the package ${red}${standout}:/ ${end}${end}\n" && sleep 2 && exit 1
+		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with the package ${red}${standout}:/ ${end}${end}\n" && sleep2 && exit 1
 	fi
 }
 
@@ -369,7 +367,7 @@ if [ "$answer" != "${answer#[1]}" ]; then
 			if [ $? -eq 0 ]; then
 				code_deb
 				if [ $? -eq 0 ]; then
-					nvim && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting Mozilla theme${cyan}\n" &&
+					nvim && echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Setting Mozilla theme${cyan}\n"
 					sleep 2 && firefox-esr & disown; sleep 5  && sudo killall firefox-esr && sleep 2 && cp -r $cwd/misc/chrome ~/.mozilla/firefox/*default-esr/
 					if [ $? -eq 0 ]; then
 						echo -ne "\n${bold}${red}>> ${yellow}Themes done${red}!!!\n\n"
@@ -503,31 +501,27 @@ elif [ "$answer" != "${answer#[2]}" ]; then
 		echo -e "${blue}${bold}   -|-|-|-|- ${cyan}Installing package for any ${red}Debian ${cyan}distribution ${blue}-|-|-|-|-"
 		echo -e "${blue}${bold}======================================================================== "		
 		
-		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System ${cyan}--> \n\n" git config --global user.name
+		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System ${cyan}--> \n\n"
 		sleep 2 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
 		if [ $? -eq 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan} --> \n\n\n"
-			sleep 2 && sudo apt install -y $packages_Deb $dpnDeb_Bspwm $dpnDeb_Picom $dpnDeb_Poly firefox-esr && sudo apt autoremove -y
+#			sleep 2 && sudo apt install -y $packages_Deb firefox-esr && sudo apt autoremove -y
 			if [ $? -eq 0 ]; then
-				code_deb && firefox-esr & disown && sleep 5
+#				code_deb && lsd_deb && firefox-esr & disown; sleep 5  && sudo killall firefox-esr && sleep 2 && cp -r $cwd/misc/chrome ~/.mozilla/firefox/*default-esr/
 				if [ $? -eq 0 ]; then
-				sudo killall firefox-esr && sleep 2 && cp -r $cwd/misc/chrome ~/.mozilla/firefox/*default-esr/
+#					common_distros
+					main
 					if [ $? -eq 0 ]; then
-						common_distros
-						if [ $? -eq 0 ]; then
-							echo -ne "\n${bold}${red}-> ${bue}To-Dos${red}:${end} \
-							\n\t${bold}${blue}~ Open a terminal & type ${cyan}nvim ${blue}to finish its configuration.\n \
-							\n\t${blue}~ For dark theme Firefox, open it & type: ${cyan}about${white}:${cyan}config  ${blue} and search for -->\
-							\n\n\t${bold}${white}<${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${white}>${blue}, and set it to ${cyan}True${blue}.${end}${end}\n"
-							sleep 1 && echo -ne "\n\n\n${bold}${red} ---/-/-/-/--->>  ${yellow} Try reboot and select ${red}Bspwm ${yellow}as desktop evironment. ${red}Enjoy${yellow}!! ;) ${red}<<---\-\-\-\----${end}${end}${end}\n\n\n" && sleep 2	
-						else
-							echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
-						fi
+						echo -ne "\n${bold}${red}-> ${bue}To-Dos${red}:${end} \
+						\n\t${bold}${blue}~ Open a terminal & type ${cyan}nvim ${blue}to finish its configuration.\n \
+						\n\t${blue}~ For dark theme Firefox, open it & type: ${cyan}about${white}:${cyan}config  ${blue} and search for -->\
+						\n\n\t${bold}${white}<${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${white}>${blue}, and set it to ${cyan}True${blue}.${end}${end}\n"
+						sleep 1 && echo -ne "\n\n\n${bold}${red} ---/-/-/-/--->>  ${yellow} Try reboot and select ${red}Bspwm ${yellow}as desktop evironment. ${red}Enjoy${yellow}!! ;) ${red}<<---\-\-\-\----${end}${end}${end}\n\n\n" && sleep 2	
 					else
-						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with cloning htb-Xplorer repo ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
+						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 					fi
 				else
-					echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
+					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with cloning htb-Xplorer repo ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
 				fi
 			else
 				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
