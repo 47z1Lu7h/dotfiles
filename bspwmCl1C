@@ -499,18 +499,17 @@ elif [ "$answer" != "${answer#[2]}" ]; then
 
 		echo -e "${blue}${bold}======================================================================== "
 		echo -e "${blue}${bold}   -|-|-|-|- ${cyan}Installing package for any ${red}Debian ${cyan}distribution ${blue}-|-|-|-|-"
-		echo -e "${blue}${bold}======================================================================== "		
-		
+		echo -e "${blue}${bold}======================================================================== "
+
 		echo -ne "\n\t${cyan}${bold}<|[+]|> ${blue}Upgrading System ${cyan}--> \n\n"
 		sleep 2 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
 		if [ $? -eq 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan} --> \n\n\n"
-#			sleep 2 && sudo apt install -y $packages_Deb firefox-esr && sudo apt autoremove -y
+			sleep 2 && sudo apt install -y $packages_Deb firefox-esr && sudo apt autoremove -y
 			if [ $? -eq 0 ]; then
-#				code_deb && lsd_deb && firefox-esr & disown; sleep 5  && sudo killall firefox-esr && sleep 2 && cp -r $cwd/misc/chrome ~/.mozilla/firefox/*default-esr/
+				code_deb && lsd_deb && firefox-esr & disown; sleep 5  && sudo killall firefox-esr && sleep 2 && cp -r $cwd/misc/chrome ~/.mozilla/firefox/*default-esr/
 				if [ $? -eq 0 ]; then
-#					common_distros
-					main
+					common_distros
 					if [ $? -eq 0 ]; then
 						echo -ne "\n${bold}${red}-> ${bue}To-Dos${red}:${end} \
 						\n\t${bold}${blue}~ Open a terminal & type ${cyan}nvim ${blue}to finish its configuration.\n \
