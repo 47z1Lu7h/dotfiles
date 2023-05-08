@@ -509,9 +509,7 @@ elif [ "$answer" != "${answer#[2]}" ]; then
 			if [ $? -eq 0 ]; then
 				code_deb && lsd_deb
 				if [ $? -eq 0 ]; then
-					sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr &&					
-					firefox-esr & disown && sleep 3 && sudo killall firefox-esr && sleep 2 && cp -r $cwd/misc/chrome ~/.mozilla/firefox/*default-esr/ && common_distros
-					if [ $? -eq 0 ]; then
+					common_distros
 						if [ $? -eq 0 ]; then
 							echo -ne "\n${bold}${red}-> ${bue}To-Dos${red}:${end} \
 							\n\t${bold}${blue}~ Open a terminal & type ${cyan}nvim ${blue}to finish its configuration.\n \

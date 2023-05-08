@@ -20,8 +20,6 @@
   "editor.fontLigatures": true,
   "editor.fontSize": 15,
   "workbench.list.smoothScrolling": true,
-  "workbench.colorTheme": "One Dark Pro Darker",
-  "workbench.iconTheme": "material-icon-theme",
   "workbench.productIconTheme": "icons-carbon",
   "workbench.colorCustomizations": {
     "list.activeSelectionBackground": "#0D181C",
