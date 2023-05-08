@@ -20,18 +20,18 @@ purge_last_line_bspwmrc() {
 
 echo -ne "\n\t${White}<|[${Cyan}!${White}]|> ${Cyan}Choose a ${BIPurple}style${Cyan} for your polybar${IWhite}:\n\n\t\t ${BIGreen}Plane ${Green}<~~  ${Green}[${BICyan}p${Green}/${BICyan}f${Green}]${Red}  ~~> ${IRed}Full\t"
 echo -ne "\n\n${BIYellow}<[${BICyan}+${BIYellow}]> ${Cyan}Full is for large ${BIRed}DPI${end}${Cyan} screens, basically has a bit more icons, split bars, etc..\n\t${BIRed}"
-read STYLE
+read DPI
 
-if [ $STYLE == "p" ]; then
+if [ $DPI == "p" ]; then
 	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose ${BIBlue}Plane${Cyan} Style${BIWhite}!!\n${BIRed}"
-	DIR="$HOME/.config/polybar/themes/plane/"
+	DIR="$HOME/.config/polybar/themes/plane"
 
-elif [ $STYLE == "f" ]; then
+elif [ $DPI == "f" ]; then
 	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose ${BIBlue}Full${Cyan} Style${BIWhite}!!\n${BIRed}"
-	DIR="$HOME/.config/polybar/themes/full/"
+	DIR="$HOME/.config/polybar/themes/full"
 
 else
-	echo -ne "\t${Blue}You ${BIRed}Chicken ${Blue}out${BIRed}!!\n\n"
+	echo -ne "\t${Blue}You ${IRed}Chicken ${Blue}out${BIRed}!!\n\n"
 	exit 1
 fi
 
@@ -60,24 +60,27 @@ if [ $STYLE == 1 ]; then
 	echo -ne "\n\t${Blue}You choose ${red}Pentest ${Blue}Polybar!!\n"
 	launch_bar && purge_last_line_bspwmrc && echo "polybar -q $ZONE -c $DIR/$STYLE.ini &" >> ~/.config/bspwm/bspwmrc
 	echo -ne "\n\t${Blue}Done! ${cyan}: D\n\n"
+
 elif [ $STYLE == 2 ]; then
 	export STYLE=simple
 	echo -ne "\n\t${Blue}You choose ${red}Simple ${Blue}Polybar!!\n"
 	launch_bar && purge_last_line_bspwmrc && echo "polybar -q $ZONE -c $DIR/$STYLE.ini &" >> ~/.config/bspwm/bspwmrc
 	echo -ne "\n\t${Blue}Done! ${cyan}: D\n\n"
+
 elif [ $STYLE == 3 ]; then
 	export STYLE=pentest_kali
 	echo -ne "\n\t${Blue}You choose ${red}Pentest_kali ${Blue}Polybar!!\n"
 	polybar -q $ZONE -c $DIR/$STYLE.ini & purge_last_line_bspwmrc && echo "polybar -q $ZONE -c $DIR/$STYLE.ini &" >> ~/.config/bspwm/bspwmrc
 	echo -ne "\n\t${Blue}Done! ${cyan}: D\n\n"
+
 elif [ $STYLE == 4 ]; then
 	export STYLE=plasma
-	echo -ne "\n\t${Blue}You choose ${red}Plasma ${Blue}Polybar!!\n"
+	echo -ne "\n\t\t${Blue}You choose ${red}Plasma ${Blue}Polybar!!\n"
 	polybar -q left -c $DIR/$STYLE.ini &
-	polybar -q rigth -c $DIR/$STYLE.ini &
+	polybar -q right -c $DIR/$STYLE.ini &
 	echo -ne "\n\t${blue}Done! ${cyan}: D\n\n"
 
 else
-	echo -ne "\n\t${BIBlue}B${BIRed}y${BICyan}3${BIWhite}!!  ${BICyan}; )"
+	echo -ne "\n\t${BIBlue}]|>---B${BIRed}>${BICyan}ChA00${BIRed}!!  ${BICyan}; )"
 	exit 1
 fi
