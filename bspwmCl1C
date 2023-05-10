@@ -118,13 +118,6 @@ function ctrl_c(){
 	# --> Fonts, Zsh stuff & cp dotfiles
 function main(){
 	tput cnorm
-<<<<<<< HEAD
-	echo -ne "\n\n${bold}${red}<|[+]|> ${cyan}Installing ${red}Main ${cyan}package ${red}~> ${cyan} \n\n"
-	sleep 2
-		# -->  Fonts & icons
-	echo -ne "\n\t${bold}${cyan}<|[+]|>> ${end}${blue}Getting fonts $ icons ${end}${cyan}--> \n\n"
-	bash $cwd/misc/fonts && wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
-=======
 
 		# -->  Fonts
 	echo -ne "\n\t${bold}${cyan}<|[+]|>>> ${end}${blue}Getting fonts & Icons ${cyan}--> \n\n"
@@ -139,7 +132,6 @@ function main(){
 	find "$fonts_dir" -name '*Windows Compatible*' -delete && fc-cache -fv &&
 		# -->  Icons
 	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
->>>>>>> 0337661 (upd code)
 	unzip candy-icons.zip -d  $HOME/.local/share/icons && rm -rf icons.zip
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\t\t${bold}${red} ~!~!~!~  ${yellow}Fonts & icons done!   ${red}~!~!~!~\n\n\n" && sleep 2
@@ -179,20 +171,11 @@ function main(){
 function code() {
 	tput cnorm
 
-<<<<<<< HEAD
-	echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing VS Code ${end}${cyan}--> \n\n"
-	sleep 2
-	sudo apt-get install wget gpg && wget -qO- "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > packages.microsoft.gpg
-	if [ $? -eq 0 ]; then
-		sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-		sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-=======
 	if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Debian" > /dev/null; then
 
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}--> \n\n"
 		sleep 2
 		sudo apt-get install wget gpg && wget -qO- "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > packages.microsoft.gpg
->>>>>>> 0337661 (upd code)
 		if [ $? -eq 0 ]; then
 			sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 			sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
@@ -227,31 +210,8 @@ function code() {
 		fi
 
 	else
-<<<<<<< HEAD
-		echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
-	fi
-
-	tput civis
-}
-
-function code_fed() {
-	tput cnorm
-
-	echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installin VS Code ${end}${cyan}--> \n\n"
-	sleep 2 && sudo rpm --import "https://packages.microsoft.com/keys/microsoft.asc" &&
-	sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-	if [ $? -eq 0 ]; then
-		dnf check-update && sudo dnf install code
-		code & disown; sleep 3 && sudo killall code && cp -r misc/code/user/* ~/.config/Cod*/User/
-		echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}VS Code done!   ${red}~!~!~!~\n\n" && sleep 2
-	else
-		echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
-	fi
-
-=======
 		echo -ne "\n\t\t${bold}${red}<|[!]|> ${blue} System not ${red}suported ${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
 	fi
->>>>>>> 0337661 (upd code)
 	tput civis
 }
 
@@ -259,14 +219,6 @@ function code_fed() {
 function lsd(){
 	tput cnorm
 
-<<<<<<< HEAD
-	echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Downloading lsd ${end}${cyan}--> \n\n"
-	sleep 2 && wget "https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb" -O lsd.deb && sudo dpkg -i lsd.deb && rm lsd.deb
-	if [ $? -eq 0 ]; then
-		echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}Lsd installed!   ${red}~!~!~!~\n\n" && sleep 2
-	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting lsd  ${red}${standout} :/${end}\n\n\n" && sleep 1 && exit 1
-=======
 	if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Debian" > /dev/null; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Downloading lsd ${end}${cyan}--> \n\n"
 		sleep 2 && wget "https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb" -O lsd.deb && sudo dpkg -i lsd.deb && rm lsd.deb
@@ -284,7 +236,6 @@ function lsd(){
 
 	else
 		echo -ne "\n\t\t${bold}${red}<|[!]|> ${blue} System not ${red}suported ${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
->>>>>>> 0337661 (upd code)
 	fi
 
 	tput civis
@@ -454,14 +405,6 @@ function common_distros() {
 					if [ $? -eq 0 ]; then
 						nvim
 						if [ $? -eq 0 ]; then
-<<<<<<< HEAD
-							cd .. && rm -rf r3p0s
-						else
-							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with the main package ${red}${standout}:/ ${end}\n" && sleep 2 && exit 1
-						fi
-					else
-						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with nvim package ${red}${standout}:/ ${end}\n" && sleep 2 && exit 1
-=======
 							htb-Xplorer && main 
 							if [ $? -eq 0 ]; then
 								cd .. && rm -rf r3p0s
@@ -473,7 +416,6 @@ function common_distros() {
 						fi
 					else
 						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with code package ${red}${standout}:/ ${end}${end}\n" && sleep 2 && exit 1
->>>>>>> 0337661 (upd code)
 					fi
 				else
 					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with polybar package ${red}${standout}:/ ${end}\n" && sleep 2 && exit 1
@@ -503,15 +445,9 @@ echo -ne "\n\t${end}${blue}~ It Will ${cyan}Overwrite ${end}${blue}Some Files St
 echo -ne "${end}${blue}	~ If you have any personal configuration in any of this folders, \n"
 echo -ne "\t${end}${blue}it is better to use a virtual machine or create a new user instead${bold}${cyan} :)${end}\n\n"
 echo -ne "${red}${bold}<|[!]|> ${cyan}You can run script in two ways: \n"
-<<<<<<< HEAD
-echo -ne "\n\t${black}1${red1})${end}${blue} - Easy way."
-echo -ne "\n\t${bold}2${red})${cyan} - Hard way"
-echo -ne "\n\n${red}${bold} <> ${end}${blue}Choose one\n\n\n\t\t"
-=======
 echo -ne "\n\t${bold}${red}1${red})${end}${blue} Fast way. All the packages are installed with the default package manager, ej: apt for debian"
 echo -ne "\n\t${bold}${red}2${red})${end}${blue} Compile way. All pachages are compile form source"
 echo -ne "\n\n\t${red}${bold}<> ${end}${blue}Choose one\t${bold}${cyan} ~~>  "
->>>>>>> 0337661 (upd code)
 
 read answer
 
@@ -532,9 +468,6 @@ if [ "$answer" != "${answer#[1]}" ]; then
 			if [ $? -eq 0 ]; then
 				code
 				if [ $? -eq 0 ]; then
-<<<<<<< HEAD
-					nvim
-=======
 					nvim 
 					if [ $? -eq 0 ]; then
 						main
@@ -575,7 +508,6 @@ if [ "$answer" != "${answer#[1]}" ]; then
 				htb-Xplorer && code
 				if [ $? -eq 0 ]; then
 					nvim 					
->>>>>>> 0337661 (upd code)
 					if [ $? -eq 0 ]; then
 						main
 						if [ $? -eq 0 ]; then
@@ -656,11 +588,7 @@ if [ "$answer" != "${answer#[1]}" ]; then
 				if [ $? -eq 0 ]; then
 					nvim
 					if [ $? -eq 0 ]; then
-<<<<<<< HEAD
-						 lsd_deb
-=======
 						picom
->>>>>>> 0337661 (upd code)
 						if [ $? -eq 0 ]; then
 							main
 							if [ $? -eq 0 ]; then
@@ -691,20 +619,11 @@ if [ "$answer" != "${answer#[1]}" ]; then
 
 
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Arch" > /dev/null; then
-<<<<<<< HEAD
-
-		echo -e "\n\n\t${end}${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 2 && exit 1
-
-	elif cat /etc/*release | grep "^NAME" | grep -Ei "Fedora" > /dev/null; then
-
-		echo -e "\n\n\t${end}${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Fedora ${cyan}Distro ${end}${blue}======= \n\n" && sleep 2 && exit 1
-=======
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 2 && exit 1
 
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Fedora" > /dev/null; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Fedora ${cyan}Distro ${end}${blue}======= \n\n" && sleep 2 && exit 1
 
->>>>>>> 0337661 (upd code)
 	else
 		echo -ne "\n\t${bold}${red}<|[!]|> ${end}${blue}Sorry, this ${red}OS ${end}${blue}is ${white}Yet ${red}not ${end}${blue}supported!! ${standout}${red}:~(${end}\n\n\n" && sleep 2 && sleep 1
 	fi
@@ -719,30 +638,6 @@ elif [ "$answer" != "${answer#[2]}" ]; then
 		echo -ne "\n\t${cyan}${bold}<|[+]|> ${end}${blue}Upgrading System ${cyan}--> \n\n"
 		sleep 2 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
 		if [ $? -eq 0 ]; then
-<<<<<<< HEAD
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing Packages${cyan} --> \n\n\n"
-			sleep 2 && sudo apt install -y $packages_Deb && sudo apt autoremove -y &&
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing Dependencies${cyan} --> \n\n\n"
-			sleep 2 && sudo apt install -y $dpnDeb_Poly $dpnDeb_Picom $dpnDeb_Bspwm && sudo apt autoremove -y
-			if [ $? -eq 0 ]; then
-				code_deb && lsd_deb
-				if [ $? -eq 0 ]; then
-					common_distros
-						if [ $? -eq 0 ]; then
-							echo -ne "\n${bold}${red}-> ${bue}To-Dos${red}:${end} \
-							\n\t${bold}${end}${blue}~ Open a terminal & type ${cyan}nvim ${end}${blue}to finish its configuration.\n \
-							\n\t${end}${blue}~ For dark theme Firefox, open it & type: ${cyan}about${white}:${cyan}config  ${end}${blue} and search for -->\
-							\n\n\t${bold}${white}<${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${white}>${end}${blue}, and set it to ${cyan}True${end}${blue}.${end}\n"
-							sleep 1 && echo -ne "\n\n\n${bold}${red} ---/-/-/-/--->>  ${yellow} Try reboot and select ${red}Bspwm ${yellow}as desktop evironment. ${red}Enjoy${yellow}!! ;) ${red}<<---\-\-\-\----${end}${end}\n\n\n" && sleep 2	
-						else
-							echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${standout}:/ ${end}\n\n\n" && sleep 2 && exit 1
-						fi
-					else
-						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with firefox-esr ${red}${standout}:/ ${end}\n\n\n" && sleep 2 && exit 1
-					fi
-				else
-					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with cloning htb-Xplorer repo ${red}${standout}:/ ${end}\n\n\n" && sleep 2 && exit 1
-=======
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan} --> \n\n\n"
 			sleep 2 && sudo apt install -y $packages_Deb $dpnDeb_Poly $dpnDeb_Picom $dpnDeb_Bspwm && sudo apt autoremove -y
 				if [ $? -eq 0 ]; then
@@ -758,7 +653,6 @@ elif [ "$answer" != "${answer#[2]}" ]; then
 					fi
 				else
 					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with firefox-esr ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 2 && exit 1
->>>>>>> 0337661 (upd code)
 				fi
 			else
 				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}\n\n\n" && sleep 2 && exit 1
@@ -768,16 +662,12 @@ elif [ "$answer" != "${answer#[2]}" ]; then
 			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!! ${red}${standout}:/ ${end}\n\n\n" && sleep 2 && exit 1
 		fi
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Arch" > /dev/null; then
-<<<<<<< HEAD
-		echo -e "\n\n\t${end}${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 2 && exit 1
-=======
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 2 && exit 1
 
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Fedora" > /dev/null; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Fedora ${cyan}Distro ${end}${blue}======= \n\n" && sleep 2 && exit 1
 
 
->>>>>>> 0337661 (upd code)
 
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Fedora" > /dev/null; then
 		echo -e "\n\n\t${end}${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Fedora ${cyan}Distro ${end}${blue}======= \n\n" && sleep 2 && exit 1
@@ -786,12 +676,9 @@ elif [ "$answer" != "${answer#[2]}" ]; then
 		echo -ne "\n\t${bold}${red}<|[!]|> ${end}${blue}Sorry, this ${red}OS ${end}${blue}is ${white}Yet ${red}not ${end}${blue}supported!! ${standout}${red}:~(${end}\n\n\n" && sleep 2 && sleep 1
 	fi
 
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> 0337661 (upd code)
 else
 	sleep 2 && echo -ne "\n\n\t${bold}${end}${blue}~~~~~~~~~   ${red}<|${cyan}<|${red}<|${yellow}||${cyan}[ ${red}~ ${yellow}By3 ${red}~ ${cyan}] ${yellow}||> ${cyan}|> ${red}|>   ${end}${blue}~~~~~~~~~\n\n\n"
 fi
