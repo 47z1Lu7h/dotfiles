@@ -65,7 +65,7 @@ function main(){
 		# -->  Fonts
 	echo -ne "\n\t${bold}${cyan}<|[+]|>>> ${end}${blue}Getting fonts & Icons ${cyan}--> \n\n"
 	fonts_dir="/usr/share/fonts"
-	
+
 	for font in "${fonts[@]}"; do
 		zip_file="${font}.zip"
 		download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/${zip_file}"
@@ -91,7 +91,7 @@ function main(){
 					sleep 1 && echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Coping home config files ${cyan}\n\n" &&
 					cp -r $cwd/config/* $HOME/.config/ && cp -r $cwd/misc/home/.*?  $HOME && sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
 					if [ $? -eq 0 ]; then
-						sleep 1 && echo -ne "\t\t\t${bold}${red}<|[~]|> \t${red}${yellow}Dotfiles done${red}!!! ${cyan}:D  ${bold}${red}\t<|[~]|>\n" && sleep 1
+						sleep 1 && echo -ne "\t\t\t${bold}${cyan}<|[ ${black}!${cyan}]|>${black}~~>${red}${cyan}Dotfiles ${red}done${cyan}!\t${red}${stnd}:~D${end}${bold}${red} <|[~]|>\n" && sleep 1
 					else
 						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad coping files ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
 					fi
@@ -490,10 +490,10 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 		echo -e "${blue}${bold}======================================================================== "
 
 		echo -ne "\n\t${cyan}${bold}<|[+]|> ${end}${blue}Upgrading System ${bold}${cyan}~~> \n\n"
-		sleep 1 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
+#		sleep 1 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
 		if [ $? -eq 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing Packages ${bold}${cyan}~~> \n\n\n"
-			sleep 1 && sudo apt install -y $packages_Deb $dpnDeb_Poly $dpnDeb_Picom $dpnDeb_Bspwm && sudo apt autoremove -y
+#			sleep 1 && sudo apt install -y $packages_Deb $dpnDeb_Poly $dpnDeb_Picom $dpnDeb_Bspwm && sudo apt autoremove -y
 				if [ $? -eq 0 ]; then
 					common
 					if [ $? -eq 0 ]; then
@@ -501,7 +501,7 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 						\n\t${bold}${red}~${end}${blue} Open a terminal & type ${bold}${cyan}nvim ${end}${blue}to finish its configuration. \
 						\n\t${bold}${red}~${end}${blue} For dark theme Firefox-esr, open it & type => ${bold}${cyan}about${bold}${red}:${bold}${cyan}config${end}${blue}, then search for -->\
 						\n\t${end}${red}<${bold}${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${end}${red}>${blue}, and set it to ${bold}${cyan}True${end}${blue}."
-						sleep 1 && echo -ne "\n\n\t${bold}${red}------/-/-/-/~~~~> >> ${end}${yellow}Try reboot and select ${bold}${red}Bspwm ${end}${yellow}as desktop Evironment. Enjoy!! ${stnd}${bold}${red};-)${end}${red} << <~~~~~\-\-\-\------${end}${end}${end}\n\n\n" && sleep 1	
+						sleep 1 && echo -ne "\n\n\t${bold}${red}------/-/-/-/~~~~> >> ${end}${yellow}Try reboot and select ${bold}${red}Bspwm ${end}${yellow}as desktop Evironment. Enjoy!! ${stnd}${bold}${red};-)${end}${red} << <~~~~~\-\-\-\------${end}\n\n\n" && sleep 1	
 					else
 						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${stnd}:/ ${end}${end}\n\n\n" && sleep 1 && exit 1
 					fi
