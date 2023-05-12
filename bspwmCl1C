@@ -91,7 +91,7 @@ function main(){
 					sleep 1 && echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Coping home config files ${cyan}\n\n" &&
 					cp -r $cwd/config/* $HOME/.config/ && cp -r $cwd/misc/home/.*?  $HOME && sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
 					if [ $? -eq 0 ]; then
-						sleep 1 && echo -ne "\t\t\t${bold}${cyan}<|[ ${black}!${cyan}]|>${black}~~>${red}${cyan}Dotfiles ${red}done${cyan}!\t${red}${stnd}:~D${end}${bold}${red} <|[~]|>\n" && sleep 1
+						sleep 1 && echo -ne "\t\t\t${bold}${cyan}<|[ ${black}!${cyan}]|>${red}~~>${cyan}Dotfiles ${red}done${cyan}!\t${red}${stnd}:~D${end}{bold}${cyan}<|[ ${black}!${cyan}]|>\n" && sleep 1
 					else
 						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad coping files ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
 					fi
@@ -117,7 +117,7 @@ function code() {
 
 	which code
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Code common in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Code common in the system ${bold}${cyan}^${bold}${blue}.${bold}${cyan}stnd^${end}${cyan}\n\n" && sleep 1
 	else
 
 		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Debian" > /dev/null; then
@@ -171,7 +171,7 @@ function lsd(){
 
 	which lsd
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Lsd already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Lsd already in the system ${bold}${cyan}^${bold}${blue}.${bold}${cyan}stnd^${end}${cyan}\n\n" && sleep 1
 	else
 
 		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Debian" > /dev/null; then
@@ -203,7 +203,7 @@ function nvim() {
 
 	which nvim
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Nvim already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Nvim already in the system ${bold}${cyan}^${bold}${blue}.${bold}${cyan}stnd^${end}${cyan}\n\n" && sleep 1
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning NvChad${cyan} -->\n\n\n${red}" && sleep 1 &&
 		rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
 		sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
@@ -253,7 +253,7 @@ function bspwm(){
 	
 	which bspwm
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Bspwm  in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Bspwm  in the system ${bold}${cyan}^${bold}${blue}.${bold}${cyan}stnd^${end}${cyan}\n\n" && sleep 1
 	else
 
 		mkdir r3p0 &&  cd r3p0
@@ -285,7 +285,7 @@ function picom() {
 
 	which picom
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Picom already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Picom already in the system ${bold}${cyan}^${bold}${blue}.${bold}${cyan}stnd^${end}${cyan}\n\n" && sleep 1
 	else
 
 		mkdir r3p0 &&  cd r3p0
@@ -317,7 +317,7 @@ function polybar() {
 
 	which polybar
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Polybar  in the system ${bold}${purple}^${bold}${black}.${purple}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Polybar  in the system ${bold}${cyan}^${blue}.${cyan}^${end}${cyan}\n\n" && sleep 1
 	else
 
 		mkdir r3p0 && cd r3p0
@@ -345,11 +345,13 @@ function firefox_esr() {
 
 	which firefox-esr
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Firefox_esr already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Firefox_esr already in the system ${bold}${cyan}^${bold}${blue}.${bold}${cyan}stnd^${end}${cyan}\n\n" && sleep 1
 		if [ -d "~/.mozilla/" ]; then
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n"
 			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 		else
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n"
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 && 
 			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
@@ -357,23 +359,27 @@ function firefox_esr() {
 	else
 		if cat /etc/*release | grep "^NAME" | grep -Ei "Ubuntu" > /dev/null; then
 			if [ -d "~/.mozilla/" ]; then
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n"
 				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 			else
-				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr & setting theme${cyan}! \n"
+				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr${cyan}! \n"
 				sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr
 				firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 && 
+				echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n"
 				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 			fi
 		elif cat /etc/*release | grep "^NAME" | grep -Ei "Kali|Parrot" > /dev/null; then
 			if [ -d "~/.mozilla/" ]; then
+				echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n"
 				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 			else
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr & setting theme${cyan}! \n"
 				sudo apt install -y firefox-esr && 
 				firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 && 
+				echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n"
 				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 			fi
@@ -460,7 +466,7 @@ function common() {
 			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with Bspwm package ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 		fi
 	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Remove ${end}${blue}r3p0s ${cyan}folder from previous tries ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
+		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${end}${blue}Remove ${cyan}r3p0s ${blue}folder from previous tries ${red}${stnd}:~/${end}\n" && sleep 1 && exit 1
 	fi
 }
 
