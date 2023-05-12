@@ -259,8 +259,20 @@ function nvim() {
 	which nvim
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Nvim already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning NvChad${cyan} -->\n\n\n" && sleep 1 &&
+		rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
+		sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
+		if [ $? -eq 0 ]; then
+			git clone --depth 1 "https://github.com/NvChad/NvChad" ~/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/NvChad" /root/.config/nvim
+			if [ $? -eq 0 ]; then
+				echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${standout}${black}:~D${end}\n\n" && sleep 1
+			else
+				echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad cloning NvChad repo ${red}${standout}:/ ${end}\n\n\n" && sleep 1 && exit 1
+			fi
+		else
+			echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red}  Something went bad removing od folders ${red}${standout}:/ ${end}\n\n\n" && sleep 1 && exit 1
+		fi
 	else
-
 		mkdir r3p0 && cd r3p0
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning & compiling neovim + cloning NvChad${cyan} -->\n\n\n" && sleep 1 &&
 		git clone "https://github.com/neovim/neovim" && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
@@ -413,7 +425,7 @@ function htb-Xplorer(){
 	tput cnorm
 
 	if [ -d "/opt/h4Ck/htbXplorer-Plus" ]; then
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}htb-Xplorer already in the system ${bold}${cyan}^${bold}${red}~${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}htb-Xplorer already in the system ${bold}${cyan}^${bold}${red}~${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning htbXplorer from github${cyan}--> ${end}${cyan}\n\n"
 		sleep 1 && sudo mkdir -p /opt/h4Ck/htbXplorer-Plus
@@ -713,13 +725,8 @@ elif [ "$answer" != "${answer#[2]}" ]; then
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Fedora" > /dev/null; then
 		echo -e "\n\n\t${end}${blue}${bold}======= ${cyan}Sorry.. Still in development for ${bold}${yellow}Fedora ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	
-	else
-		echo -ne "\n\t${bold}${red}<|[!]|> ${end}${blue}Sorry, this ${red}OS ${end}${blue}is ${white}Yet ${red}not ${end}${blue}supported!! ${standout}${red}:~(${end}\n\n\n" && sleep 1 && sleep 1
-	fi
-
-
-
 
 else
-	sleep 1 && echo -ne "\n\n\t${bold}${end}${blue}~~~~~~~~~   ${red}<|${cyan}<|${red}<|${yellow}||${cyan}[ ${red}~ ${yellow}By3 ${red}~ ${cyan}] ${yellow}||> ${cyan}|> ${red}|>   ${end}${blue}~~~~~~~~~\n\n\n"
+
+	sleep 1 && echo -ne "\n\n\t${bold}${end}${blue}~~~~~~~~~${red}<|${cyan}[${red}-${yellow}Bye${red}-${cyan}]${red}|>${end}${blue}~~~~~~~~~\n\n\n"
 fi
