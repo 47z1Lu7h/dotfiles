@@ -10,7 +10,7 @@ if test -t 1; then
 		under='$(tput smul)'		# --> Set underline
 		rem_under='$(tput rmul)'	# --> Remove underline
         bold="$(tput bold)"
-        standout="$(tput smso)"
+        stnd="$(tput smso)"
         end="$(tput sgr0)"
         black="$(tput setaf 0)"
         red="$(tput setaf 1)"
@@ -34,62 +34,7 @@ declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
 
-declare -a fonts=(
-#	Agave
-#	AnonymousPro
-#	Arimo
-#	AurulentSansMono
-#	BigBlueTerminal
-#	BitstreamVeraSansMono
-#	CascadiaCode
-#	CodeNewRoman
-#	ComicShannsMono
-#	Cousine
-#	DaddyTimeMono
-#	DejaVuSansMono
-#	DroidSansMono
-#	FantasqueSansMono
-#	FiraCode
-#	FiraMono
-#	FontPatcher
-#	Go-Mono
-#	Gohu
-#	Hack
-#	Hasklig
-#	HeavyData
-#	Hermit
-#	iA-Writer
-#	IBMPlexMono
-#	Inconsolata
-#	InconsolataGo
-#	InconsolataLGC
-#	Iosevka
-#	IosevkaTerm
-#	JetBrainsMono
-#	Lekton
-#	LiberationMono
-#	Lilex
-#	Meslo
-#	Monofur
-#	Monoid
-#	Mononoki
-#	MPlus
-#	NerdFontsSymbolsOnly
-#	Noto
-#	OpenDyslexic
-#	Overpass
-#	ProFont
-#	ProggyClean
-#	RobotoMono
-#	ShareTechMono
-#	SourceCodePro
-#	SpaceMono
-#	Terminus
-#	Tinos
-#	Ubuntu
-#	UbuntuMono
-#	VictorMono
-)
+declare -a fonts=(ComicShannsMono DaddyTimeMono Go-Mono Iosevka IosevkaTerm JetBrainsMono)
 
 
 trap ctrl_c INT
@@ -120,10 +65,11 @@ function main(){
 		# -->  Fonts
 	echo -ne "\n\t${bold}${cyan}<|[+]|>>> ${end}${blue}Getting fonts & Icons ${cyan}--> \n\n"
 	fonts_dir="/usr/share/fonts"
+	
 	for font in "${fonts[@]}"; do
 		zip_file="${font}.zip"
 		download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/${zip_file}"
-		echo -ne "\n\t\t${red}D@Wnl@4D1n6${white}!! ${purple}~~>\n\n\t ${blue}$download_url\n\n${cyan}"
+		echo -ne "\n\t\t${blue}D@Wnl@4D1n6 ${cyan}~~>\n\t ${red}$download_url\n\n${cyan}"
 		wget "$download_url"
 		sudo unzip -o "$zip_file" -d "$fonts_dir" && rm "$zip_file"
 	done
@@ -147,19 +93,19 @@ function main(){
 					if [ $? -eq 0 ]; then
 						sleep 1 && echo -ne "\t\t\t${bold}${red}<|[~]|> \t${red}${yellow}Dotfiles done${red}!!! ${cyan}:D  ${bold}${red}\t<|[~]|>\n" && sleep 1
 					else
-						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad coping files ${red}${standout}: /${end}\n\n\n" && sleep 1 && exit 1
+						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad coping files ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
 					fi
 				else
-					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting antigen ${red}${standout}: /${end}\n\n\n" && sleep 1 && exit 1
+					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting antigen ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
 				fi
 			else
-				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting sudo.plugin ${red}${standout}: /${end}\n\n\n" && sleep 1 && exit 1
+				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting sudo.plugin ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
 			fi
 		else
-			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${standout}: /${end}\n\n\n" && sleep 1 && exit 1
+			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
 		fi
 	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading Iosevka font ${red}${standout} :/${end}\n\n\n" && sleep 1 && exit 1
+		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading Iosevka font ${red}${stnd} :/${end}\n\n\n" && sleep 1 && exit 1
 	fi
 
 	tput civis
@@ -171,7 +117,7 @@ function code() {
 
 	which code
 	if [ $? -eq 0 ]; then
-		echo -ne "\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Code common in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Code common in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 	else
 
 		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Debian" > /dev/null; then
@@ -187,16 +133,16 @@ function code() {
 					sudo apt install apt-transport-https
 					sudo apt update && sudo apt install code
 					if [ $? -eq 0 ]; then
-						code & sleep 5 && sudo killall code && cp -r misc/code/user/* ~/.config/Cod*/User/
+						code & sleep 5 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
 						echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}VS d4Rk-Code done!   ${red}~!~!~!~\n\n"
 					else
-						echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
+						echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
 					fi
 				else
-					echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
+					echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 				fi
 			else
-				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
+				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 			fi
 
 		elif cat /etc/*release | grep "^ID" | grep -Ei "Fedora" > /dev/null; then
@@ -206,14 +152,14 @@ function code() {
 			sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 			if [ $? -eq 0 ]; then
 				dnf check-update && sudo dnf install code
-				code & disown; sleep 3 && sudo killall code && cp -r misc/code/user/* ~/.config/Cod*/User/
+				code & disown; sleep 3 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
 				echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}VS Code done!   ${red}~!~!~!~\n\n" && sleep 1
 			else
-				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
+				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
 			fi
 
 		else
-			echo -ne "\n\t\t${bold}${red}<|[!]|> ${blue} System not ${red}suported ${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
+			echo -ne "\n\t\t${bold}${red}<|[!]|> ${blue} System not ${red}suported ${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
 		fi
 	fi
 	tput civis
@@ -234,7 +180,7 @@ function lsd(){
 			if [ $? -eq 0 ]; then
 				echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}Lsd installed!   ${red}~!~!~!~\n\n" && sleep 1
 			else
-				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting lsd  ${red}${standout} :/${end}${end}\n\n\n" && sleep 1 && exit 1
+				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting lsd  ${red}${stnd} :/${end}${end}\n\n\n" && sleep 1 && exit 1
 			fi
 
 		elif cat /etc/*release | grep "^ID" | grep -Ei "Arch" > /dev/null; then
@@ -244,7 +190,7 @@ function lsd(){
 			dnf install lsd
 
 		else
-			echo -ne "\n\t\t${bold}${red}<|[!]|> ${blue} System not ${red}suported ${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
+			echo -ne "\n\t\t${bold}${red}<|[!]|> ${blue} System not ${red}suported ${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
 		fi
 	fi
 
@@ -258,18 +204,18 @@ function nvim() {
 	which nvim
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Nvim already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning NvChad${cyan} -->\n\n\n" && sleep 1 &&
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning NvChad${cyan} -->\n\n\n${red}" && sleep 1 &&
 		rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
 		sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
 		if [ $? -eq 0 ]; then
 			git clone --depth 1 "https://github.com/NvChad/NvChad" ~/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/NvChad" /root/.config/nvim
 			if [ $? -eq 0 ]; then
-				echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${standout}${black}:~D${end}\n\n" && sleep 1
+				echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${stnd}${black}:~D${end}\n\n" && sleep 1
 			else
-				echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad cloning NvChad repo ${red}${standout}:/ ${end}\n\n\n" && sleep 1 && exit 1
+				echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad cloning NvChad repo ${red}${stnd}:/ ${end}\n\n\n" && sleep 1 && exit 1
 			fi
 		else
-			echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red}  Something went bad removing od folders ${red}${standout}:/ ${end}\n\n\n" && sleep 1 && exit 1
+			echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red}  Something went bad removing od folders ${red}${stnd}:/ ${end}\n\n\n" && sleep 1 && exit 1
 		fi
 	else
 		mkdir r3p0 && cd r3p0
@@ -283,18 +229,18 @@ function nvim() {
 				if [ $? -eq 0 ]; then
 					cd ../../ && rm -rf r3p0
 					if [ $? -eq 0 ]; then
-						echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${standout}${black}:~D${end}\n\n" && sleep 1
+						echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${stnd}${black}:~D${end}\n\n" && sleep 1
 					else
-						echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad removing neovim folder ${red}${standout}:/  ${end}\n\n\n" && sleep 1 && exit 1
+						echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad removing neovim folder ${red}${stnd}:/  ${end}\n\n\n" && sleep 1 && exit 1
 					fi
 				else
-					echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad cloning NvChad repo ${red}${standout}:/ ${end}\n\n\n" && sleep 1 && exit 1
+					echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad cloning NvChad repo ${red}${stnd}:/ ${end}\n\n\n" && sleep 1 && exit 1
 				fi
 			else
-				echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red}  Something went bad removing od folders ${red}${standout}:/ ${end}\n\n\n" && sleep 1 && exit 1
+				echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red}  Something went bad removing od folders ${red}${stnd}:/ ${end}\n\n\n" && sleep 1 && exit 1
 			fi
 		else
-			echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red}  Something went bad compiling neovim ${red}${standout}:/ ${end}\n\n\n" && sleep 1 && exit 1
+			echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red}  Something went bad compiling neovim ${red}${stnd}:/ ${end}\n\n\n" && sleep 1 && exit 1
 		fi
 	fi
 
@@ -307,7 +253,7 @@ function bspwm(){
 	
 	which bspwm
 	if [ $? -eq 0 ]; then
-		echo -ne "\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Bspwm  in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Bspwm  in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 	else
 
 		mkdir r3p0 &&  cd r3p0
@@ -321,12 +267,12 @@ function bspwm(){
 				if [ $? -eq 0 ]; then
 					echo -ne "\n\t\t${bold}${red}<|[*]|> ~!~!~!~   ${yellow}Bspwm & sxhkd done!   ${red}~!~!~!~\n\n" && sleep 1
 				else
-					echo -e "\n\t\t${bold}${red}<|[!]|> ${green} Failing removing folder ${cyan}${standout}:/ ${end}\n" && sleep 1 && exit 1
+					echo -e "\n\t\t${bold}${red}<|[!]|> ${green} Failing removing folder ${cyan}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 				fi		else
-				echo -e "\n\t\t${bold}${red}<|[!]|> ${green} Failing compiling Sxhkd ${cyan}${standout}:/ ${end}\n" && sleep 1 && exit 1
+				echo -e "\n\t\t${bold}${red}<|[!]|> ${green} Failing compiling Sxhkd ${cyan}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 			fi
 		else
-			echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}Failing Compliling bspwm ${red}${standout}:/  ${end}\n" && sleep 1 && exit 1
+			echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}Failing Compliling bspwm ${red}${stnd}:/  ${end}\n" && sleep 1 && exit 1
 		fi
 	fi
 
@@ -352,13 +298,13 @@ function picom() {
 				if [ $? -eq 0 ]; then
 					cd ../../ && rm -rf r3p0 && echo -ne "\n\t\t${bold}${red}<|[*]|> ~!~!~!~   ${yellow}Picom done!   ${red}~!~!~!~\n\n" && sleep 1
 				else
-					echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Something went wrong Compiling Picom ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
+					echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Something went wrong Compiling Picom ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 				fi
 			else
-				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend compiling Picom ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
+				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend compiling Picom ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 			fi
 		else
-			echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}We Cant Download From Github ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
+			echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}We Cant Download From Github ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 		fi
 	fi
 
@@ -371,7 +317,7 @@ function polybar() {
 
 	which polybar
 	if [ $? -eq 0 ]; then
-		echo -ne "\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Polybar  in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Polybar  in the system ${bold}${purple}^${bold}${black}.${purple}^${end}${cyan}\n\n" && sleep 1
 	else
 
 		mkdir r3p0 && cd r3p0
@@ -383,10 +329,10 @@ function polybar() {
 				cd ../../../ && rm -rf r3p0 &&
 				echo -ne "\n\t\t${bold}${red}<|[*]|> ~!~!~!~   ${yellow}Polybar done!   ${red}~!~!~!~\n\n" && sleep 1
 			else
-				echo -ne "\n\n\t\t${bold}${red}|[!]|> ${cyan}Failing compiling Polybar ${red}${standout}:/  ${end}\n" && sleep 1 && exit 1
+				echo -ne "\n\n\t\t${bold}${red}|[!]|> ${cyan}Failing compiling Polybar ${red}${stnd}:/  ${end}\n" && sleep 1 && exit 1
 			fi
 		else
-			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Failing compiling Polybar ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
+			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Failing compiling Polybar ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 		fi
 	fi
 
@@ -397,37 +343,42 @@ function polybar() {
 function firefox_esr() {
 	tput cnorm
 
-	which firefox_esr
+	which firefox-esr
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Firefox_esr already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
-		if [ -d "~/.mozilla/*" ]; then
-			cp -r  $cwd/misc/chrome ~/.mozilla/*default-esr*/ &&
+		if [ -d "~/.mozilla/" ]; then
+			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 		else
-			sleep 1 && firefox-esr & disown; sleep 1 && sudo killall firefox-esr && sleep 1 && cp -r $cwd/misc/chrome ~/.mozilla/*default-esr*/ &&
+			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 && 
+			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 		fi
 	else
 		if cat /etc/*release | grep "^NAME" | grep -Ei "Ubuntu" > /dev/null; then
-			if [ -d "~/.mozilla/*" ]; then
-				cp -r  $cwd/misc/chrome ~/.mozilla/*default-esr*/ &&
+			if [ -d "~/.mozilla/" ]; then
+				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 			else
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr & setting theme${cyan}! \n"
 				sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr
-				sleep 1 && firefox-esr & disown; sleep 1 && sudo killall firefox-esr && sleep 1 && cp -r  $cwd/misc/chrome ~/.mozilla/*default-esr*/ &&
+				firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 && 
+				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 			fi
 		elif cat /etc/*release | grep "^NAME" | grep -Ei "Kali|Parrot" > /dev/null; then
-				if [ -d "~/.mozilla/*" ]; then
-					cp -r  $cwd/misc/chrome ~/.mozilla/*default-esr*/ &&
-					echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
-				else
-					echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr & setting theme${cyan}! \n"
-					sudo apt install -y firefox-esr && firefox-esr & disown; sleep 2 && sudo killall firefox-esr && sleep 1 && cp -r  $cwd/misc/chrome ~/.mozilla/*default-esr*/
-				fi
+			if [ -d "~/.mozilla/" ]; then
+				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
+				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
+			else
+				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr & setting theme${cyan}! \n"
+				sudo apt install -y firefox-esr && 
+				firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 && 
+				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
+				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
+			fi
 		else
-			echo -ne "\n\t\t${bold}${red}<|[!]|> ${blue} System not ${red}suported ${standout}:/ ${end}${end}\n"
+			echo -ne "\n\t\t${bold}${red}<|[!]|> ${blue} System not ${red}suported ${stnd}:/ ${end}${end}\n"
 		fi
 	fi
 
@@ -449,10 +400,10 @@ function htb-Xplorer(){
 				sudo chmod +x /opt/h4Ck/htbXplorer-Plus/htbXplorer
 				echo -ne "\n\t\t${bold}${purple}~!~!~!~   ${cyan}HtbXplorer-${red}Plus ${cyan}done!   ${purple} ~!~!~!~\n\n"
 			else
-		        echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad cloning the repo ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
+		        echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad cloning the repo ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 			fi
 		else
-        	echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad creating the folder ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
+        	echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad creating the folder ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 		fi
 	fi
 
@@ -468,33 +419,48 @@ function common() {
 			if [ $? -eq 0 ]; then
 				polybar	
 				if [ $? -eq 0 ]; then
-					 code && lsd
+					code
 					if [ $? -eq 0 ]; then
-						htb-Xplorer && firefox_esr
+						lsd
 						if [ $? -eq 0 ]; then
-							nvim && main 
+							firefox_esr
 							if [ $? -eq 0 ]; then
-								cd .. && rm -rf r3p0s
+								htb-Xplorer
+								if [ $? -eq 0 ]; then
+									nvim
+									if [ $? -eq 0 ]; then
+										main 
+										if [ $? -eq 0 ]; then
+											cd .. && rm -rf r3p0s
+										else
+											echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with the main package ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
+										fi
+									else
+										echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with nvim package ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
+									fi
+								else
+									echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with htb-Xplorer repo ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
+								fi
 							else
-								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with the main package ${red}${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
+								echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with firefox_esr package ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
 							fi
 						else
-							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with nvim package ${red}${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
+							echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with Lsd package ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
 						fi
 					else
-						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with code package ${red}${standout}:/ ${end}${end}\n" && sleep 1 && exit 1
+						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with Code package ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 					fi
 				else
-					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with polybar package ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
-				fi
+					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad Polybar the package ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
+				fi			
 			else
-				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad picom the package ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
+				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad Picom the package ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 			fi
 		else
-			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with bspwm package ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
+			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with Bspwm package ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 		fi
 	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Remove r3p0s folder drom previous tries ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
+		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Remove ${end}${blue}r3p0s ${cyan}folder from previous tries ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 	fi
 }
 
@@ -503,14 +469,14 @@ function common() {
 #--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 if [ "$EUID" == 0 ];then
-	echo -e "\n\n\t${bold}${red}<|[!]|[!]|> ${cyan}You do not to be ${red}root ${cyan}to execute this script ${standout}${red}; )${end}\n\n" && sleep 1 && exit 1
+	echo -e "\n\n${bold}${red}<|${bold}${black}[${bold}${red}!${bold}${black}]${bold}${red}|${bold}${black}[${bold}${red}!${bold}${black}]${bold}${red}|> \t${cyan}You do not have to be ${red}root ${cyan}to execute this script \t${stnd}${red};-)${end}\n\n" && sleep 1 && exit 1
 fi
 
 banner
-echo -ne "\n${bold}${cyan}|[*]|> ${end}${blue}This Script Will Add ${cyan}Bspwm ${end}${blue}Desktop Eviroment To Your Linux."
-echo -ne "\n${bold}${cyan}|[*]|> ${end}${blue}Alongside with some other packages like: ${cyan}Polybar${blue},${cyan} Picom${blue},${cyan} Sxhkd${blue},${cyan} Nvim${blue},${cyan} VS-Code${blue},${cyan} firefox_esr${blue},${cyan} Lsd${blue}..."
-echo -ne "\n\n${red}${bold}<|[${blue}!${red}]|> ${cyan}Are you shure you want to continue? \n"
-echo -ne "\n\t${red}${bold}<*> ${end}${blue}[${cyan}y${blue}/${cyan}n${blue}]${bold}${cyan} ~~>  "
+echo -ne "\n${cyan}~|${bold}[${cyan}+${cyan}]${end}${cyan}|${cyan}>${bold}${black}~~~ ${end}${blue}This Script Will Add ${bold}${cyan}Bspwm ${end}${blue}Desktop Eviroment To Your Linux."
+echo -ne "\n${cyan}~|${bold}[${cyan}+${cyan}]${end}${cyan}|${cyan}>${bold}${black}~~~ ${end}${blue}Alongside with some other packages like: ${cyan}Polybar${blue},${cyan} Picom${blue},${cyan} ZHS${blue},${cyan} Sxhkd${blue},${cyan} Nvim${blue},${cyan} VS-Code${blue},${cyan} firefox_esr${blue},${cyan} Lsd${blue}..."
+echo -ne "\n\n\t${red}${bold}<|[${bold}${cyan}!${red}]|> ${end}${cyan}Are you sure you want to continue ${bold}? \n"
+echo -ne "\n\t\t${end}${blue}[ ${bold}${cyan}y${end}${blue} / ${bold}${cyan}n${end}${blue} ]${red} ~~> ${bold}${cyan}"
 
 read answer
 
@@ -519,35 +485,35 @@ export cwd=$(pwd)
 if [ "$answer" != "${answer#[y/Y]}" ]; then
 	if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Debian" > /dev/null; then
 
-		echo -e "${end}${blue}${bold}======================================================================== "
-		echo -e "${end}${blue}${bold}   -|-|-|-|- ${cyan}Installing package for ${red}Debian ${cyan}distribution ${end}${blue}-|-|-|-|-"
-		echo -e "${end}${blue}${bold}======================================================================== "
+		echo -e "${blue}${bold}======================================================================== "
+		echo -e "${blue}${bold}   -|-|-|-|- ${cyan}Installing package for ${end}${red}Debian ${bold}${cyan}distribution ${end}${blue}-|-|-|-|-"
+		echo -e "${blue}${bold}======================================================================== "
 
-		echo -ne "\n\t${cyan}${bold}<|[+]|> ${end}${blue}Upgrading System ${cyan}--> \n\n"
+		echo -ne "\n\t${cyan}${bold}<|[+]|> ${end}${blue}Upgrading System ${bold}${cyan}~~> \n\n"
 		sleep 1 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
 		if [ $? -eq 0 ]; then
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing Packages${cyan} --> \n\n\n"
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing Packages ${bold}${cyan}~~> \n\n\n"
 			sleep 1 && sudo apt install -y $packages_Deb $dpnDeb_Poly $dpnDeb_Picom $dpnDeb_Bspwm && sudo apt autoremove -y
 				if [ $? -eq 0 ]; then
 					common
 					if [ $? -eq 0 ]; then
-						echo -ne "\n${bold}${red}-> ${bue}To-Dos${red}:${end} \
-						\n\t${bold}${blue}~ Open a terminal & type ${cyan}nvim ${blue}to finish its configuration.\n \
-						\n\t${blue}~ For dark theme Firefox, open it & type: ${cyan}about${red}:${cyan}config  ${blue} then search for -->\
-						\n\n\t${bold}${red}<${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${red}>${blue}, and set it to ${cyan}True${blue}.${end}${end}\n"
-						sleep 1 && echo -ne "\n${bold}${red} ---/-/-/-/---> > ${yellow} Try reboot and select ${red}Bspwm ${yellow}as desktop evironment. ${red}Enjoy${yellow}!! ${cyan};) ${red}<<---\-\-\-\----${end}${end}${end}\n\n\n" && sleep 1	
+						echo -ne "\n${bold}${red}<${end}${black}|${end}${blue}[${bold}${red}!${end}${blue}]${black}|${bold}${red}>${end}${blue} To-Dos${red} ~~>${end} \
+						\n\t${bold}${red}~${end}${blue} Open a terminal & type ${bold}${cyan}nvim ${end}${blue}to finish its configuration. \
+						\n\t${bold}${red}~${end}${blue} For dark theme Firefox-esr, open it & type => ${bold}${cyan}about${bold}${red}:${bold}${cyan}config${end}${blue}, then search for -->\
+						\n\t${end}${red}<${bold}${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${end}${red}>${blue}, and set it to ${bold}${cyan}True${end}${blue}."
+						sleep 1 && echo -ne "\n\n\t${bold}${red}------/-/-/-/~~~~> >> ${end}${yellow}Try reboot and select ${bold}${red}Bspwm ${end}${yellow}as desktop Evironment. Enjoy!! ${stnd}${bold}${red};-)${end}${red} << <~~~~~\-\-\-\------${end}${end}${end}\n\n\n" && sleep 1	
 					else
-						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 1 && exit 1
+						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${stnd}:/ ${end}${end}\n\n\n" && sleep 1 && exit 1
 					fi
 				else
-					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with firefox-esr ${red}${standout}:/ ${end}${end}\n\n\n" && sleep 1 && exit 1
+					echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with firefox-esr ${red}${stnd}:/ ${end}${end}\n\n\n" && sleep 1 && exit 1
 				fi
 			else
-				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${standout}${red}:/ ${end}\n\n\n" && sleep 1 && exit 1
+				echo -ne "\n\n\t${bold}${red}<|[!]|>${yellow} Something went wrong installing the packages ${stnd}${red}:/ ${end}\n\n\n" && sleep 1 && exit 1
 			fi
 
 		else
-			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!! ${red}${standout}:/ ${end}\n\n\n" && sleep 1 && exit 1
+			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!! ${red}${stnd}:/ ${end}\n\n\n" && sleep 1 && exit 1
 		fi
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Arch" > /dev/null; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
@@ -556,8 +522,7 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Fedora ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 
 elif [ "$answer" != "${answer#[n/N]}" ]; then
-	sleep 1 && echo -ne "\n\n\t${bold}${end}${blue}~~~~~~~~~${red}<|${cyan}[${red}-${cyan}Bye${red}-${cyan}]${red}|>${end}${blue}~~~~~~~~~\n\n\n"
-
+	sleep 0.5 && echo -ne "\n${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}|>${bold}${black}~~>> ${red}Have a ${end}${cyan}Nice ${bold}${red}day${end}${cyan}!! \t\t${stnd}${red};-)${end}\n\n"
 else
-	sleep 1 && echo -ne "\n\n\t${bold}${end}${blue}~~~~~~~~~${red}<|${blue}[${red}~${cyan}Bye${red}~${blue}]${red}|>${end}${blue}~~~~~~~~~\n\n\n"
+	sleep 0.3 && echo -ne "\n${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}|>${bold}${black}~~~>> ${red}Bye${black}!\n\n"
 fi
