@@ -172,7 +172,7 @@ function code() {
 
 	which code
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Code already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Code already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 	else
 
 		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Debian" > /dev/null; then
@@ -226,7 +226,7 @@ function lsd(){
 
 	which lsd
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Lsd already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Lsd already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 	else
 
 		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Debian" > /dev/null; then
@@ -258,7 +258,7 @@ function nvim() {
 
 	which nvim
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Nvim already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Nvim already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning NvChad${cyan} -->\n\n\n" && sleep 1 &&
 		rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
 		sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
@@ -308,7 +308,7 @@ function bspwm(){
 	
 	which bspwm
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Bspwm already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Bspwm already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 	else
 
 		mkdir r3p0 &&  cd r3p0
@@ -340,7 +340,7 @@ function picom() {
 
 	which picom
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\n\t{bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Picom already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Picom already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 	else
 
 		mkdir r3p0 &&  cd r3p0
@@ -372,7 +372,7 @@ function polybar() {
 
 	which polybar
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Polybar already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Polybar already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 	else
 
 		mkdir r3p0 && cd r3p0
@@ -425,7 +425,7 @@ function htb-Xplorer(){
 	tput cnorm
 
 	if [ -d "/opt/h4Ck/htbXplorer-Plus" ]; then
-		echo -ne "\n\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}htb-Xplorer already in the system ${bold}${cyan}^${bold}${red}~${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}htb-Xplorer already in the system ${bold}${cyan}^${bold}${red}~${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning htbXplorer from github${cyan}--> ${end}${cyan}\n\n"
 		sleep 1 && sudo mkdir -p /opt/h4Ck/htbXplorer-Plus
@@ -456,9 +456,9 @@ function common_distros() {
 				if [ $? -eq 0 ]; then
 					 code && lsd
 					if [ $? -eq 0 ]; then
-						nvim
+						htb-Xplorer && firefox_esr
 						if [ $? -eq 0 ]; then
-							htb-Xplorer && main 
+							nvim && main 
 							if [ $? -eq 0 ]; then
 								cd .. && rm -rf r3p0s
 							else
@@ -480,7 +480,7 @@ function common_distros() {
 			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with bspwm package ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
 		fi
 	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad with the package ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
+		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Remove r3p0s folder drom previous tries ${red}${standout}:/ ${end}\n" && sleep 1 && exit 1
 	fi
 }
 
