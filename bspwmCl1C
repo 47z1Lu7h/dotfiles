@@ -340,7 +340,7 @@ function picom() {
 
 	which picom
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Picom already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo -ne "\t${bold}${cyan}<|[${red}!${cyan}]|> ${end}${yellow}Picom already in the system ${bold}${cyan}^${bold}${red}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 	else
 
 		mkdir r3p0 &&  cd r3p0
