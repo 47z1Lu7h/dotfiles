@@ -34,8 +34,7 @@ declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
 
-declare -a fonts=(ComicShannsMono)
-#DaddyTimeMono Go-Mono Iosevka IosevkaTerm JetBrainsMono)
+declare -a fonts=(ComicShannsMono DaddyTimeMono Go-Mono Iosevka IosevkaTerm JetBrainsMono)
 
 
 trap ctrl_c INT
@@ -70,7 +69,7 @@ function main(){
 	for font in "${fonts[@]}"; do
 		zip_file="${font}.zip"
 		download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/${zip_file}"
-		echo -ne "\n\t${cyan}<${red}|${cyan}[${black}+${cyan}]${red}|${cyan}- ${blue}D@Wnl@4D1n6 ${cyan}~~>\n\n\t\t ${red}$download_url\n\n${cyan}"
+		echo -ne "\n\t${cyan}<${red}|${cyan}[${red}+${cyan}]${red}|${cyan}>- ${blue}D@Wnl@4D1n6 ${cyan}~~>\n\n\t\t ${red}$download_url\n\n${cyan}"
 		wget "$download_url"
 		sudo unzip -o "$zip_file" -d "$fonts_dir" && rm "$zip_file"
 	done
@@ -361,27 +360,27 @@ function firefox_esr() {
 		if cat /etc/*release | grep "^NAME" | grep -Ei "Ubuntu" > /dev/null; then
 			if [ -d "~/.mozilla/" ]; then
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
-				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
+				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/ &&
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 			else
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr${cyan}! \n"
 				sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr
 				firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 && 
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n"
-				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
+				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/ &&
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 			fi
 		elif cat /etc/*release | grep "^NAME" | grep -Ei "Kali|Parrot" > /dev/null; then
 			if [ -d "~/.mozilla/" ]; then
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n"
-				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
+				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/ &&
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 			else
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr & setting theme${cyan}!\n\n"
 				sudo apt install -y firefox-esr && 
 				firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 && 
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n"
-				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
+				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/ &&
 				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 			fi
 		else
