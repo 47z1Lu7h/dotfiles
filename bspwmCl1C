@@ -97,7 +97,7 @@ declare -a fonts=(
 trap ctrl_c INT
 
 function banner(){
-echo -ne "\t\t ${red}${bold}
+echo -ne "\t\t\t${red}${bold}
  ▄█████  ██████ ██▓███  █     █░███▄ ▄███▓▄████▄  ██▓    ██▓▄████▄
 ▓██████▒██    ▒▓██░  ██▓█░ █ ░█▓██▒▀█▀ ██▒██▀ ▀█ ▓██▒   ▓██▒██▀ ▀█
 █    ▄█░ ▓██▄  ▓██░ ██▓▒█░ █ ░█▓██    ▓██▒▓█    ▄▒██░   ▒██▒▓██
@@ -110,8 +110,8 @@ echo -ne "\t\t ${red}${bold}
 
 function ctrl_c(){
 	tput cnorm
-	echo -ne "\n\n\t\t${bold}${red}<|[${black}!${red}]|>${black}---> ${cyan}Ctrl+C ${red}Exiting${cyan}!! ${red}\n\n\n"
-	sudo rm -rf *.?  2>/dev/null && exit 1
+	echo -ne "\n\n\t\t${bold}${red}<|[${black}!${red}]|> ${cyan}Ctrl+C ${black}--->${red}Exiting${cyan}!! ${red}\n\n\n"
+	sudo rm -rf $cwd/r\* 2>/dev/null && exit 1
 	tput civis
 }
 
