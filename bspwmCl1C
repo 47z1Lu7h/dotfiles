@@ -34,8 +34,7 @@ declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
 
-declare -a fonts=(ComicShannsMono )
-#DaddyTimeMono Go-Mono Iosevka IosevkaTerm)
+declare -a fonts=(ComicShannsMono DaddyTimeMono Go-Mono Iosevka IosevkaTerm)
 
 trap ctrl_c INT
 
@@ -48,8 +47,7 @@ echo -ne "\t\t\t${red}${bold}
 ░▓█  ▀█▒█████▒▒██▒ ░  ░░██▒██▓▒██▒   ░██▒ ▓███▀ ░██████░██▒ ▓███▀ ░
 ░▒▓███▀▒ ▒▓▒ ▒ ▒▓▒░ ░  ░ ▓░▒ ▒ ░ ▒░   ░  ░ ░▒ ▒  ░ ▒░▓  ░▓ ░ ░▒ ▒░
 ░▒░  ░░ ${bold}${red}By ${cyan}47z!Lu7h${end}${bold}${red}${tandout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
-░ ░		▒ ░	░	░	░${end}"
-}
+░ ░		▒ ░	░	░	░${end}"}
 
 function ctrl_c(){
 	tput cnorm
@@ -73,38 +71,38 @@ function main(){
 		sudo unzip -o "$zip_file" -d /usr/share/fonts && rm "$zip_file"
 	done
 	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete && fc-cache -fv &&
-#	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
-#	sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
+	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
+	sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
 
 		# -->  Zsh plugins
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${end}${blue}Cloning zsh plugins ${cyan} -->\n"
 		if [ -d "/usr/share/zsh/powerlevel10k" ]; then
-			echo ""
+			echo -ne "\t${bold}${green}   \n"
 		else
 			sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git" /usr/share/zsh/powerlevel10k
 		fi
 
 		if [ -d "/usr/share/zsh/sudo.plugin.zsh" ]; then
-			echo ""
+			echo -ne "\t${bold}${green}   \n"
 		else
         		sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/sudo.plugin.zsh
 		fi
 
 		if [ -d "/usr/share/zsh-fzf-history-search" ]; then
-			echo ""
+			echo -ne "\t${bold}${green}   \n"
 		else
 			sudo git clone "https://github.com/joshskidmore/zsh-fzf-history-search.git"	/usr/share/zsh-fzf-history-search
 		fi
 
 		if [ -d "/usr/share/zsh-syntax-highlighting/" ]; then
-			echo ""
+			echo -ne "\t${bold}${green}   \n"
 		else
         		sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" -P /usr/share/zsh-syntax-highlighting
 		fi
 
 		if [ -d "/usr/share/zsh-autocomplete" ]; then
-			echo ""
+			echo -ne "\t${bold}${green}   \n"
 		else
 	        	sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh-autocomplete
 		fi
@@ -487,10 +485,10 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 		echo -e "${blue}${bold}======================================================================== "
 
 		echo -ne "\n\t${cyan}${bold}<|[+]|> ${end}${blue}Upgrading System ${bold}${cyan}~~> \n\n"
-#		sleep 1 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
+		sleep 1 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
 		if [ $? -eq 0 ]; then
 			echo -ne "\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${end}${blue}Installing Packages ${bold}${cyan}~~> \n\n\n"
-#			sleep 1 && sudo apt install -y $packages_Deb $dpnDeb_Poly $dpnDeb_Picom $dpnDeb_Bspwm && sudo apt autoremove -y
+			sleep 1 && sudo apt install -y $packages_Deb $dpnDeb_Poly $dpnDeb_Picom $dpnDeb_Bspwm && sudo apt autoremove -y
 				if [ $? -eq 0 ]; then
 					common
 					if [ $? -eq 0 ]; then
@@ -498,7 +496,7 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 						\n\t${end}${red}~${end}${blue} Open a terminal & type ${end}${cyan}nvim ${end}${blue}to finish its configuration. \
 						\n\t${end}${red}~${end}${blue} For dark theme Firefox-esr, open it & type => ${end}${cyan}about${bold}${red}:${end}${cyan}config${end}${blue}, then search for -->\
 						\n\t${end}${red}<${end}${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${end}${red}>${blue}, and set it to ${bold}${cyan}True${end}${blue}."
-						sleep 1 && echo -ne "\n\n${bold}${red}~~~~${blue}/${yellow}⭐${blue}\\${red}~~~${bold}${red}> \t\t${end}${yellow}Try reboot and select ${bold}${red}Bspwm ${end}${yellow}as desktop Evironment. Enjoy!!  ${stnd}${bold}${red};)${end}${bold}${red}\t\t<${end}${red}~~~${blue}/${yellow}⭐${blue}\\${red}~~~~${end}\n\n\n" && sleep 1
+						sleep 1 && echo -ne "\n\n${bold}${black}|${red}|~~~~${blue}/${yellow}⭐${blue}\\${red}~~~${bold}${red}> \t\t${end}${yellow}Try reboot and select ${bold}${red}Bspwm ${end}${yellow}as desktop Evironment. Enjoy!!  ${stnd}${bold}${red};)${end}${bold}${red}\t\t<${end}${red}~~~${blue}/${yellow}⭐${blue}\\${red}~~~~|${black}|${end}\n\n\n" && sleep 1
 					else
 						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${stnd}:/ ${end}${end}\n\n\n" && sleep 1 && exit 1
 					fi
