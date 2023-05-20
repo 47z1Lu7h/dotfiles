@@ -78,18 +78,32 @@ function main(){
 		# -->  Zsh plugins
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning zsh plugins ${cyan} -->\n\n\n"
-		if [ -d "/usr/share/zsh/powerlevel10k" ]; then;	echo "";	else
-			sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git" /usr/share/zsh/powerlevel10k; fi
-		if [ -d "/usr/share/zsh-autocomplete" ]; then;	echo "";	else
-	        	sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh-autocomplete; fi
-		if [ -d "/usr/share/zsh/zsh-fzf-history-searc" ]; then;	echo ";	else
-			sudo git "clone https://github.com/joshskidmore/zsh-fzf-history-searc"	/usr/share/zsh/zsh-fzf-history-searc; fi
-		if [ -d "/usr/share/zsh/powerlevel10k" ]; then;	echo "";	else
-        		sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/sudo.plugin.zsh; fi
+		if [ -d "/usr/share/zsh/powerlevel10k" ]; then
+			echo ""
+		else
+			sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git" /usr/share/zsh/powerlevel10k
+		fi
+		if [ -d "/usr/share/zsh-autocomplete" ]; then
+			echo ""
+		else
+	        	sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh-autocomplete
+		fi
+		if [ -d "/usr/share/zsh/zsh-fzf-history-searc" ]; then
+			echo ""
+		else
+			sudo git "clone https://github.com/joshskidmore/zsh-fzf-history-searc"	/usr/share/zsh/zsh-fzf-history-searc
+		fi
+		if [ -d "/usr/share/zsh/powerlevel10k" ]; then
+			echo ""
+		else
+        		sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/sudo.plugin.zsh
+		fi
 
-		sleep 0.5 && echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Coping home config files ${cyan}\n\n" &&
+		sleep 0.5 && echo -ne "\n\t${bold}${cyan}<[+]> ${end}${blue}Coping home config files ${cyan}\n\n" &&
 		cp -r $cwd/config/* $HOME/.config/ && cp -r $cwd/misc/home/.*? $HOME && sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
-		if [ $? -eq 0 ]; then; echo "";	else
+		if [ $? -eq 0 ]; then
+			echo " "
+		else
 			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad coping files ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
 		fi
 	else
@@ -160,10 +174,12 @@ function lsd(){
 	else
 		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Kali|ubuntu" > /dev/null; then
 			sudo apt install lsd -y
-		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Parrot" > /dev/null; then
+		elif cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Parrot" > /dev/null; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Downloading lsd ${end}${cyan}--> \n\n"
 			sleep 1 && wget "https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb" -O lsd.deb && sudo dpkg -i lsd.deb && rm lsd.deb
-			if [ $? -eq 0 ]; then; echo "";	else
+			if [ $? -eq 0 ]; then
+				echo ""
+			else
 				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting lsd  ${red}${stnd} :/${end}${end}\n\n\n" && sleep 1 && exit 1
 			fi
 
@@ -192,7 +208,9 @@ function nvim() {
 		sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
 		if [ $? -eq 0 ]; then
 			git clone --depth 1 "https://github.com/NvChad/NvChad" ~/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/NvChad" /root/.config/nvim
-			if [ $? -eq 0 ]; then; echo "";	else
+			if [ $? -eq 0 ]; then
+				echo ""
+			else
 				echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad cloning NvChad repo ${red}${stnd}:/ ${end}\n\n\n" && sleep 1 && exit 1
 			fi
 		else
@@ -209,7 +227,9 @@ function nvim() {
 				git clone --depth 1 "https://github.com/NvChad/NvChad" ~/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/NvChad" /root/.config/nvim
 				if [ $? -eq 0 ]; then
 					cd ../../ && rm -rf r3p0
-					if [ $? -eq 0 ]; then	echo "";	else
+					if [ $? -eq 0 ]; then
+						echo ""
+					else
 						echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad removing neovim folder ${red}${stnd}:/  ${end}\n\n\n" && sleep 1 && exit 1
 					fi
 				else
@@ -243,7 +263,7 @@ function bspwm(){
 			git clone "https://github.com/baskerville/sxhkd.git" && cd sxhkd && make && sudo make install
 			if [ $? -eq 0 ]; then
 				cd ../../../ && rm -rf r3p0
-				if [ $? -eq 0 ]; then;	echo "";	else
+				if [ $? -eq 0 ]; then	echo "";	else
 					echo -e "\n\t\t${bold}${red}<|[!]|> ${green} Failing removing folder ${cyan}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 				fi
 			else
@@ -447,9 +467,9 @@ fi
 
 banner
 
-echo -ne "\n${cyan}~|${bold}[${cyan}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}This Script Will Add ${bold}${cyan}Bspwm ${end}${blue}Desktop Eviroment To Your Linux."
-echo -ne "\n${cyan}~|${bold}[${cyan}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}Alongside with some other packages like: ${cyan}Polybar${blue},${cyan} Picom${blue},${cyan} ZHS${blue},${cyan} Sxhkd${blue},${cyan} Nvim${blue},${cyan} VS-Code${blue},${cyan} firefox_esr${blue},${cyan} Lsd${blue}..."
-echo -ne "\n\n\t${red}${bold}<|[${bold}${cyan}!${red}]|> ${end}${cyan}Are you sure you want to continue ${bold}? \n"
+echo -ne "\n${cyan}<|${bold}[${red}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}This Script Will Add ${bold}${cyan}Bspwm ${end}${blue}Desktop Eviroment To Your Linux."
+echo -ne "\n${cyan}<|${bold}[${red}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}Alongside with some other packages like:\n\t\t${cyan}Polybar${blue},${cyan} Picom${blue},${cyan} ZHS${blue},${cyan} Sxhkd${blue},${cyan} Nvim${blue},${cyan} VS-Code${blue},${cyan} firefox_esr${blue},${cyan} Lsd${blue}..."
+echo -ne "\n\n\t${red}${bold}<${black}|${red}[${bold}${cyan}!${red}]${black}|${red}> ${end}${cyan}Are you sure you want to continue ${bold}? \n"
 echo -ne "\n\t\t${end}${blue}[ ${bold}${cyan}y${end}${blue} / ${bold}${cyan}n${end}${blue} ]${red} ~~> ${bold}${cyan}"
 
 read answer
@@ -496,7 +516,7 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Fedora ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 
 elif [ "$answer" != "${answer#[n/N]}" ]; then
-	sleep 0.3 && echo -ne "\n${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}|>${bold}${black} ~~~>>  ${red}Have a ${end}${cyan}Nice ${bold}${red}day${end}${black}!!  ${stnd}${red};=)${end}\n\n"
+	sleep 0.3 && echo -ne "\n${cyan}<${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}>${bold}${black} ~~~>>  ${red}Have a ${end}${cyan}Nice ${bold}${red}day${end}${black}!!  ${stnd}${red};=)${end}\n\n"
 else
-	sleep 0.3 && echo -ne "\n${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}|>${bold}${black} ~~~>> ${red}Bye${cyan}!! ${bold}${black} <<~~~~{end}\n\n"
+	sleep 0.3 && echo -ne "\n${cyan}<${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}>\t${bold}${black} ~~~>> ${red}Bye${cyan}!! ${bold}${black}<<~~~~${end}\n\n"
 fi
