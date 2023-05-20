@@ -6,21 +6,21 @@ if test -t 1; then
     # --> See if it supports colors...
     ncolors=$(tput colors)
 
-    if test -n "$ncolors" && test $ncolors -ge 8; then
+	if test -n "$ncolors" && test $ncolors -ge 8; then
 		under='$(tput smul)'		# --> Set underline
 		rem_under='$(tput rmul)'	# --> Remove underline
-        bold="$(tput bold)"
-        stnd="$(tput smso)"
-        end="$(tput sgr0)"
-        black="$(tput setaf 0)"
-        red="$(tput setaf 1)"
-        green="$(tput setaf 2)"
-        yellow="$(tput setaf 3)"
-        blue="$(tput setaf 4)"
-        purple="$(tput setaf 5)"
-        cyan="$(tput setaf 6)"
-        white="$(tput setaf 7)"
-    fi
+		bold="$(tput bold)"
+		stnd="$(tput smso)"
+		end="$(tput sgr0)"
+		black="$(tput setaf 0)"
+		red="$(tput setaf 1)"
+		green="$(tput setaf 2)"
+		yellow="$(tput setaf 3)"
+		blue="$(tput setaf 4)"
+		purple="$(tput setaf 5)"
+		cyan="$(tput setaf 6)"
+		white="$(tput setaf 7)"
+	fi
 fi
 
 # --> Globals
@@ -34,7 +34,7 @@ declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
 
-declare -a fonts=(ComicShannsMono DaddyTimeMono Go-Mono Iosevka IosevkaTerm JetBrainsMono)
+declare -a fonts=(ComicShannsMono DaddyTimeMono ) #Go-Mono Iosevka IosevkaTerm)
 
 
 trap ctrl_c INT
@@ -74,38 +74,31 @@ function main(){
 		sudo unzip -o "$zip_file" -d "$fonts_dir" && rm "$zip_file"
 	done
 	sudo find "$fonts_dir" -name '*Windows Compatible*' -delete && fc-cache -fv &&
+
 		# -->  Icons
 	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
-	unzip -o candy-icons.zip -d  $HOME/.local/share/icons && rm -rf icons.zip
+	sudo unzip -o candy-icons.zip -d  /usrs/share/icons && rm -rf icons.zip
+
+		# -->  Zsh plugins
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t\t${bold}${red} ~!~!~!~  ${yellow}Fonts & icons done!   ${red}~!~!~!~\n\n\n" && sleep 1
-			# -->  Zsh plugins
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning zsh plugins ${cyan} -->\n\n\n"
-		sleep 1 && rm -rf ~/.zsh && mkdir -p ~/.zsh/plugins && git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" ~/.zsh/plugins/zsh-autocomplete
+		sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git"				/usr/share/zsh/powerlevel10k		&&
+        	sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git"		/usr/share/zsh-autocomplete		&&
+		sudo git "clone https://github.com/joshskidmore/zsh-fzf-history-searc"				/usr/share/zsh/zsh-fzf-history-searc	&&
+        	sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/sudo.plugin.zsh
 		if [ $? -eq 0 ]; then
-			wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P ~/.zsh/plugins/sudo.plugin.zsh
+			sleep 1 && echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Coping home config files ${cyan}\n\n" &&
+			cp -r $cwd/config/* $HOME/.config/ && cp -r $cwd/misc/home/.*?  $HOME && sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh/ /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
 			if [ $? -eq 0 ]; then
-				curl -L git.io/antigen > ~/.zsh/antigen.zsh
-				if [ $? -eq 0 ]; then
-					echo -ne "\n${bold}${red}>> ${yellow}All Plugins done${red}!!!\n\n" &&
-					sleep 1 && echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Coping home config files ${cyan}\n\n" &&
-					cp -r $cwd/config/* $HOME/.config/ && cp -r $cwd/misc/home/.*?  $HOME && sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo cp -r $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
-					if [ $? -eq 0 ]; then
-						sleep 1 && echo -ne "\t\t\t${cyan}<${red}|${cyan}[${black}!${cyan}]${red}|${cyan}>~~>${cyan} Dotfiles ${red}done${cyan}!!${red} ${stnd}:~D${end} ${end}${cyan}<~~${cyan}<${red}|${cyan}[${black}!${cyan}]${red}|${cyan}>\n" && sleep 1
-					else
-						echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad coping files ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
-					fi
-				else
-					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting antigen ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
-				fi
+				sleep 1 && echo -ne "\t\t\t${cyan}<${red}|${cyan}[${black}!${cyan}]${red}|${cyan}>~~>${cyan} Dotfiles ${red}done${cyan}!!${red} ${stnd}:~D${end} ${end}${cyan}<~~${cyan}<${red}|${cyan}[${black}!${cyan}]${red}|${cyan}>\n" && sleep 1
 			else
-				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting sudo.plugin ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
+				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad coping files ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
 			fi
 		else
-			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting zsh-autocomplete ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
+			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting ZSH plugins ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
 		fi
 	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading Iosevka font ${red}${stnd} :/${end}\n\n\n" && sleep 1 && exit 1
+		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading fonts ${red}${stnd} :/${end}\n\n\n" && sleep 1 && exit 1
 	fi
 
 	tput civis
