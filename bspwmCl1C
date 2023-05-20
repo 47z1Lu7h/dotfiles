@@ -34,8 +34,7 @@ declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
 
-declare -a fonts=(ComicShannsMono DaddyTimeMono ) #Go-Mono Iosevka IosevkaTerm)
-
+declare -a fonts=(ComicShannsMono DaddyTimeMono Go-Mono Iosevka IosevkaTerm)
 
 trap ctrl_c INT
 
@@ -62,40 +61,36 @@ function ctrl_c(){
 function main(){
 	tput cnorm
 
-		# -->  Fonts
+		# -->  Fonts & Icons
 	echo -ne "\n\t${bold}${cyan}<|[+]|>>> ${end}${blue}Getting fonts & Icons ${cyan}--> \n\n"
-	fonts_dir="/usr/share/fonts"
 
 	for font in "${fonts[@]}"; do
 		zip_file="${font}.zip"
 		download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/${zip_file}"
 		echo -ne "\n\t${cyan}<${red}|${cyan}[${red}+${cyan}]${red}|${cyan}>- ${blue}D@Wnl@4D1n6 ${cyan}~~>\n\n\t\t ${red}$download_url\n\n${cyan}"
 		wget "$download_url"
-		sudo unzip -o "$zip_file" -d "$fonts_dir" && rm "$zip_file"
+		sudo unzip -o "$zip_file" -d /usr/share/fonts && rm "$zip_file"
 	done
 	sudo find "$fonts_dir" -name '*Windows Compatible*' -delete && fc-cache -fv &&
-
-		# -->  Icons
 	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
 	sudo unzip -o candy-icons.zip -d  /usrs/share/icons && rm -rf icons.zip
 
 		# -->  Zsh plugins
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning zsh plugins ${cyan} -->\n\n\n"
-		sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git"				/usr/share/zsh/powerlevel10k		&&
-        	sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git"		/usr/share/zsh-autocomplete		&&
-		sudo git "clone https://github.com/joshskidmore/zsh-fzf-history-searc"				/usr/share/zsh/zsh-fzf-history-searc	&&
-        	sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/sudo.plugin.zsh
-		if [ $? -eq 0 ]; then
-			sleep 1 && echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Coping home config files ${cyan}\n\n" &&
-			cp -r $cwd/config/* $HOME/.config/ && cp -r $cwd/misc/home/.*?  $HOME && sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh/ /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
-			if [ $? -eq 0 ]; then
-				sleep 1 && echo -ne "\t\t\t${cyan}<${red}|${cyan}[${black}!${cyan}]${red}|${cyan}>~~>${cyan} Dotfiles ${red}done${cyan}!!${red} ${stnd}:~D${end} ${end}${cyan}<~~${cyan}<${red}|${cyan}[${black}!${cyan}]${red}|${cyan}>\n" && sleep 1
-			else
-				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad coping files ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
-			fi
-		else
-			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting ZSH plugins ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
+		if [ -d "/usr/share/zsh/powerlevel10k" ]; then;	echo "";	else
+			sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git" /usr/share/zsh/powerlevel10k; fi
+		if [ -d "/usr/share/zsh-autocomplete" ]; then;	echo "";	else
+	        	sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh-autocomplete; fi
+		if [ -d "/usr/share/zsh/zsh-fzf-history-searc" ]; then;	echo ";	else
+			sudo git "clone https://github.com/joshskidmore/zsh-fzf-history-searc"	/usr/share/zsh/zsh-fzf-history-searc; fi
+		if [ -d "/usr/share/zsh/powerlevel10k" ]; then;	echo "";	else
+        		sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/sudo.plugin.zsh; fi
+
+		sleep 0.5 && echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Coping home config files ${cyan}\n\n" &&
+		cp -r $cwd/config/* $HOME/.config/ && cp -r $cwd/misc/home/.*? $HOME && sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
+		if [ $? -eq 0 ]; then; echo "";	else
+			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad coping files ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
 		fi
 	else
 		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong downloading fonts ${red}${stnd} :/${end}\n\n\n" && sleep 1 && exit 1
@@ -110,9 +105,8 @@ function code() {
 
 	which code
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${black} ~~~  \t${end}${yellow}VS~Code already in the system \t${bold}${cyan}^${bold}${blue}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo ""
 	else
-
 		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Debian" > /dev/null; then
 
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}--> \n\n"
@@ -127,7 +121,6 @@ function code() {
 					sudo apt update && sudo apt install code
 					if [ $? -eq 0 ]; then
 						code & sleep 5 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
-						echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}VS d4Rk-Code done!   ${red}~!~!~!~\n\n"
 					else
 						echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
 					fi
@@ -146,7 +139,6 @@ function code() {
 			if [ $? -eq 0 ]; then
 				dnf check-update && sudo dnf install code
 				code & disown; sleep 3 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
-				echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}VS Code done!   ${red}~!~!~!~\n\n" && sleep 1
 			else
 				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
 			fi
@@ -164,15 +156,14 @@ function lsd(){
 
 	which lsd
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${black} ~~~  ${end}${yellow}\tLsd already in the system \t${bold}${cyan}^${bold}${blue}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo ""
 	else
-
-		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Debian" > /dev/null; then
+		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Kali|ubuntu" > /dev/null; then
+			sudo apt install lsd -y
+		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Parrot" > /dev/null; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Downloading lsd ${end}${cyan}--> \n\n"
 			sleep 1 && wget "https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb" -O lsd.deb && sudo dpkg -i lsd.deb && rm lsd.deb
-			if [ $? -eq 0 ]; then
-				echo -ne "\n\t\t${bold}${red} ~!~!~!~   ${yellow}Lsd installed!   ${red}~!~!~!~\n\n" && sleep 1
-			else
+			if [ $? -eq 0 ]; then; echo "";	else
 				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting lsd  ${red}${stnd} :/${end}${end}\n\n\n" && sleep 1 && exit 1
 			fi
 
@@ -180,7 +171,7 @@ function lsd(){
 			sudo pacman -Sy && pacman -S lsd
 
 		elif cat /etc/*release | grep "^ID" | grep -Ei "Fedora" > /dev/null; then
-			dnf install lsd
+			sudo dnf install lsd
 
 		else
 			echo -ne "\n\t\t${bold}${red}<|[!]|> ${blue} System not ${red}suported ${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
@@ -196,15 +187,12 @@ function nvim() {
 
 	which nvim
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${black} ~~~  ${end}${yellow}\tNvim already in the system \t${bold}${cyan}^${bold}${blue}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning NvChad${cyan} -->\n\n\n${red}" && sleep 1 &&
 		rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
 		sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
 		if [ $? -eq 0 ]; then
 			git clone --depth 1 "https://github.com/NvChad/NvChad" ~/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/NvChad" /root/.config/nvim
-			if [ $? -eq 0 ]; then
-				echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${stnd}${black}:~D${end}\n\n" && sleep 1
-			else
+			if [ $? -eq 0 ]; then; echo "";	else
 				echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad cloning NvChad repo ${red}${stnd}:/ ${end}\n\n\n" && sleep 1 && exit 1
 			fi
 		else
@@ -221,9 +209,7 @@ function nvim() {
 				git clone --depth 1 "https://github.com/NvChad/NvChad" ~/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/NvChad" /root/.config/nvim
 				if [ $? -eq 0 ]; then
 					cd ../../ && rm -rf r3p0
-					if [ $? -eq 0 ]; then
-						echo -ne "\n\t\t${bold}${red}~!~!~!~   ${yellow}Nvim NvChad done!${red}   ~!~!~!~ ${stnd}${black}:~D${end}\n\n" && sleep 1
-					else
+					if [ $? -eq 0 ]; then	echo "";	else
 						echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad removing neovim folder ${red}${stnd}:/  ${end}\n\n\n" && sleep 1 && exit 1
 					fi
 				else
@@ -243,10 +229,10 @@ function nvim() {
 	# --> Complie Bspwm & Sxhkd
 function bspwm(){
 	tput cnorm
-	
+
 	which bspwm
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${black} ~~~ ${end}${yellow}\tBspwm  in the system \t${bold}${cyan}^${bold}${blue}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo ""
 	else
 
 		mkdir r3p0 &&  cd r3p0
@@ -257,11 +243,10 @@ function bspwm(){
 			git clone "https://github.com/baskerville/sxhkd.git" && cd sxhkd && make && sudo make install
 			if [ $? -eq 0 ]; then
 				cd ../../../ && rm -rf r3p0
-				if [ $? -eq 0 ]; then
-					echo -ne "\n\t\t${bold}${red}<|[*]|> ~!~!~!~   ${yellow}Bspwm & sxhkd done!   ${red}~!~!~!~\n\n" && sleep 1
-				else
+				if [ $? -eq 0 ]; then;	echo "";	else
 					echo -e "\n\t\t${bold}${red}<|[!]|> ${green} Failing removing folder ${cyan}${stnd}:/ ${end}\n" && sleep 1 && exit 1
-				fi		else
+				fi
+			else
 				echo -e "\n\t\t${bold}${red}<|[!]|> ${green} Failing compiling Sxhkd ${cyan}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 			fi
 		else
@@ -278,7 +263,7 @@ function picom() {
 
 	which picom
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${black} ~~~  ${end}${yellow}\tPicom already in the system \t${bold}${cyan}^${bold}${blue}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo ""
 	else
 
 		mkdir r3p0 &&  cd r3p0
@@ -289,7 +274,7 @@ function picom() {
 			if [ $? -eq 0 ]; then
 				ninja -C build && ninja -C build install
 				if [ $? -eq 0 ]; then
-					cd ../../ && rm -rf r3p0 && echo -ne "\n\t\t${bold}${red}<|[*]|> ~!~!~!~   ${yellow}Picom done!   ${red}~!~!~!~\n\n" && sleep 1
+					cd ../../ && rm -rf r3p0
 				else
 					echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Something went wrong Compiling Picom ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 				fi
@@ -310,7 +295,7 @@ function polybar() {
 
 	which polybar
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${black} ~~~  ${end}${yellow}\tPolybar in the system \t${bold}${cyan}^${blue}.${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo ""
 	else
 
 		mkdir r3p0 && cd r3p0
@@ -319,8 +304,7 @@ function polybar() {
 		if [ $? -eq 0 ]; then
 			make -j$(nproc) && sudo make install
 			if [ $? -eq 0 ]; then
-				cd ../../../ && rm -rf r3p0 &&
-				echo -ne "\n\t\t${bold}${red}<|[*]|> ~!~!~!~   ${yellow}Polybar done!   ${red}~!~!~!~\n\n" && sleep 1
+				cd ../../../ && rm -rf r3p0
 			else
 				echo -ne "\n\n\t\t${bold}${red}|[!]|> ${cyan}Failing compiling Polybar ${red}${stnd}:/  ${end}\n" && sleep 1 && exit 1
 			fi
@@ -338,44 +322,33 @@ function firefox_esr() {
 
 	which firefox-esr
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${black} ~~~  ${end}${yellow}\tFirefox_esr already in the system \t${bold}${cyan}^${bold}${blue}.${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
+		echo ""
 		if [ -d "~/.mozilla/" ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
 			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 		else
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n"
-			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 && 
+			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 2 &&
 			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 		fi
 	else
 		if cat /etc/*release | grep "^NAME" | grep -Ei "Ubuntu" > /dev/null; then
-			if [ -d "~/.mozilla/" ]; then
-				echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
-				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/ &&
-				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
-			else
-				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr${cyan}! \n"
-				sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr
-				firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 && 
-				echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n"
-				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/ &&
-				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
-			fi
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr${cyan}! \n"
+			sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr
+			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n"
+			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/ &&
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
+
 		elif cat /etc/*release | grep "^NAME" | grep -Ei "Kali|Parrot" > /dev/null; then
-			if [ -d "~/.mozilla/" ]; then
-				echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n"
-				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/ &&
-				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
-			else
-				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr & setting theme${cyan}!\n\n"
-				sudo apt install -y firefox-esr && 
-				firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 && 
-				echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n"
-				cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/ &&
-				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
-			fi
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr & setting theme${cyan}!\n\n"
+			sudo apt install -y firefox-esr &&
+			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n"
+			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/ &&
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
 		else
 			echo -ne "\n\t\t${bold}${red}<|[!]|> ${blue} System not ${red}suported ${stnd}:/ ${end}${end}\n"
 		fi
@@ -416,7 +389,7 @@ function common() {
 		if [ $? -eq 0 ]; then
 			picom
 			if [ $? -eq 0 ]; then
-				polybar	
+				polybar
 				if [ $? -eq 0 ]; then
 					code
 					if [ $? -eq 0 ]; then
@@ -428,7 +401,7 @@ function common() {
 								if [ $? -eq 0 ]; then
 									nvim
 									if [ $? -eq 0 ]; then
-										main 
+										main
 										if [ $? -eq 0 ]; then
 											cd .. && rm -rf r3p0s
 										else
@@ -451,7 +424,7 @@ function common() {
 					fi
 				else
 					echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad Polybar the package ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
-				fi			
+				fi
 			else
 				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${cyan}Something went bad Picom the package ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 			fi
@@ -463,15 +436,17 @@ function common() {
 	fi
 }
 
-#---------------------------------------------------------------------------------------------------------------------------------------------------------
-# -\-\------> Main <------/-/-
-#--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+################################################################################################################
+           ###################  ~~~~~~~~~~~~~~~~ ¡| m41n |! ~~~~~~~~~~~~   #######################
+###################################################################################################################
 
 if [ "$EUID" == 0 ];then
 	echo -e "\n\n${bold}${red}<|${bold}${black}[${bold}${red}!${bold}${black}]${bold}${red}|${bold}${black}[${bold}${red}!${bold}${black}]${bold}${red}|> \t${cyan}You do not have to be ${red}root ${cyan}to execute this script \t${stnd}${red};-)${end}\n\n" && sleep 1 && exit 1
 fi
 
 banner
+
 echo -ne "\n${cyan}~|${bold}[${cyan}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}This Script Will Add ${bold}${cyan}Bspwm ${end}${blue}Desktop Eviroment To Your Linux."
 echo -ne "\n${cyan}~|${bold}[${cyan}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}Alongside with some other packages like: ${cyan}Polybar${blue},${cyan} Picom${blue},${cyan} ZHS${blue},${cyan} Sxhkd${blue},${cyan} Nvim${blue},${cyan} VS-Code${blue},${cyan} firefox_esr${blue},${cyan} Lsd${blue}..."
 echo -ne "\n\n\t${red}${bold}<|[${bold}${cyan}!${red}]|> ${end}${cyan}Are you sure you want to continue ${bold}? \n"
@@ -514,7 +489,6 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 			echo -ne "\n\n\t${bold}${red}<|[!]|> ${end}${bold}${yellow} Something went bad upgrading the System!! ${red}${stnd}:/ ${end}\n\n\n" && sleep 1 && exit 1
 		fi
 
-		
 	elif cat /etc/*release | grep "^NAME" | grep -Ei "Arch" > /dev/null; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 
@@ -524,5 +498,5 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 elif [ "$answer" != "${answer#[n/N]}" ]; then
 	sleep 0.3 && echo -ne "\n${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}|>${bold}${black} ~~~>>  ${red}Have a ${end}${cyan}Nice ${bold}${red}day${end}${black}!!  ${stnd}${red};=)${end}\n\n"
 else
-	sleep 0.3 && echo -ne "\n${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}|>${bold}${black} ~~~>> ${red}Bye${black}!!\n\n"
+	sleep 0.3 && echo -ne "\n${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}|>${bold}${black} ~~~>> ${red}Bye${cyan}!! ${bold}${black} <<~~~~{end}\n\n"
 fi
