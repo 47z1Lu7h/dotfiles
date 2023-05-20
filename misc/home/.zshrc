@@ -28,74 +28,74 @@ export line="\e[4m;\e[0m"
 export tachado="\e[9m;\e[0m"
 
 	# Regular Colors
-export Black='\033[0;30m'        # Black
-export Red='\033[0;31m'          # Red
-export Green='\033[0;32m'        # Green
-export Yellow='\033[0;33m'       # Yellow
-export Blue='\033[0;34m'         # Blue
-export Purple='\033[0;35m'       # Purple
-export Cyan='\033[0;36m'         # Cyan
-export White='\033[0;37m'        # White
+export black='\033[0;30m'        # black
+export red='\033[0;31m'          # red
+export green='\033[0;32m'        # green
+export yellow='\033[0;33m'       # yellow
+export blue='\033[0;34m'         # blue
+export purple='\033[0;35m'       # purple
+export cyan='\033[0;36m'         # cyan
+export white='\033[0;37m'        # white
 
 	# Bold
-export BBlack='\033[1;30m'       # Black
-export BRed='\033[1;31m'         # Red
-export BGreen='\033[1;32m'       # Green
-export BYellow='\033[1;33m'      # Yellow
-export BBlue='\033[1;34m'        # Blue
-export BPurple='\033[1;35m'      # Purple
-export BCyan='\033[1;36m'        # Cyan
-export BWhite='\033[1;37m'       # White
+export Bblack='\033[1;30m'       # black
+export Bred='\033[1;31m'         # red
+export Bgreen='\033[1;32m'       # green
+export Byellow='\033[1;33m'      # yellow
+export Bblue='\033[1;34m'        # blue
+export Bpurple='\033[1;35m'      # purple
+export Bcyan='\033[1;36m'        # cyan
+export Bwhite='\033[1;37m'       # white
 
 	# Underline
-export UBlack='\033[4;30m'       # Black
-export URed='\033[4;31m'         # Red
-export UGreen='\033[4;32m'       # Green
-export UYellow='\033[4;33m'      # Yellow
-export UBlue='\033[4;34m'        # Blue
-export UPurple='\033[4;35m'      # Purple
-export UCyan='\033[4;36m'        # Cyan
-export UWhite='\033[4;37m'       # White
+export Ublack='\033[4;30m'       # black
+export Ured='\033[4;31m'         # red
+export Ugreen='\033[4;32m'       # green
+export Uyellow='\033[4;33m'      # yellow
+export Ublue='\033[4;34m'        # blue
+export Upurple='\033[4;35m'      # purple
+export Ucyan='\033[4;36m'        # cyan
+export Uwhite='\033[4;37m'       # white
 
 	# Background
-export On_Black='\033[40m'       # Black
-export On_Red='\033[41m'         # Red
-export On_Green='\033[42m'       # Green
-export On_Yellow='\033[43m'      # Yellow
-export On_Blue='\033[44m'        # Blue
-export On_Purple='\033[45m'      # Purple
-export On_Cyan='\033[46m'        # Cyan
-export On_White='\033[47m'       # White
+export On_black='\033[40m'       # black
+export On_red='\033[41m'         # red
+export On_green='\033[42m'       # green
+export On_yellow='\033[43m'      # yellow
+export On_blue='\033[44m'        # blue
+export On_purple='\033[45m'      # purple
+export On_cyan='\033[46m'        # cyan
+export On_white='\033[47m'       # white
 
 	# High Intensity
-export IBlack='\033[0;90m'       # Black
-export IRed='\033[0;91m'         # Red
-export IGreen='\033[0;92m'       # Green
-export IYellow='\033[0;93m'      # Yellow
-export IBlue='\033[0;94m'        # Blue
-export IPurple='\033[0;95m'      # Purple
-export ICyan='\033[0;96m'        # Cyan
-export IWhite='\033[0;97m'       # White
+export Iblack='\033[0;90m'       # black
+export Ired='\033[0;91m'         # red
+export Igreen='\033[0;92m'       # green
+export Iyellow='\033[0;93m'      # yellow
+export Iblue='\033[0;94m'        # blue
+export Ipurple='\033[0;95m'      # purple
+export Icyan='\033[0;96m'        # cyan
+export Iwhite='\033[0;97m'       # white
 
 	# Bold High Intensity
-export BIBlack='\033[1;90m'      # Black
-export BIRed='\033[1;91m'        # Red
-export BIGreen='\033[1;92m'      # Green
-export BIYellow='\033[1;93m'     # Yellow
-export BIBlue='\033[1;94m'       # Blue
-export BIPurple='\033[1;95m'     # Purple
-export BICyan='\033[1;96m'       # Cyan
-export BIWhite='\033[1;97m'      # White
+export BIblack='\033[1;90m'      # black
+export BIred='\033[1;91m'        # red
+export BIgreen='\033[1;92m'      # green
+export BIyellow='\033[1;93m'     # yellow
+export BIblue='\033[1;94m'       # blue
+export BIpurple='\033[1;95m'     # purple
+export BIcyan='\033[1;96m'       # cyan
+export BIwhite='\033[1;97m'      # white
 
 	# High Intensity backgrounds
-export On_IBlack='\033[0;100m'   # Black
-export On_IRed='\033[0;101m'     # Red
-export On_IGreen='\033[0;102m'   # Green
-export On_IYellow='\033[0;103m'  # Yellow
-export On_IBlue='\033[0;104m'    # Blue
-export On_IPurple='\033[0;105m'  # Purple
-export On_ICyan='\033[0;106m'    # Cyan
-export On_IWhite='\033[0;107m'   # White
+export On_Iblack='\033[0;100m'   # black
+export On_Ired='\033[0;101m'     # red
+export On_Igreen='\033[0;102m'   # green
+export On_Iyellow='\033[0;103m'  # yellow
+export On_Iblue='\033[0;104m'    # blue
+export On_Ipurple='\033[0;105m'  # purple
+export On_Icyan='\033[0;106m'    # cyan
+export On_Iwhite='\033[0;107m'   # white
 
 ########################################################################################################
 	# Enable Powerlevel10k instant prompt. Should stay at the top of ~/.zshrc.
@@ -114,8 +114,8 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 echo -en "\e]2;   \a"
 preexec () { print -Pn "\e]0;$1 -  \a" }
 
-source /usr/share/zsh/functions.zsh
-source	/usr/share/zsh/aliases.zsh
+source ~/.zsh/functions.zsh
+source	~/.zsh/aliases.zsh
 
 ########################################################################################################
     # - Keep 1M lines of history within the shell and save it to ~/.zsh_history:
@@ -133,7 +133,7 @@ setopt	HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a d
 setopt	HIST_FIND_NO_DUPS         # Do not display a line previously found.
 setopt	HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 setopt	HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
-setopt	HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt	HIST_redUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt	HIST_VERIFY               # Don't execute immediately upon history expansion.
 
 	# Use modern completion system
@@ -156,7 +156,6 @@ setopt	complete_aliases
     ###################  ~~~~~~~~~~~~~~~~ ¡| autosuggestions |! ~~~~~~~~~~~~   #######################
 ###########################################################################################################
 	# ~~>  Mixing zsh-autocomplete and zsh-autosuggestions
-
 zstyle ':autocomplete:tab:*' insert-unambiguous yes
 zstyle ':autocomplete:tab:*' widget-style menu-select
 zstyle ':autocomplete:*' min-input 2
@@ -177,10 +176,6 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-# Export PATH$
-export PATH=~/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:$PATH
-export PATH=~/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:$FPATH
 
 ###########################################################################################################
     ###################  ~~~~~~~~~~~~~~~~ ¡| B1nK3yS |! ~~~~~~~~~~~~   #######################
@@ -296,14 +291,14 @@ AUTOSUGGESTION_ACCEPT_RIGHT_ARROW=1
 
 	# - Enable auto-suggestions based on the history
 if [ -f .usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-	.usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh/zsh-autosuggestions.zsh
+	.usr/share/zsh-autosuggestions.zsh/zsh-autosuggestions.zsh
 	# - Change suggestion color
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#539775,bold'
 fi
 
 	# - Enable syntax-highlighting
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] && [ "$prompt" = yes ]; then
-    ./usr/sharezsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+    ./usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
     ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
     ZSH_HIGHLIGHT_STYLES[default]=none
     ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=red,bold
@@ -356,4 +351,4 @@ source /usr/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-fzf-history-searc/zsh-fzf-history-search.plugin.zsh
+source /usr/share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh

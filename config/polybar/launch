@@ -18,69 +18,52 @@ purge_last_line_bspwmrc() {
 	head -n -1 ~/.config/bspwm/bspwmrc > temp.txt; mv temp.txt ~/.config/bspwm/bspwmrc && chmod +x ~/.config/bspwm/bspwmrc
 }
 
-echo -ne "\n\t${White}<|[${Cyan}!${White}]|> ${Cyan}Choose a ${BIPurple}style${Cyan} for your polybar${IWhite}:\n\n\t\t ${BIGreen}Plane ${Green}<~~  ${Green}[${BICyan}p${Green}/${BICyan}f${Green}]${Red}  ~~> ${IRed}Full\t"
-echo -ne "\n\n${BIYellow}<[${BICyan}+${BIYellow}]> ${Cyan}Full is for large ${BIRed}DPI${end}${Cyan} screens, basically has a bit more icons, split bars, etc..\n\t${BIRed}"
-read DPI
-
-if [ $DPI == "p" ]; then
-	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose ${BIBlue}Plane${Cyan} Style${BIWhite}!!\n${BIRed}"
-	DIR="$HOME/.config/polybar/themes/plane"
-
-elif [ $DPI == "f" ]; then
-	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose ${BIBlue}Full${Cyan} Style${BIWhite}!!\n${BIRed}"
-	DIR="$HOME/.config/polybar/themes/full"
-
-else
-	echo -ne "\t${Blue}You ${IRed}Chicken ${Blue}out${BIRed}!!\n\n"
-	exit 1
-fi
-
-echo -ne "\n\t${White}<|[${Cyan}!${White}]|> ${Cyan}Wich position would you like for polybar${IWhite}??\n"
-echo -ne "\n\t\t${BICyan}1${BIBlue}) ~> ${BIRed}\tTop\n\t\t${BICyan}2${BIBlue}) ~> ${BIRed}\tBottom\n\t\t${BICyan}3${BIBlue}) ~>${BIRed}\tBoth \t${BIRed}\n\t"
+echo -ne "\n\t${white}<|[${cyan}!${white}]|> ${cyan}Wich position would you like for polybar${Iwhite}??\n"
+echo -ne "\n\t\t${BIcyan}1${BIblue}) ~> ${BIred}\tTop\n\t\t${BIcyan}2${BIblue}) ~> ${BIred}\tBottom\n\t\t${BIcyan}3${BIblue}) ~>${BIred}\tBoth \t${BIred}\n\t"
 read ZONE
 if [ $ZONE == 1 ]; then
-	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose${BIYellow} Top${Cyan} zone${BIWhite}!!\n${BICyan}"
+	echo -ne "\n${white} ~> ${cyan}Great${BIwhite}!! ${cyan}you choose${BIyellow} Top${cyan} zone${BIwhite}!!\n${BIcyan}"
 	ZONE="top"
 elif [ $ZONE == 2 ]; then
-	echo -ne "\n${White} ~> ${Cyan}Great${BIWhite}!! ${Cyan}you choose ${On_IBlack}${BCyan}Bottom${Cyan} zone${BIWhite}!!\n${BICyan}"
+	echo -ne "\n${white} ~> ${cyan}Great${BIwhite}!! ${cyan}you choose ${On_IBlack}${Bcyan}Bottom${cyan} zone${BIwhite}!!\n${BIcyan}"
 	ZONE="bottom"
 elif [ $ZONE == 3 ];then
-	echo -ne "\n\n\t${BICyan}Sorry${BIWhite},${Cyan} this option is not ${On_Iwhite}${BIRed}implemetened${Cyan} yet... ${On_IBlack}${BCyan}: (\n${BICyan}\n\n"
+	echo -ne "\n\n\t${BIcyan}Sorry${BIwhite},${cyan} this option is not ${On_Iwhite}${BIred}implemetened${cyan} yet... ${On_IBlack}${Bcyan}: (\n${BIcyan}\n\n"
 	exit 1
 else
-	echo -ne "\n\t${BIBlue}B${BIRed}y${BIBlue}3${BIRed}!! ${On_IBlack}${BICyan};${Cyan}~${BICyan})" && exit 1
+	echo -ne "\n\t${BIblue}B${BIred}y${BIblue}3${BIred}!! ${On_IBlack}${BIcyan};${cyan}~${BIcyan})" && exit 1
 fi
 
-echo -ne "\n\t${White}<|[${Cyan}!${White}]|> ${Cyan}Choose a ${On_IBlack}${BCyan}style${Cyan} of your polybar${IWhite}:\n\t\t"
-echo -ne "\n\t\t${BICyan}1${BIBlue}) ~>  ${BIRed}47z1\t\t${BICyan}2${BIBlue}) ~>  ${BIRed}Simple\n\t\t${BICyan}3${BIBlue}) ~>  ${BIRed}Pentest_kali\t${BICyan}4${BIBlue}) ~>  ${BIRed}Plasma\n\n"
+echo -ne "\n\t${white}<|[${cyan}!${white}]|> ${cyan}Choose a ${On_IBlack}${Bcyan}style${cyan} of your polybar${Iwhite}:\n\t\t"
+echo -ne "\n\t\t${BIcyan}1${BIblue}) ~>  ${BIred}47z1\t\t${BIcyan}2${BIblue}) ~>  ${BIred}Simple\n\t\t${BIcyan}3${BIblue}) ~>  ${BIred}Pentest_kali\t${BIcyan}4${BIblue}) ~>  ${BIred}Plasma\n\n"
 read STYLE
 
 if [ $STYLE == 1 ]; then
 	export STYLE=47z1
-	echo -ne "\n\t${Blue}You choose ${red}Pentest ${Blue}Polybar!!\n"
+	echo -ne "\n\t${blue}You choose ${red}Pentest ${blue}Polybar!!\n"
 	launch_bar && purge_last_line_bspwmrc && echo "polybar -q $ZONE -c $DIR/$STYLE.ini &" >> ~/.config/bspwm/bspwmrc
-	echo -ne "\n\t${Blue}Done! ${cyan}: D\n\n"
+	echo -ne "\n\t${blue}Done! ${cyan}: D\n\n"
 
 elif [ $STYLE == 2 ]; then
 	export STYLE=simple
-	echo -ne "\n\t${Blue}You choose ${red}Simple ${Blue}Polybar!!\n"
+	echo -ne "\n\t${blue}You choose ${red}Simple ${blue}Polybar!!\n"
 	launch_bar && purge_last_line_bspwmrc && echo "polybar -q $ZONE -c $DIR/$STYLE.ini &" >> ~/.config/bspwm/bspwmrc
-	echo -ne "\n\t${Blue}Done! ${cyan}: D\n\n"
+	echo -ne "\n\t${blue}Done! ${cyan}: D\n\n"
 
 elif [ $STYLE == 3 ]; then
 	export STYLE=pentest_kali
-	echo -ne "\n\t${Blue}You choose ${red}Pentest_kali ${Blue}Polybar!!\n"
+	echo -ne "\n\t${blue}You choose ${red}Pentest_kali ${blue}Polybar!!\n"
 	polybar -q $ZONE -c $DIR/$STYLE.ini & purge_last_line_bspwmrc && echo "polybar -q $ZONE -c $DIR/$STYLE.ini &" >> ~/.config/bspwm/bspwmrc
-	echo -ne "\n\t${Blue}Done! ${cyan}: D\n\n"
+	echo -ne "\n\t${blue}Done! ${cyan}: D\n\n"
 
 elif [ $STYLE == 4 ]; then
 	export STYLE=plasma
-	echo -ne "\n\t\t${Blue}You choose ${red}Plasma ${Blue}Polybar!!\n"
+	echo -ne "\n\t\t${blue}You choose ${red}Plasma ${blue}Polybar!!\n"
 	polybar -q left -c $DIR/$STYLE.ini &
 	polybar -q right -c $DIR/$STYLE.ini &
 	echo -ne "\n\t${blue}Done! ${cyan}: D\n\n"
 
 else
-	echo -ne "\n\t${BIBlue}]|>---B${BIRed}>${BICyan}ChA00${BIRed}!!  ${BICyan}; )"
+	echo -ne "\n\t${BIblue}]|>---B${BIred}>${BIcyan}ChA00${BIred}!!  ${BIcyan}; )"
 	exit 1
 fi

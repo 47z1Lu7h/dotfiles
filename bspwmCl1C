@@ -34,7 +34,8 @@ declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
 
-declare -a fonts=(ComicShannsMono DaddyTimeMono Go-Mono Iosevka IosevkaTerm)
+declare -a fonts=(ComicShannsMono )
+#DaddyTimeMono Go-Mono Iosevka IosevkaTerm)
 
 trap ctrl_c INT
 
@@ -47,12 +48,12 @@ echo -ne "\t\t\t${red}${bold}
 ░▓█  ▀█▒█████▒▒██▒ ░  ░░██▒██▓▒██▒   ░██▒ ▓███▀ ░██████░██▒ ▓███▀ ░
 ░▒▓███▀▒ ▒▓▒ ▒ ▒▓▒░ ░  ░ ▓░▒ ▒ ░ ▒░   ░  ░ ░▒ ▒  ░ ▒░▓  ░▓ ░ ░▒ ▒░
 ░▒░  ░░ ${bold}${red}By ${cyan}47z!Lu7h${end}${bold}${red}${tandout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
- ░ ░		▒ ░	░	░	░${end}"
+░ ░		▒ ░	░	░	░${end}"
 }
 
 function ctrl_c(){
 	tput cnorm
-	echo -ne "\n\n\t\t${bold}${red}<|[${black}!${red}]|> ${cyan}Ctrl+C ${black}--->${red}Exiting${cyan}!! ${red}\n\n\n"
+	echo -ne "\n\n\t${bold}${red}<${black}|${red}[${cyan}!${red}]${black}|${red}> ${cyan}Ctrl${red}+${cyan}C \t${black}~~> ${red}Exiting${black}!! ${red}\n\n\n"
 	sudo rm -rf $cwd/r\* 2>/dev/null && exit 1
 	tput civis
 }
@@ -62,47 +63,57 @@ function main(){
 	tput cnorm
 
 		# -->  Fonts & Icons
-	echo -ne "\n\t${bold}${cyan}<|[+]|>>> ${end}${blue}Getting fonts & Icons ${cyan}--> \n\n"
+	echo -ne "\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${end}${blue}Getting fonts & Icons ${cyan}~~${bold}${blue}> \n"
 
 	for font in "${fonts[@]}"; do
 		zip_file="${font}.zip"
 		download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/${zip_file}"
-		echo -ne "\n\t${cyan}<${red}|${cyan}[${red}+${cyan}]${red}|${cyan}>- ${blue}D@Wnl@4D1n6 ${cyan}~~>\n\n\t\t ${red}$download_url\n\n${cyan}"
+		echo -ne "\n${cyan}<${red}|${cyan}[${red}+${cyan}]${red}|${cyan}> ${blue}D@Wnl@4D1n6 ${cyan}~~>\n\n\t\t ${red}$download_url\n\n${cyan}"
 		wget "$download_url"
 		sudo unzip -o "$zip_file" -d /usr/share/fonts && rm "$zip_file"
 	done
-	sudo find "$fonts_dir" -name '*Windows Compatible*' -delete && fc-cache -fv &&
-	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
-	sudo unzip -o candy-icons.zip -d  /usrs/share/icons && rm -rf icons.zip
+	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete && fc-cache -fv &&
+#	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
+#	sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
 
 		# -->  Zsh plugins
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning zsh plugins ${cyan} -->\n\n\n"
+		echo -ne "\n\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${end}${blue}Cloning zsh plugins ${cyan} -->\n"
 		if [ -d "/usr/share/zsh/powerlevel10k" ]; then
 			echo ""
 		else
 			sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git" /usr/share/zsh/powerlevel10k
 		fi
-		if [ -d "/usr/share/zsh-autocomplete" ]; then
-			echo ""
-		else
-	        	sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh-autocomplete
-		fi
-		if [ -d "/usr/share/zsh/zsh-fzf-history-searc" ]; then
-			echo ""
-		else
-			sudo git "clone https://github.com/joshskidmore/zsh-fzf-history-searc"	/usr/share/zsh/zsh-fzf-history-searc
-		fi
-		if [ -d "/usr/share/zsh/powerlevel10k" ]; then
+
+		if [ -d "/usr/share/zsh/sudo.plugin.zsh" ]; then
 			echo ""
 		else
         		sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/sudo.plugin.zsh
 		fi
 
-		sleep 0.5 && echo -ne "\n\t${bold}${cyan}<[+]> ${end}${blue}Coping home config files ${cyan}\n\n" &&
+		if [ -d "/usr/share/zsh-fzf-history-search" ]; then
+			echo ""
+		else
+			sudo git clone "https://github.com/joshskidmore/zsh-fzf-history-search.git"	/usr/share/zsh-fzf-history-search
+		fi
+
+		if [ -d "/usr/share/zsh-syntax-highlighting/" ]; then
+			echo ""
+		else
+        		sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git" -P /usr/share/zsh-syntax-highlighting
+		fi
+
+		if [ -d "/usr/share/zsh-autocomplete" ]; then
+			echo ""
+		else
+	        	sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh-autocomplete
+		fi
+
+		# -->  Dotfiles
+		sleep 0.5 && echo -ne "\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${end}${cyan}Coping home config files ... ${cyan}\n\n" &&
 		cp -r $cwd/config/* $HOME/.config/ && cp -r $cwd/misc/home/.*? $HOME && sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
 		if [ $? -eq 0 ]; then
-			echo " "
+			echo -ne "\t\t\t\t\t\t\t${bold}${cyan}<${stnd}${red}|${end}${bold}${cyan}[${end}${red}4ll${bold}${cyan}~${end}${red}D@N3${bold}${cyan}]${stnd}${red}|${end}${cyan}> \t\t${stnd}${red}:D${end}\n"
 		else
 			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad coping files ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
 		fi
@@ -123,7 +134,7 @@ function code() {
 	else
 		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Debian" > /dev/null; then
 
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}--> \n\n"
+			echo -ne "\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${blue}Installing VS Code ${end}${cyan}~~${bold}${blue}> \n\n"
 			sleep 1
 			sudo apt-get install wget gpg && wget -qO- "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > packages.microsoft.gpg
 			if [ $? -eq 0 ]; then
@@ -136,17 +147,17 @@ function code() {
 					if [ $? -eq 0 ]; then
 						code & sleep 5 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
 					else
-						echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
+						echo -ne "\n\t\t${bold}${red}<|[!]|> ${yellow}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
 					fi
 				else
-					echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
+					echo -ne "\n\t\t${bold}${red}<|[!]|> ${yellow}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 				fi
 			else
-				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
+				echo -ne "\n\t\t${bold}${red}<|[!]|> ${yellow}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 			fi
 
 		elif cat /etc/*release | grep "^ID" | grep -Ei "Fedora" > /dev/null; then
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installin VS Code ${end}${cyan}--> \n\n"
+			echo -ne "\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${blue}Installin VS Code ${end}${cyan}~~${bold}${blue}> \n\n"
 
 			sleep 1 && sudo rpm --import "https://packages.microsoft.com/keys/microsoft.asc" &&
 			sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
@@ -154,7 +165,7 @@ function code() {
 				dnf check-update && sudo dnf install code
 				code & disown; sleep 3 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
 			else
-				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
+				echo -ne "\n\t\t${bold}${red}<|[!]|> ${yellow}Anything bad happend getting VS Code ${red}${stnd}:/ ${end}${end}\n" && sleep 1 && exit 1
 			fi
 
 		else
@@ -175,7 +186,7 @@ function lsd(){
 		if cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Kali|ubuntu" > /dev/null; then
 			sudo apt install lsd -y
 		elif cat /etc/*release | grep "^ID_LIKE" | grep -Ei "Parrot" > /dev/null; then
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Downloading lsd ${end}${cyan}--> \n\n"
+			echo -ne "\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${blue}Downloading lsd ${end}${cyan}~~${bold}${blue}> \n"
 			sleep 1 && wget "https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb" -O lsd.deb && sudo dpkg -i lsd.deb && rm lsd.deb
 			if [ $? -eq 0 ]; then
 				echo ""
@@ -203,7 +214,7 @@ function nvim() {
 
 	which nvim
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning NvChad${cyan} -->\n\n\n${red}" && sleep 1 &&
+		echo -ne "\n\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${end}${blue}Cloning NvChad${cyan} -->\n\n\n${red}" && sleep 1 &&
 		rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
 		sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
 		if [ $? -eq 0 ]; then
@@ -218,7 +229,7 @@ function nvim() {
 		fi
 	else
 		mkdir r3p0 && cd r3p0
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning & compiling neovim + cloning NvChad${cyan} -->\n\n\n" && sleep 1 &&
+		echo -ne "\n\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${end}${blue}Cloning & compiling neovim + cloning NvChad${cyan} -->\n\n\n" && sleep 1 &&
 		git clone "https://github.com/neovim/neovim" && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
 		if [ $? -eq 0 ]; then
 			rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
@@ -256,18 +267,18 @@ function bspwm(){
 	else
 
 		mkdir r3p0 &&  cd r3p0
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|>${green}$ Cloning bspwm & sxhkd${cyan} -->${end}${cyan}\n\n"
+		echo -ne "\n\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}>${yellow}$ Cloning bspwm & sxhkd${cyan} -->${end}${cyan}\n\n"
 		sleep 1 && git clone "https://github.com/baskerville/bspwm.git" && cd bspwm && make && sudo make install
 		if [ $? -eq 0 ]; then
-			echo -ne "\n\t\t${bold}${cyan}<|[+]|>${green} Cloning Sxhkd ${cyan}-->\n\n\n" && sleep 1 &&
+			echo -ne "\n\t\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}>${yellow} Cloning Sxhkd ${cyan}~~${bold}${blue}>\n\n\n" && sleep 1 &&
 			git clone "https://github.com/baskerville/sxhkd.git" && cd sxhkd && make && sudo make install
 			if [ $? -eq 0 ]; then
 				cd ../../../ && rm -rf r3p0
 				if [ $? -eq 0 ]; then	echo "";	else
-					echo -e "\n\t\t${bold}${red}<|[!]|> ${green} Failing removing folder ${cyan}${stnd}:/ ${end}\n" && sleep 1 && exit 1
+					echo -e "\n\t\t${bold}${red}<|[!]|> ${yellow} Failing removing folder ${cyan}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 				fi
 			else
-				echo -e "\n\t\t${bold}${red}<|[!]|> ${green} Failing compiling Sxhkd ${cyan}${stnd}:/ ${end}\n" && sleep 1 && exit 1
+				echo -e "\n\t\t${bold}${red}<|[!]|> ${yellow} Failing compiling Sxhkd ${cyan}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 			fi
 		else
 			echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}Failing Compliling bspwm ${red}${stnd}:/  ${end}\n" && sleep 1 && exit 1
@@ -287,7 +298,7 @@ function picom() {
 	else
 
 		mkdir r3p0 &&  cd r3p0
-		echo -ne "\n\t${bold}${cyan}|[+]|> ${end}${bold}${white}${bold} Cloning & compliling Picom ${end}${cyan}-->${cyan}\n\n\n"
+		echo -ne "\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${end}${bold}${white}${bold} Cloning & compliling Picom ${end}${cyan}~~${bold}${blue}>${cyan}\n\n\n"
 		sleep 1 && git clone "https://github.com/yshui/picom.git" && cd picom
 		if [ $? -eq 0 ]; then
 			git submodule update --init --recursive && meson setup --buildtype=release . build
@@ -296,13 +307,13 @@ function picom() {
 				if [ $? -eq 0 ]; then
 					cd ../../ && rm -rf r3p0
 				else
-					echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Something went wrong Compiling Picom ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
+					echo -ne "\n\t\t${bold}${red}<|[!]|> ${yellow}Something went wrong Compiling Picom ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 				fi
 			else
-				echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}Anything bad happend compiling Picom ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
+				echo -ne "\n\t\t${bold}${red}<|[!]|> ${yellow}Anything bad happend compiling Picom ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 			fi
 		else
-			echo -ne "\n\t\t${bold}${red}<|[!]|> ${green}We Cant Download From Github ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
+			echo -ne "\n\t\t${bold}${red}<|[!]|> ${yellow}We Cant Download From Github ${red}${stnd}:/ ${end}\n" && sleep 1 && exit 1
 		fi
 	fi
 
@@ -319,7 +330,7 @@ function polybar() {
 	else
 
 		mkdir r3p0 && cd r3p0
-		echo -ne "\n\t${bold}${cyan}|[+]|> ${green}Cloning & compiling Polybar${cyan}--> ${end}${cyan}\n\n\n" && sleep 1
+		echo -ne "\n\t${bold}${cyan}|[+]|> ${yellow}Cloning & compiling Polybar${cyan}~~${bold}${blue}> ${end}${cyan}\n\n\n" && sleep 1
 		git clone --recursive "https://github.com/polybar/polybar" && cd polybar && mkdir build && cd build && cmake ..
 		if [ $? -eq 0 ]; then
 			make -j$(nproc) && sudo make install
@@ -342,33 +353,25 @@ function firefox_esr() {
 
 	which firefox-esr
 	if [ $? -eq 0 ]; then
-		echo ""
-		if [ -d "~/.mozilla/" ]; then
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
-			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
+		if [ -d ~/.mozilla/firefox ]; then
+			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/
 		else
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n"
+			echo -ne "\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n" &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 2 &&
-			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/ &&
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
+			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/
 		fi
 	else
 		if cat /etc/*release | grep "^NAME" | grep -Ei "Ubuntu" > /dev/null; then
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr${cyan}! \n"
+			echo -ne "\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${blue}Installing firefox-esr${cyan}! \n"
 			sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr
-			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n"
-			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/ &&
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
+			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1
+			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/
 
 		elif cat /etc/*release | grep "^NAME" | grep -Ei "Kali|Parrot" > /dev/null; then
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr & setting theme${cyan}!\n\n"
+			echo -ne "\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${blue}Installing firefox-esr & setting theme${cyan}!\n\n"
 			sudo apt install -y firefox-esr &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}!\n\n"
-			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/ &&
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Theme done!${cyan}! \n"
+			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/
 		else
 			echo -ne "\n\t\t${bold}${red}<|[!]|> ${blue} System not ${red}suported ${stnd}:/ ${end}${end}\n"
 		fi
@@ -381,10 +384,10 @@ function firefox_esr() {
 function htb-Xplorer(){
 	tput cnorm
 
-	if [ -d "/opt/h4Ck/htbXplorer-Plus" ]; then
+	if [ -d /opt/h4Ck/htbXplorer-Plus ]; then
 		echo -ne "\n\t${bold}${cyan}<|[${red}!${cyan}]|> ${black} ~~~  ${end}${yellow}\thtb-Xplorer already in the system \t${bold}${cyan}^${bold}${red}~${bold}${cyan}^${end}${cyan}\n\n" && sleep 1
 	else
-		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning htbXplorer from github${cyan}--> ${end}${cyan}\n\n"
+		echo -ne "\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${end}${blue}Cloning htbXplorer from github${cyan}~~${bold}${blue}> ${end}${cyan}\n\n"
 		sleep 1 && sudo mkdir -p /opt/h4Ck/htbXplorer-Plus
 	    if [ $? -eq 0 ]; then
 			sudo git clone "https://github.com/4tz1Lu7h/htbXplorer-Plus.git" /opt/h4Ck/htbXplorer-Plus
@@ -469,7 +472,7 @@ banner
 
 echo -ne "\n${cyan}<|${bold}[${red}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}This Script Will Add ${bold}${cyan}Bspwm ${end}${blue}Desktop Eviroment To Your Linux."
 echo -ne "\n${cyan}<|${bold}[${red}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}Alongside with some other packages like:\n\t\t${cyan}Polybar${blue},${cyan} Picom${blue},${cyan} ZHS${blue},${cyan} Sxhkd${blue},${cyan} Nvim${blue},${cyan} VS-Code${blue},${cyan} firefox_esr${blue},${cyan} Lsd${blue}..."
-echo -ne "\n\n\t${red}${bold}<${black}|${red}[${bold}${cyan}!${red}]${black}|${red}> ${end}${cyan}Are you sure you want to continue ${bold}? \n"
+echo -ne "\n\n\t${red}${bold}<${black}|${red}[${bold}${cyan}!${red}]${black}|${red}> ${end}${cyan}Are you sure you want to continue${blue}? \n"
 echo -ne "\n\t\t${end}${blue}[ ${bold}${cyan}y${end}${blue} / ${bold}${cyan}n${end}${blue} ]${red} ~~> ${bold}${cyan}"
 
 read answer
@@ -484,18 +487,18 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 		echo -e "${blue}${bold}======================================================================== "
 
 		echo -ne "\n\t${cyan}${bold}<|[+]|> ${end}${blue}Upgrading System ${bold}${cyan}~~> \n\n"
-		sleep 1 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
+#		sleep 1 && sudo apt update && sudo apt autoremove -y && sudo apt upgrade -y
 		if [ $? -eq 0 ]; then
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing Packages ${bold}${cyan}~~> \n\n\n"
-			sleep 1 && sudo apt install -y $packages_Deb $dpnDeb_Poly $dpnDeb_Picom $dpnDeb_Bspwm && sudo apt autoremove -y
+			echo -ne "\n\t${cyan}<${bold}${black}|${cyan}[${red}+${cyan}]${bold}${black}|${end}${cyan}> ${end}${blue}Installing Packages ${bold}${cyan}~~> \n\n\n"
+#			sleep 1 && sudo apt install -y $packages_Deb $dpnDeb_Poly $dpnDeb_Picom $dpnDeb_Bspwm && sudo apt autoremove -y
 				if [ $? -eq 0 ]; then
 					common
 					if [ $? -eq 0 ]; then
-						echo -ne "\n${bold}${red}<${end}${black}|${end}${blue}[${bold}${red}!${end}${blue}]${black}|${bold}${red}>${end}${blue} To-Dos${red} ~~>${end} \
+						echo -ne "\n${bold}${red}<${black}|${red}!${bold}${black}|${red}>${end}${blue} To-Dos${red} ~~>${end} \
 						\n\t${end}${red}~${end}${blue} Open a terminal & type ${end}${cyan}nvim ${end}${blue}to finish its configuration. \
-						\n\t${end}${red}~${end}${blue} For dark theme Firefox-esr, open it & type => ${end}${cyan}about${red}:${end}${cyan}config${end}${blue}, then search for -->\
+						\n\t${end}${red}~${end}${blue} For dark theme Firefox-esr, open it & type => ${end}${cyan}about${bold}${red}:${end}${cyan}config${end}${blue}, then search for -->\
 						\n\t${end}${red}<${end}${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${end}${red}>${blue}, and set it to ${bold}${cyan}True${end}${blue}."
-						sleep 1 && echo -ne "\n\n\t${bold}${red}------/-/-/-/~~~~>> >>> ${end}${yellow}Try reboot and select ${bold}${red}Bspwm ${end}${yellow}as desktop Evironment. Enjoy!! ${stnd}${bold}${red};-)${end}${red} <<< <<~~~~~\-\-\-\------${end}\n\n\n" && sleep 1	
+						sleep 1 && echo -ne "\n\n${bold}${red}~~~~${blue}/${yellow}⭐${blue}\\${red}~~~${bold}${red}> \t\t${end}${yellow}Try reboot and select ${bold}${red}Bspwm ${end}${yellow}as desktop Evironment. Enjoy!!  ${stnd}${bold}${red};)${end}${bold}${red}\t\t<${end}${red}~~~${blue}/${yellow}⭐${blue}\\${red}~~~~${end}\n\n\n" && sleep 1
 					else
 						echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${stnd}:/ ${end}${end}\n\n\n" && sleep 1 && exit 1
 					fi
@@ -516,7 +519,7 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Fedora ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 
 elif [ "$answer" != "${answer#[n/N]}" ]; then
-	sleep 0.3 && echo -ne "\n${cyan}<${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}>${bold}${black} ~~~>>  ${red}Have a ${end}${cyan}Nice ${bold}${red}day${end}${black}!!  ${stnd}${red};=)${end}\n\n"
+	sleep 0.3 && echo -ne "\n${cyan}<${bold}${black}|${cyan}[${red}!${cyan}]${bold}${black}|${end}${cyan}> \t${bold}${black}~~~>>  ${red}Have a ${end}${cyan}Nice ${bold}${red}day${end}${black}!!  ${stnd}${red};=)${end}\n\n"
 else
-	sleep 0.3 && echo -ne "\n${cyan}<${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}>\t${bold}${black} ~~~>> ${red}Bye${cyan}!! ${bold}${black}<<~~~~${end}\n\n"
+	sleep 0.3 && echo -ne "\n${cyan}<${bold}${black}|${cyan}[${red}!${cyan}]${bold}${black}|${end}${cyan}>\t${bold}${black} ~~~>> \t${red}Bye${blue}!!${end}\n\n"
 fi
