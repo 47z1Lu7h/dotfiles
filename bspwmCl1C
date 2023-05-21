@@ -383,26 +383,32 @@ function firefox_esr() {
 
 	which firefox-esr
 	if [ $? -eq 0 ]; then
-		if [ -d "~/.mozilla/" ]; then
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
-			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 2 &&
-			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/&
+		if [ -d "~/.mozilla/" &&  cat /etc/*release | grep "^NAME" | grep -E "Ubuntu" ]; then
+#			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
+#			sudo apt purge firefox\* && sleep 1 && sudo apt install -y firefox-esr-locale-bg firefox-esr-locale-es &&
+#			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 2 &&
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome		~/.mozilla/firefox*/*default-esr*/
 		else
-			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox/*default-esr*/
-			 echo -ne "\t\t\t\t\t\t${bold}${red}󱞩 ${green}  ${end}${white}${bold}${red}${end}${white}|${end}"
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome		~/.mozilla/firefox*/*default-esr*/
+			echo -ne "\t\t\t\t\t\t${bold}${red}󱞩 ${green}  ${end}${white}${bold}${red}${end}${white}|${end}"
 		fi
 	else
-		if cat /etc/*release | grep "^NAME" | grep -Ei "Ubuntu" > /dev/null; then
+		if [ cat /etc/*release | grep "^NAME" | grep -Ei "Ubuntu" && grep "^VERSION"| grep -Ei "22*"  ]; then
+			sudo apt update && sudo apt install firefox-esr -y && sudo apt autoremove -y && sudo apt autoclean -y &&
+			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		$HOME/.mozilla/firefox-*/*.default-esr*/
+
+		elif cat /etc/*release | grep "^NAME" | grep -Ei "Ubuntu" > /dev/null; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr${cyan}! \n"
 			sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
-			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/
+			cp -r  $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox-*/*.default-esr*/
 
 		elif cat /etc/*release | grep "^NAME" | grep -Ei "Kali|Parrot" > /dev/null; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr & setting theme${cyan}!\n\n"
 			sudo apt install -y firefox-esr &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
-			cp -r  $cwd/misc/chrome ~/.mozilla/*firefox*/*default-esr*/
+			cp -r  $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox*/*default-esr*/
 		else
 			echo -ne "\n\t\t${bold}${red}<|[!]|> ${blue} System not ${red}suported ${stnd}:/ ${end}${end}\n"
 		fi
