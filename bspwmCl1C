@@ -32,7 +32,7 @@ declare -r dpnFed_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms libxcb-dev
 declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel libX11-devel libX11-xcb libXext-devel libxcb-devel libGL-devel libEGL-devel meson pcre2-devel pixman-devel uthash-devel xcb-util-image-devel xcb-util-renderutil-devel xorg-x11-proto-devel"
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
-#declare -a fonts=( ComicShannsMono Iosevka IosevkaTerm )
+declare -a fonts=( ComicShannsMono Iosevka IosevkaTerm )
 
 declare -r cwd=$(pwd)
 declare -r OS=$(cat /etc/*release | grep '^ID_LIKE' | awk '{print $NF}' FS='=')
