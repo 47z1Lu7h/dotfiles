@@ -139,7 +139,7 @@ else
 fi
 
 if [ -d /usr/share/zsh/sudo.plugin.zsh ]; then
-	source /usr/share/zsh/sudo.plugin.zsh
+	source /usr/share/zsh/sudo.plugin.zsh/sudo.plugin.zsh
 else
 	echo -ne "\n\t${bold}${black} ${end}${blue} Missing sudo.plugin ${yellow} ${bold}\t${green} ${end}"
 fi
