@@ -11,16 +11,20 @@
 #▒ ░  ░▒ ░  ░    ▒ ░  ░▒ ░           ░ ░ ░███▒ ░ ███▒ ░  ░▒ ░ ░  ░ ░ 
 # by ░░░  ░   ░▒ ░  ░  ░   47z!Lu7h   ▒ ░ ░   ░▒ ░   ░▒ ░   ░ :)  ░ 
 #####################################################################
+
 # Execute code in the background to not affect the current session
 {
 # Compile zcompdump, if modified, to increase startup speed.
 zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
     if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
-    zcompile "$zcompdump"
+      zcompile "$zcompdump"
     fi
 } &!
 
-########################################################################################################
+###########################################################################################################
+     ######################  ~~~~~~~~~~~~~~~~ ¡| c@l@5s |! ~~~~~~~~~~~~   ###########################
+###########################################################################################################
+
 	# - c@lRs
 export end='\033[0m'		# Text Reset
 export italic='\e[3;\e[0m'
@@ -97,7 +101,9 @@ export On_Ipurple='\033[0;105m'  # purple
 export On_Icyan='\033[0;106m'    # cyan
 export On_Iwhite='\033[0;107m'   # white
 
-########################################################################################################
+###########################################################################################################
+     ######################  ~~~~~~~~~~~~~~~~ ¡| Powerlevel promt |! ~~~~~~~~~~~~   ###########################
+###########################################################################################################
 	# Enable Powerlevel10k instant prompt. Should stay at the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"; fi
@@ -109,13 +115,49 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
+
+###########################################################################################################
+     ######################  ~~~~~~~~~~~~~~~~ ¡| Plugins |! ~~~~~~~~~~~~   ###########################
+###########################################################################################################
+
+if [ -d /usr/share/zsh/powerlevel10k ]; then
+	source /usr/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
+else
+	echo -ne "\n\t${bold}${black} ${end}${blue} Missing powerlevel ${yellow} ${bold}\t${green} ${end}"
+fi
+
+if [ -d /usr/share/zsh-autocomplete ]; then
+	source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+else
+	echo -ne "\n\t${bold}${black} ${end}${blue}Missing autocomplete ${yellow} ${bold}\t${green} ${end}"
+fi
+
+if [ -d /usr/share/zsh-fzf-history-search ]; then
+	source /usr/share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
+else
+	echo -ne "\n\t${bold}${black} ${end}${blue} Missing fzf-history-search ${yellow} ${bold}\t${green} ${end}"
+fi
+
+if [ -d /usr/share/zsh/sudo.plugin.zsh ]; then
+	source /usr/share/zsh/sudo.plugin.zsh
+else
+	echo -ne "\n\t${bold}${black} ${end}${blue} Missing sudo.plugin ${yellow} ${bold}\t${green} ${end}"
+fi
+
+if [ -d /usr/share/zsh-syntax-highlighting ]; then
+	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+	echo -ne "\n\t${bold}${black} ${end}${blue} Missing syntax-highlighting ${yellow} ${bold}\t${green} ${end}"
+fi
+
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/aliases.zsh
+source ~/.zsh/functions.zsh
+
 ########################################################################################################
 	# Display last command interminal
 echo -en "\e]2;   \a"
 preexec () { print -Pn "\e]0;$1 -  \a" }
-
-source ~/.zsh/functions.zsh
-source	~/.zsh/aliases.zsh
 
 ########################################################################################################
     # - Keep 1M lines of history within the shell and save it to ~/.zsh_history:
@@ -153,7 +195,7 @@ setopt	menu_complete
 setopt	complete_aliases
 
 ###########################################################################################################
-    ###################  ~~~~~~~~~~~~~~~~ ¡| autosuggestions |! ~~~~~~~~~~~~   #######################
+    ###################  ~~~~~~~~~~~~~~~~ ¡|  |! ~~~~~~~~~~~~   #######################
 ###########################################################################################################
 	# ~~>  Mixing zsh-autocomplete and zsh-autosuggestions
 zstyle ':autocomplete:tab:*' insert-unambiguous yes
@@ -176,6 +218,7 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
 
 ###########################################################################################################
     ###################  ~~~~~~~~~~~~~~~~ ¡| B1nK3yS |! ~~~~~~~~~~~~   #######################
@@ -296,6 +339,9 @@ if [ -f .usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#539775,bold'
 fi
 
+###########################################################################################################
+     #################  ~~~~~~~~~~~~~~~~ ¡| syntax-highlighting |! ~~~~~~~~~~~~   #####################
+###########################################################################################################
 	# - Enable syntax-highlighting
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] && [ "$prompt" = yes ]; then
     ./usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
@@ -343,12 +389,3 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] 
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 fi
 
-###########################################################################################################
-     ######################  ~~~~~~~~~~~~~~~~ ¡| Plugins |! ~~~~~~~~~~~~   ###########################
-###########################################################################################################
-source /usr/share/zsh/sudo.plugin.zsh
-source /usr/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
