@@ -32,14 +32,12 @@ declare -r dpnFed_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms libxcb-dev
 declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel libX11-devel libX11-xcb libXext-devel libxcb-devel libGL-devel libEGL-devel meson pcre2-devel pixman-devel uthash-devel xcb-util-image-devel xcb-util-renderutil-devel xorg-x11-proto-devel"
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
-declare -a fonts=( ComicShannsMono Iosevka IosevkaTerm )
+#declare -a fonts=( ComicShannsMono Iosevka IosevkaTerm )
 declare -r cwd=$(pwd)
 declare -r OS=$(cat /etc/*release | grep '^ID_LIKE' | awk '{print $NF}' FS='=')
 declare -r VERSION=$(cat /etc/*release | grep '^VERSION_ID' |  awk '{print $NF}' FS='=' | tr -d '"' )
 declare -r NAME=$(cat /etc/*release | grep '^NAME' | awk '{print $NF}' FS='='| tr -d '"' |  awk '{print $1}')
 declare -r ID=$(cat /etc/*release | grep '^ID' | awk '{print $NF}' FS='=')
-declare -r p0W35l3V3l10k=$(sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git"	/usr/share/zsh/powerlevel10k)
-declare -r zsh5YNt4x=$(sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"	/usr/share/zsh-syntax-highlighting)
 
 trap ctrl_c INT
 
@@ -300,18 +298,18 @@ function main(){
 		wget "$download_url"
 		sudo unzip -o "$zip_file" -d /usr/share/fonts && rm "$zip_file"
 	done
-	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete && fc-cache -fv &&
-	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
-	sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
+#	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete && fc-cache -fv &&
+#	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
+#	sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
 
 	# -->  Zsh plugins
 	sleep 0.5
 	echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning zsh plugins ${cyan} -->\n\n\n"
 
 	if [ -d /usr/share/zsh/powerlevel10k ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}powerlevel10k ${yellow}  ${bold}${green}done  ${end}"
+		echo -ne "\n\t${bold}${black} ${end}${blue}powerlevel10k ${yellow}  ${bold}\t${green}done  ${end}"
 	else
-		$p0W35l3V3l10k
+		sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git"	/usr/share/zsh/powerlevel10k
 	fi
 
 	if [ -d /usr/share/zsh-autocomplete ]; then
@@ -335,28 +333,33 @@ function main(){
 	if [ -d /usr/share/zsh-syntax-highlighting ]; then
 		echo -ne "\n\t${bold}${black} ${end}${blue}syntax-highlighting${yellow} ${bold}\t${green}done  ${end}"
 	else
+		export z5H5YNt4x=$(sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"	/usr/share/zsh-syntax-highlighting)
 		if [ $OS = debian ]; then
 			sudo apt install -y zsh-syntax-highlighting
 			if [ $? -ne 0 ]; then
-				${zsh-sYNt4x}
+				${z5H5YNt4x}
 			fi
 		
 		elif [ $OS = arch ]; then
 			sudo pacman -S zsh-syntax-highlighting
 			if [ $? -ne 0 ]; then
-				${zsh-sYNt4x}
+				${z5H5YNt4x}
 			fi
 		
 		elif [ $OS = fedora ]; then
 			sudo dnf install zsh-syntax-highlighting
 			if [ $? -ne 0 ]; then
-				${zsh-sYNt4x}		
+				${z5H5YNt4x}		
 			fi
 		fi
 	fi
 
-	sleep 0.5
-	wget "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh" -P ~/.zsh/
+	if [ -f ~/.zsh/git-completion.zsh ]; then
+			echo -ne "\n\t${bold}${black} ${end}${blue}git-completion${yellow} ${bold}\t${green}done  ${end}"
+	else
+		wget "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh" -P ~/.zsh/
+	fi
+	
 	sleep 0.5 && echo -ne "\n\n\t${bold}${cyan}<[+]> ${end}${blue}Coping dotfiles ${cyan}\n\n"
 
 	if [ -d $HOME/.config/bspwm ]; then
@@ -376,16 +379,13 @@ function main(){
 	fi
 
 	cp -r $cwd/config/* $HOME/.config/ && 
-	mv $HOME/.zshrc $HOME/.zshrc.OLD && 
-	cp -r $cwd/misc/home/.*? $HOME && 
+	mv $HOME/.zshrc $HOME/.zshrc.OLD && cp -r $cwd/misc/home/.*? $HOME && 
 	
-	sudo sed -i "s/bash/zsh/g" /etc/passwd && 
-	sudo ln -sf $HOME/.zsh /root && 
-	sudo ln -s -f $HOME/.zshrc /root && s
-	udo ln -s -f $HOME/.p10k.zsh /root
+	sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh /root && 
+	sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
 	
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t\t${bold}${black} ${end}${yellow}Dotfiles  ${yellow} ${bold}\t${green} ${end}"
+		echo -ne "\n\t\t${bold}${black} ${end}${yellow}Dotfiles ${yellow} ${bold}\t${green}Done! ${Bgreen} ${end}"
 	fi
 
 }
@@ -395,7 +395,7 @@ function htb-Xplorer(){
 	tput cnorm
 
 	if [ -d /opt/h4Ck/htbXplorer-Plus ]; then
-		echo -ne "\n\n${bold}${red}|${end}${red}󰓗 \t${end}${white}<~${end}${white}${bold}${green} 󰆧 ${end}${white}~> \t${end}${red}H7b${yellow}~${red}Xpl@R3r ${yellow}already in the system${red}!\t${purple}${bold}󱝂 ${end}${white}${bold}${blue}󱜚 "; echo
+		echo -ne "\n\n${bold}${red}|${end}${red}󰓗 \t${end}${white}<~${end}${white}${bold}${green} 󰆧 ${end}${white}~> \t${end}${red}H7b${yellow}~${red}Xpl@R3r ${yellow}already in the system${red}!\t${purple}${bold}󱝂 ${end}${white}${bold}${blue}󱜚 \n\n"; echo
 	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning htbXplorer from github${cyan}~~${bold}${cyan}> ${end}${cyan}\n\n"
 		sleep 1 && sudo mkdir -p /opt/h4Ck/htbXplorer-Plus
@@ -505,13 +505,7 @@ function common() {
 		fi
 	fi
 
-	htb-Xplorer
-	if [ $? -ne 0 ]; then
-		nvim
-		if [ $? -ne 0 ]; then
-			main
-		fi
-	fi
+	htb-Xplorer && nvim && main
 }
 
 
