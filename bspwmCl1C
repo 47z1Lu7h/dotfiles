@@ -32,7 +32,7 @@ declare -r dpnFed_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms libxcb-dev
 declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel libX11-devel libX11-xcb libXext-devel libxcb-devel libGL-devel libEGL-devel meson pcre2-devel pixman-devel uthash-devel xcb-util-image-devel xcb-util-renderutil-devel xorg-x11-proto-devel"
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
-#declare -a fonts=( ComicShannsMono Iosevka IosevkaTerm )
+declare -a fonts=( ComicShannsMono Iosevka IosevkaTerm )
 declare -r cwd=$(pwd)
 declare -r OS=$(cat /etc/*release | grep '^ID_LIKE' | awk '{print $NF}' FS='=')
 declare -r VERSION=$(cat /etc/*release | grep '^VERSION_ID' |  awk '{print $NF}' FS='=' | tr -d '"' )
@@ -307,31 +307,31 @@ function main(){
 	echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning zsh plugins ${cyan} -->\n\n\n"
 
 	if [ -d /usr/share/zsh/powerlevel10k ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}powerlevel10k ${yellow}  ${bold}\t${green}done  ${end}"
+		echo -ne "\n\t${bold}${black} ${end}${blue}powerlevel10k ${yellow}  ${bold}\t${green}done  ${end}\t"
 	else
 		sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git"	/usr/share/zsh/powerlevel10k
 	fi
 
 	if [ -d /usr/share/zsh-autocomplete ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}autocomplete ${yellow} ${bold}\t${green}done  ${end}"
+		echo -ne "\n\t${bold}${black} ${end}${blue}autocomplete ${yellow} ${bold}\t${green}done  ${end}\t"
 	else
 		sudo git clone --depth 1 -- "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh-autocomplete
 	fi
 
 	if [ -d /usr/share/zsh-fzf-history-search ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}zf-history-search ${yellow} ${bold}\t${green}done  ${end}"
+		echo -ne "\n\t${bold}${black} ${end}${blue}zf-history-search ${yellow} ${bold}\t${green}done  ${end}\t"
 	else
 		sudo git clone "https://github.com/joshskidmore/zsh-fzf-history-search.git"	/usr/share/zsh-fzf-history-search
 	fi
 
 	if [ -f /usr/share/zsh/sudo.plugin.zsh ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}sudo.plugin ${yellow} ${bold}\t${green}done  ${end}"
+		echo -ne "\n\t${bold}${black} ${end}${blue}sudo.plugin ${yellow} ${bold}\t${green}done  ${end}\t"
 	else
 		sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/sudo.plugin.zsh
 	fi
 
 	if [ -d /usr/share/zsh-syntax-highlighting ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}syntax-highlighting${yellow} ${bold}\t${green}done  ${end}"
+		echo -ne "\n\t${bold}${black} ${end}${blue}syntax-highlighting${yellow} ${bold}\t${green}done  ${end}\t"
 	else
 		export z5H5YNt4x=$(sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"	/usr/share/zsh-syntax-highlighting)
 		if [ $OS = debian ]; then
@@ -355,7 +355,7 @@ function main(){
 	fi
 
 	if [ -f ~/.zsh/git-completion.zsh ]; then
-			echo -ne "\n\t${bold}${black} ${end}${blue}git-completion${yellow} ${bold}\t${green}done  ${end}"
+			echo -ne "\n\t${bold}${black} ${end}${blue}git-completion${yellow} ${bold}\t${green}done  ${end}\t"
 	else
 		wget "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh" -P ~/.zsh/
 	fi
@@ -385,7 +385,7 @@ function main(){
 	sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
 	
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t\t${bold}${black} ${end}${yellow}Dotfiles ${yellow} ${bold}\t${green}Done! ${Bgreen} ${end}"
+		echo -ne "\n\t\t${bold}${black} ${end}${yellow}Dotfiles ${yellow} ${bold}\t${green}Done! ${Bgreen} ${end}\n"
 	fi
 
 }
