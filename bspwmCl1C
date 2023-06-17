@@ -33,31 +33,31 @@ declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
 declare -a fonts=( ComicShannsMono Iosevka IosevkaTerm )
-
 declare -r cwd=$(pwd)
 declare -r OS=$(cat /etc/*release | grep '^ID_LIKE' | awk '{print $NF}' FS='=')
 declare -r VERSION=$(cat /etc/*release | grep '^VERSION_ID' |  awk '{print $NF}' FS='=' | tr -d '"' )
 declare -r NAME=$(cat /etc/*release | grep '^NAME' | awk '{print $NF}' FS='='| tr -d '"' |  awk '{print $1}')
 declare -r ID=$(cat /etc/*release | grep '^ID' | awk '{print $NF}' FS='=')
-
-
+declare -r p0W35l3V3l10k=$(sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git"	/usr/share/zsh/powerlevel10k)
+declare -r zsh5YNt4x=$(sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"	/usr/share/zsh-syntax-highlighting)
 
 trap ctrl_c INT
 
+	# --> Banner
 function banner(){
-echo -ne "\t\t\t${red}${bold}
- ▄█████  ██████ ██▓███  █     █░███▄ ▄███▓▄████▄  ██▓    ██▓▄████▄
-▓██████▒██    ▒▓██░  ██▓█░ █ ░█▓██▒▀█▀ ██▒██▀ ▀█ ▓██▒   ▓██▒██▀ ▀█
-█    ▄█░ ▓██▄  ▓██░ ██▓▒█░ █ ░█▓██    ▓██▒▓█    ▄▒██░   	▒██▒▓██
-▒██░█▀   ▒   ██▒██▄█▓▒ ░█░ █ ░█▒██    ▒██▒▓▓▄ ▄██▒██░   ░██▒▓▓▄ ▄██▒
-░▓█  ▀█▒█████▒▒██▒ ░  ░░██▒██▓▒██▒   ░██▒ ▓███▀ ░██████░██▒ ▓███▀ ░
-░▒▓███▀▒ ▒▓▒ ▒ ▒▓▒░ ░  ░ ▓░▒ ▒ ░ ▒░   ░  ░ ░▒ ▒  ░ ▒░▓  ░▓ ░ ░▒ ▒░
-░▒░  ░░ ${bold}${red}By ${cyan}47z!Lu7h${end}${bold}${red}${tandout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
- ░ ░		▒ ░	░	░	░${end}"
+	echo -ne "\t\t\t${red}${bold}
+	▄█████  ██████ ██▓███  █     █░███▄ ▄███▓▄████▄  ██▓    ██▓▄████▄
+	▓██████▒██    ▒▓██░  ██▓█░ █ ░█▓██▒▀█▀ ██▒██▀ ▀█ ▓██▒   ▓██▒██▀ ▀█
+	█    ▄█░ ▓██▄  ▓██░ ██▓▒█░ █ ░█▓██    ▓██▒▓█    ▄▒██░   ▒██▒▓██
+	▒██░█▀   ▒   ██▒██▄█▓▒ ░█░ █ ░█▒██    ▒██▒▓▓▄ ▄██▒██░   ░██▒▓▓▄ ▄██▒
+	░▓█  ▀█▒█████▒▒██▒ ░  ░░██▒██▓▒██▒   ░██▒ ▓███▀ ░██████░██▒ ▓███▀ ░
+	░▒▓███▀▒ ▒▓▒ ▒ ▒▓▒░ ░  ░ ▓░▒ ▒ ░ ▒░   ░  ░ ░▒ ▒  ░ ▒░▓  ░▓ ░ ░▒ ▒░
+	░▒░  ░░ ${bold}${red}By ${cyan}47z!Lu7h${end}${bold}${red}${tandout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
+	░ ░		▒ ░	░	░	░${end}\n"
 }
 
+	# --> msg exit when ctrl+c
 function ctrl_c(){
-
 	echo -ne "\n\n\t\t${bold}${red}<|[${black}!${red}]|> ${cyan}Ctrl+C ${black}--->${red}Exiting${cyan}!! ${red}\n\n\n"
 	exit 1
 }
@@ -152,6 +152,7 @@ function code() {
 					rm -f packages.microsoft.gpg
 					sudo apt install apt-transport-https
 					sudo apt update && sudo apt install code
+					
 					if [ $? -eq 0 ]; then
 						code & sleep 5 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
 					else
@@ -188,17 +189,10 @@ function lsd(){
 
 	if [ $OS = debian ]; then
 		sudo apt install lsd -y
-		if [ $? -eq 0 ]; then
-			echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}bspmw D@N3!${red}${stnd}${end}" && sleep 1
 
-		else
+		if [ $? -ne 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Downloading lsd ${end}${cyan}~~${bold}${cyan}> \n\n"
 			sleep 1 && wget "https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb" -O lsd.deb && sudo dpkg -i lsd.deb && rm lsd.deb
-			if [ $? -eq 0 ]; then
-				echo -ne "\t${end}${red}󱞩 ${bold}${green} ${end}${white}${bold}${end}${white}${bold}${blue} "
-			else
-				echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went wrong getting lsd  ${red}${stnd} :/${end}${end}\n\n\n" && sleep 1 && exit 1
-			fi
 		fi
 
 	elif [ $OS = arch ]; then
@@ -214,13 +208,11 @@ function lsd(){
 	tput civis
 }
 
-
-
 	# --> Firefox-esr
 function firefox_esr() {
 	tput cnorm
 
-	which firefox-esr
+	which firefox-esr >/dev/null
 	if [ $? -eq 0 ]; then
 		if [ -d ~/.mozilla/ ] &&  [ $NAME = ubuntu ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
@@ -255,16 +247,13 @@ function firefox_esr() {
 function nvim() {
 	tput cnorm
 
-	which nvim
+	which nvim >/dev/null
 	if [ $? -eq 0 ]; then
-		echo -ne "\t\t\t\t\t${end}${red}󱞩 ${bold}${green} ${end}${white}${bold}${red}${end}${white}${bold}${blue} "
 		rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
  		sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
 		if [ $? -eq 0 ]; then
 			git clone --depth 1 "https://github.com/NvChad/NvChad" ~/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/NvChad" /root/.config/nvim
-			if [ $? -eq 0 ]; then
-				echo -ne "\t${end}${white}󱞩 ${bold}${green} ${end}${white}${bold}${end}${white}${bold}${blue} "
-			else
+			if [ $? -ne 0 ]; then
 				echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad cloning NvChad repo ${red}${stnd}:/ ${end}\n\n\n" && sleep 1 && exit 1
 			fi
 		else
@@ -281,9 +270,7 @@ function nvim() {
 				git clone --depth 1 "https://github.com/NvChad/NvChad" ~/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/NvChad" /root/.config/nvim
 				if [ $? -eq 0 ]; then
 					cd ../../ && rm -rf nvim
-					if [ $? -eq 0 ]; then
-						echo -ne "\t${end}${white}󱞩 ${bold}${green} ${end}${white}${bold}${red}${end}${white}${bold}${blue} "
-					else
+					if [ $? -ne 0 ]; then
 						echo -ne "\n\n\t\t${bold}${cyan}<|[!]|> ${red} Something went bad removing neovim folder ${red}${stnd}:/  ${end}\n\n\n" && sleep 1 && exit 1
 					fi
 				else
@@ -302,7 +289,6 @@ function nvim() {
 
 	# --> Fonts, Zsh stuff & cp dotfiles
 function main(){
-	tput cnorm
 
 		# -->  Fonts & Icons
 	echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting fonts & Icons ${cyan}~~${bold}${cyan}> \n\n"
@@ -318,69 +304,90 @@ function main(){
 	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
 	sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
 
-		# -->  Zsh plugins
-	if [ $? -eq 0 ]; then
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning zsh plugins ${cyan} -->\n\n\n"
+	# -->  Zsh plugins
+	sleep 0.5
+	echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning zsh plugins ${cyan} -->\n\n\n"
 
-		if [ -d /usr/share/zsh/powerlevel10k ]; then
-			echo -ne "\n\t${bold}${black} ${end}${blue}powerlevel10k ${yellow}  ${bold}${green}done  ${end}"
-		else
-			sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git" /usr/share/zsh/powerlevel10k
-		fi
-
-		if [ -d /usr/share/zsh-autocomplete ]; then
-			echo -ne "\n\t${bold}${black} ${end}${blue}autocomplete ${yellow} ${bold}\t${green}done  ${end}"
-		else
-	        	sudo git clone --depth=1 "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh-autocomplete
-		fi
-
-		if [ -d /usr/share/zsh-fzf-history-search ]; then
-			echo -ne "\n\t${bold}${black} ${end}${blue}zf-history-search ${yellow} ${bold}\t${green}done  ${end}"
-		else
-			sudo git clone "https://github.com/joshskidmore/zsh-fzf-history-search.git"	/usr/share/zsh-fzf-history-search
-		fi
-
-		if [ -d /usr/share/zsh/sudo.plugin.zsh ]; then
-			echo -ne "\n\t${bold}${black} ${end}${blue}sudo.plugin ${yellow} ${bold}\t${green}done  ${end}"
-		else
-	        	sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/sudo.plugin.zsh
-		fi
-
-		if [ -d /usr/share/zsh-syntax-highlighting ]; then
-			echo -ne "\n\t${bold}${black} ${end}${blue}syntax-highlighting${yellow} ${bold}\t${green}done  ${end}"
-		else
-			sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"	/usr/share/zsh-syntax-highlighting/
-		fi
-
-		sleep 0.5 && echo -ne "\n\n\t${bold}${cyan}<[+]> ${end}${blue}Coping dotfiles ${cyan}\n\n"
-
-		if [ -d $HOME/.config/bspwm ]; then
-			mv $HOME/.config/bspwm $HOME/.config/bspwm.OLD
-		fi
-
-		if [ -d $HOME/.config/polybar ]; then
-			mv $HOME/.config/polybar $HOME/.config/polybar.OLD
-		fi
-
-		if [ -d $HOME/.config/picom ]; then
-			mv $HOME/.config/picom $HOME/.config/picom.OLD
-		fi
-
-		if [ -d $HOME/.config/sxhkd ]; then
-			mv $HOME/.config/sxhkd $HOME/.config/sxhkd.OLD
-		fi
-
-		cp -r $cwd/config/* $HOME/.config/ && mv $HOME/.zshrc $HOME/.zshrc.OLD && cp -r $cwd/misc/home/.*? $HOME && sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh /root && sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
-		if [ $? -eq 0 ]; then
-			echo -ne "\n\t\t${bold}${black} ${end}${yellow}Dotfiles  ${yellow} ${bold}\t${green} ${end}"
-		else
-			echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad coping files ${red}${stnd}: /${end}\n\n\n" && sleep 1 && exit 1
-		fi
+	if [ -d /usr/share/zsh/powerlevel10k ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue}powerlevel10k ${yellow}  ${bold}${green}done  ${end}"
 	else
-		echo -e "\n\n\t\t${bold}${red}<|[!]|> ${black} Something went bad getting fonts|Icons ${red}${stnd} :/${end}\n\n\n" && sleep 1 && exit 1
+		$p0W35l3V3l10k
 	fi
 
-	tput civis
+	if [ -d /usr/share/zsh-autocomplete ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue}autocomplete ${yellow} ${bold}\t${green}done  ${end}"
+	else
+		sudo git clone --depth 1 -- "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh-autocomplete
+	fi
+
+	if [ -d /usr/share/zsh-fzf-history-search ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue}zf-history-search ${yellow} ${bold}\t${green}done  ${end}"
+	else
+		sudo git clone "https://github.com/joshskidmore/zsh-fzf-history-search.git"	/usr/share/zsh-fzf-history-search
+	fi
+
+	if [ -f /usr/share/zsh/sudo.plugin.zsh ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue}sudo.plugin ${yellow} ${bold}\t${green}done  ${end}"
+	else
+		sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/sudo.plugin.zsh
+	fi
+
+	if [ -d /usr/share/zsh-syntax-highlighting ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue}syntax-highlighting${yellow} ${bold}\t${green}done  ${end}"
+	else
+		if [ $OS = debian ]; then
+			sudo apt install -y zsh-syntax-highlighting
+			if [ $? -ne 0 ]; then
+				${zsh-sYNt4x}
+			fi
+		
+		elif [ $OS = arch ]; then
+			sudo pacman -S zsh-syntax-highlighting
+			if [ $? -ne 0 ]; then
+				${zsh-sYNt4x}
+			fi
+		
+		elif [ $OS = fedora ]; then
+			sudo dnf install zsh-syntax-highlighting
+			if [ $? -ne 0 ]; then
+				${zsh-sYNt4x}		
+			fi
+		fi
+	fi
+
+	sleep 0.5
+	wget "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh" -P ~/.zsh/
+	sleep 0.5 && echo -ne "\n\n\t${bold}${cyan}<[+]> ${end}${blue}Coping dotfiles ${cyan}\n\n"
+
+	if [ -d $HOME/.config/bspwm ]; then
+		mv $HOME/.config/bspwm $HOME/.config/bspwm.OLD
+	fi
+
+	if [ -d $HOME/.config/polybar ]; then
+		mv $HOME/.config/polybar $HOME/.config/polybar.OLD
+	fi
+
+	if [ -d $HOME/.config/picom ]; then
+		mv $HOME/.config/picom $HOME/.config/picom.OLD
+	fi
+
+	if [ -d $HOME/.config/sxhkd ]; then
+		mv $HOME/.config/sxhkd $HOME/.config/sxhkd.OLD
+	fi
+
+	cp -r $cwd/config/* $HOME/.config/ && 
+	mv $HOME/.zshrc $HOME/.zshrc.OLD && 
+	cp -r $cwd/misc/home/.*? $HOME && 
+	
+	sudo sed -i "s/bash/zsh/g" /etc/passwd && 
+	sudo ln -sf $HOME/.zsh /root && 
+	sudo ln -s -f $HOME/.zshrc /root && s
+	udo ln -s -f $HOME/.p10k.zsh /root
+	
+	if [ $? -eq 0 ]; then
+		echo -ne "\n\t\t${bold}${black} ${end}${yellow}Dotfiles  ${yellow} ${bold}\t${green} ${end}"
+	fi
+
 }
 
 	# --> Nice t@@L! ;D
@@ -408,44 +415,41 @@ function htb-Xplorer(){
 	tput civis
 }
 
+	# --> Multi D1stro
 function common() {
-	tput cnorm
 
-	which code
+	which code &>/dev/null
 	if [ $? -ne 0 ]; then
 		code
 	fi
 
-	which lsd
+	which lsd &>/dev/null
 	if [ $? -ne 0 ]; then
 		lsd
 	fi
 
-	firefox_esr & htb-Xplorer
+	which firefox-esr &>/dev/null
+	if [ $? -ne 0 ]; then
+		firefox_esr
+	fi
 
-	which bspwm
+	which bspwm &>/dev/null
 	if [ $? -ne 0 ]; then
 		if [ $OS = debian ]; then
 				sudo apt install bspwm sxhkd -y
-			if [ $? -eq 0 ]; then
-				echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}bspmw D@N3!${red}${stnd}${end}" && sleep 1
-			else
+			if [ $? -ne 0 ]; then
 				sudo apt install $dpnDeb_Bspwm -y && compile_bspwm
 			fi
 
 		elif [ $OS = arch ]; then
 				sudo pacman -S bwpwm sxhkd
-			if [ $? -eq 0 ]; then
-	             echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}bspmw D@N3!${red}${stnd}${end}\n" && sleep 1
-			else
+			if [ $? -ne 0 ]; then
 				sudo pacman -S $dpnArch_Bspwm && compile_bspwm
 			fi
 
 		elif [ $OS = fedora ]; then
 				sudo dnf install bspwm sxhkd
-			if [ $? -eq 0 ]; then
-	            echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}bspmw D@N3!${red}${stnd}${end}\n" && sleep 1
-			else
+			if [ $? -ne 0 ]; then
 				sudo dnf install $dpnFed_Bspwm && compile_bspwm
 			fi
 		else
@@ -453,29 +457,23 @@ function common() {
 		fi
 	fi
 
-	which polybar
+	which polybar &>/dev/null
 	if [ $? -ne 0 ]; then
 		if [ $OS = debian ]; then
-			sudo apt install polybar -y
-			if [ $? -eq 0 ]; then
-				echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}P0ly D@N3!${red}${stnd}${end}" && sleep 1
-            else
+				sudo apt install polybar -y
+			if [ $? -ne 0 ]; then
 				sudo apt install $dpnDeb_Poly -y && compile_polybar
             fi
 
 		elif [ $OS = arch ]; then
-			sudo pacman -S polybar
-			if [ $? -eq 0 ]; then
-	            echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}P0ly d@N3!${red}${stnd}${end}\n" && sleep 1 && exit 1
-			else
+				sudo pacman -S polybar
+			if [ $? -ne 0 ]; then
 				compile_polybar
 			fi
 
 		elif [ $OS = fedora ]; then
 			sudo dnf install polybar
-			if [ $? -eq 0 ]; then
-	            echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}P0ly d@N3!${red}${stnd}${end}\n" && sleep 1 && exit 1
-			else
+			if [ $? -ne 0 ]; then
 				sudo dnf install $dpnFed_Poly && compile_polybar
 			fi
 		else
@@ -483,39 +481,37 @@ function common() {
 		fi
 	fi
 
-	which picom
+	which picom &>/dev/null
 	if [ $? -ne 0 ]; then
-		if [ $OS = debian ] > /dev/null; then
+		if [ $OS = debian ]; then
 			sudo apt install picom -y
-			if [ $? -eq 0 ]; then
-				echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}picom d@N3!${red}${stnd}${end}" && sleep 1
-            else
-				sudo apt install $dpnDeb_Poly -y && compile_polybar
+			if [ $? -ne 0 ]; then
+				sudo apt install $dpnDeb_Poly -y && compile_picom
             fi
 
 		elif [ $OS = arch ]; then
 			sudo pacman -S picom
-			if [ $? -eq 0 ]; then
-	            echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}picom d@N3!${red}${stnd}${end}\n" && sleep 1 && exit 1
-			else
-				compile_polybar
+			if [ $? -ne 0 ]; then
+				compile_picom
 			fi
 
 		elif [ $OS = fedora ] > /dev/null; then
 			sudo dnf install picom
-			if [ $? -eq 0 ]; then
-	        	echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}picom d@N3!${red}${stnd}${end}\n" && sleep 1 && exit 1
-			else
-				sudo dnf install $dpnFed_Poly && compile_polybar
+			if [ $? -ne 0 ]; then
+				sudo dnf install $dpnFed_Poly && compile_picom
 			fi
 		else
 			echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}sorry, system not supported${red}${stnd}$:/{end}\n" && sleep 1
 		fi
 	fi
 
-	nvim && main
-
-	tput civis
+	htb-Xplorer
+	if [ $? -ne 0 ]; then
+		nvim
+		if [ $? -ne 0 ]; then
+			main
+		fi
+	fi
 }
 
 
@@ -550,8 +546,6 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	elif [ $OS = fedora ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
-	else
-		echo -e "\n\n\t${blue}${bold}=======${end}${blue}Sorry${cyan}, system not ${bold}${yellow}supported ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	fi
 
 	echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing Packages ${bold}${cyan}~~> \n\n\n"
@@ -561,8 +555,6 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	elif [ $OS = fedora ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}v ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
-	else
-		echo -e "\n\n\t${blue}${bold}=======${end}${blue}Sorry${cyan}, system not ${bold}${yellow}supported ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	fi
 
 	common
@@ -572,8 +564,6 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 		\n\t${end}${red}~${end}${blue} For dark theme Firefox-esr, open it & type => ${end}${cyan}about${red}:${end}${cyan}config${end}${blue}, then search for -->\
 		\n\t${end}${red}<${end}${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${end}${red}>${blue}, and set it to ${bold}${cyan}True${end}${blue}."
 		sleep 1 && echo -ne "\n\n\t${bold}${red}------/-/-/-/~~~~>> >>> ${end}${yellow}Try reboot and select ${bold}${red}Bspwm ${end}${yellow}as desktop Evironment. Enjoy!! ${stnd}${bold}${red};-)${end}${red} <<< <<~~~~~\-\-\-\------${end}\n\n\n" && sleep 1
-	else
-		echo -ne "\n\n\t${bold}${red}<|[!]|> ${yellow}Something went bad with the main installation ${red}${stnd}:/ ${end}${end}\n\n\n" && sleep 1 && exit 1
 	fi
 
 

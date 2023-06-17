@@ -21,6 +21,6 @@ bspc rule -a Screenkey manage=off
 picom --experimental-backends --config $HOME/.config/picom/picom.conf &
 picom -b &
 xsetroot -cursor_name left_ptr &
-setxkbmap es &        			# set your keayboard layout
-feh --bg-fill ~/.wallpapers/netBlue.jpg &
-polybar -q bottom -c /home/a7z1lu7h/.config/polybar/themes/47z1.ini &
+setxkbmap es &  ### ~~> set your keayboard layout
+feh --bg-fill /usr/share/wallpapers/p1C5/netBlue.jpg &
+polybar -q bottom -c ~/.config/polybar/themes/47z1.ini &

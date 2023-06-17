@@ -12,6 +12,9 @@
 # by ░░░  ░   ░▒ ░  ░  ░   47z!Lu7h   ▒ ░ ░   ░▒ ░   ░▒ ░   ░ :)  ░ 
 #####################################################################
 
+#####################################################################################################################
+	###############  ~~~~~~~~~~~~~~~~ ¡| Start~Up Speed~Up |! ~~~~~~~~~~~~ ###############
+#####################################################################################################################
 # Execute code in the background to not affect the current session
 {
 # Compile zcompdump, if modified, to increase startup speed.
@@ -21,17 +24,29 @@ zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
     fi
 } &!
 
-###########################################################################################################
-     ######################  ~~~~~~~~~~~~~~~~ ¡| c@l@5s |! ~~~~~~~~~~~~   ###########################
-###########################################################################################################
+#####################################################################################################################
+     ######################  ~~~~~~~~~~~~~~~~ ¡| Powerlevel promt |! ~~~~~~~~~~~~   ###########################
+#####################################################################################################################
+	# Enable Powerlevel10k instant prompt. Should stay at the top of ~/.zshrc.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"; fi
+	# - To customize prompt, run `p10k configure` or edit ~/.p10k.zsh
+[[ -f /$HOME/.p10k.zsh ]] && source /$HOME/.p10k.zsh
+	# - T@ cU5t@m1z3 p5@mTt, 5Un `p10k c@nf16Ur3` @r 3D1t ~/.p10K.z5h
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+	# - Take off rubbish of p10k
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
-	# - c@lRs
+#####################################################################################################################
+     ######################  ~~~~~~~~~~~~~~~~ ¡| l0t of c0l05S|! ~~~~~~~~~~~~   ###########################
+#####################################################################################################################
+	# ~ c@lRs
 export end='\033[0m'		# Text Reset
-export italic='\e[3;\e[0m'
+export italic=''
 export line="\e[4m;\e[0m"
 export tachado="\e[9m;\e[0m"
 
-	# Regular Colors
 export black='\033[0;30m'        # black
 export red='\033[0;31m'          # red
 export green='\033[0;32m'        # green
@@ -40,16 +55,6 @@ export blue='\033[0;34m'         # blue
 export purple='\033[0;35m'       # purple
 export cyan='\033[0;36m'         # cyan
 export white='\033[0;37m'        # white
-
-	# Bold
-export Bblack='\033[1;30m'       # black
-export Bred='\033[1;31m'         # red
-export Bgreen='\033[1;32m'       # green
-export Byellow='\033[1;33m'      # yellow
-export Bblue='\033[1;34m'        # blue
-export Bpurple='\033[1;35m'      # purple
-export Bcyan='\033[1;36m'        # cyan
-export Bwhite='\033[1;37m'       # white
 
 	# Underline
 export Ublack='\033[4;30m'       # black
@@ -61,15 +66,15 @@ export Upurple='\033[4;35m'      # purple
 export Ucyan='\033[4;36m'        # cyan
 export Uwhite='\033[4;37m'       # white
 
-	# Background
-export On_black='\033[40m'       # black
-export On_red='\033[41m'         # red
-export On_green='\033[42m'       # green
-export On_yellow='\033[43m'      # yellow
-export On_blue='\033[44m'        # blue
-export On_purple='\033[45m'      # purple
-export On_cyan='\033[46m'        # cyan
-export On_white='\033[47m'       # white
+	# Bold
+export Bblack='\033[1;30m'       # black
+export Bred='\033[1;31m'         # red
+export Bgreen='\033[1;32m'       # green
+export Byellow='\033[1;33m'      # yellow
+export Bblue='\033[1;34m'        # blue
+export Bpurple='\033[1;35m'      # purple
+export Bcyan='\033[1;36m'        # cyan
+export Bwhite='\033[1;37m'       # white
 
 	# High Intensity
 export Iblack='\033[0;90m'       # black
@@ -91,6 +96,16 @@ export BIpurple='\033[1;95m'     # purple
 export BIcyan='\033[1;96m'       # cyan
 export BIwhite='\033[1;97m'      # white
 
+	# Background
+export On_black='\033[40m'       # black
+export On_red='\033[41m'         # red
+export On_green='\033[42m'       # green
+export On_yellow='\033[43m'      # yellow
+export On_blue='\033[44m'        # blue
+export On_purple='\033[45m'      # purple
+export On_cyan='\033[46m'        # cyan
+export On_white='\033[47m'       # white
+
 	# High Intensity backgrounds
 export On_Iblack='\033[0;100m'   # black
 export On_Ired='\033[0;101m'     # red
@@ -101,65 +116,32 @@ export On_Ipurple='\033[0;105m'  # purple
 export On_Icyan='\033[0;106m'    # cyan
 export On_Iwhite='\033[0;107m'   # white
 
-###########################################################################################################
-     ######################  ~~~~~~~~~~~~~~~~ ¡| Powerlevel promt |! ~~~~~~~~~~~~   ###########################
-###########################################################################################################
-	# Enable Powerlevel10k instant prompt. Should stay at the top of ~/.zshrc.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"; fi
-	# - To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f /$HOME/.p10k.zsh ]] && source /$HOME/.p10k.zsh
-	# - To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-	# - Take off rubbish of p10k
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-
-
-###########################################################################################################
-     ######################  ~~~~~~~~~~~~~~~~ ¡| Plugins |! ~~~~~~~~~~~~   ###########################
-###########################################################################################################
-
-if [ -d /usr/share/zsh/powerlevel10k ]; then
-	source /usr/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
-else
-	echo -ne "\n\t${bold}${black} ${end}${blue} Missing powerlevel ${yellow} ${bold}\t${green} ${end}"
-fi
-
-if [ -d /usr/share/zsh-autocomplete ]; then
-	source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-else
-	echo -ne "\n\t${bold}${black} ${end}${blue}Missing autocomplete ${yellow} ${bold}\t${green} ${end}"
-fi
-
-if [ -d /usr/share/zsh-fzf-history-search ]; then
-	source /usr/share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
-else
-	echo -ne "\n\t${bold}${black} ${end}${blue} Missing fzf-history-search ${yellow} ${bold}\t${green} ${end}"
-fi
-
-if [ -d /usr/share/zsh/sudo.plugin.zsh ]; then
-	source /usr/share/zsh/sudo.plugin.zsh/sudo.plugin.zsh
-else
-	echo -ne "\n\t${bold}${black} ${end}${blue} Missing sudo.plugin ${yellow} ${bold}\t${green} ${end}"
-fi
-
-if [ -d /usr/share/zsh-syntax-highlighting ]; then
-	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-else
-	echo -ne "\n\t${bold}${black} ${end}${blue} Missing syntax-highlighting ${yellow} ${bold}\t${green} ${end}"
-fi
-
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/aliases.zsh
-source ~/.zsh/functions.zsh
-
-########################################################################################################
+#####################################################################################################################
+	    ###############  ~~~~~~~~~~~~~~~~ ¡| Tabs default name |! ~~~~~~~~~~~~   #############
+#####################################################################################################################
 	# Display last command interminal
 echo -en "\e]2;   \a"
-preexec () { print -Pn "\e]0;$1 -  \a" }
+preexec () { print -Pn "\e]0;$1 -   \a" }
 
-########################################################################################################
+#####################################################################################################################
+            ############  ~~~~~~~~~~~~~~~~ ¡| Cu5t@m Aliases & functions |! ~~~~~~~~~~~~   ############
+#####################################################################################################################
+
+if [ -d ~/.zsh/aliases.zsh ]; then
+	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}󰭄 \t${Iblack}${BIcyan} aliases.zsh ${red}${BIred} \n"
+else
+	source ~/.zsh/aliases.zsh
+fi
+
+if [ -d ~/.zsh/functions.zsh ]; then
+	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}󰭄 \t${Iblack}${BIcyan} functions.zsh ${red}${BIred} \n\n"
+else
+	source ~/.zsh/functions.zsh
+fi
+
+#####################################################################################################################
+	    ###################  ~~~~~~~~~~~~~~~~ ¡|  |! ~~~~~~~~~~~~   #######################
+#####################################################################################################################
     # - Keep 1M lines of history within the shell and save it to ~/.zsh_history:
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 HISTSIZE=10000000
@@ -181,10 +163,10 @@ setopt	HIST_VERIFY               # Don't execute immediately upon history expans
 	# Use modern completion system
 autoload -U select-word-style
 select-word-style bash
-autoload -Uz compinit promptinit bashcompinit
-compinit
-promptinit
-bashcompinit
+#autoload -Uz compinit promptinit bashcompinit
+#compinit
+#promptinit
+#bashcompinit
 zle -N zle-keymap-select
 zmodload -i zsh/complist
 
@@ -194,41 +176,58 @@ setopt	appendhistory
 setopt	menu_complete
 setopt	complete_aliases
 
-###########################################################################################################
-    ###################  ~~~~~~~~~~~~~~~~ ¡|  |! ~~~~~~~~~~~~   #######################
-###########################################################################################################
+#####################################################################################################################
+	    ###################  ~~~~~~~~~~~~~~~~ ¡|  |! ~~~~~~~~~~~~   #######################
+#####################################################################################################################
+# Select all suggestion instead of top on result only
+#zstyle ':autocomplete:*' min-input 2
+#bindkey $key[Up] up-line-or-history
+#bindkey $key[Down] down-line-or-history
+
 	# ~~>  Mixing zsh-autocomplete and zsh-autosuggestions
-zstyle ':autocomplete:tab:*' insert-unambiguous yes
-zstyle ':autocomplete:tab:*' widget-style menu-select
-zstyle ':autocomplete:*' min-input 2
-zstyle ':completion:*' auto-description 'specify: %d'
-zstyle ':completion:*' completer _expand _complete _correct _approximate
-zstyle ':completion:*' format 'Completing %d'
-zstyle ':completion:*' group-name ''
+#zstyle ':autocomplete:tab:*' insert-unambiguous yes
+#zstyle ':autocomplete:tab:*' widget-style menu-select
+#zstyle ':autocomplete:*' min-input 2
+#zstyle ':completion:*' auto-description 'specify: %d'
+#zstyle ':completion:*' completer _expand _complete _correct _approximate
+#zstyle ':completion:*' format 'Completing %d'
+#zstyle ':completion:*' group-name ''
 #zstyle ':completion:*' menu select=2
+#eval "$(dircolors -b)"
+#zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+#zstyle ':completion:*' list-colors ''
+#zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+#zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r3:|=* l:|=*'
+#zstyle ':completion:*' menu select=long
+#zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+#zstyle ':completion:*' use-compctl false
+#zstyle ':completion:*' verbose true
+#zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+#zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-eval "$(dircolors -b)"
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r3:|=* l:|=*'
-zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-
-###########################################################################################################
+#####################################################################################################################
     ###################  ~~~~~~~~~~~~~~~~ ¡| B1nK3yS |! ~~~~~~~~~~~~   #######################
-###########################################################################################################
+#####################################################################################################################
+	# Keybindings
+bindkey -e                                        # emacs key bindings
+bindkey ' ' magic-space                           # Do history expansion on space
+#bindkey '^U' backward-kill-line                   # [ Ctrl + Q ]   e
+#bindkey '^[[3;5~' kill-word                      # [ Ctrl + Supr ]   e
+bindkey '^[[3~' delete-word                       # [ Fn + Delete ]   Delete the whole word backward
+bindkey '^[[1;3C' forward-word                    # [ Alt + Right ] -> Move one word fordward
+bindkey '^[[1;3D' backward-word                   # [ Alt + Left ] -> Move one word backward
+bindkey '^[[1;5C' forward-arg                     # [ Ctrl + Right ] -> Move one word fordward
+bindkey '^[[1;5D' backward-arg                    # [ Ctrl + Left ] -> Move one word backward
+bindkey '^[[5~' beginning-of-buffer-or-history    # page up
+bindkey '^[[6~' end-of-buffer-or-history          # page down
+bindkey '^[[H' beginning-of-line                  # [ Fn + Right ]   Beginning of line
+bindkey '^[[F' end-of-line                        # [ Fn + Right ]   End of line
+bindkey '^[[Z' undo                               # [ Shift + Tab ]   Undo last action
 
-###########################################################################################################
-    ###################  ~~~~~~~~~~~~~~~~ ¡| m15c |! ~~~~~~~~~~~~   #######################
-###########################################################################################################
-
-    # ~> Auto ../../../
+#####################################################################################################################
+   	        ###################  ~~~~~~~~~~~~~~~~ ¡| m15c |! ~~~~~~~~~~~~   ##################
+#####################################################################################################################
+	# ~> Auto ../../../
 rationalise-dot() {
   if [[ $LBUFFER = *.. ]]; then
     LBUFFER+=/..
@@ -281,15 +280,16 @@ function _zle-with-style() {
 zle -N select-word-style
 
 autoload -Uz vcs_info
-precmd() {
-  vcs_info
-  # Format the vcs_info_msg_0_ variable
-  zstyle ":vcs_info:git:*" formats "(%b) "
 
-  echo -e -n "\x1b[\x33 q"
-  PROMPT="%B%1~ $%b %F{004}${vcs_info_msg_0_}%f> "
-  RPROMPT=" %F{005}%T%f"
-}
+#precmd() {
+#  vcs_info
+  # Format the vcs_info_msg_0_ variable
+#  zstyle ":vcs_info:git:*" formats "(%b) "
+#
+#  echo -e -n "\x1b[\x33 q"
+#  PROMPT="%B%1~ $%b %F{004}${vcs_info_msg_0_}%f> "
+#  RPROMPT=" %F{005}%T%f"
+#}
 
 autoload -Uz add-zsh-hook
 function _update_vcs_info_msg() {
@@ -314,20 +314,21 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-zmodload zsh/complist
-function accept-and-complete-next-history() {
-    zle expand-or-complete-prefix
-}
-zmodload zsh/complist
+#zmodload zsh/complist
+#function accept-and-complete-next-history() {
+#    zle expand-or-complete-prefix
+#}
+#zmodload zsh/complist
 
-autoload -Uz +X compinit && compinit
-autoload -Uz +X bashcompinit && bashcompinit
-autoload -Uz +X promptinit && promptinit
+
+#autoload -Uz +X compinit && compinit
+#autoload -Uz +X bashcompinit && bashcompinit
+#autoload -Uz +X promptinit && promptinit
 zmodload -i zsh/complist
 
-###########################################################################################################
-    ###################  ~~~~~~~~~~~~~~~~ ¡| autosuggestions |! ~~~~~~~~~~~~   #######################
-###########################################################################################################
+#####################################################################################################################
+        ###################  ~~~~~~~~~~~~~~~~ ¡| autosuggestions |! ~~~~~~~~~~~~   #######################
+#####################################################################################################################
 	# - Zsh autosuggestion settings
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 AUTOSUGGESTION_ACCEPT_RIGHT_ARROW=1
@@ -338,10 +339,9 @@ if [ -f .usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
 	# - Change suggestion color
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#539775,bold'
 fi
-
-###########################################################################################################
-     #################  ~~~~~~~~~~~~~~~~ ¡| syntax-highlighting |! ~~~~~~~~~~~~   #####################
-###########################################################################################################
+#####################################################################################################################
+        #################  ~~~~~~~~~~~~~~~~ ¡| syntax-highlighting |! ~~~~~~~~~~~~   #####################
+#####################################################################################################################
 	# - Enable syntax-highlighting
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] && [ "$prompt" = yes ]; then
     ./usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
@@ -389,3 +389,58 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] 
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 fi
 
+#####################################################################################################################
+         ######################  ~~~~~~~~~~~~~~~~ ¡| Plugins |! ~~~~~~~~~~~~   ###########################
+#####################################################################################################################
+
+if [ -d /usr/share/zsh/sudo.plugin.zsh ]; then
+	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} sudo.plugin${red}${BIred} \n"
+	echo -ne "\n\t\t${Iblack}${purple}  ${Iblack}\t󰭄 \t${Iblack}${blue} Proceeding to ${BIblue}clone ${blue}it${BIblue}󰈅  ${red}󰦹 ${red}󰦹 ${red}󰦹 \t${Icyan}\n"
+	sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P	/usr/share/zsh/
+#	source /usr/share/zsh/sudo.plugin.zsh
+else
+#	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} sudo.plugin${red}${BIred} \n"
+#	echo -ne "\n\t\t${Iblack}${purple}  ${Iblack}\t󰭄 \t${Iblack}${blue} Proceeding to ${BIblue}clone ${blue}it${BIblue}󰈅  ${red}󰦹 ${red}󰦹 ${red}󰦹 \t${Icyan}\n"
+#	sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P	/usr/share/zsh/
+	source /usr/share/zsh/sudo.plugin.zsh
+fi
+
+if [ -d /usr/share/zsh/powerlevel10k ]; then
+	source /usr/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
+else
+	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} Powerlevel10k ${red}${BIred} \n"
+	echo -ne "\n\t\t${Iblack}${purple}  ${Iblack}\t󰭄 \t${Iblack}${blue} Proceeding to ${BIblue}clone ${blue}it${BIblue}󰈅  ${red}󰦹 ${red}󰦹 ${red}󰦹 \t${Icyan}\n"
+	sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git"			/usr/share/zsh/powerlevel10k
+fi
+
+if [ -d /usr/share/zsh-syntax-highlighting ]; then
+	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} zsh-syntax-highlighting${red}${BIred} \n"
+	echo -ne "\n\t\t${Iblack}${purple}  ${Iblack}\t󰭄 \t${Iblack}${blue} Proceeding to ${BIblue}clone ${blue}it${BIblue}󰈅  ${red}󰦹 ${red}󰦹 ${red}󰦹 \t${Icyan}\n"
+	sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"		/usr/share/zsh-syntax-highlighting
+fi
+
+if [ -d /usr/share/zsh-autosuggestions ]; then
+	source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+else
+	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} zsh-autosuggestions ${red}${BIred} \n"
+	echo -ne "\n\t\t${Iblack}${purple}  ${Iblack}\t󰭄 \t${Iblack}${blue} Proceeding to ${BIblue}clone ${blue}it${BIblue}󰈅  ${red}󰦹 ${red}󰦹 ${red}󰦹 \t${Icyan}\n"
+        sudo git clone "https://github.com/zsh-users/zsh-autosuggestions"		/usr/share/zsh-autosuggestions
+fi
+
+if [ -d /usr/share/zsh-autocomplete ]; then
+	source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+else
+	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} zsh-autocomplete${red}${BIred} \n"
+	echo -ne "\n\t\t${Iblack}${purple}  ${Iblack}\t󰭄 \t${Iblack}${blue} Proceeding to ${BIblue}clone ${blue}it${BIblue}󰈅  ${red}󰦹 ${red}󰦹 ${red}󰦹 \t${Icyan}\n"
+	sudo git clone --depth 1 -- "https://github.com/marlonrichert/zsh-autocomplete.git"	 /usr/share/zsh-autocomplete
+fi
+
+if [ -d /usr/share/zsh-fzf-history-search ]; then
+	source /usr/share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
+else
+	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} zsh-fzf-history-search${red}${BIred} \n"
+	echo -ne "\n\t\t${Iblack}${purple}  ${Iblack}\t󰭄 \t${Iblack}${blue} Proceeding to ${BIblue}clone ${blue}it${BIblue}󰈅  ${red}󰦹 ${red}󰦹 ${red}󰦹 \t${Icyan}\n"
+	sudo git clone "https://github.com/joshskidmore/zsh-fzf-history-search"			/usr/share/zsh-fzf-history-search
+fi

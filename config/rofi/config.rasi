@@ -2,16 +2,16 @@
 /*---------- General setting ----------*/
 configuration {
 	dpi: 200;
-	font:				"Iosevka Term 10";
-	show-icons:			true;
-	icon-theme:			"WhiteSur-dark";
+	font:					"IosevkaTerm";
+	show-icons:				true;
+	icon-theme:				"WhiteSur-dark";
 	display-drun:			"";
-	drun-display-format:		"{icon} {name}";
+	drun-display-format:	"{icon} {name}";
 	disable-history:		true;
 	sidebar-mode:			true;
 	click-to-exit:			true;
-	location:			6;
-	modi:	                        [window,run,ssh,drun];
+	location:				6;
+	modi:					[window,run,ssh,drun];
 }
 
 * {

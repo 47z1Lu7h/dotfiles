@@ -1,8 +1,8 @@
 * {
-  //* font-family: "Iosevka", monospace !important;
+  font-family: "IosevkaTerm", monospace !important;
   font-weight: 600 !important;
   font-size: 17px !important;
-  */ --arrowpanel-background: #061115 !important;
+  --arrowpanel-background: #061115 !important;
   --arrowpanel-border-color: #000a0e !important;
   --autocomplete-popup-highlight-background: #000a0e !important;
 
