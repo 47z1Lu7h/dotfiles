@@ -298,9 +298,9 @@ function main(){
 		wget "$download_url"
 		sudo unzip -o "$zip_file" -d /usr/share/fonts && rm "$zip_file"
 	done
-#	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete && fc-cache -fv &&
-#	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
-#	sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
+	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete && fc-cache -fv &&
+	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
+	sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
 
 	# -->  Zsh plugins
 	sleep 0.5
