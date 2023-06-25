@@ -272,7 +272,7 @@ function set-dpi_polybar() {
 	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}DPI ${yellow}to resice Polybar${light-blue} ~~>${cyan}\n\t\t\t"
 	read NEW_DPI;
 	new_dpi="dpi = ${NEW_DPI}"
-	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/*.ini && sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/plane/*.ini
+	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/*.ini && sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/*.ini
 	echo -ne "\t${light-blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your conf.ini \n\t${light-blue}~~~> ${yellow}Just ${red}relanuch ${yellow}your polybar\n\n"
 	sleep 1
 }
@@ -286,18 +286,6 @@ function set-dpi_polybar() {
 #	sleep 1
 #}
 
-#function tun0()	{
-#	echo "${BRed}$(ip a | grep tun0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')"
-#}
-#function eth() {
-#	echo "${IBlue}$(ip a | grep eth0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')"
-#}
-#function wlan()	{
-#	echo "${BYellow}$(ip a | grep wlan0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')"
-#}
-#function my-Public_IP() {
-#	sudo curl ifconfig.co
-#}
 function settarget() {
 	ip_address=$1
 	machine_name=$2

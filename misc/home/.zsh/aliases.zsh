@@ -35,14 +35,14 @@ alias catn='/usr/bin/cat '
 alias c='/usr/bin/batcat -p -ljava'
 alias hg='history | grep -Ei'
 
-alias config-f0lD3R='~/.config/'
-alias kitty-C0Nf='~/.config/kitty'
-alias p0lY-C0Nf='~/.config/polybar'
-alias r3p0s='~/d35kT@p/r3p0s/'
-alias h7B='~/d35kT@p/h7B'
+alias code-config_f0lD3R='code ~/.config/'
+alias go-config_f0lD3R='cd ~/.config/'
+alias go-kitty-C0Nf='cd ~/.config/kitty'
+alias go-p0lY-C0Nf='cd ~/.config/polybar'
+alias go-r3p0s='cd ~/d35kT@p/r3p0s/'
+alias go-h7B='cd ~/d35kT@p/h7B'
 
-alias    ..='cd ..'
-alias   ../..='cd ../..'
+alias   '..'='cd ..'
 alias	s='sudo'
 alias   r3B00t='sudo reboot'
 alias	p0W350ff='sudo poweroff'
@@ -66,7 +66,7 @@ alias	kitty-hack='kitty -c ~/.config/kitty/themes/hack.conf & disown'
 alias	kitty-mathJax='kitty -c ~/.config/kitty/themes/mathJax.conf & disown'
 
 alias	set-backgroung='feh --bg-fill $1'
-alias	set-0wner='sudo chown $USER:$USER .'
+alias	set-0WN3r='sudo chown $USER:$USER .'
 alias	mkl='mkdir nmap content exploits'
 alias	htb-Xpl0r3r='sudo /opt/h4Ck/htbXplorer-Plus/htbXplorer $1 $2 $3'
 
@@ -80,13 +80,14 @@ alias auT0Cl34n='sudo apt autoclean -y'
 alias x4MP='sudo /opt/lampp/xampp'
 alias sys='sudo systemctl'
 
-alias entry-hosts="sudo bash -c 'echo $1 >> /etc/hosts'"
-
 alias tun0="echo '${BYellow}$(ip a | grep tun0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')'"
 alias eth="echo '${BYellow}$(ip a | grep eth0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')'"
 alias wlan="echo '${BYellow}$(ip a | grep wlan0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')'"
-alias nmap-Port_Scan="extractPorts allPorts | nmap -sCV -vv -p$(xclip -selection clipboard -o) $1 -oN targeted"
+
+alias entry-hosts="sudo bash -c 'echo $1 >> /etc/hosts'"
 alias nmap-Reconnaissance='sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn $1 -oG allPorts'
+alias nmap-Port_Scan="extractPorts allPorts && nmap -sCV -vv -p$(xclip -selection clipboard -o) $1 -oN targeted"
+
 alias lab-HTB='sudo openvpn ~/d35kT@p/h7B/vp3n3s/lab_47z1Lu7h.ovpn & disown'
 alias lab-Seassonal-HTB='sudo openvpn ~/d35kT@p/h7B/vp3n3s/competitive_47z1Lu7h.ovpn & disown'
 alias lab-Fortress-HTB='sudo openvpn ~/d35kT@p/h7B/vp3n3s/fortresses_47z1Lu7h.ovpn & disown'

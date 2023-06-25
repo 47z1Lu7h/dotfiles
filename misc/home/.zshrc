@@ -127,16 +127,16 @@ preexec () { print -Pn "\e]0;$1 -   \a" }
             ############  ~~~~~~~~~~~~~~~~ ¡| Cu5t@m Aliases & functions |! ~~~~~~~~~~~~   ############
 #####################################################################################################################
 
-if [ -d ~/.zsh/aliases.zsh ]; then
-	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}󰭄 \t${Iblack}${BIcyan} aliases.zsh ${red}${BIred} \n"
-else
+if [ -f ~/.zsh/aliases.zsh ]; then
 	source ~/.zsh/aliases.zsh
+else
+	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}󰭄 \t${Iblack}${BIcyan} aliases.zsh ${red}${BIred} \n"
 fi
 
-if [ -d ~/.zsh/functions.zsh ]; then
-	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}󰭄 \t${Iblack}${BIcyan} functions.zsh ${red}${BIred} \n\n"
-else
+if [ -f ~/.zsh/functions.zsh ]; then
 	source ~/.zsh/functions.zsh
+else
+	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}󰭄 \t${Iblack}${BIcyan} functions.zsh ${red}${BIred} \n\n"
 fi
 
 #####################################################################################################################
@@ -324,7 +324,7 @@ fi
 #autoload -Uz +X compinit && compinit
 #autoload -Uz +X bashcompinit && bashcompinit
 #autoload -Uz +X promptinit && promptinit
-zmodload -i zsh/complist
+#zmodload -i zsh/complist
 
 #####################################################################################################################
         ###################  ~~~~~~~~~~~~~~~~ ¡| autosuggestions |! ~~~~~~~~~~~~   #######################
@@ -393,16 +393,12 @@ fi
          ######################  ~~~~~~~~~~~~~~~~ ¡| Plugins |! ~~~~~~~~~~~~   ###########################
 #####################################################################################################################
 
-if [ -d /usr/share/zsh/sudo.plugin.zsh ]; then
+if [ -f /usr/share/zsh/sudo.plugin.zsh ]; then
+	source /usr/share/zsh/sudo.plugin.zsh
+else
 	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} sudo.plugin${red}${BIred} \n"
 	echo -ne "\n\t\t${Iblack}${purple}  ${Iblack}\t󰭄 \t${Iblack}${blue} Proceeding to ${BIblue}clone ${blue}it${BIblue}󰈅  ${red}󰦹 ${red}󰦹 ${red}󰦹 \t${Icyan}\n"
 	sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P	/usr/share/zsh/
-#	source /usr/share/zsh/sudo.plugin.zsh
-else
-#	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} sudo.plugin${red}${BIred} \n"
-#	echo -ne "\n\t\t${Iblack}${purple}  ${Iblack}\t󰭄 \t${Iblack}${blue} Proceeding to ${BIblue}clone ${blue}it${BIblue}󰈅  ${red}󰦹 ${red}󰦹 ${red}󰦹 \t${Icyan}\n"
-#	sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P	/usr/share/zsh/
-	source /usr/share/zsh/sudo.plugin.zsh
 fi
 
 if [ -d /usr/share/zsh/powerlevel10k ]; then
