@@ -34,7 +34,8 @@ alias cat='/usr/bin/batcat'
 alias catn='/usr/bin/cat '
 alias c='/usr/bin/batcat -p -ljava'
 alias hg='history | grep -Ei'
-
+alias wh='which
+'
 alias code-config_f0lD3R='code ~/.config/'
 alias go-config_f0lD3R='cd ~/.config/'
 alias go-kitty-C0Nf='cd ~/.config/kitty'

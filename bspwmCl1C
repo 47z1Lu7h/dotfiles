@@ -24,7 +24,7 @@ if test -t 1; then
 fi
 
 # --> Globals
-declare -r packages="zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance "
+declare -r packages="zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance439;7u"
 declare -r dpnDeb_Bspwm="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
 declare -r dpnDeb_Poly="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev"
 declare -r dpnDeb_Picom="libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev"
@@ -32,7 +32,6 @@ declare -r dpnFed_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms libxcb-dev
 declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel libX11-devel libX11-xcb libXext-devel libxcb-devel libGL-devel libEGL-devel meson pcre2-devel pixman-devel uthash-devel xcb-util-image-devel xcb-util-renderutil-devel xorg-x11-proto-devel"
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
-declare -a fonts=( ComicShannsMono Iosevka IosevkaTerm )
 declare -r cwd=$(pwd)
 declare -r OS=$(cat /etc/*release | grep '^ID_LIKE' | awk '{print $NF}' FS='=')
 declare -r VERSION=$(cat /etc/*release | grep '^VERSION_ID' |  awk '{print $NF}' FS='=' | tr -d '"' )
@@ -182,34 +181,34 @@ function firefox_esr() {
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
 			sudo apt purge firefox\* && sleep 1 && sudo apt install -y firefox-esr-locale-bg firefox-esr-locale-es &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 2 &&
-			cp -r $cwd/misc/home/.mozilla/firefox/chrome		~/.mozilla/firefox*/*default-esr*/
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome		~/.mozilla/*firefox*/*default-esr*/
 		else
-			cp -r $cwd/misc/home/.mozilla/firefox/chrome		~/.mozilla/firefox*/*default-esr*/
-			echo -ne "\t\t\t\t\t\t${bold}${red}󱞩 ${green}  ${end}${white}${bold}${red}${end}${white}|${end}"
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome		~/.mozilla/*firefox*/*default-esr*/
 		fi
 	else
 		if  [ $OS = debian ]; then
 			sudo apt update && sudo apt install firefox-esr -y && sudo apt autoremove -y && sudo apt autoclean -y &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
-			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		$HOME/.mozilla/firefox-*/*default-esr*/
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		$HOME/.mozilla/*firefox-*/*default-esr*/
 
-		elif [ if $NAME = ubuntu]; then
+		elif [ if $NAME = Ubuntu]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr${cyan}! \n"
 			sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
-			cp -r  $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox-*/*.default-esr*/
+			cp -r  $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/*firefox-*/*.default-esr*/
 		fi
 	fi
 
 	tput civis
 }
 
-	# --> Complie Nvim & cloning NvChad 
+	# --> Complie Nvim & cloning NvChad
 function nvim() {
 	tput cnorm
 
 	which nvim >/dev/null
 	if [ $? -eq 0 ]; then
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning Nvim~NvChad${cyan} -->\n\n\n" && sleep 1 &&
 		rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
  		sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
 		if [ $? -eq 0 ]; then
@@ -234,48 +233,88 @@ function nvim() {
 	tput civis
 }
 
-	# --> Fonts, Zsh stuff & cp dotfiles
-function main(){
+	# --> Nice t@@L! ;D
+function htb-Xplorer(){
+	tput cnorm
+
+	if [ -d /opt/h4Ck/htbXplorer-Plus ]; then
+		echo -ne "\n\n${bold}${red}|${end}${red}󰓗 ${end}${white}<~${end}${white}${bold}${green} 󰆧 ${end}${white}~> \t${end}${red}H7b${yellow}~${red}Xpl@R3r ${yellow}already in the system${red}!\t${purple}${bold}󱝂 ${end}${white}${bold}${blue}󱜚 \n\n"; echo
+	else
+		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning htbXplorer from github${cyan}~~${bold}${cyan}> ${end}${cyan}\n\n"
+		sleep 1 && sudo mkdir -p /opt/h4Ck/htbXplorer-Plus
+	    if [ $? -eq 0 ]; then
+			sudo git clone "https://github.com/4tz1Lu7h/htbXplorer-Plus.git" /opt/h4Ck/htbXplorer-Plus
+		    if [ $? -eq 0 ]; then
+				sudo chmod +x /opt/h4Ck/htbXplorer-Plus/htbXplorer &&
+				echo -ne "\n\t\t${bold}${purple}~!~!~!~   ${cyan}HtbXplorer-${red}Plus ${cyan}done!   ${purple} ~!~!~!~\n\n"
+			fi
+		fi
+	fi
+
+	tput civis
+}
 
 		# -->  Fonts & Icons
-	echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting fonts & Icons ${cyan}~~${bold}${cyan}> \n\n"
+function f0nts(){
 
-	for font in "${fonts[@]}"; do
-		zip_file="${font}.zip"
-		download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/${zip_file}"
-		echo -ne "\n\t${cyan}<${red}|${cyan}[${red}+${cyan}]${red}|${cyan}>- ${blue}D@Wnl@4D1n6 ${cyan}~~>\n\n\t\t ${red}$download_url\n\n${cyan}"
-		wget "$download_url"
-		sudo unzip -o "$zip_file" -d /usr/share/fonts && rm "$zip_file"
-	done
+	sudo find /usr/share/fonts -name 'IosevkaNerdFont*'
+	if [ $? -ne 0 ]; then
+		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Iosevka ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
+		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Iosevka.zip"
+		sudo unzip -o Iosevka.zip -d /usr/share/fonts && rm Iosevka.zip
+	fi
 
-	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete && fc-cache -fv &&
-	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
-	sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
+	sudo find /usr/share/fonts -name 'IosevkaTermNerdFont*'
+	if [ $? -ne 0 ]; then
+		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
+		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/IosevkaTerm.zip"
+		sudo unzip -o IosevkaTerm.zip -d /usr/share/fonts && rm IosevkaTerm.zip
+	fi
+
+	sudo find /usr/share/fonts -name 'ComicShannsMono*'
+	if [ $? -ne 0 ]; then
+		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
+		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/ComicShannsMono.zip"
+		sudo unzip -o ComicShannsMono.zip -d /usr/share/fonts && rm ComicShannsMono.zip
+	fi
+
+	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete &&
+	sudo find /usr/share/fonts -name '*FontMono*' -delete && fc-cache -fv
+
+	sudo find /usr/share/icons -name 'candy*'
+	if [ $? -ne 0 ]; then
+		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
+		wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
+		sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
+	fi
+
+}
+
+function zshPlugins(){
 
 	# -->  Zsh plugins
-	sleep 0.5
-	echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning zsh plugins ${cyan} -->\n\n\n${Bcyan}"
+	echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning zsh plugins ${cyan} -->\n\n${Bcyan}" && sleep 0.5
 
 	if [ -d /usr/share/zsh/powerlevel10k ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}powerlevel10k ${yellow}  ${bold}\t${green}done  ${end}\t"
+		echo -ne "\n\t${bold}${black} ${end}${blue}powerlevel10k ${yellow}\t ${bold}\t${green}done  ${end}\t"
 	else
 		sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git"	/usr/share/zsh/powerlevel10k
 	fi
 
 	if [ -d /usr/share/zsh-autocomplete ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}autocomplete ${yellow} ${bold}\t${green}done  ${end}\t"
+		echo -ne "\n\t${bold}${black} ${end}${blue}autocomplete ${yellow}\t\t ${bold}\t${green}done  ${end}\t"
 	else
 		sudo git clone --depth 1 -- "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh-autocomplete
 	fi
 
 	if [ -d /usr/share/zsh-fzf-history-search ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}zf-history-search ${yellow} ${bold}\t${green}done  ${end}\t"
+		echo -ne "\n\t${bold}${black} ${end}${blue}fzf-history-search ${yellow}\t ${bold}\t${green}done  ${end}\t"
 	else
 		sudo git clone "https://github.com/joshskidmore/zsh-fzf-history-search.git"	/usr/share/zsh-fzf-history-search
 	fi
 
 	if [ -d /usr/share/zsh-syntax-highlighting ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}syntax-highlighting${yellow} ${bold}\t${green}done  ${end}\t"
+		echo -ne "\n\t${bold}${black} ${end}${blue}syntax-highlighting${yellow}\t ${bold}\t${green}done  ${end}\t"
 	else
 		export z5H5YNt4x=$(sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"	/usr/share/zsh-syntax-highlighting)
 		if [ $OS = debian ]; then
@@ -299,18 +338,19 @@ function main(){
 	fi
 
 	if [ -f ~/.zsh/git-completion.zsh ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}git-completion${yellow} ${bold}\t${green}done  ${end}\t"
+		echo -ne "\n\t${bold}${black} ${end}${blue}git-completion${yellow}\t ${bold}\t${green}done  ${end}\t"
 	else
 		wget "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh" -P ~/.zsh/
 	fi
 
 	if [ -f /usr/share/zsh/sudo.plugin.zsh ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}sudo.plugin ${yellow} ${bold}\t${green}done  ${end}\t"
+		echo -ne "\n\t${bold}${black} ${end}${blue}sudo.plugin ${yellow}\t\t ${bold}\t${green}done  ${end}\t"
 	else
 		sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/
 	fi
+}
 
-	sleep 0.5 && echo -ne "\n\n\t${bold}${cyan}<[+]> ${end}${blue}Coping dotfiles ${cyan}\n\n"
+function dotfiles(){
 
 	if [ -d $HOME/.config/bspwm ]; then
 		mv $HOME/.config/bspwm $HOME/.config/bspwm.OLD
@@ -328,41 +368,26 @@ function main(){
 		mv $HOME/.config/sxhkd $HOME/.config/sxhkd.OLD
 	fi
 
+	if [ -d $HOME/.config/kitty ]; then
+		mv $HOME/.config/kitty $HOME/.config/kitty.OLD
+	fi
+
+	if [ -d $HOME/.config/rofi ]; then
+		mv $HOME/.config/rofi $HOME/.config/rofi.OLD
+	fi
+
+	echo -ne "\n\n\t${bold}${cyan}<[+]> ${end}${blue}Coping dotfiles ${cyan}\n\n" && sleep 1
 	cp -r $cwd/config/* $HOME/.config/ &&
 	mv $HOME/.zshrc $HOME/.zshrc.OLD && cp -r $cwd/misc/home/.*? $HOME &&
-
 	sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh /root &&
 	sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
-
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t\t${bold}${black} ${end}${yellow}Dotfiles ${yellow} ${bold}\t${green}Done${Bgreen}! ${BIgreen} ${end}\n"
+		echo -ne "\n\t${bold}${black} ${end}${cyan}Dotfiles ${yellow}\t ${bold}\t${green}Done${Bgreen}! ${BIgreen} ${end}\n"
 	fi
-
 }
 
-	# --> Nice t@@L! ;D
-function htb-Xplorer(){
-	tput cnorm
-
-	if [ -d /opt/h4Ck/htbXplorer-Plus ]; then
-		echo -ne "\n\n${bold}${red}|${end}${red}󰓗 \t${end}${white}<~${end}${white}${bold}${green} 󰆧 ${end}${white}~> \t${end}${red}H7b${yellow}~${red}Xpl@R3r ${yellow}already in the system${red}!\t${purple}${bold}󱝂 ${end}${white}${bold}${blue}󱜚 \n\n"; echo
-	else
-		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning htbXplorer from github${cyan}~~${bold}${cyan}> ${end}${cyan}\n\n"
-		sleep 1 && sudo mkdir -p /opt/h4Ck/htbXplorer-Plus
-	    if [ $? -eq 0 ]; then
-			sudo git clone "https://github.com/4tz1Lu7h/htbXplorer-Plus.git" /opt/h4Ck/htbXplorer-Plus
-		    if [ $? -eq 0 ]; then
-				sudo chmod +x /opt/h4Ck/htbXplorer-Plus/htbXplorer &&
-				echo -ne "\n\t\t${bold}${purple}~!~!~!~   ${cyan}HtbXplorer-${red}Plus ${cyan}done!   ${purple} ~!~!~!~\n\n"
-			fi
-		fi
-	fi
-
-	tput civis
-}
-
-	# --> Multi D1stro
-function common() {
+	# --> Multi d1stro
+function main(){
 
 	which code &>/dev/null
 	if [ $? -ne 0 ]; then
@@ -394,7 +419,7 @@ function common() {
 			sudo dnf install bspwm sxhkd
 			if [ $? -ne 0 ]; then
 				sudo dnf install $dpnFed_Bspwm && compile_bspwm
-			fi	
+			fi
 		fi
 	fi
 
@@ -404,7 +429,7 @@ function common() {
 			sudo apt install polybar -y
 			if [ $? -ne 0 ]; then
 				sudo apt install $dpnDeb_Poly -y && compile_polybar
-            fi
+	           	fi
 
 		elif [ $OS = arch ]; then
 			sudo pacman -S polybar
@@ -426,7 +451,7 @@ function common() {
 			sudo apt install picom -y
 			if [ $? -ne 0 ]; then
 				sudo apt install $dpnDeb_Poly -y && compile_picom
-            fi
+	           	fi
 
 		elif [ $OS = arch ]; then
 			sudo pacman -S picom
@@ -442,7 +467,7 @@ function common() {
 		fi
 	fi
 
-	htb-Xplorer && nvim && main
+	htb-Xplorer && nvim && f0nts && zshPlugins && dotfiles
 }
 
 
@@ -486,14 +511,14 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 
 	echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing Packages ${bold}${cyan}~~> \n\n"
 	if [ $OS = debian ]; then
-		sudo apt install -y $packages 
+		sudo apt install -y $packages
 	elif [ $OS = arch ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	elif [ $OS = fedora ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}v ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	fi
 
-	common
+	main
 	if [ $? -eq 0 ]; then
 		echo -ne "\n${bold}${red}<${end}${black}|${end}${blue}[${bold}${red}!${end}${blue}]${black}|${bold}${red}>${end}${blue} To-Dos${red} ~~>${end} \
 		\n\t${end}${red}~${end}${blue} Open a terminal & type ${end}${cyan}nvim ${end}${blue}to finish its configuration. \
