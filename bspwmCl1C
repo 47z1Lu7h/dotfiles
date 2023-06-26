@@ -24,7 +24,7 @@ if test -t 1; then
 fi
 
 # --> Globals
-declare -r packages="zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance439;7u"
+declare -r packages="zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance"
 declare -r dpnDeb_Bspwm="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
 declare -r dpnDeb_Poly="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev"
 declare -r dpnDeb_Picom="libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev"
@@ -257,21 +257,21 @@ function htb-Xplorer(){
 		# -->  Fonts & Icons
 function f0nts(){
 
-	sudo find /usr/share/fonts -name 'IosevkaNerdFont*'
+	sudo find /usr/share/fonts -name 'IosevkaNerdFont*' >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Iosevka ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Iosevka.zip"
 		sudo unzip -o Iosevka.zip -d /usr/share/fonts && rm Iosevka.zip
 	fi
 
-	sudo find /usr/share/fonts -name 'IosevkaTermNerdFont*'
+	sudo find /usr/share/fonts -name 'IosevkaTermNerdFont*' >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/IosevkaTerm.zip"
 		sudo unzip -o IosevkaTerm.zip -d /usr/share/fonts && rm IosevkaTerm.zip
 	fi
 
-	sudo find /usr/share/fonts -name 'ComicShannsMono*'
+	sudo find /usr/share/fonts -name 'ComicShannsMono*' >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/ComicShannsMono.zip"
@@ -281,7 +281,7 @@ function f0nts(){
 	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete &&
 	sudo find /usr/share/fonts -name '*FontMono*' -delete && fc-cache -fv
 
-	sudo find /usr/share/icons -name 'candy*'
+	sudo find /usr/share/icons -name 'candy*' >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
@@ -382,26 +382,26 @@ function dotfiles(){
 	sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh /root &&
 	sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${black} ${end}${cyan}Dotfiles ${yellow}\t ${bold}\t${green}Done${Bgreen}! ${BIgreen} ${end}\n"
+		echo -ne "\n\t${bold}${black} ${end}${cyan}Dotfiles ${yellow}\t ${bold}\t${green}Done${Bgreen}! ${BIgreen} ${end}\n\n"
 	fi
 }
 
 	# --> Multi d1stro
 function main(){
 
-	which code &>/dev/null
+	which code >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		code; fi
 
-	which lsd &>/dev/null
+	which lsd >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		lsd; fi
 
-	which firefox-esr &>/dev/null
+	which firefox-esr >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		firefox_esr; fi
 
-	which bspwm &>/dev/null
+	which bspwm >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		if [ $OS = debian ]; then
 			sudo apt install bspwm sxhkd -y
@@ -423,7 +423,7 @@ function main(){
 		fi
 	fi
 
-	which polybar &>/dev/null
+	which polybar >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		if [ $OS = debian ]; then
 			sudo apt install polybar -y
@@ -445,7 +445,7 @@ function main(){
 		fi
 	fi
 
-	which picom &>/dev/null
+	which picom >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		if [ $OS = debian ]; then
 			sudo apt install picom -y
@@ -459,7 +459,7 @@ function main(){
 				compile_picom
 			fi
 
-		elif [ $OS = fedora ] > /dev/null; then
+		elif [ $OS = fedora ]; then
 			sudo dnf install picom
 			if [ $? -ne 0 ]; then
 				sudo dnf install $dpnFed_Poly && compile_picom
