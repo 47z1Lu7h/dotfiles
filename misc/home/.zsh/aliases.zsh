@@ -84,9 +84,8 @@ alias tun0="echo '${BYellow}$(ip a | grep tun0 | grep inet | awk {'print $2'} | 
 alias eth="echo '${BYellow}$(ip a | grep eth0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')'"
 alias wlan="echo '${BYellow}$(ip a | grep wlan0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')'"
 
-alias entry-hosts="sudo bash -c 'echo $1 >> /etc/hosts'"
 alias nmap-Reconnaissance='sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn $1 -oG allPorts'
-alias nmap-Port_Scan="extractPorts allPorts && nmap -sCV -vv -p$(xclip -selection clipboard -o) $1 -oN targeted"
+alias nmap-Port_Scan='extractPorts allPorts && nmap -sCV -vv -p$(xclip -selection clipboard -o) $1 -oN targeted'
 
 alias lab-HTB='sudo openvpn ~/d35kT@p/h7B/vp3n3s/lab_47z1Lu7h.ovpn & disown'
 alias lab-Seassonal-HTB='sudo openvpn ~/d35kT@p/h7B/vp3n3s/competitive_47z1Lu7h.ovpn & disown'

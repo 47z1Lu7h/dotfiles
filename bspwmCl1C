@@ -43,15 +43,15 @@ trap ctrl_c INT
 
 	# --> Banner
 function banner(){
-	echo -ne "\t\t\t${red}${bold}
-	▄█████  ██████ ██▓███  █     █░███▄ ▄███▓▄████▄  ██▓    ██▓▄████▄
-	▓██████▒██    ▒▓██░  ██▓█░ █ ░█▓██▒▀█▀ ██▒██▀ ▀█ ▓██▒   ▓██▒██▀ ▀█
-	█    ▄█░ ▓██▄  ▓██░ ██▓▒█░ █ ░█▓██    ▓██▒▓█    ▄▒██░   ▒██▒▓██
-	▒██░█▀   ▒   ██▒██▄█▓▒ ░█░ █ ░█▒██    ▒██▒▓▓▄ ▄██▒██░   ░██▒▓▓▄ ▄██▒
-	░▓█  ▀█▒█████▒▒██▒ ░  ░░██▒██▓▒██▒   ░██▒ ▓███▀ ░██████░██▒ ▓███▀ ░
-	░▒▓███▀▒ ▒▓▒ ▒ ▒▓▒░ ░  ░ ▓░▒ ▒ ░ ▒░   ░  ░ ░▒ ▒  ░ ▒░▓  ░▓ ░ ░▒ ▒░
-	░▒░  ░░ ${bold}${red}By ${cyan}47z!Lu7h${end}${bold}${red}${tandout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
-	░ ░		▒ ░	░	░	░${end}\n"
+echo -ne "\t\t\t${red}${bold}
+▄█████  ██████ ██▓███  █     █░███▄ ▄███▓▄████▄  ██▓    ██▓▄████▄
+▓██████▒██    ▒▓██░  ██▓█░ █ ░█▓██▒▀█▀ ██▒██▀ ▀█ ▓██▒   ▓██▒██▀ ▀█
+█    ▄█░ ▓██▄  ▓██░ ██▓▒█░ █ ░█▓██    ▓██▒▓█    ▄▒██░   ▒██▒▓██
+▒██░█▀   ▒   ██▒██▄█▓▒ ░█░ █ ░█▒██    ▒██▒▓▓▄ ▄██▒██░   ░██▒▓▓▄ ▄██▒
+░▓█  ▀█▒█████▒▒██▒ ░  ░░██▒██▓▒██▒   ░██▒ ▓███▀ ░██████░██▒ ▓███▀ ░
+░▒▓███▀▒ ▒▓▒ ▒ ▒▓▒░ ░  ░ ▓░▒ ▒ ░ ▒░   ░  ░ ░▒ ▒  ░ ▒░▓  ░▓ ░ ░▒ ▒░
+░▒░  ░░ ${bold}${red}By ${cyan}47z!Lu7h${end}${bold}${red}${tandout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
+░ ░		▒ ░	░	░	░${end}\n"
 }
 
 	# --> msg exit when ctrl+c
@@ -129,10 +129,10 @@ function code() {
 				sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 				if [ $? -eq 0 ]; then
 					rm -f packages.microsoft.gpg &&
-					sudo apt install apt-transport-https &&
-					sudo apt update && sudo apt install code
+					sudo apt install apt-transport-https -y &&
+					sudo apt update && sudo apt install code -y
 					if [ $? -eq 0 ]; then
-						code & sleep 5 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
+						code & disown && sleep 4 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
 					fi
 				fi
 			fi
@@ -191,7 +191,7 @@ function firefox_esr() {
 		if  [ $OS = debian ]; then
 			sudo apt update && sudo apt install firefox-esr -y && sudo apt autoremove -y && sudo apt autoclean -y &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
-			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		$HOME/.mozilla/firefox-*/*.default-esr*/
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		$HOME/.mozilla/firefox-*/*default-esr*/
 
 		elif [ if $NAME = ubuntu]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr${cyan}! \n"
@@ -366,8 +366,7 @@ function common() {
 
 	which code &>/dev/null
 	if [ $? -ne 0 ]; then
-		code
-	fi
+		code; fi
 
 	which lsd &>/dev/null
 	if [ $? -ne 0 ]; then
@@ -375,43 +374,40 @@ function common() {
 
 	which firefox-esr &>/dev/null
 	if [ $? -ne 0 ]; then
-		firefox_esr
-	fi
+		firefox_esr; fi
 
 	which bspwm &>/dev/null
 	if [ $? -ne 0 ]; then
 		if [ $OS = debian ]; then
-				sudo apt install bspwm sxhkd -y
+			sudo apt install bspwm sxhkd -y
 			if [ $? -ne 0 ]; then
 				sudo apt install $dpnDeb_Bspwm -y && compile_bspwm
 			fi
 
 		elif [ $OS = arch ]; then
-				sudo pacman -S bwpwm sxhkd
+			sudo pacman -S bwpwm sxhkd
 			if [ $? -ne 0 ]; then
 				sudo pacman -S $dpnArch_Bspwm && compile_bspwm
 			fi
 
 		elif [ $OS = fedora ]; then
-				sudo dnf install bspwm sxhkd
+			sudo dnf install bspwm sxhkd
 			if [ $? -ne 0 ]; then
 				sudo dnf install $dpnFed_Bspwm && compile_bspwm
-			fi
-		else
-			echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}sorry, system not supported${red}${stnd}$:/{end}\n" && sleep 1
+			fi	
 		fi
 	fi
 
 	which polybar &>/dev/null
 	if [ $? -ne 0 ]; then
 		if [ $OS = debian ]; then
-				sudo apt install polybar -y
+			sudo apt install polybar -y
 			if [ $? -ne 0 ]; then
 				sudo apt install $dpnDeb_Poly -y && compile_polybar
             fi
 
 		elif [ $OS = arch ]; then
-				sudo pacman -S polybar
+			sudo pacman -S polybar
 			if [ $? -ne 0 ]; then
 				compile_polybar
 			fi
@@ -421,8 +417,6 @@ function common() {
 			if [ $? -ne 0 ]; then
 				sudo dnf install $dpnFed_Poly && compile_polybar
 			fi
-		else
-			echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}sorry, system not supported${red}${stnd}$:/{end}\n" && sleep 1
 		fi
 	fi
 
@@ -445,8 +439,6 @@ function common() {
 			if [ $? -ne 0 ]; then
 				sudo dnf install $dpnFed_Poly && compile_picom
 			fi
-		else
-			echo -e "\n\t\t${bold}${red}<|[!]|> ${cyan}sorry, system not supported${red}${stnd}$:/{end}\n" && sleep 1
 		fi
 	fi
 
@@ -480,16 +472,21 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 
 	echo -ne "\n\t${cyan}${bold}<|[+]|> ${end}${blue}Upgrading System ${bold}${cyan}~~> \n\n"
 	if [ $OS = debian ]; then
-		sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo dpkg --configure -a
+		if [ $NAME = Parrot ]; then
+			sudo apt update && sudo parrot-upgrade -y && sudo apt autoremove -y && sudo dpkg --configure -a
+		else
+			sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo dpkg --configure -a
+		fi
+
 	elif [ $OS = arch ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	elif [ $OS = fedora ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	fi
 
-	echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing Packages ${bold}${cyan}~~> \n\n\n"
+	echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing Packages ${bold}${cyan}~~> \n\n"
 	if [ $OS = debian ]; then
-		sudo apt update && sudo apt install -y $packages && sudo apt autoremove -y && sudo apt autoclean -y
+		sudo apt install -y $packages 
 	elif [ $OS = arch ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	elif [ $OS = fedora ]; then

@@ -216,8 +216,8 @@ bindkey ' ' magic-space                           # Do history expansion on spac
 bindkey '^[[3~' delete-word                       # [ Fn + Delete ]   Delete the whole word backward
 bindkey '^[[1;3C' forward-word                    # [ Alt + Right ] -> Move one word fordward
 bindkey '^[[1;3D' backward-word                   # [ Alt + Left ] -> Move one word backward
-bindkey '^[[1;5C' forward-arg                     # [ Ctrl + Right ] -> Move one word fordward
-bindkey '^[[1;5D' backward-arg                    # [ Ctrl + Left ] -> Move one word backward
+#bindkey '^[[1;5C' forward-arg                     # [ Ctrl + Right ] -> Move one word fordward
+#bindkey '^[[1;5D' backward-arg                    # [ Ctrl + Left ] -> Move one word backward
 bindkey '^[[5~' beginning-of-buffer-or-history    # page up
 bindkey '^[[6~' end-of-buffer-or-history          # page down
 bindkey '^[[H' beginning-of-line                  # [ Fn + Right ]   Beginning of line
