@@ -49,7 +49,7 @@ echo -ne "\t\t\t${red}${bold}
 ▒██░█▀   ▒   ██▒██▄█▓▒ ░█░ █ ░█▒██    ▒██▒▓▓▄ ▄██▒██░   ░██▒▓▓▄ ▄██▒
 ░▓█  ▀█▒█████▒▒██▒ ░  ░░██▒██▓▒██▒   ░██▒ ▓███▀ ░██████░██▒ ▓███▀ ░
 ░▒▓███▀▒ ▒▓▒ ▒ ▒▓▒░ ░  ░ ▓░▒ ▒ ░ ▒░   ░  ░ ░▒ ▒  ░ ▒░▓  ░▓ ░ ░▒ ▒░
-░▒░  ░░ ${bold}${red}By ${cyan}47z!Lu7h${end}${bold}${red}${tandout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
+░▒░  ░░ ${bold}${red}By ${cyan}47z!Lu7h${end}${bold}${red}${standout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
 ░ ░		▒ ░	░	░	░${end}\n"
 }
 
@@ -255,24 +255,21 @@ function htb-Xplorer(){
 }
 
 		# -->  Fonts & Icons
-function f0nts(){
+function fonts(){
 
-	sudo find /usr/share/fonts -name 'IosevkaNerdFont*' >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
+	if [ ! -f /usr/share/fonts/IosevkaNerdFont* ] >/dev/null 2>&1 ; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Iosevka ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Iosevka.zip"
 		sudo unzip -o Iosevka.zip -d /usr/share/fonts && rm Iosevka.zip
 	fi
 
-	sudo find /usr/share/fonts -name 'IosevkaTermNerdFont*' >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
+	if [ ! -f /usr/share/fonts/IosevkaTermNerdFont* ] >/dev/null 2>&1 ; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/IosevkaTerm.zip"
 		sudo unzip -o IosevkaTerm.zip -d /usr/share/fonts && rm IosevkaTerm.zip
 	fi
 
-	sudo find /usr/share/fonts -name 'ComicShannsMono*' >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
+	if [ ! -f /usr/share/fonts/ComicShannsMono* ] >/dev/null 2>&1 ; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/ComicShannsMono.zip"
 		sudo unzip -o ComicShannsMono.zip -d /usr/share/fonts && rm ComicShannsMono.zip
@@ -281,8 +278,8 @@ function f0nts(){
 	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete &&
 	sudo find /usr/share/fonts -name '*FontMono*' -delete && fc-cache -fv
 
-	sudo find /usr/share/icons -name 'candy*' >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
+	 
+	if [ ! -d /usr/share/icons/candy* ] >/dev/null 2>&1 ; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
 		sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
@@ -467,7 +464,7 @@ function main(){
 		fi
 	fi
 
-	htb-Xplorer && nvim && f0nts && zshPlugins && dotfiles
+	htb-Xplorer && nvim && fonts && zshPlugins && dotfiles
 }
 
 
@@ -522,7 +519,7 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 	if [ $? -eq 0 ]; then
 		echo -ne "\n${bold}${red}<${end}${black}|${end}${blue}[${bold}${red}!${end}${blue}]${black}|${bold}${red}>${end}${blue} To-Dos${red} ~~>${end} \
 		\n\t${end}${red}~${end}${blue} Open a terminal & type ${end}${cyan}nvim ${end}${blue}to finish its configuration. \
-		\n\t${end}${red}~${end}${blue} For dark theme Firefox-esr, open it & type => ${end}${cyan}about${red}:${end}${cyan}config${end}${blue}, then search for -->\
+		\n\t${end}${red}~$-name '{end}${blue} For dark theme Firefox-esr, open it & type => ${end}${cyan}about${red}:${end}${cyan}config${end}${blue}, then search for -->\
 		\n\t${end}${red}<${end}${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${end}${red}>${blue}, and set it to ${bold}${cyan}True${end}${blue}."
 		sleep 1 && echo -ne "\n\n\t${bold}${red}------/-/-/-/~~~~>> >>> ${end}${yellow}Try reboot and select ${bold}${red}Bspwm ${end}${yellow}as desktop Evironment. Enjoy!! ${stnd}${bold}${red};-)${end}${red} <<< <<~~~~~\-\-\-\------${end}\n\n\n" && sleep 1
 	fi
