@@ -347,6 +347,8 @@ function zshPlugins(){
 
 function dotfiles(){
 
+	echo -ne "\n\n\t${bold}${cyan}<[+]> ${end}${blue}Coping dotfiles ${cyan}\n\n" && sleep 1
+
 	if [ -d $HOME/.config/bspwm ]; then
 		mv $HOME/.config/bspwm $HOME/.config/bspwm.OLD
 	fi
@@ -371,7 +373,6 @@ function dotfiles(){
 		mv $HOME/.config/rofi $HOME/.config/rofi.OLD
 	fi
 
-	echo -ne "\n\n\t${bold}${cyan}<[+]> ${end}${blue}Coping dotfiles ${cyan}\n\n" && sleep 1
 	cp -r $cwd/config/* $HOME/.config/ &&
 	mv $HOME/.zshrc $HOME/.zshrc.OLD && cp -r $cwd/misc/home/.*? $HOME &&
 	sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh /root &&
