@@ -177,12 +177,11 @@ function firefox_esr() {
 
 	which firefox-esr >/dev/null
 	if [ $? -eq 0 ]; then
-		if [ -d ~/.mozilla/ ] &&  [ $NAME = Ubuntu ]; then
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
-			sudo apt purge firefox\* && sleep 1 && sudo apt install -y firefox-esr-locale-bg firefox-esr-locale-es &&
-			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 2 &&
+		if [ -d ~/.mozilla/ ]; then
 			cp -r $cwd/misc/home/.mozilla/firefox/chrome		~/.mozilla/*firefox*/*default-esr*/
 		else
+			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
+			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 2 &&
 			cp -r $cwd/misc/home/.mozilla/firefox/chrome		~/.mozilla/*firefox*/*default-esr*/
 		fi
 	else
@@ -257,19 +256,19 @@ function htb-Xplorer(){
 		# -->  Fonts & Icons
 function fonts(){
 
-	if [ ! -f /usr/share/fonts/IosevkaNerdFont* ] >/dev/null 2>&1 ; then
+	if [ ! -f /usr/share/fonts/IosevkaNerdFont*.ttf ] >/dev/null 2>&1 ; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Iosevka ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Iosevka.zip"
 		sudo unzip -o Iosevka.zip -d /usr/share/fonts && rm Iosevka.zip
 	fi
 
-	if [ ! -f /usr/share/fonts/IosevkaTermNerdFont* ] >/dev/null 2>&1 ; then
+	if [ ! -f /usr/share/fonts/IosevkaTermNerdFont*.ttf ] >/dev/null 2>&1 ; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/IosevkaTerm.zip"
 		sudo unzip -o IosevkaTerm.zip -d /usr/share/fonts && rm IosevkaTerm.zip
 	fi
 
-	if [ ! -f /usr/share/fonts/ComicShannsMono* ] >/dev/null 2>&1 ; then
+	if [ ! -f /usr/share/fonts/ComicShannsMono*.ttf ] >/dev/null 2>&1 ; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/ComicShannsMono.zip"
 		sudo unzip -o ComicShannsMono.zip -d /usr/share/fonts && rm ComicShannsMono.zip
@@ -278,8 +277,7 @@ function fonts(){
 	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete &&
 	sudo find /usr/share/fonts -name '*FontMono*' -delete && fc-cache -fv
 
-	 
-	if [ ! -d /usr/share/icons/candy* ] >/dev/null 2>&1 ; then
+	if [ ! -d /usr/share/icons/candy*.ttf ] >/dev/null 2>&1 ; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
 		sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
