@@ -385,18 +385,6 @@ function dotfiles(){
 	# --> Multi d1stro
 function main(){
 
-	which code >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
-		code; fi
-
-	which lsd >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
-		lsd; fi
-
-	which firefox-esr >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
-		firefox_esr; fi
-
 	which bspwm >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		if [ $OS = debian ]; then
@@ -462,6 +450,18 @@ function main(){
 			fi
 		fi
 	fi
+
+	which lsd >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		lsd; fi
+
+	which firefox-esr >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		firefox_esr; fi
+
+	which code >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		code; fi
 
 	htb-Xplorer && nvim && fonts && zshPlugins && dotfiles
 }
