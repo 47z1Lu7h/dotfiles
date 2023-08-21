@@ -5,7 +5,7 @@ INET=$(/usr/sbin/ifconfig |  grep -Ei "wlan|eth0|ens33|ens36|emp0s3" -A3 | grep 
 IFACE=$(/usr/sbin/ifconfig |  grep -Ei "wlan|eth0|ens33|ens36|emp0s3" )
 
 if [[ -z "$INET" ]]; then
-	echo "%{T0}%{F#bbe0ff} %{T5}%{F#888A}%{T2}%{F#888AAF} Disconected!"
+	echo "%{T0}%{F#bbe0ff}󰯡 %{T5}%{F#888A} 󰦎 %{T2}%{F#888AAF}Disconected!"
 else
-	echo "%{T0}%{F#bbe0ff} %{T5}%{F#888A}%{T5}%{F#888AAF}$IP"
+	echo "%{T0}%{F#bbe0ff}󰀂 %{T5}%{F#888A}󱦰%{T5}%{F#888AAF} $IP"
 fi

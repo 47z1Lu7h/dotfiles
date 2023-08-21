@@ -222,7 +222,7 @@ bindkey '^[[5~' beginning-of-buffer-or-history    # page up
 bindkey '^[[6~' end-of-buffer-or-history          # page down
 bindkey '^[[H' beginning-of-line                  # [ Fn + Right ]   Beginning of line
 bindkey '^[[F' end-of-line                        # [ Fn + Right ]   End of line
-bindkey '^[[Z' undo                               # [ Shift + Tab ]   Undo last action
+bindkey '^[[z' undo                               # [ Shift + Tab ]   Undo last action
 
 #####################################################################################################################
    	        ###################  ~~~~~~~~~~~~~~~~ ¡| m15c |! ~~~~~~~~~~~~   ##################

@@ -107,7 +107,6 @@ function compile_picom() {
 			ninja -C build && ninja -C build install
 			if [ $? -eq 0 ]; then
 				cd ../../ && rm -rf picom
-				echo -ne "\t${end}${cyan}󱞩 ${bold}${green}   ${end}${white}${bold}󰨾 ${end}${white}  ${bold}${purple} ${cyan} "
 			fi
 		fi
 	fi
@@ -119,34 +118,33 @@ function compile_picom() {
 function code() {
 	tput cnorm
 
-		if [ $OS = debian ]; then
-			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}~~${bold}${cyan}> \n\n"
-			sleep 1
-			sudo apt-get install wget gpg && wget -qO- "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > packages.microsoft.gpg
+	if [ $OS = debian ]; then
+		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}~~${bold}${cyan}> \n\n" &&
+		sleep 1 && sudo apt-get install wget gpg && wget -qO- "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > packages.microsoft.gpg
+		if [ $? -eq 0 ]; then
+			sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+			sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 			if [ $? -eq 0 ]; then
-				sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-				sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-				if [ $? -eq 0 ]; then
-					rm -f packages.microsoft.gpg &&
-					sudo apt install apt-transport-https -y &&
-					sudo apt update && sudo apt install code -y
-					if [ $? -eq 0 ]; then
-						code & disown && sleep 4 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
-					fi
-				fi
+				rm -f packages.microsoft.gpg &&
+				sudo apt install apt-transport-https -y &&
+				sudo apt update && sudo apt install code -y
 			fi
-
-		elif [ $OS = fedora ]; then
-				echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}~~${bold}${cyan}> \n\n"
-
-				sleep 1 && sudo rpm --import "https://packages.microsoft.com/keys/microsoft.asc" &&
-				sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-				if [ $? -eq 0 ]; then
-					dnf check-update && sudo dnf install code
-					code & disown; sleep 3 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
-			fi
-
 		fi
+
+	elif [ $OS = fedora ]; then
+		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}~~${bold}${cyan}> \n\n"
+		sleep 1 && sudo rpm --import "https://packages.microsoft.com/keys/microsoft.asc" &&
+		sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+		if [ $? -eq 0 ]; then
+			dnf check-update && sudo dnf install code
+			code & disown; sleep 3 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
+		fi
+
+	elif [ $OS = Arch ]; then
+		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}~~${bold}${cyan}> \n\n"
+		sudo pacman -s code
+	fi
+
 	tput civis
 }
 
@@ -165,7 +163,7 @@ function lsd(){
 		sudo pacman -S lsd
 
 	elif [ $OS = fedora ]; then
-		dnf install lsd
+		sudo dnf install lsd -y
 	fi
 
 	tput civis
@@ -178,11 +176,11 @@ function firefox_esr() {
 	which firefox-esr >/dev/null
 	if [ $? -eq 0 ]; then
 		if [ -d ~/.mozilla/ ]; then
-			cp -r $cwd/misc/home/.mozilla/firefox/chrome		~/.mozilla/*firefox*/*default-esr*/
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		~/.mozilla/*firefox*/*default-esr*/
 		else
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 2 &&
-			cp -r $cwd/misc/home/.mozilla/firefox/chrome		~/.mozilla/*firefox*/*default-esr*/
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		~/.mozilla/*firefox*/*default-esr*/
 		fi
 	else
 		if  [ $OS = debian ]; then
@@ -195,6 +193,12 @@ function firefox_esr() {
 			sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
 			cp -r  $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/*firefox-*/*.default-esr*/
+
+		elif  [ $OS = Arch ]; then
+			sudo pacman -S firefox-esr
+
+		elif  [ $OS =  Fedora ]; then
+			sudo dnf -y firefox-esr
 		fi
 	fi
 
@@ -241,12 +245,8 @@ function htb-Xplorer(){
 	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning htbXplorer from github${cyan}~~${bold}${cyan}> ${end}${cyan}\n\n"
 		sleep 1 && sudo mkdir -p /opt/h4Ck/htbXplorer-Plus
-	    if [ $? -eq 0 ]; then
-			sudo git clone "https://github.com/4tz1Lu7h/htbXplorer-Plus.git" /opt/h4Ck/htbXplorer-Plus
-		    if [ $? -eq 0 ]; then
-				sudo chmod +x /opt/h4Ck/htbXplorer-Plus/htbXplorer &&
-				echo -ne "\n\t\t${bold}${purple}~!~!~!~   ${cyan}HtbXplorer-${red}Plus ${cyan}done!   ${purple} ~!~!~!~\n\n"
-			fi
+	   	if [ $? -eq 0 ]; then
+			sudo git clone "https://github.com/4tz1Lu7h/htbXplorer-Plus.git" /opt/h4Ck/htbXplorer-Plus && sudo chmod +x /opt/h4Ck/htbXplorer-Plus/htbXplorer
 		fi
 	fi
 
@@ -256,33 +256,44 @@ function htb-Xplorer(){
 		# -->  Fonts & Icons
 function fonts(){
 
-	if [ ! -f /usr/share/fonts/IosevkaNerdFont*.ttf ] >/dev/null 2>&1 ; then
+	ls /usr/share/fonts/IosevkaNerdFont*.ttf >/dev/null 2>&1
+	if [ $? -eq 0 ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue} Iosevka${yellow}\t ${bold}\t${green}done  ${end}\t"
+	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Iosevka ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Iosevka.zip"
 		sudo unzip -o Iosevka.zip -d /usr/share/fonts && rm Iosevka.zip
 	fi
 
-	if [ ! -f /usr/share/fonts/IosevkaTermNerdFont*.ttf ] >/dev/null 2>&1 ; then
+	ls /usr/share/fonts/IosevkaTermNerdFont*.ttf >/dev/null 2>&1
+	if [ $? -eq 0 ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue} IosevkaTerm${yellow}\t ${bold}\t${green}done  ${end}\t"
+	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/IosevkaTerm.zip"
 		sudo unzip -o IosevkaTerm.zip -d /usr/share/fonts && rm IosevkaTerm.zip
 	fi
 
-	if [ ! -f /usr/share/fonts/ComicShannsMono*.ttf ] >/dev/null 2>&1 ; then
+	ls /usr/share/fonts/ComicShannsMono*.ttf >/dev/null 2>&1
+	if [ $? -eq 0 ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue} ComicShannsMono${yellow}\t ${bold}\t${green}done  ${end}\t"
+	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/ComicShannsMono.zip"
 		sudo unzip -o ComicShannsMono.zip -d /usr/share/fonts && rm ComicShannsMono.zip
 	fi
 
-	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete &&
-	sudo find /usr/share/fonts -name '*FontMono*' -delete && fc-cache -fv
-
-	if [ ! -d /usr/share/icons/candy*.ttf ] >/dev/null 2>&1 ; then
+	ls /usr/share/icons/candy*.ttf >/dev/null 2>&1
+	if [ $? -eq 0 ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue} Candy Icons${yellow}\t ${bold}\t${green}done  ${end}\t"
+	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
 		sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
 	fi
 
+	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete &&
+	sudo find /usr/share/fonts -name '*FontMono*' -delete && fc-cache -fv
 }
 
 function zshPlugins(){
@@ -325,7 +336,7 @@ function zshPlugins(){
 			fi
 
 		elif [ $OS = fedora ]; then
-			sudo dnf install zsh-syntax-highlighting
+			sudo dnf install zsh-syntax-highlighting -y
 			if [ $? -ne 0 ]; then
 				${z5H5YNt4x}
 			fi
@@ -455,15 +466,11 @@ function main(){
 	if [ $? -ne 0 ]; then
 		lsd; fi
 
-	which firefox-esr >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
-		firefox_esr; fi
-
 	which code >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		code; fi
 
-	htb-Xplorer && nvim && fonts && zshPlugins && dotfiles
+	firefox_esr && htb-Xplorer && nvim && fonts && zshPlugins && dotfiles
 }
 
 
