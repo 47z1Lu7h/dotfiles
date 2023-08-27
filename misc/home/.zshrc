@@ -170,6 +170,29 @@ select-word-style bash
 zle -N zle-keymap-select
 zmodload -i zsh/complist
 
+	# ~~>  Mixing zsh-autocomplete and zsh-autosuggestions
+zstyle ':autocomplete:tab:*' insert-unambiguous yes
+zstyle ':autocomplete:tab:*' widget-style menu-select
+zstyle ':autocomplete:*' min-input 2
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu yes select
+zstyle ':completion:*' menu select=2
+
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r3:|=* l:|=*'
+zstyle ':completion:*' menu select=short
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
 	# Job Control
 setopt	notify
 setopt	appendhistory
@@ -177,52 +200,33 @@ setopt	menu_complete
 setopt	complete_aliases
 
 #####################################################################################################################
-	    ###################  ~~~~~~~~~~~~~~~~ ¡|  |! ~~~~~~~~~~~~   #######################
-#####################################################################################################################
-# Select all suggestion instead of top on result only
-#zstyle ':autocomplete:*' min-input 2
-#bindkey $key[Up] up-line-or-history
-#bindkey $key[Down] down-line-or-history
-
-	# ~~>  Mixing zsh-autocomplete and zsh-autosuggestions
-#zstyle ':autocomplete:tab:*' insert-unambiguous yes
-#zstyle ':autocomplete:tab:*' widget-style menu-select
-#zstyle ':autocomplete:*' min-input 2
-#zstyle ':completion:*' auto-description 'specify: %d'
-#zstyle ':completion:*' completer _expand _complete _correct _approximate
-#zstyle ':completion:*' format 'Completing %d'
-#zstyle ':completion:*' group-name ''
-#zstyle ':completion:*' menu select=2
-#eval "$(dircolors -b)"
-#zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-#zstyle ':completion:*' list-colors ''
-#zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-#zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r3:|=* l:|=*'
-#zstyle ':completion:*' menu select=long
-#zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-#zstyle ':completion:*' use-compctl false
-#zstyle ':completion:*' verbose true
-#zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-#zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
-#####################################################################################################################
     ###################  ~~~~~~~~~~~~~~~~ ¡| B1nK3yS |! ~~~~~~~~~~~~   #######################
 #####################################################################################################################
 	# Keybindings
-bindkey -e                                        # emacs key bindings
-bindkey ' ' magic-space                           # Do history expansion on space
-#bindkey '^U' backward-kill-line                   # [ Ctrl + Q ]   e
-#bindkey '^[[3;5~' kill-word                      # [ Ctrl + Supr ]   e
-bindkey '^[[3~' delete-word                       # [ Fn + Delete ]   Delete the whole word backward
-bindkey '^[[1;3C' forward-word                    # [ Alt + Right ] -> Move one word fordward
-bindkey '^[[1;3D' backward-word                   # [ Alt + Left ] -> Move one word backward
-#bindkey '^[[1;5C' forward-arg                     # [ Ctrl + Right ] -> Move one word fordward
-#bindkey '^[[1;5D' backward-arg                    # [ Ctrl + Left ] -> Move one word backward
-bindkey '^[[5~' beginning-of-buffer-or-history    # page up
-bindkey '^[[6~' end-of-buffer-or-history          # page down
-bindkey '^[[H' beginning-of-line                  # [ Fn + Right ]   Beginning of line
-bindkey '^[[F' end-of-line                        # [ Fn + Right ]   End of line
-bindkey '^[[z' undo                               # [ Shift + Tab ]   Undo last action
+bindkey -e					# emacs key bindings
+bindkey ' ' magic-space				# Do history expansion on space
+
+bindkey $key[Up] up-line-or-history
+bindkey $key[Down] down-line-or-history
+
+bindkey '^[[1;5C' forward-word			# [ Ctrl + Right ] -> Move one word fordward
+bindkey '^[[1;5D' backward-word 		# [ Ctrl + Left ] -> Move one word backward
+bindkey '^[[H' beginning-of-line		# [ Fn + Right ]   Move to Beginning of line
+bindkey '^[[F' end-of-line			# [ Fn + Right ]   Move to End of line
+
+bindkey '^H' backward-kill-word			# [ Ctrl + Delete ]   Delete the whole word backward
+bindkey '^U' backward-kill-line			# [ Alt + q ]    Delete the whole Line backward
+#bindkey '^[[3;5~'  forward-kill-word		# [ Ctrl + Supr ]   b
+bindkey '^[[3~' delete-word			# [ Fn + Delete ]   Delete the whole word backward
+
+bindkey '^[[Z' undo				# [ Shift + Tab ]   Undo last action
+
+bindkey -s '^[o' "|xclip -sel clip\n"		# [ Alt + o ] Saves to clipboard
+bindkey -s '^[g' "|grep -Ei \"\n"		# [ Alt + g ] Pipes to grep
+bindkey -s '^[p' "|batcat -ljava -p \n"		# [ Alt + p ] Pipes to less (java colors, no borders)
+
+bindkey '^[[5~' beginning-of-buffer-or-history	# page up
+bindkey '^[[6~' end-of-buffer-or-history	# page down
 
 #####################################################################################################################
    	        ###################  ~~~~~~~~~~~~~~~~ ¡| m15c |! ~~~~~~~~~~~~   ##################
@@ -314,11 +318,11 @@ if [ -f /etc/zsh_command_not_found ]; then
     . /etc/zsh_command_not_found
 fi
 
-#zmodload zsh/complist
-#function accept-and-complete-next-history() {
-#    zle expand-or-complete-prefix
-#}
-#zmodload zsh/complist
+zmodload zsh/complist
+function accept-and-complete-next-history() {
+    zle expand-or-complete-prefix
+}
+zmodload zsh/complist
 
 
 #autoload -Uz +X compinit && compinit
