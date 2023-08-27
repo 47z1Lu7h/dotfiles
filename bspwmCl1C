@@ -188,7 +188,7 @@ function firefox_esr() {
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
 			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		$HOME/.mozilla/*firefox-*/*default-esr*/
 
-		elif [ if $NAME = Ubuntu]; then
+		elif [ $NAME = Ubuntu]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr${cyan}! \n"
 			sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
@@ -209,13 +209,18 @@ function firefox_esr() {
 function nvim() {
 	tput cnorm
 
-	which nvim >/dev/null
+	which nvim >/dev/null 2>&1
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning Nvim~NvChad${cyan} -->\n\n\n" && sleep 1 &&
-		rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
- 		sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
+		ls ~/.config/nvim >/dev/null 2>&1
 		if [ $? -eq 0 ]; then
-			git clone --depth 1 "https://github.com/NvChad/NvChad" ~/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/NvChad" /root/.config/nvim
+			echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Nvim~NvChad ${cyan}D0N3!!\n\n"
+		else
+			echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning Nvim~NvChad${cyan} -->\n\n\n" && sleep 1 &&
+			rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
+ 			sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
+			if [ $? -eq 0 ]; then
+				git clone --depth 1 "https://github.com/NvChad/NvChad" ~/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/NvChad" /root/.config/nvim
+			fi
 		fi
 	else
 		mkdir nvim && cd nvim
@@ -296,7 +301,7 @@ function fonts(){
 	sudo find /usr/share/fonts -name '*FontMono*' -delete && fc-cache -fv
 }
 
-function zshPlugins(){
+function zsh_Plugins(){
 
 	# -->  Zsh plugins
 	echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning zsh plugins ${cyan} -->\n\n${Bcyan}" && sleep 0.5
@@ -385,6 +390,8 @@ function dotfiles(){
 	fi
 
 	cp -r $cwd/config/* $HOME/.config/ &&
+	sudo cp -r $cwd/misc/usr/share/color-schemes/* /usr/share/color-schemes/ &&
+ 	sudo cp -r $cwd/misc/usr/share/wallpapers/p1C5 /usr/share/wallpapers/ &&
 	mv $HOME/.zshrc $HOME/.zshrc.OLD && cp -r $cwd/misc/home/.*? $HOME &&
 	sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh /root &&
 	sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
@@ -411,7 +418,7 @@ function main(){
 			fi
 
 		elif [ $OS = fedora ]; then
-			sudo dnf install bspwm sxhkd
+			sudo dnf install bspwm sxhkd -y
 			if [ $? -ne 0 ]; then
 				sudo dnf install $dpnFed_Bspwm && compile_bspwm
 			fi
@@ -487,7 +494,7 @@ banner
 
 echo -ne "\n${cyan}<|${bold}[${red}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}This Script Will Add ${bold}${cyan}Bspwm ${end}${blue}Desktop Eviroment To Your Linux."
 echo -ne "\n${cyan}<|${bold}[${red}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}Alongside with some other packages like:\n\t\t${cyan}Polybar${blue},${cyan} Picom${blue},${cyan} ZHS${blue},${cyan} Sxhkd${blue},${cyan} Nvim${blue},${cyan} VS-Code${blue},${cyan} firefox_esr${blue},${cyan} Lsd${blue}..."
-echo -ne "\n\n\t${red}${bold}<${black}|${red}[${bold}${cyan}!${red}]${black}|${red}> ${end}${cyan}Are you sure you want to continue ${bold}? \n"
+echo -ne "\n\n\t${red}${bold}<${black}|${red}[${bold}${cyan}!${red}]${black}|${red}> ${end}${cyan}Do y@u want to continue ${bold}? \n"
 echo -ne "\n\t\t${end}${blue}[ ${bold}${cyan}y${end}${blue} / ${bold}${cyan}n${end}${blue} ]${red} ~~> ${bold}${cyan}"
 
 read answer
@@ -525,7 +532,7 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 	if [ $? -eq 0 ]; then
 		echo -ne "\n${bold}${red}<${end}${black}|${end}${blue}[${bold}${red}!${end}${blue}]${black}|${bold}${red}>${end}${blue} To-Dos${red} ~~>${end} \
 		\n\t${end}${red}~${end}${blue} Open a terminal & type ${end}${cyan}nvim ${end}${blue}to finish its configuration. \
-		\n\t${end}${red}~$-name '{end}${blue} For dark theme Firefox-esr, open it & type => ${end}${cyan}about${red}:${end}${cyan}config${end}${blue}, then search for -->\
+		\n\t${end}${red}~${end}${blue} For dark theme Firefox-esr, open it & type => ${end}${cyan}about${red}:${end}${cyan}config${end}${blue}, then search for -->\
 		\n\t${end}${red}<${end}${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${end}${red}>${blue}, and set it to ${bold}${cyan}True${end}${blue}."
 		sleep 1 && echo -ne "\n\n\t${bold}${red}------/-/-/-/~~~~>> >>> ${end}${yellow}Try reboot and select ${bold}${red}Bspwm ${end}${yellow}as desktop Evironment. Enjoy!! ${stnd}${bold}${red};-)${end}${red} <<< <<~~~~~\-\-\-\------${end}\n\n\n" && sleep 1
 	fi
