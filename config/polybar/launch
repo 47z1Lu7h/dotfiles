@@ -48,9 +48,9 @@ elif [ $STYLE == 2 ]; then
 	echo -ne "\n\t${blue}Done! ${cyan}: D\n\n"
 
 elif [ $STYLE == 3 ]; then
-	export STYLE=pentest_kali
+	export STYLE=pentest
 	echo -ne "\n\t${blue}You choose ${red}Pentest_kali ${blue}Polybar!!\n"
-	polybar -q $ZONE -c $DIR/$STYLE.ini & purge_last_line_bspwmrc && echo "polybar -q $ZONE -c $DIR/$STYLE.ini &" >> ~/.config/bspwm/bspwmrc
+	launch_bar & purge_last_line_bspwmrc && echo "polybar -q $ZONE -c $DIR/$STYLE.ini &" >> ~/.config/bspwm/bspwmrc
 	echo -ne "\n\t${blue}Done! ${cyan}: D\n\n"
 
 elif [ $STYLE == 4 ]; then
