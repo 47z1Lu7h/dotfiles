@@ -477,7 +477,7 @@ function main(){
 	if [ $? -ne 0 ]; then
 		code; fi
 
-	firefox_esr && htb-Xplorer && nvim && fonts && zshPlugins && dotfiles
+	firefox_esr && htb-Xplorer && nvim && fonts && zsh_Plugins && dotfiles
 }
 
 
