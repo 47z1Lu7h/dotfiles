@@ -52,7 +52,7 @@ alias	ki='kitty +kitten icat'
 alias   set-n3w-p0lYbar='~/.config/polybar/launch'
 alias	p0Ly-47z1='sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/47z1.ini & disown'
 alias	p0Ly-simple='sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/simple.ini & disown'
-alias	p0Ly-pentest='sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/pentestini & disown'
+alias	p0Ly-pentest='sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/pentest.ini & disown'
 alias	p0Ly-plasma='sudo killall polybar; polybar -q right  -c ~/.config/polybar/themes/plasma.ini & disown; polybar -q left -c ~/.config/polybar/themes/plasma.ini & disown'
 
 alias	kitty-47z1='kitty -c ~/.config/kitty/themes/47z1.conf & disown'

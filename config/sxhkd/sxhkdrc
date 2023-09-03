@@ -23,11 +23,11 @@ super + Escape
 #
 
 # quit/restart bspwm
-super + alt + {q,r}
+super + shift + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + }w
+super + alt + {q}
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
@@ -47,8 +47,8 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {t,shift + t,f,r}
+	bspc node -t {floating,tiled,pseudo_tiled,fullscreen}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -157,8 +157,15 @@ super + alt + c
 	$HOME/.config/bspwm/scripts/c@l@r_picker
 
 # Polybar
-super + alt + p
-	sh ~/.config/polybar/themes/4tz1/launch
+
+super + ctrl + 1
+	sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/pentest.ini
+super + ctrl + 2
+	sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/simple.ini
+super + ctrl + 3
+	sudo killall polybar; polybar -q right  -c ~/.config/polybar/themes/plasma.ini & disown; polybar -q left -c ~/.config/polybar/themes/plasma.ini
+super + ctrl + 4
+	sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/47z1.ini
 
 # Kill Polybar
 super + alt + o
@@ -166,8 +173,7 @@ super + alt + o
 
 # Lab htb
 super + alt + v
-	sudo openvpn ~/d35kT@p/h7B/vp3n3s/lab_47z1Lu7h.ovpn &
-	disown
+	sudo openvpn ~/Desktop/h7B/vp3n3s/lab_47z1Lu7h.ovpn
 
 # Kill openOvpn
 super + alt + k
