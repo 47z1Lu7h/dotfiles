@@ -283,7 +283,7 @@ function fonts(){
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\t${bold}${black} ${end}${blue} ComicShannsMono${yellow}\t ${bold}\t${green}done  ${end}\t"
 	else
-		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
+		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting ComicShannsMono ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/ComicShannsMono.zip"
 		sudo unzip -o ComicShannsMono.zip -d /usr/share/fonts && rm ComicShannsMono.zip
 	fi
@@ -506,7 +506,7 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 	echo -e "${blue}${bold}======================================================================== "
 
 	echo -ne "\n\t${cyan}${bold}<|[+]|> ${end}${blue}Upgrading System ${bold}${cyan}~~> \n\n"
-	if [ $OS = debian ]; then
+	if [[ "$OS" == "debian"* ]]; then
 		if [ $NAME = Parrot ]; then
 			sudo apt update && sudo parrot-upgrade -y && sudo apt autoremove -y && sudo dpkg --configure -a
 		else
