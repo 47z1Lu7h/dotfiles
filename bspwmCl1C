@@ -390,8 +390,7 @@ function dotfiles(){
 	fi
 
 	cp -r $cwd/config/* $HOME/.config/ &&
-	sudo cp -r $cwd/misc/usr/share/color-schemes/* /usr/share/color-schemes/ &&
- 	sudo cp -r $cwd/misc/usr/share/wallpapers/p1C5 /usr/share/wallpapers/ &&
+ 	sudo cp -r $cwd/misc/usr/share/* /usr/share/ &&
 	mv $HOME/.zshrc $HOME/.zshrc.OLD && cp -r $cwd/misc/home/.*? $HOME &&
 	sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh /root &&
 	sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root
