@@ -59,7 +59,7 @@ UbuntuMono
 VictorMono
 )
 
-version='3.0.2'
+version='3.1.1'
 fonts_dir="${HOME}/.local/share/fonts"
 
 if [[ ! -d "$fonts_dir" ]]; then
@@ -71,8 +71,8 @@ for font in "${fonts[@]}"; do
     download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
     echo "Downloading $download_url"
     wget "$download_url"
-    unzip "$zip_file" -d "$fonts_dir"
-    unzip "$zip_file" -d "47z1-Evironment/misc/fonts"
+    unzip -n "$zip_file" -d "$fonts_dir"
+#    unzip -n "$zip_file" -d "47z1-Evironment/misc/fonts"
     rm "$zip_file"
 done
 
