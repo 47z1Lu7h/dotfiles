@@ -493,7 +493,7 @@ banner
 
 echo -ne "\n${cyan}<|${bold}[${red}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}This Script Will Add ${bold}${cyan}Bspwm ${end}${blue}Desktop Eviroment To Your Linux."
 echo -ne "\n${cyan}<|${bold}[${red}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}Alongside with some other packages like:\n\t\t${cyan}Polybar${blue},${cyan} Picom${blue},${cyan} ZHS${blue},${cyan} Sxhkd${blue},${cyan} Nvim${blue},${cyan} VS-Code${blue},${cyan} firefox_esr${blue},${cyan} Lsd${blue}..."
-echo -ne "\n\n\t${red}${bold}<${black}|${red}[${bold}${cyan}!${red}]${black}|${red}> ${end}${cyan}Do y@u want to continue ${bold}? \n"
+echo -ne "\n\n\t${red}${bold}<${black}|${red}[${bold}${cyan}!${red}]${black}|${red}> ${end}${cyan}Do y@u want to continue${bold}? \n"
 echo -ne "\n\t\t${end}${blue}[ ${bold}${cyan}y${end}${blue} / ${bold}${cyan}n${end}${blue} ]${red} ~~> ${bold}${cyan}"
 
 read answer

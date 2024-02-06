@@ -1,113 +1,80 @@
-# Dotfiles for Arch Linux
+![fish screenshot](./images/screenshot-1.png)
 
-This repository comprises an extensive assortment of modular scripts and configuration files built upon [ArchLinux](https://wiki.archlinux.org/title/Arch_Linux) and [bspwm](https://github.com/baskerville/bspwm). Its objective is to deliver a stable, clutter-free, and ergonomic desktop environment tailored for advanced users.
+![nvim screenshot](./images/screenshot-neovim.png)
 
-All updates and enhancements aim to avoid unnecessary breaking changes, aligning closely with the rolling-release nature of the underlying system, while requiring minimal maintenance.
+# Takuya's dotfiles
 
-![screenshots](./screenshot.gif "Screenshot showcase made on 2021-01-08")
+**Warning**: Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
-## Installation
+### Looking for a Markdown note-taking app?
 
-### Prerequisites
-- [base Arch Linux](https://wiki.archlinux.org/index.php/Installation_guide) installed
-- at least 8 GiB of free space on system partition
-- user account with [`sudo`](https://wiki.archlinux.org/index.php/Sudo#Example_entries) privileges
+Check out my app called [Inkdrop](https://www.inkdrop.app/)
 
-### Steps
-```shell
-# Clone dotfiles repository
-git clone https://github.com/filiparag/dotfiles.git && cd dotfiles
+[![Inkdrop](./images/screenshot-inkdrop.png)](https://www.inkdrop.app/)
 
-# Install dependencies
-make dependencies
+## Contents
 
-# Choose and install optional dependencies
-make optional-dependencies
+- vim (Neovim) config
+- tmux config
+- git config
+- fish config
+- PowerShell config
 
-# Install dotfiles for your user (pick one)
-make symlink    # place symlinks to files (recommended)
-make copy       # place copies of files
+## Neovim setup
 
-# Reboot your system to apply all modifications (optional)
-reboot
-```
+### Requirements
 
-**Note:** Running make targets for installing dotfiles will replace existing configuration files in the filesystem. Be sure to back them up beforehand.
+- Neovim >= **0.9.0** (needs to be built with **LuaJIT**)
+- Git >= **2.19.0** (for partial clones support)
+- [LazyVim](https://www.lazyvim.org/)
+- a [Nerd Font](https://www.nerdfonts.com/)(v3.0 or greater) **_(optional, but needed to display some icons)_**
+- [lazygit](https://github.com/jesseduffield/lazygit) **_(optional)_**
+- a **C** compiler for `nvim-treesitter`. See [here](https://github.com/nvim-treesitter/nvim-treesitter#requirements)
+- for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) **_(optional)_**
+  - **live grep**: [ripgrep](https://github.com/BurntSushi/ripgrep)
+  - **find files**: [fd](https://github.com/sharkdp/fd)
+- a terminal that support true color and *undercurl*:
+  - [kitty](https://github.com/kovidgoyal/kitty) **_(Linux & Macos)_**
+  - [wezterm](https://github.com/wez/wezterm) **_(Linux, Macos & Windows)_**
+  - [alacritty](https://github.com/alacritty/alacritty) **_(Linux, Macos & Windows)_**
+  - [iterm2](https://iterm2.com/) **_(Macos)_**
+- [Solarized Osaka](https://github.com/craftzdog/solarized-osaka.nvim)
 
-**Updating dotfiles**
+## Shell setup (macOS & Linux)
 
-After every repository update, install dependencies and reload dotfiles:
+- [Fish shell](https://fishshell.com/)
+- [Fisher](https://github.com/jorgebucaran/fisher) - Plugin manager
+- [Tide](https://github.com/IlanCosman/tide) - Shell theme. Use version 5: `fisher install ilancosman/tide@v5`
+- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - Powerline-patched fonts. I use Hack.
+- [z for fish](https://github.com/jethrokuan/z) - Directory jumping
+- [Eza](https://github.com/eza-community/eza) - `ls` replacement
+- [ghq](https://github.com/x-motemen/ghq) - Local Git repository organizer
+- [fzf](https://github.com/PatrickF1/fzf.fish) - Interactive filtering
 
-```shell
-dotfiles deps
-dotfiles reload
-```
+## PowerShell setup (Windows)
 
-## Usage and customization
+- [Scoop](https://scoop.sh/) - A command-line installer
+- [Git for Windows](https://gitforwindows.org/)
+- [Oh My Posh](https://ohmyposh.dev/) - Prompt theme engine
+- [Terminal Icons](https://github.com/devblackops/Terminal-Icons) - Folder and file icons
+- [PSReadLine](https://docs.microsoft.com/en-us/powershell/module/psreadline/) - Cmdlets for customizing the editing environment, used for autocompletion
+- [z](https://www.powershellgallery.com/packages/z) - Directory jumper
+- [PSFzf](https://github.com/kelleyma49/PSFzf) - Fuzzy finder
 
-### Shortcuts
+## How to use
 
-Keyboard shortcuts [manual](./SHORTCUTS.md) can be opened with `dotfiles docs` after installing dotfiles.
+Watch my video tutorials:
 
-Keyboard shortcuts configuration:[`~/.config/sxhkd/sxhkdrc`](./src/HOME/.config/sxhkd/sxhkdrc)
+1. [My Neovim setup](https://www.youtube.com/watch?v=fFHlfbKVi30)
+   - [Article version](https://www.devas.life/effective-neovim-setup-for-web-development-towards-2024/)
+1. [My dev workflow using tmux and vim](https://www.youtube.com/watch?v=sSOfr2MtRU8&list=PLxQA0uNgQDCICMRwlOzWAZBPL05XBC_br&index=10)
+1. [A productive command-line Git workflow for indie app developers](https://www.youtube.com/watch?v=qKpY7t5m35k&list=PLxQA0uNgQDCICMRwlOzWAZBPL05XBC_br&index=4)
+   - [Blogpost](https://dev.to/craftzdog/a-productive-command-line-git-workflow-for-indie-app-developers-k7d)
+1. [My Fish shell workflow for coding](https://www.youtube.com/watch?v=KKxhf50FIPI)
+1. [How to set up PowerShell prompt with Oh My Posh on Windows 11](https://www.youtube.com/watch?v=5-aK2_WwrmM)
 
-Touchpad gestures configuration: [`~/.config/libinput-gestures.conf`](./src/HOME/.config/libinput-gestures.conf)
+## About me
 
-### Configuring the environment
-
-Window manager configuration ([wmrc](https://github.com/filiparag/wmrc/)):
-[`~/.config/wmrc/rc.conf`](./src/HOME/.config/wmrc/rc.conf)
-
-Startup applications and daemons are listed in `APPS` variable in
-[`~/.config/wmrc/modules/services/apps`](./src/HOME/.config/wmrc/modules/services/apps#L5)
-
-User-specific environment variables:
-[`~/.config/fish/conf.d/user.fish`](./src/HOME/.config/fish/conf.d/user.fish)
-
-Wallpaper and lockscreen images are located in [`~/Pictures`](./src/HOME/Pictures) directory.
-
-To set default monitor setup, create desired layout using `arandr`
-and save it as `~/.screenlayout/Default.sh`
-
-### Security and remote access
-
-By default, all incoming network traffic is blocked except for:
-- *SSH*: port `22/tcp` with public key authentication only
-- *Syncthing*: ports `22000/tcp` and `21027/udp`
-- *KDE Connect*: port range `1714:1764/tcp+udp`
-
-To enable [VNC server](https://wiki.archlinux.org/index.php/TigerVNC), run:
-``` bash
-# Set VNC password
-vncpasswd
-
-# Allow incoming VNC connections
-sudo ufw allow in 5900/tcp
-
-# Start VNC module
-wmrc start services/vnc
-```
-
-### Hardware-specific modifications
-
-#### Battery life optimization
-
-Provided [auto-cpufreq](https://github.com/AdnanHodzic/auto-cpufreq) configuration [file](./src/etc/auto-cpufreq.conf)
-is optimized for CPUs with Energy-Performance Preference support. It is recommended to enable it on battery-powered devices.
-
-To enable it, run:
-```bash
-# Install
-paru -S auto-cpufreq
-
-# Enable and start service
-sudo systemctl enable --now auto-cpufreq
-```
-
-#### X11 video drivers
-
-By default, dotfiles come bundled with configuration and open-source drivers for [Intel](https://archlinux.org/packages/extra/x86_64/xf86-video-intel/) and [AMD](https://archlinux.org/packages/extra/x86_64/xf86-video-amdgpu/) graphics cards. If your hardware isn't supported by those:
-
-- install appropriate [video driver](https://wiki.archlinux.org/index.php?title=Xorg#Driver_installation)
-- make sure you have proper configuration file in [`/etc/X11/xorg.conf.d/`](./src/etc/X11/xorg.conf.d/)
-
+- [@inkdrop_app on X](https://twitter.com/inkdrop_app)
+- [Newsletters](https://www.devas.life/)
+- [My product: Inkdrop - Markdown note-taking app](https://www.inkdrop.app/)

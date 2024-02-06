@@ -1,4 +1,10 @@
 {
+  "workbench.colorTheme": "Bearded Theme Monokai Metallian",
+  "window.menuBarVisibility": "toggle",
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.minimap.enabled": false,
+  "explorer.confirmDelete": false
+  },
   "window.titleBarStyle": "native",
   "window.menuBarVisibility": "toggle",
   "window.restoreWindows": "all",
@@ -16,7 +22,7 @@
   "editor.inlineSuggest.enabled": true,
   "editor.smoothScrolling": true,
   "editor.suggestSelection": "first",
-  "editor.fontFamily": "Iosevka Nerd Font, Space Mono, Victor Mono, monospace",
+  "editor.fontFamily": "Iosevka Nerd Font",
   "editor.fontLigatures": true,
   "editor.fontSize": 15,
   "workbench.list.smoothScrolling": true,
@@ -75,10 +81,10 @@
   },
   "customizeUI.activityBar": "bottom",
   "customizeUI.titleBar": "inline",
-  "customizeUI.font.regular": "Roboto",
+  "customizeUI.font.regular": "Iosevka",
   "customizeUI.fontSizeMap": {
-    "13px": "12px",
-    "monospace": "12px"
+    "13px": "13px",
+    "monospace": "13px"
   },
   "customizeUI.stylesheet": {
     ".tabs-container ": "padding-top:7px; padding-left:2px; padding-bottom:5px",
