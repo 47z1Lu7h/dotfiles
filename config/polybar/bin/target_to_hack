@@ -6,5 +6,5 @@ machine_name=$(cat /$HOME/.config/polybar/bin/target | awk '{print $2}')
 if [ $ip_address ] && [ $machine_name ]; then
         echo "%{T0}%{F#fd0000}󱓈 %{F#888A}󱦰 %{T2}%{F#90ff}$ip_address%{u-}%{F#888AFF}%{T6}:%{T4}%{F#00F7FF}$machine_name "
 else
-        echo "%{T0}%{F#5499c7}󰓾 %{T0}%{F#888A} %{T2}%{F#888AAF}No Target Machine .."
+        echo "%{T0}%{F#5499c7}󰓾%{T0}%{F#888A} %{T2}%{F#888AAF}No Target Machine .."
 fi
