@@ -1,80 +1,44 @@
-![fish screenshot](./images/screenshot-1.png)
+<p align="center"> <img src="assets/hotfiles.gif" align="center" width="600"> </p>
 
-![nvim screenshot](./images/screenshot-neovim.png)
+<p align="center"><img src="https://img.shields.io/github/issues/syndrizzle/hotfiles?color=171b20&label=Issues%20%20&logo=gnubash&labelColor=e05f65&logoColor=ffffff">&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/github/forks/syndrizzle/hotfiles?color=171b20&label=Forks%20%20&logo=git&labelColor=f1cf8a&logoColor=ffffff">&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/github/stars/syndrizzle/hotfiles?color=171b20&label=Stargazers&logo=github&labelColor=70a5eb">&nbsp;&nbsp;&nbsp;<img src="https://img.shields.io/badge/-Works on my machine-%2378dba9?style=flat&logo=linux&labelColor=171b20&logoColor=ffffff"></p>
 
-# Takuya's dotfiles
+<p align="center"><b>Thanks for the visit!</b><br>Welcome to the <b>Hotfiles ️‍🔥</b> repository! Carefully designed with usability and functionality in mind, while being light on resources!</p>
 
-**Warning**: Don’t blindly use my settings unless you know what that entails. Use at your own risk!
+## 1. [LIMITED SPOOKY Edition](https://github.com/syndrizzle/hotfiles/tree/xfce)
+#### ⚠️ NOTE!!! ⚠️ NOTE!!! ⚠️
+These dotfiles are not intended to be used as a daily driving medium, I have only uploaded them here so others can get a reference of it. Please, do not open issues about something not working when using these dots, I am sorry but I will not provide any support regarding these dots.<br>
+<img src="https://img.shields.io/badge/Maintained:-No!-red?style=flat"><br>
+<img src="https://img.shields.io/badge/Health:-Not Optimized!%20-red?style=flat"><br>
+<img src="https://img.shields.io/badge/RAM Usage:-~1GB-brightgreen?style=flat"><br>
+<p align="center"> <img src="https://i.imgur.com/5d9uZS9.png" align="center" width="750"> </p>
 
-### Looking for a Markdown note-taking app?
+## 2. [FVWM Edition](https://github.com/syndrizzle/hotfiles/tree/fvwm)
+<img src="https://img.shields.io/badge/Maintained:-No! (Only bugfixes)-red?style=flat">
+<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
+<img src="https://img.shields.io/badge/RAM Usage:-~800MB-brightgreen?style=flat">
 
-Check out my app called [Inkdrop](https://www.inkdrop.app/)
+<p align="center"> <img src="assets/fvwm.png" align="center" width="750"> </p>
 
-[![Inkdrop](./images/screenshot-inkdrop.png)](https://www.inkdrop.app/)
 
-## Contents
+## 3. [BSPWM Edition](https://github.com/syndrizzle/hotfiles/tree/bspwm)
+<img src="https://img.shields.io/badge/Maintained:-No! (Only bugfixes)-red?style=flat">
+<img src="https://img.shields.io/badge/Health:-Optimized%20(Suitable%20for%20daily%20use)-brightgreen?style=flat">
+<img src="https://img.shields.io/badge/RAM Usage:-~600MB-brightgreen?style=flat">
 
-- vim (Neovim) config
-- tmux config
-- git config
-- fish config
-- PowerShell config
+<p align="center"> <img src="assets/bspwm.png" align="center" width="750"> </p>
 
-## Neovim setup
+## 4. [Worm Edition](https://github.com/syndrizzle/hotfiles/tree/worm)
+<img src="https://img.shields.io/badge/Maintained:-No!-red?style=flat">
+<img src="https://img.shields.io/badge/Health:-Not Optimized!%20(Kinda not usable for daily use.)-red?style=flat">
+<img src="https://img.shields.io/badge/RAM Usage:-~700MB-brightgreen?style=flat">
 
-### Requirements
+<p align="center"> <img src="assets/worm.png" align="center" width="750"> </p>
 
-- Neovim >= **0.9.0** (needs to be built with **LuaJIT**)
-- Git >= **2.19.0** (for partial clones support)
-- [LazyVim](https://www.lazyvim.org/)
-- a [Nerd Font](https://www.nerdfonts.com/)(v3.0 or greater) **_(optional, but needed to display some icons)_**
-- [lazygit](https://github.com/jesseduffield/lazygit) **_(optional)_**
-- a **C** compiler for `nvim-treesitter`. See [here](https://github.com/nvim-treesitter/nvim-treesitter#requirements)
-- for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) **_(optional)_**
-  - **live grep**: [ripgrep](https://github.com/BurntSushi/ripgrep)
-  - **find files**: [fd](https://github.com/sharkdp/fd)
-- a terminal that support true color and *undercurl*:
-  - [kitty](https://github.com/kovidgoyal/kitty) **_(Linux & Macos)_**
-  - [wezterm](https://github.com/wez/wezterm) **_(Linux, Macos & Windows)_**
-  - [alacritty](https://github.com/alacritty/alacritty) **_(Linux, Macos & Windows)_**
-  - [iterm2](https://iterm2.com/) **_(Macos)_**
-- [Solarized Osaka](https://github.com/craftzdog/solarized-osaka.nvim)
+## Support
+You can always show your support towards these rices by donating me, as this takes a lot of time and hardwork, thank you for using these dotfiles!
 
-## Shell setup (macOS & Linux)
+<b>Ko-Fi:</b> <br>
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/A0A8DKCLY) <br>
 
-- [Fish shell](https://fishshell.com/)
-- [Fisher](https://github.com/jorgebucaran/fisher) - Plugin manager
-- [Tide](https://github.com/IlanCosman/tide) - Shell theme. Use version 5: `fisher install ilancosman/tide@v5`
-- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - Powerline-patched fonts. I use Hack.
-- [z for fish](https://github.com/jethrokuan/z) - Directory jumping
-- [Eza](https://github.com/eza-community/eza) - `ls` replacement
-- [ghq](https://github.com/x-motemen/ghq) - Local Git repository organizer
-- [fzf](https://github.com/PatrickF1/fzf.fish) - Interactive filtering
-
-## PowerShell setup (Windows)
-
-- [Scoop](https://scoop.sh/) - A command-line installer
-- [Git for Windows](https://gitforwindows.org/)
-- [Oh My Posh](https://ohmyposh.dev/) - Prompt theme engine
-- [Terminal Icons](https://github.com/devblackops/Terminal-Icons) - Folder and file icons
-- [PSReadLine](https://docs.microsoft.com/en-us/powershell/module/psreadline/) - Cmdlets for customizing the editing environment, used for autocompletion
-- [z](https://www.powershellgallery.com/packages/z) - Directory jumper
-- [PSFzf](https://github.com/kelleyma49/PSFzf) - Fuzzy finder
-
-## How to use
-
-Watch my video tutorials:
-
-1. [My Neovim setup](https://www.youtube.com/watch?v=fFHlfbKVi30)
-   - [Article version](https://www.devas.life/effective-neovim-setup-for-web-development-towards-2024/)
-1. [My dev workflow using tmux and vim](https://www.youtube.com/watch?v=sSOfr2MtRU8&list=PLxQA0uNgQDCICMRwlOzWAZBPL05XBC_br&index=10)
-1. [A productive command-line Git workflow for indie app developers](https://www.youtube.com/watch?v=qKpY7t5m35k&list=PLxQA0uNgQDCICMRwlOzWAZBPL05XBC_br&index=4)
-   - [Blogpost](https://dev.to/craftzdog/a-productive-command-line-git-workflow-for-indie-app-developers-k7d)
-1. [My Fish shell workflow for coding](https://www.youtube.com/watch?v=KKxhf50FIPI)
-1. [How to set up PowerShell prompt with Oh My Posh on Windows 11](https://www.youtube.com/watch?v=5-aK2_WwrmM)
-
-## About me
-
-- [@inkdrop_app on X](https://twitter.com/inkdrop_app)
-- [Newsletters](https://www.devas.life/)
-- [My product: Inkdrop - Markdown note-taking app](https://www.inkdrop.app/)
+<b>Librepay:</b> <br>
+<a href="https://liberapay.com/syndrizzle/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
