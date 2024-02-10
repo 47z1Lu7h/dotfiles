@@ -1,234 +1,53 @@
-<img src='/screenshots/yeeyee.jpg'>
+<h1 align="center">dotfiles ❤ ~/</h1>
 
-<h1 align="center">✨ Widgets go brr! ✨</h1>
-
-
-<p align="center">
-  <a href="https://github.com/Axarva/dotfiles-2.0/stargazers"><img src="https://img.shields.io/github/stars/Axarva/dotfiles-2.0?color=ffd5cd&style=for-the-badge&logo=starship"></a>
-  <a href="https://github.com/Axarva/dotfiles-2.0/issues"><img src="https://img.shields.io/github/issues/Axarva/dotfiles-2.0?color=d35d6e&style=for-the-badge&logo=codecov"></a>
-  <a href="https://github.com/Axarva/dotfiles-2.0/network/members"><img src="https://img.shields.io/github/forks/Axarva/dotfiles-2.0?color=84afdb&style=for-the-badge&logo=jfrog-bintray"></a>
-  <a href="https://github.com/Axarva/dotfiles-2.0/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-orange.svg?color=90c861&style=for-the-badge&logo=mitsubishi"></a>
-</p>
-
-## ~~A Note:~~ I'm back.
-
-## Table of Contents
-
-- [About ⁉️](#about)
-- [Gallery 📷](#gal)
-- [Workflow 🖨️](#workflow)
-- [Keybinds ✍️](#keybinds)
-- [Installation 🤵‍](#inst)
-  - [Arch Install 🌇](#arch)
-  - [Other Install 🚂](#other)
-- [Dependencies 📊](#deps)
-- [Troubleshooting 🔫](#trouble)
-
-<a id="about"></a>
-
-## Starring:
-
-
-<img src="/screenshots/EwwLogo.png" alt="eww" align="right" height="180vh">
-
-- **Note:** Check out the `modified` branch for a newer setup. Hope you like it!
-- **xmonad** ⚽ 
-- **eww** (Very wacky)
-- **firefox** 🦊
-- **rofi** 💈
-- **tint2 ([This](https://github.com/Axarva/tint2-1) fork is the only supported fork.)** 🍫
-- **Inhibitors** 👁️ (Inhibitors are cool stuff that prevent auto screen lock when you're watching a video or something)
-- **Healthy stuff** ❤️ (Yeah, you get notifications to fix your posture and take a break)
-- *Insert more stuff here*
-
-Hello! Thank you for dropping by! 👋
-
-These are my xmonad configurations, and they go brr! 🚀 (Let's stop that there).
-
-If you're here, I suppose you want to be cloning this configuration, for which look at the Installation Section below. 👇 
-
-Even if you're not, just look through the gallery:
-
-
-
-<a id="gal"></a>
-<img src='/screenshots/sidebar.png'>
-<img src='/screenshots/firefox.png'>
-<img src='/screenshots/center.png'>
-
-<a id="workflow"></a>
-
-## Workflow 🖨️
-Workflow GIF: (This is a short one, for more goodies look at the links below)
-
-(Also, compression made it look kinda bad, but I think it shows what it needs to)
-
+![dikiaap's dotfiles](https://dikiaap.pages.dev/img/dotfiles/i3.png)
 
 <p align="center">
-  <img src="https://github.com/Axarva/gifs/blob/main/workflow.gif">
+    <b>Screenshots</b><br>
+    <a href="https://dikiaap.pages.dev/img/dotfiles/rofi.png">Rofi</a>&nbsp;&nbsp;&nbsp;
+    <a href="https://dikiaap.pages.dev/img/dotfiles/dunst.png">Dunst</a>&nbsp;&nbsp;&nbsp;
+    <a href="https://dikiaap.pages.dev/img/dotfiles/i3blocks.png">i3blocks</a>&nbsp;&nbsp;&nbsp;
+    <a href="https://dikiaap.pages.dev/img/dotfiles/zsh.png">Zsh</a>&nbsp;&nbsp;&nbsp;
+    <a href="https://dikiaap.pages.dev/img/dotfiles/tmux.png">tmux</a>&nbsp;&nbsp;&nbsp;
+    <a href="https://dikiaap.pages.dev/img/dotfiles/colors.png">Colors</a>&nbsp;&nbsp;&nbsp;
+    <a href="https://dikiaap.pages.dev/img/dotfiles/dircolors.png">dircolors</a>
 </p>
 
-[Workflow Video by SavvyNik](https://www.youtube.com/watch?v=rMoUCnqhYfs) aka [@SavvyNik](https://github.com/SavvyNik)
 
+## Details
 
-[Workflow Video by Guilherme Moreno](https://www.youtube.com/watch?v=im9QKZSMUFQ) aka [@morenoled](https://github.com/morenoled)
-
-<a id="keybinds"></a>
-## Keybinds ✍️
-
-These are the basic keybinds. Read through the `xmonad/xmonad.hs` file for more keybinds like increasing gaps and restoring gaps.
-
-|        Keybind         |                 Function                 |
-| ---------------------- | ---------------------------------------- |
-| `Win + Shift + Enter`  | Launch terminal (alacritty)              |
-| `Win + Shift + C`      | Close window                             |
-| `Win + O`              | Open rofi menu                           |
-| `Win + Shift + Q`      | Open rofi powermenu                      |
-| `Win + S`              | Open sidebar                             |
-| `Win + Shift + S`      | Close sidebar                            |
-| `Win + P`              | Open dashboard                           |
-| `Win + Shift + P`      | Close dashboard                          |
-| `Win + B`              | Toggle the main bars                     |
-| `Win + Z`              | Activate inhibitor (Stops autolocking)   |
-| `Win + Shift + Z`      | Dectivate inhibitor (Enables autolocking)|
-| `Win + Ctrl + G`       | Toggle gaps (toggle to get screen space) |
-| `Win + J`              | Navigate through windows                 |
-| `Win + K`              | Navigate through windows                 |
-| `Win + Space`          | Switch through layouts                   |
-| `Win + T`              | Make a floating window tiled             |
-
-Note: `Toggling` means to enable if inactive or to disable if active.
-
-
-Note: `Win` refers to the `Super` key.
-
-
-<a id="inst"></a>
-## Installation 🤵‍
-Alright, let's get to the main stuff.
-
-
-If you feel like you don't want to read so much, here's a video, courtesy of [@SavvyNik](https://github.com/SavvyNik)!
-
-[Nik's Installation Video for Arch Linux](https://www.youtube.com/watch?v=a8YJBGk8H4Q)
-
-
-
-Note: Whatever method you follow, if you want the weather and quote features to work as well, you need to modify your crontab as follows: <br>
-(To edit your crontab, `crontab -e` as a normal user.)
-
-
-
-```
-0,30 * * * * /home/{Your-username}/.config/eww/scripts/getweather
-@reboot /home/{Your-username}/.config/eww/scripts/getquotes
-```
-
-
-And please follow these next few steps as well:
-- Add `export PATH="$PATH:$HOME/bin"` to your `~/.bashrc` file (or a shell of your choice).
-- Edit the script in `~/.config/eww/scripts/getweather`. Further steps are specified within that file.
-- Open `tint2conf` and edit the theme `panellauncher.tint2rc`. In there, head over to the `Launcher` tab and set the icon theme as candy-icons.
-- Get the Museo Sans 300 (ONLY THE 300 WEIGHT PLEASE, OTHERS LOOK WEIRD) font from Adobe itself or any other sources, put the `.ttf` or `.otf` file in your `~/.local/share/fonts`
-  - Run `fc-cache -f` after getting the font.
-- If the widgets don't work properly, go to [the main repository](https://github.com/elkowar/eww) and install `eww` as documented. Make sure the resulting binary is stored in `~/bin`.
-- Issue `xmonad --recompile` after you complete all the steps, and relogin to xmonad.
-- For the profile picture to load, it needs to have the full path in `eww.scss`. Open the file, search for the string containing `~/.config`(line number 329 to be exact) and edit it to point it to your image. Full path required. For example: `$HOME/path/to/image.png`.
-
-
-
-
-<a id="arch"></a>
-
-### For Arch Linux and it's derivatives (make sure you have git installed): 🌇
-
-THIS MAKES BACKUPS TOO, SO YEAH. JUST DO IT. DO IT!
-
-
-```bash
-$ git clone https://github.com/Axarva/dotfiles-2.0.git
-$ cd ./dotfiles-2.0
-$ chmod +x ./install-on-arch.sh
-$ ./install-on-arch.sh
-$ sudo ln -s /usr/lib/libasan.so.8 /usr/lib/libasan.so.6 #This is here for tint2 to work.
-```
-
-
-
-That'll do the basic stuff. For a complete copy, look at the list of dependencies below.
-
-AND DON'T FORGET TO READ WHAT'S WRITTEN AT THE END OF THE MAIN INSTALLATION SECTION [UP THERE](#inst). Further steps are specified there. (Yes. Absolutely needs to be shouty capitals.)
-
-
-
-<a id="other"></a>
-
-### For Gentoo Linux users (And basically any other distro): 🚂
-I'm sorry I couldn't do it. You'll have to manually install dependencies.
-
-**Piece of good advice**:  If you use `systemd`, go ahead and ignore this, and skip to [Going ahead: Others Edition](#ga-other).
-
-
-In case you use something else, I recommend opening this repository in a text editor after you clone it, and global-replace the stuff that suits your system. After that, go ahead with [Going ahead: Others Edition](#ga-other).
-
-<a id="ga-other"></a>
-
-#### Going Ahead: Others Edition
-You need to install the dependencies yourself, this script will add the fonts and the configs (and back up existing ones too):
-
-
-```bash
-$ git clone https://github.com/Axarva/dotfiles-2.0.git
-$ cd ./dotfiles-2.0
-$ chmod +x ./install-on-gentoo.sh
-$ ./install-on-gentoo.sh
-```
-
-AND DON'T FORGET TO READ WHAT'S WRITTEN AT THE END OF THE MAIN INSTALLATION SECTION [UP THERE](#inst). Further steps are specified there. (Yes. Absolutely needs to be shouty capitals.)
-<a id="deps"></a>
-## Dependencies 📊
-Here you go. Make sure you have em all.
-
-
--    xmonad
--    [eww](https://github.com/elkowar/eww) (ElKowar's Wacky Widgets, binary included, but I encourage you to build it yourself and put the binary in your ~/bin).
--    firefox (Not exactly a dependency)
--    rofi version 1.7.0 (Configs originally come from @adi1090x, been edited by me).
--    tint2 (Please use [this fork](https://github.com/Axarva/tint2-1) ONLY, or issues will occur. Binaries provided already.)
--    acpi
--    Museo Sans Font by Adobe (I think it needs some sort of acount, but get it) Or just search for it on the web and get it somewhere
--    [Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka) (I include some, but you can use any of your choice.)
--    playerctl
--    [brightnessctl](https://github.com/Hummer12007/brightnessctl)
--    [candy-icons](https://github.com/EliverLara/candy-icons)
--    dunst
--    Spotify (for cover art, else edit the eww/scripts/getart script accordingly)
--    An OpenWeatherMap Account, (view eww/scripts/getweather script for more info)
--    feh
--    NetworkManager
--    greenclip
--    alacritty
--    picom (fork of ibhagwan or jonaburg)
--    jq: Command line json parser (Needed for widgets)
--    maim and xclip for screenshots
--    mpv for low-battery sound playing (Not exactly necessary, you'll get the notification, but the sound depends on it.)
--    *Might need to be updated, so please tell me*
-
-<a id="trouble"></a>
-## Troubleshooting 🔫
-And here we are:
-
-
-1. If xmonad doesn't build make sure you have the `xmonad-contrib` package.
-2. Bar looks weird: Try editing it a bit using `~/bin/tint2conf`. 
-3. Alacritty configs are faulty: I'm not sure about this one, works perfectly fine for me. 
-4. Widgets positioning weird: I hardcoded them for a 1366x768 screen, will create others if I can
-5. Fonts: GET THOSE FONTS!
-6. **MAKE SURE YOUR `~/bin` DIRECTORY IS IN YOUR PATH, OR NOTHING WILL WORK!** (Yes. Absolutely needs to be shouty capitals.)
-7. For instructions regarding use on VirtualMachine, please do check the `VM` folder of this repository.
-8. Bars not showing on Arch Linux: `sudo ln -s /usr/lib/libasan.so.8 /usr/lib/libasan.so.6`
-9. The workspace indicator bar issue has been solved through the binaries in my fork.
-10. Anything else? Open up an issue.
-   
-   
-<h1 align="center">🌟 Good Luck and Cheers! 🌟</h1>
+- CLI
+    - [Zsh](https://github.com/zsh-users/zsh) - A shell designed for interactive use, although it is also a powerful scripting language.
+        - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) - An open source, community-driven framework for managing your Zsh configuration.
+        - [z](https://github.com/rupa/z) - Tracks your most used directories, based on frecency.
+    - [Bash](https://git.savannah.gnu.org/cgit/bash.git) - A Unix shell and command language.
+    - [tmux](https://github.com/tmux/tmux) - A terminal multiplexer.
+        - [tmux-better-mouse-mode](https://github.com/NHDaly/tmux-better-mouse-mode) - A tmux plugin to better manage the mouse.
+        - [tmux-copycat](https://github.com/tmux-plugins/tmux-copycat) - A tmux plugin that enhances tmux search.
+    - [Neovim](https://github.com/neovim/neovim) - Hyperextensible Vim-based text editor.
+        - [Minimalist](https://github.com/dikiaap/minimalist) - A Material Color Scheme Darker for Vim and inspired by Material Theme.
+        - [vim-airline](https://github.com/vim-airline/vim-airline) - Lean and mean status/tabline for Vim that's light as air.
+        - [More config](https://github.com/dikiaap/dotfiles/blob/master/init.vim).
+    - [Git](https://github.com/git/git) - A free and open source distributed version control system.
+        - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy) - Make your diffs human readable instead of machine readable.
+    - [htop](https://github.com/htop-dev/htop) - An interactive process viewer.
+    - [bat](https://github.com/sharkdp/bat) - A cat clone with syntax highlighting and Git integration.
+    - [fzf](https://github.com/junegunn/fzf) - A command-line fuzzy finder.
+    - [ripgrep](https://github.com/BurntSushi/ripgrep) - A line-oriented search tool that recursively searches directories for a regex pattern.
+    - [Wget](https://git.savannah.gnu.org/cgit/wget.git) - A free software package for retrieving files using HTTP, HTTPS, FTP, and FTPS.
+    - [Hack](https://github.com/source-foundry/Hack) - Terminal font.
+- GUI
+    - [i3](https://github.com/i3/i3) - A tiling window manager.
+    - [i3blocks](https://github.com/vivien/i3blocks) - A feed generator for text based status bars.
+        - [i3blocks-contrib](https://github.com/vivien/i3blocks-contrib) - A set of scripts for i3blocks, contributed by the community.
+    - [i3lock-fancy](https://github.com/meskarune/i3lock-fancy) - A script that takes a screenshot of the desktop, blurs the background and adds a lock icon and text.
+    - [Rofi](https://github.com/davatorium/rofi) - A window switcher, application launcher and dmenu replacement.
+    - [Dunst](https://github.com/dunst-project/dunst) - A highly configurable and lightweight notification daemon.
+    - [picom](https://github.com/yshui/picom) - A lightweight compositor for X11.
+    - [Alacritty](https://github.com/alacritty/alacritty) - A cross-platform, GPU-accelerated terminal emulator.
+    - [Sublime Text](https://www.sublimetext.com) - A sophisticated text editor for code, markup and prose.
+    - [Arc Theme](https://github.com/arc-design/arc-theme) (Fork) - A flat theme with transparent elements for GTK 3, GTK 2, and GNOME Shell.
+    - [Paper Icon Theme](https://github.com/snwh/paper-icon-theme) - An open source Freedesktop icon theme and inspired by Material Design.
+    - [Source Sans](https://github.com/adobe-fonts/source-sans) - User Interface font.
+    - [Font Awesome](https://github.com/FortAwesome/Font-Awesome) - Iconic font.
+    - [Dark Planet](https://dikiaap.pages.dev/img/dotfiles/dark_planet_minimalist.png) - Wallpaper.
