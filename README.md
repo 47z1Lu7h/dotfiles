@@ -1,80 +1,233 @@
-![fish screenshot](./images/screenshot-1.png)
+<div align='center'>
+    <h3>
+    	<img src='images/banner-glorious.png' align='center' height='200px'>
+    </h3>
+    <p align='center'>
+    	<strong>
+    		a glorified dotfiles
+    	</strong>
+    </p>
+</div>
 
-![nvim screenshot](./images/screenshot-neovim.png)
+<div align='center'>
 
-# Takuya's dotfiles
+[![maintained](https://img.shields.io/maintenance/yes/2020?label=maintained&style=flat-square)](https://github.com/manilarome/the-glorious-dotfiles/commits/master) [![contributions](https://img.shields.io/badge/contribution-welcome-brightgreen&?style=flat-square)](https://github.com/manilarome/the-glorious-dotfiles/pulls) [![HitCount](http://hits.dwyl.com/manilarome/Glorified-Dotfiles.svg)](http://hits.dwyl.com/manilarome/the-glorified-dotfiles)
 
-**Warning**: Don’t blindly use my settings unless you know what that entails. Use at your own risk!
+</div>
 
-### Looking for a Markdown note-taking app?
+<div align='center'>
+	<a href='https://github.com/manilarome/the-glorious-dotfiles/wiki'>
+		<img src='images/button-wiki.png' width='100px'>
+	</a>
+	<a href='https://github.com/manilarome/the-glorious-dotfiles/wiki/Dependencies'>
+		<img src='images/button-depends.png' width='100px'>
+	</a>
+	<a href='https://github.com/manilarome/the-glorious-dotfiles/wiki/Getting-Started'>
+		<img src='images/button-install.png' width='100px'>
+	</a>
+	<a href='https://github.com/manilarome/the-glorious-dotfiles/wiki/Gallery'>
+		<img src='images/button-gallery.png' width='100px'>
+	</a>
+	<br>
+	<br>
+</div>
 
-Check out my app called [Inkdrop](https://www.inkdrop.app/)
+<p align='center'>
+	<img alt='glorious' src='https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/glorious.gif'/>
+	<br/>
+	<b>
+		Welcome to the glorious dotfiles!
+	</b>
+</p>
 
-[![Inkdrop](./images/screenshot-inkdrop.png)](https://www.inkdrop.app/)
+<p align='center'>
+	<br/>
+	This is a collection/stash of my linux configurations also known as dotfiles. I don't know why did I wasted my time writing these, especially my AwesomeWM setups. Or maybe it's because... I did it for me. I liked it. I was good at it. And I was really -- I was alive. ;) So no wasted time after all. You're probably here because of my awesome dotfiles. So yeah, steal what you want. Don't forget to check my <a href='https://github.com/manilarome/'>other projects!</a>
+</p>
 
-## Contents
 
-- vim (Neovim) config
-- tmux config
-- git config
-- fish config
-- PowerShell config
+## [Wiki here](https://github.com/manilarome/the-glorious-dotfiles/wiki)
 
-## Neovim setup
+The wiki will guide you to replicate my setups. So read the frickin' manual! If you post an issue that can be solve by reading it, I'll drop kick you.
 
-### Requirements
+## Summary and details
 
-- Neovim >= **0.9.0** (needs to be built with **LuaJIT**)
-- Git >= **2.19.0** (for partial clones support)
-- [LazyVim](https://www.lazyvim.org/)
-- a [Nerd Font](https://www.nerdfonts.com/)(v3.0 or greater) **_(optional, but needed to display some icons)_**
-- [lazygit](https://github.com/jesseduffield/lazygit) **_(optional)_**
-- a **C** compiler for `nvim-treesitter`. See [here](https://github.com/nvim-treesitter/nvim-treesitter#requirements)
-- for [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) **_(optional)_**
-  - **live grep**: [ripgrep](https://github.com/BurntSushi/ripgrep)
-  - **find files**: [fd](https://github.com/sharkdp/fd)
-- a terminal that support true color and *undercurl*:
-  - [kitty](https://github.com/kovidgoyal/kitty) **_(Linux & Macos)_**
-  - [wezterm](https://github.com/wez/wezterm) **_(Linux, Macos & Windows)_**
-  - [alacritty](https://github.com/alacritty/alacritty) **_(Linux, Macos & Windows)_**
-  - [iterm2](https://iterm2.com/) **_(Macos)_**
-- [Solarized Osaka](https://github.com/craftzdog/solarized-osaka.nvim)
+If you're too lazy to read the wiki, here's some of the details you need to know.
 
-## Shell setup (macOS & Linux)
+### Starring
 
-- [Fish shell](https://fishshell.com/)
-- [Fisher](https://github.com/jorgebucaran/fisher) - Plugin manager
-- [Tide](https://github.com/IlanCosman/tide) - Shell theme. Use version 5: `fisher install ilancosman/tide@v5`
-- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - Powerline-patched fonts. I use Hack.
-- [z for fish](https://github.com/jethrokuan/z) - Directory jumping
-- [Eza](https://github.com/eza-community/eza) - `ls` replacement
-- [ghq](https://github.com/x-motemen/ghq) - Local Git repository organizer
-- [fzf](https://github.com/PatrickF1/fzf.fish) - Interactive filtering
+- [`archlinux`](https://www.archlinux.org/download/) as distribution
+- [`fish`](https://fishshell.com/) as shell
+- [`awesomewm`](https://awesomewm.org) as window manager
+- [`kitty`](https://github.com/kovidgoyal/kitty) as terminal emulator
+- [`picom-git`](https://github.com/yshui/picom) as compositor
+- [`rofi`](https://github.com/davatorium/rofi) as application launcher
+- [`inter-font`](https://github.com/rsms/inter/) as the setup font
+- [`trivago`](https://www.youtube.com/watch?v=dQw4w9WgXcQ) as hotel
 
-## PowerShell setup (Windows)
+### Required dependencies
 
-- [Scoop](https://scoop.sh/) - A command-line installer
-- [Git for Windows](https://gitforwindows.org/)
-- [Oh My Posh](https://ohmyposh.dev/) - Prompt theme engine
-- [Terminal Icons](https://github.com/devblackops/Terminal-Icons) - Folder and file icons
-- [PSReadLine](https://docs.microsoft.com/en-us/powershell/module/psreadline/) - Cmdlets for customizing the editing environment, used for autocompletion
-- [z](https://www.powershellgallery.com/packages/z) - Directory jumper
-- [PSFzf](https://github.com/kelleyma49/PSFzf) - Fuzzy finder
+| Name | Description | Why/Where is it needed? |
+| --- | --- | --- |
+| [`awesome-git`](https://github.com/awesomeWM/awesome) |  Highly configurable framework window manager | Isn't it obvious? |
+| [`rofi`](https://github.com/davatorium/rofi) | Window switcher, application launcher and dmenu replacement | Application launcher |
+| [`picom-git`](https://github.com/yshui/picom) | A compositor for X11 | A compositor with kawase-blur |
+| [`inter-font`](https://github.com/rsms/inter/) | A typeface specially designed for user interfaces | Setup font | 
 
-## How to use
+### Installation and usage
 
-Watch my video tutorials:
+1. Install the [required dependencies](#required-dependencies). Note that there's also an [optional dependencies](https://github.com/manilarome/the-glorious-dotfiles/wiki#optional-dependencies).
+2. Clone this repository.
 
-1. [My Neovim setup](https://www.youtube.com/watch?v=fFHlfbKVi30)
-   - [Article version](https://www.devas.life/effective-neovim-setup-for-web-development-towards-2024/)
-1. [My dev workflow using tmux and vim](https://www.youtube.com/watch?v=sSOfr2MtRU8&list=PLxQA0uNgQDCICMRwlOzWAZBPL05XBC_br&index=10)
-1. [A productive command-line Git workflow for indie app developers](https://www.youtube.com/watch?v=qKpY7t5m35k&list=PLxQA0uNgQDCICMRwlOzWAZBPL05XBC_br&index=4)
-   - [Blogpost](https://dev.to/craftzdog/a-productive-command-line-git-workflow-for-indie-app-developers-k7d)
-1. [My Fish shell workflow for coding](https://www.youtube.com/watch?v=KKxhf50FIPI)
-1. [How to set up PowerShell prompt with Oh My Posh on Windows 11](https://www.youtube.com/watch?v=5-aK2_WwrmM)
+	```bash
+	$ git clone --depth 1 https://github.com/manilarome/the-glorious-dotfiles/
+	```
 
-## About me
+3. Make sure to create a backup if you have a current AwesomeWM configuration.
+4. Copy the `the-glorious-dotfiles/config/awesome/SETUPNAME` folder to your `"${HOME}"/.config/`. I'll just assume that you don't have an `awesome` folder in your `~/.config/`:
 
-- [@inkdrop_app on X](https://twitter.com/inkdrop_app)
-- [Newsletters](https://www.devas.life/)
-- [My product: Inkdrop - Markdown note-taking app](https://www.inkdrop.app/)
+	```bash
+	# Use the Floppy setup
+	$ cp -r the-glorious-dotfiles/config/awesome/floppy $HOME/.config/awesome
+
+	# Use the GNawesOME setup
+	$ cp -r the-glorious-dotfiles/config/awesome/gnawesome $HOME/.config/awesome
+
+	# Use the Linear setup
+	$ cp -r the-glorious-dotfiles/config/awesome/linear $HOME/.config/awesome
+
+	# Use the Surreal setup
+	$ cp -r the-glorious-dotfiles/config/awesome/surreal $HOME/.config/awesome
+	```
+
+4. Change the global configuration in `$HOME/.config/awesome/configuration/config.lua`.
+5. Reload AwesomeWM by pressing <kbd>Super + Shift + r</kbd>.
+
+## TODOs
+
+My TODOs or roadmap for my awesomewm setups.
+
+- [x] Scrollable Notification Center<sup>needs improvement</sup>
+- [x] Lockscreen PAM Integration
+- [x] Multi-monitor support  
+- [x] Refactor for cleaner code<sup>WIP</sup>
+- [x] Extend the screen recorder widget's functionality
+- [x] Adjust picom's blur strength using a slider
+
+
+## Selling the dotfiles
+
+Why would I want this?
+
+### Core features
+
+These are the features included in my AwesomeWM setups!
+
++ Notification Center
++ Dynamic Wallpaper
++ File/Web Searching like macOS' Spotlight
++ Application Dashboard
++ Brightness and Volume OSDs
++ Functional Trash Widget
++ Built-in Screen Recorder Widget
++ Built-in Calculator Widget
++ Email Widget
++ Weather Widget
++ Quake Terminal
++ Hardware Monitor
++ Blue Light Filter Widgets 
++ Lockscreen Module with Face Capture and PAM Integration
++ Easter eggs!<sup>Mostly bugs</sup>
++ Any many more!
+
+I don't really rice just to make it beautiful, I want it to be also functional so that's why it's ***"bloated"*** with features.
+
+### Gallery
+
+Some of these are outdated, so it is better if you try them yourself. 
+
+<p align='center'>
+	<img alt='glorious' src='https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/floppy.webp'/>
+	<br/>
+	<b>
+		Floppy
+	</b>
+	<br>
+	Floppy was meant to be a clone of the infamous <a href='https://www.reddit.com/r/unixporn/comments/apktsx/flurry_i_know_you_like_tiling_managers_and_i_want/'>Flurry Desktop</a>. I named it Floppy because I thought it would flop when I first <a href='https://www.reddit.com/r/unixporn/comments/de0m3v/awesome_floppy/'>posted it on r/unixporn</a>. This is my favorite.
+	<br>
+</p>
+
+<p align='center'>
+	<img alt='glorious' src='https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/gnawesome.webp'/>
+	<br/>
+	<b>
+		GNawesOME
+	</b>
+	<br>
+	Yes, GNawesOME is a weird name. GNawesOME was meant to be a GNOME clone. Instead, it became a hybrid of macOS, iOS, GNOME, and Deepin. I regret nothing.
+	<br>
+</p>
+
+<p align='center'>
+	<img alt='glorious' src='https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/linear.webp'/>
+	<br/>
+	<b>
+		Linear
+	</b>
+	<br>
+	A setup full of borders and lines. Awesome right?
+	<br>
+</p>
+
+<p align='center'>
+	<img alt='glorious' src='https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/surreal.webp'/>
+	<br/>
+	<b>
+		Surreal
+	</b>
+	<br>
+	Yes, I copied the macOS Big Sur design. Many linux elitists will hate it but I don't care. Cry me a river.
+	<br>
+</p>
+
+#### More screenshots
+
+| Lockscreen with [PAM Integration](https://github.com/RMTT/lua-pam) |
+| --- |
+| ![Screenshot](https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/lockscreen.webp) |
+
+| Application Menu |
+| --- |
+| ![Screenshot](https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/app-menu.webp) |
+
+| Exit Screen |
+| --- |
+| ![Screenshot](https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/exit-screen.webp) |
+
+| Multihead |
+| --- |
+| ![Screenshot](https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/multihead.webp) |
+
+| [Rofi Global Search](https://github.com/manilarome/rofi-spotlight) |
+| --- |
+| ![Screenshot](https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/rofi-global.webp) |
+
+| [blurredfox CSS theme for Firefox](https://github.com/manilarome/blurredfox/) |
+| --- |
+| ![Screenshot](https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/blurredfox.webp) |
+
+| [glorious - lightdm-webkit2-theme](https://github.com/manilarome/lightdm-webkit2-theme-glorious/) |
+| --- |
+| ![Screenshot](https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/lightdm.webp) |
+
+| [thunderblurred CSS theme for Thunderbird](https://github.com/manilarome/thunderblurred) |
+| --- |
+| ![Screenshot](https://raw.githubusercontent.com/manilarome/the-glorious-screenshots/master/thunderblurred.webp) |
+
+## Credits
+
+Grazie
+
+- [Contributors](https://github.com/manilarome/the-glorious-dotfiles/graphs/contributors)
+- [awesomewm devs](https://github.com/awesomeWM/awesome/graphs/contributors)
+- The community of course
