@@ -1,4 +1,4 @@
-<img src='/screenshots/yeeyee.jpg'>
+<img src='/street.jpg'>
 
 <h1 align="center">✨ Widgets go brr! ✨</h1>
 
@@ -27,7 +27,7 @@
 <a id="about"></a>
 
 ## Starring:
-![Screenshot](screenshot.png)
+![Screenshot](street.jpg)
 
 <img src="/screenshots/EwwLogo.png" alt="eww" align="right" height="180vh">
 
