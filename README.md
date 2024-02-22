@@ -27,7 +27,7 @@
 <a id="about"></a>
 
 ## Starring:
-
+![Screenshot](screenshot.png)
 
 <img src="/screenshots/EwwLogo.png" alt="eww" align="right" height="180vh">
 
