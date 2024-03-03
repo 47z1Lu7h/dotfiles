@@ -109,12 +109,12 @@ Workflow GIF: (This is a short one, for more goodies look at the links below)
 | <kbd>super</kbd> + <kbd>prt sc</kbd>                                                                                                                        | Open rofi screenshots menu                        |
 | <kbd>super</kbd> + <kbd>R</kbd>                                                                                                                             | Open rofi main menu                               |
 | <kbd>prt sc</kbd>                                                                                                                                           | Screenshot                                        |
-| <kbd>ctrl</kbd> + <kbd>prt sc</kbd>                                                                                                                         | Countdown screenshot                              |
+| <kbd>Meta</kbd> + <kbd>prt sc</kbd>                                                                                                                         | Countdown screenshot                              |
 | <kbd>shift</kbd> + <kbd>prt sc</kbd>                                                                                                                        | Selection screenshot                              |
-| <kbd>ctrl</kbd> + <kbd>esc</kbd>                                                                                                                            | Pop-up notification history                       |
-| <kbd>ctrl</kbd> + <kbd>enter</kbd>                                                                                                                          | Open current notification context-menu            |
-| <kbd>ctrl</kbd> + <kbd>ㅤㅤㅤㅤ</kbd>                                                                                                                        | Close current notification                        |
-| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>ㅤㅤㅤㅤ</kbd>                                                                                                     | Close all notifications                           |
+| <kbd>Meta</kbd> + <kbd>esc</kbd>                                                                                                                            | Pop-up notification history                       |
+| <kbd>Meta</kbd> + <kbd>enter</kbd>                                                                                                                          | Open current notification context-menu            |
+| <kbd>Meta</kbd> + <kbd>ㅤㅤㅤㅤ</kbd>                                                                                                                        | Close current notification                        |
+| <kbd>Meta</kbd> + <kbd>shift</kbd> + <kbd>ㅤㅤㅤㅤ</kbd>                                                                                                     | Close all notifications                           |
 | <kbd>super</kbd> + <kbd>E</kbd>                                                                                                                             | Open user's preferred file manager                |
 | <kbd>super</kbd> + <kbd>L</kbd>                                                                                                                             | Lock current session with user's preferred locker |
 | <kbd>super</kbd> + <kbd>enter</kbd>                                                                                                                         | Open user's preferred terminal emulator           |
@@ -162,49 +162,49 @@ Workflow GIF: (This is a short one, for more goodies look at the links below)
 
 | Key                                             | Action                       |
 |:------------------------------------------------|:-----------------------------|
-| <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>P</kbd> | Show menu                    |
-| <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>H</kbd> | Show history menu            |
-| <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>X</kbd> | Show persistent history menu |
-| <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>A</kbd> | Show action menu             |
+| <kbd>Meta</kbd> + <kbd>alt</kbd> + <kbd>P</kbd> | Show menu                    |
+| <kbd>Meta</kbd> + <kbd>alt</kbd> + <kbd>H</kbd> | Show history menu            |
+| <kbd>Meta</kbd> + <kbd>alt</kbd> + <kbd>X</kbd> | Show persistent history menu |
+| <kbd>Meta</kbd> + <kbd>alt</kbd> + <kbd>A</kbd> | Show action menu             |
 
 </details>
 
 <details>
-<summary><b>URxvt (<a href="./.Xresources">.Xresources</a>)</b></summary>
+<summary><b>sxhkdrc (<a href="./config/sxhkd/sxhkdrc">.sxhkdrc</a>)</b></summary>
 
 | Key                                                          | Action                             |
 |:-------------------------------------------------------------|:-----------------------------------|
 |                                                              |                                    |
 | **Built-in**                                                 |                                    |
-| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>L</kbd>            | Clear scrollback buffer cleanly    |
-| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>C</kbd>            | Copy selection to clipboard        |
-| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>V</kbd>            | Paste clipboard                    |
-| <kbd>ctrl</kbd> + <kbd>⯅</kbd>                              | Scroll up by line                  |
-| <kbd>ctrl</kbd> + <kbd>⯆</kbd>                              | Scroll down by line                |
-| <kbd>ctrl</kbd> + <kbd>home</kbd>                            | Scroll up to top                   |
-| <kbd>ctrl</kbd> + <kbd>end</kbd>                             | Scroll down to bottom              |
-| <kbd>ctrl</kbd> + <kbd>`right click`</kbd> (hold)            | Show context-menu                  |
+| <kbd>Meta</kbd> + <kbd>Return</kbd>                          | terminal emulator    |
+| <kbd>Meta</kbd> + <kbd>shift</kbd> + <kbd>C</kbd>            | Copy selection to clipboard        |
+| <kbd>Meta</kbd> + <kbd>shift</kbd> + <kbd>V</kbd>            | Paste clipboard                    |
+| <kbd>Meta</kbd> + <kbd>⯅</kbd>                              | Scroll up by line                  |
+| <kbd>Meta</kbd> + <kbd>⯆</kbd>                              | Scroll down by line                |
+| <kbd>Meta</kbd> + <kbd>home</kbd>                            | Scroll up to top                   |
+| <kbd>Meta</kbd> + <kbd>end</kbd>                             | Scroll down to bottom              |
+| <kbd>Meta</kbd> + <kbd>`right click`</kbd> (hold)            | Show context-menu                  |
 |                                                              |                                    |
 | **URL Selection (matcher)**                                  |                                    |
-| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>U</kbd>            | Activate URL selection             |
+| <kbd>Meta</kbd> + <kbd>shift</kbd> + <kbd>U</kbd>            | Activate URL selection             |
 | <kbd>⯇</kbd> / <kbd>⯅</kbd> / <kbd>⯈</kbd> / <kbd>⯆</kbd> | Navigate URL selection             |
 | <kbd>enter</kbd> / <kbd>`left click`</kbd>                   | Open selected URL                  |
 | <kbd>esc</kbd>                                               | Deactivate URL selection           |
 |                                                              |                                    |
 | **Font Resizer**                                             |                                    |
-| <kbd>ctrl</kbd> + <kbd>+</kbd>                               | Increase font size by Npx          |
-| <kbd>ctrl</kbd> + <kbd>-</kbd>                               | Decrease font size by Npx          |
-| <kbd>ctrl</kbd> + <kbd>=</kbd>                               | Reset font size to default         |
-| <kbd>ctrl</kbd> + <kbd>?</kbd>                               | Show font information              |
+| <kbd>Meta</kbd> + <kbd>+</kbd>                               | Increase font size by Npx          |
+| <kbd>Meta</kbd> + <kbd>-</kbd>                               | Decrease font size by Npx          |
+| <kbd>Meta</kbd> + <kbd>=</kbd>                               | Reset font size to default         |
+| <kbd>Meta</kbd> + <kbd>?</kbd>                               | Show font information              |
 |                                                              |                                    |
 | **Tabbed Extended**                                          |                                    |
-| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>T</kbd>            | New tab                            |
-| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>R</kbd>            | Rename current tab                 |
+| <kbd>Meta</kbd> + <kbd>shift</kbd> + <kbd>T</kbd>            | New tab                            |
+| <kbd>Meta</kbd> + <kbd>shift</kbd> + <kbd>R</kbd>            | Rename current tab                 |
 | <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>W</kbd>            | Close/kill current tab             |
-| <kbd>ctrl</kbd> + <kbd>pg up</kbd>                           | Jump to next tab                   |
-| <kbd>ctrl</kbd> + <kbd>pg dn</kbd>                           | Jump to previous tab               |
-| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>pg up</kbd>        | Move current tab to next order     |
-| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>pg dn</kbd>        | Move current tab to previous order |
+| <kbd>Meta</kbd> + <kbd>pg up</kbd>                           | Jump to next tab                   |
+| <kbd>Meta</kbd> + <kbd>pg dn</kbd>                           | Jump to previous tab               |
+| <kbd>Meta</kbd> + <kbd>shift</kbd> + <kbd>pg up</kbd>        | Move current tab to next order     |
+| <kbd>Meta</kbd> + <kbd>shift</kbd> + <kbd>pg dn</kbd>        | Move current tab to previous order |
 
 > **SHELL**  
 > Most shells use the readline([3](https://www.man7.org/linux/man-pages/man3/readline.3.html#EDITING_COMMANDS)) library.
