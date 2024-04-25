@@ -75,7 +75,85 @@ Workflow GIF: (This is a short one, for more goodies look at the links below)
 
 <a id="keybinds"></a>
 ## Keybinds ✍️
+## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
 
+<details>
+<summary><b>Openbox (<a href="./.config/kitty/cnf/mapping.ini">kitty keys</a>)</b></summary>
+
+| Key                                                                         | Action                                              |
+|:----------------------------------------------------------------------------|:----------------------------------------------------|
+|                                                                            |                                                     |
+| **Window Management and more**                                              |                                                     |
+| <kbd>super</kbd> + <kbd>⯇</kbd>                                            | Move window focus to left-side                      |
+| <kbd>super</kbd> + <kbd>⯈</kbd>                                            |                                                     |
+|                                                                            |                                                     |
+| **Color Configuration**                                                     |                                                     |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>1</kbd>                             | Set color config to greenOverDark.ini               |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>2</kbd>                             | Set color config to hack.ini                        |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>3</kbd>                             | Set color config to color.ini                       |
+|                                                                            |                                                     |
+| **Font Size**                                                               |                                                     |
+| <kbd>ctrl</kbd> + <kbd>+</kbd>                                             | Increase font size                                  |
+| <kbd>ctrl</kbd> + <kbd>-</kbd>                                             | Decrease font size                                  |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>backspace</kbd>                      | Restore font size                                   |
+|                                                                            |                                                     |
+| **Background Opacity**                                                     |                                                     |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>+</kbd>                          | Increase background opacity by 0.05                 |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>-</kbd>                          | Decrease background opacity by 0.05                 |
+| <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>                          | Set background opacity to default                   |
+|                                                                            |                                                     |
+| **Clipboard**                                                               |                                                     |
+| <kbd>alt</kbd> + <kbd>v</kbd>                                              | Paste from clipboard                                 |
+|                                                                            |                                                     |
+| **Window Management**                                                      |                                                     |
+| <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>enter</kbd>                        | New window                                           |
+| <kbd>alt</kbd> + <kbd>enter</kbd>                                          | New window with cwd                                 |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>x</kbd>                             | Close window                                        |
+|                                                                            |                                                     |
+| **Layout Management**                                                      |                                                     |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>e</kbd>                             | Next layout                                          |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>s</kbd>                             | Last used layout                                     |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>g</kbd>                             | Goto layout Fat                                      |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>t</kbd>                             | Goto layout Tall                                     |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>s</kbd>                             | Toggle layout Stack                                  |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>z</kbd>                             | Swap with window                                     |
+|                                                                            |                                                     |
+| **Moves the window into a new tab**                                        |                                                     |
+| <kbd>shift</kbd> + <kbd>alt</kbd> + <kbd>enter</kbd>                       | Detach window new-tab                                |
+|                                                                            |                                                     |
+| **Switch to window**                                                        |                                                     |
+| <kbd>alt</kbd> + <kbd>left</kbd>                                           | Neighboring window left                              |
+| <kbd>alt</kbd> + <kbd>right</kbd>                                          | Neighboring window right                             |
+| <kbd>alt</kbd> + <kbd>up</kbd>                                             | Neighboring window up                                |
+| <kbd>alt</kbd> + <kbd>down</kbd>                                           | Neighboring window down                              |
+|                                                                            |                                                     |
+| **Move window**                                                             |                                                     |
+| <kbd>shift</kbd> + <kbd>alt</kbd> + <kbd>up</kbd>                          | Move window up                                       |
+| <kbd>shift</kbd> + <kbd>alt</kbd> + <kbd>left</kbd>                        | Move window left                                     |
+| <kbd>shift</kbd> + <kbd>alt</kbd> + <kbd>right</kbd>                       | Move window right                                    |
+| <kbd>shift</kbd> + <kbd>alt</kbd> + <kbd>down</kbd>                        | Move window down                                     |
+|                                                                            |                                                     |
+| **Resize window**                                                           |                                                     |
+| <kbd>shift</kbd> + <kbd>ctrl</kbd> + <kbd>right</kbd>                      | Resize window narrower                              |
+| <kbd>shift</kbd> + <kbd>ctrl</kbd> + <kbd>left</kbd>                       | Resize window wider                                 |
+| <kbd>shift</kbd> + <kbd>ctrl</kbd> + <kbd>up</kbd>                         | Resize window taller                                |
+| <kbd>shift</kbd> + <kbd>ctrl</kbd> + <kbd>down</kbd>                       | Resize window shorter                               |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>enter</kbd>                         | Resize window reset                                 |
+|                                                                            |                                                     |
+| **Tab Management**                                                          |                                                     |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>t</kbd>                             | Set tab title                                        |
+| <kbd>cmd</kbd> + <kbd>alt</kbd> + <kbd>w</kbd>                             | New tab with cwd                                     |
+| <kbd>cmd</kbd> + <kbd>shift</kbd> + <kbd>w</kbd>                           | New tab                                              |
+| <kbd>fn</kbd> + <kbd>shift</kbd> + <kbd>right</kbd>                        | Next tab                                             |
+| <kbd>fn</kbd> + <kbd>shift</kbd> + <kbd>left</kbd>                         | Previous tab                                         |
+| <kbd>alt</kbd> + <kbd>1</kbd>                                              | Goto tab 1                                           |
+| <kbd>alt</kbd> + <kbd>2</kbd>                                              | Goto tab 2                                           |
+| <kbd>alt</kbd> + <kbd>3</kbd>                                              | Goto tab 3                                           |
+| <kbd>alt</kbd>
+
+
+
+-----------------
 ## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
 
 <details>
