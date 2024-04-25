@@ -74,19 +74,6 @@ Workflow GIF: (This is a short one, for more goodies look at the links below)
 [Workflow Video by Guilherme Moreno](https://www.youtube.com/watch?v=im9QKZSMUFQ) aka [@morenoled](https://github.com/morenoled)
 
 <a id="keybinds"></a>
-## Keybinds ✍️
-## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
-
-<details>
-<summary><b>kitty mapping (<a href="./.config/kitty/cnf/mapping.ini">kitty keys</a>)</b></summary>
-
-
-
------------------
-<details>
-<summary><b>kitty (<a href="./.config/openbox/rc.xml#L175-L827">rc.xml</a>)</b></summary>
-## Keybinds ✍️
-
 ## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
 
 <details>
