@@ -78,7 +78,7 @@ Workflow GIF: (This is a short one, for more goodies look at the links below)
 ## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
 
 <details>
-<summary><b>Openbox (<a href="./.config/kitty/cnf/mapping.ini">kitty keys</a>)</b></summary>
+<summary><b>kitty mapping (<a href="./.config/kitty/cnf/mapping.ini">kitty keys</a>)</b></summary>
 
 | Key                                                                         | Action                                              |
 |:----------------------------------------------------------------------------|:----------------------------------------------------|
@@ -154,8 +154,6 @@ Workflow GIF: (This is a short one, for more goodies look at the links below)
 
 
 -----------------
-## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
-
 <details>
 <summary><b>Openbox (<a href="./.config/openbox/rc.xml#L175-L827">rc.xml</a>)</b></summary>
 
