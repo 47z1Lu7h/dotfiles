@@ -77,7 +77,7 @@ Workflow GIF: (This is a short one, for more goodies look at the links below)
 ## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
 
 <details>
-<summary><b>Openbox (<a href="./.config/kitty/cnf/mapping.ini">kitty keys</a>)</b></summary>
+<summary><b>Kitty mapping (<a href="./.config/kitty/cnf/mapping.ini">kitty keys</a>)</b></summary>
 
 | Key                                                                         | Action                                              |
 |:----------------------------------------------------------------------------|:----------------------------------------------------|
@@ -159,18 +159,6 @@ Workflow GIF: (This is a short one, for more goodies look at the links below)
 
 > **LEGEND**  
 > [<kbd>super</kbd>](https://en.wikipedia.org/wiki/Super_key_(keyboard_button))
-
-</details>
-
-<details>
-<summary><b>Parcellite (<a href="./EXTRA_JOYFUL/.config/parcellite/parcelliterc#L38-L41">parcelliterc</a>)</b></summary>
-
-| Key                                             | Action                       |
-|:------------------------------------------------|:-----------------------------|
-| <kbd>Meta</kbd> + <kbd>alt</kbd> + <kbd>P</kbd> | Show menu                    |
-| <kbd>Meta</kbd> + <kbd>alt</kbd> + <kbd>H</kbd> | Show history menu            |
-| <kbd>Meta</kbd> + <kbd>alt</kbd> + <kbd>X</kbd> | Show persistent history menu |
-| <kbd>Meta</kbd> + <kbd>alt</kbd> + <kbd>A</kbd> | Show action menu             |
 
 </details>
 
