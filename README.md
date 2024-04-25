@@ -176,12 +176,6 @@ Workflow GIF: (This is a short one, for more goodies look at the links below)
 
 <details>
 <summary><b>sxhkdrc (<a href="./config/sxhkd/sxhkdrc">.sxhkdrc</a>)</b></summary>
-## Keybinds ✍️
-
-## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
-
-<details>
-<summary><b>Openbox (<a href="./path/to/sxhkdrc">sxhkdrc keys</a>)</b></summary>
 
 | Key                                                              | Action                                        |
 |:-----------------------------------------------------------------|:----------------------------------------------|
