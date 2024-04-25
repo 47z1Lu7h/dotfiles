@@ -189,7 +189,48 @@ Workflow GIF: (This is a short one, for more goodies look at the links below)
 
 <details>
 <summary><b>sxhkdrc (<a href="./config/sxhkd/sxhkdrc">.sxhkdrc</a>)</b></summary>
+## Keybinds ✍️
 
+## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
+
+<details>
+<summary><b>Openbox (<a href="./path/to/sxhkdrc">sxhkdrc keys</a>)</b></summary>
+
+| Key                                                              | Action                                        |
+|:-----------------------------------------------------------------|:----------------------------------------------|
+|                                                                 |                                               |
+| **Media Controls**                                               |                                               |
+| <kbd>XF86MonBrightnessUp</kbd>                                   | Increase backlight by 5%                     |
+| <kbd>XF86MonBrightnessDown</kbd>                                 | Decrease backlight by 5%                     |
+| <kbd>XF86AudioRaiseVolume</kbd>                                  | Increase volume by 2%                        |
+| <kbd>XF86AudioLowerVolume</kbd>                                  | Decrease volume by 2%                        |
+| <kbd>XF86AudioMute</kbd>                                         | Toggle mute                                   |
+| <kbd>XF86AudioPlay</kbd>                                         | Play/Pause media                              |
+| <kbd>XF86AudioNext</kbd>                                         | Play next media                               |
+| <kbd>XF86AudioPrev</kbd>                                         | Play previous media                           |
+| <kbd>XF86AudioStop</kbd>                                         | Stop media playback                           |
+|                                                                 |                                               |
+| **Apps**                                                         |                                               |
+| <kbd>super</kbd> + <kbd>e</kbd>                                  | Open Dolphin                                 |
+| <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>g</kbd>                | Open Google Chrome                           |
+| <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>f</kbd>                | Open Firefox ESR                             |
+| <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>b</kbd>                | Open Burp Suite                              |
+| <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>c</kbd>                | Run color picker script                      |
+|                                                                 |                                               |
+| **Polybar**                                                      |                                               |
+| <kbd>super</kbd> + <kbd>ctrl</kbd> + <kbd>1</kbd>               | Restart Polybar with pentest theme           |
+| <kbd>super</kbd> + <kbd>ctrl</kbd> + <kbd>2</kbd>               | Restart Polybar with simple theme            |
+| <kbd>super</kbd> + <kbd>ctrl</kbd> + <kbd>3</kbd>               | Restart Polybar with plasma theme            |
+| <kbd>super</kbd> + <kbd>ctrl</kbd> + <kbd>4</kbd>               | Restart Polybar with 47z1 theme              |
+| <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>p</kbd>                | Kill all instances of Polybar                |
+|                                                                 |                                               |
+| **OpenVPN**                                                      |                                               |
+| <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>v</kbd>                | Connect to HTB lab VPN                       |
+| <kbd>super</kbd> + <kbd>alt</kbd> + <kbd>k</kbd>                | Kill all OpenVPN processes                   |
+|                                                                 |                                               |
+
+
+-----
 | Key                                                          | Action                             |
 |:-------------------------------------------------------------|:-----------------------------------|
 |                                                              |                                    |
