@@ -117,14 +117,13 @@ alias openPorts='sudo lsof -i | grep LISTEN'    # openPorts:    All listening co
 #   ii:  display useful host related informaton
 #   -------------------------------------------------------------------
     ii() {
-        echo -e "\nYou are logged on ${RED}$HOST"
-        echo -e "\nAdditionnal information:$NC " ; uname -a
-        echo -e "\n${On_Iblack}Users logged on:$NC " ; w -h
-        echo -e "\n${BIgreen}Current date :$NC " ; date
-        echo -e "\n${Ired}Machine stats :$NC " ; uptime
-        echo -e "\n${BIcyan}Current network location :$NC " ; curl ipinfo.io
-        echo -e "\n${Byellow}Public facing IP Address :$NC " ; myIp
-        # echo -e "\n${red}DNS Configuration:$NC " ; scutil --dns
+        echo -e "\nYou are logged on ${Icyan}$HOST"
+        echo -e "\n\tAdditionnal information:$NC " ; uname -a
+        echo -e "\n${Igreen}Users logged on:$NC " ; w -h
+        echo -e "\n\t${white}Current date :$NC " ; date
+        echo -e "${Bred}Machine stats :$NC " ; uptime
+        echo -e "\n\t${BIcyan}Current network location :$NC  " ; curl ipinfo.io
+        echo -e "\t\n${BIyellow}Public facing IP Address :$NC   " ; myIp
         echo
     }
 

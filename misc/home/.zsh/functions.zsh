@@ -39,7 +39,7 @@ function set_linux_colors(){
 set_linux_colors()
 
 	# - Some git alias
-function gac-Push { git add -A; git commit -a -m "$1"; git push }
+function ga { git add -A; git commit -a -m "$1"; git push }
 function gs { git status }
 function gd { git diff }
 function ge { git commit --allow-empty -m "Empty commit" }
@@ -70,7 +70,7 @@ function guz { gu $@; gz }
 function gc { git stash clear }
 function gl { git stash list }
 function gss { git add --all; git stash save }
-function ga { git stash apply "stash@{${@:-0}}" }
+function gstah { git stash apply "stash@{${@:-0}}" }
 
 function fshow(){
   git log --graph --color=always \
