@@ -1,7 +1,7 @@
 * {
-  font-family: "IosevkaTerm", monospace !important;
-  font-weight: 600 !important;
-  font-size: 17px !important;
+  font-family: "Iosevka", monospace !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
   --arrowpanel-background: #061115 !important;
   --arrowpanel-border-color: #000a0e !important;
   --autocomplete-popup-highlight-background: #000a0e !important;
@@ -32,7 +32,6 @@ window,
 #navigator-toolbox,
 #sidebar-box {
   background-color: #000a0e !important;
-  -moz-appearance: none !important;
   background-image: none !important;
   border: none !important;
 }
@@ -45,7 +44,6 @@ window,
 
 .tab-background[selected="true"] {
   background-color: #061115 !important;
-  -moz-appearance: none !important;
   background-image: none !important;
   border: none !important;
 }
@@ -64,7 +62,6 @@ window,
 
 #nav-bar {
   background-color: #000a0e !important;
-  -moz-appearance: none !important;
   background-image: none !important;
   border: none !important;
   transition: margin 0.5s !important;
@@ -75,14 +72,14 @@ window,
 }
 
 .tabbrowser-tab {
-  height: 40px !important;
+  height: 30px !important;
   z-index: 1000 !important;
   padding: none !important;
   padding-inline: 0px !important;
 }
 
 #navigator-toolbox:not(:focus-within):not(:hover) #nav-bar {
-  margin-top: -40px !important;
+  margin-top: -30px !important;
 }
 
 .tab-line {

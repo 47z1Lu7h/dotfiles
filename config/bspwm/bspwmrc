@@ -17,10 +17,8 @@ bspc rule -a	mplayer2 state=floating
 bspc rule -a	Kupfer.py focus=on
 bspc rule -a	Screenkey manage=off
 
-picom --experimental-backends --config $HOME/.config/picom/picom.conf &
-picom -b &
+picom --experimental-backends --config $HOME/.config/picom/picom.conf & picom -b &
 feh --bg-fill /usr/share/wallpapers/p1C5/netBlue.jpg &
 xsetroot -cursor_name left_ptr &
 systemd-inhibit --what=handle-power-key sleep infinity &
-#setxkbmap es  ### ~~> set your keayboard layout
 polybar -q bottom -c /home/a7z1lu7h/.config/polybar/themes/47z1.ini &

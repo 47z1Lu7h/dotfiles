@@ -15,7 +15,7 @@
   emulate -L zsh -o extended_glob
 
   # Unset all configuration options. This allows you to apply configuration changes without
-  # restarting zsh. Edit ~/.p10k.zsh and type `source ~/.p10k.zsh`.
+  # restarting zsh. Edit ~/.p10k.zsh and type 'source ~/.p10k.zsh'.
   unset -m '(POWERLEVEL9K_*|DEFAULT_USER)~POWERLEVEL9K_GITSTATUS_DIR'
 
   # Zsh >= 5.1 is required.
@@ -101,10 +101,10 @@
     # wifi                  # wifi speed
   )
 
-  # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
+  # Defines character set used by powerlevel10k. It's best to let 'p10k configure' set it for you.
   typeset -g POWERLEVEL9K_MODE=nerdfont-complete
-  # When set to `moderate`, some icons will have an extra space after them. This is meant to avoid
-  # icon overlap when using non-monospace fonts. When set to `none`, spaces are not added.
+  # When set to 'moderate', some icons will have an extra space after them. This is meant to avoid
+  # icon overlap when using non-monospace fonts. When set to 'none', spaces are not added.
   typeset -g POWERLEVEL9K_ICON_PADDING=moderate
 
   # When set to true, icons appear before content on both sides of the prompt. When set
@@ -261,12 +261,12 @@
   # be either absolute (e.g., '80') or a percentage of terminal width (e.g, '50%'). If empty,
   # directory will be shortened only when prompt doesn't fit or when other parameters demand it
   # (see POWERLEVEL9K_DIR_MIN_COMMAND_COLUMNS and POWERLEVEL9K_DIR_MIN_COMMAND_COLUMNS_PCT below).
-  # If set to `0`, directory will always be shortened to its minimum length.
+  # If set to '0', directory will always be shortened to its minimum length.
   typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=80
-  # When `dir` segment is on the last prompt line, try to shorten it enough to leave at least this
+  # When 'dir' segment is on the last prompt line, try to shorten it enough to leave at least this
   # many columns for typing commands.
   typeset -g POWERLEVEL9K_DIR_MIN_COMMAND_COLUMNS=40
-  # When `dir` segment is on the last prompt line, try to shorten it enough to leave at least
+  # When 'dir' segment is on the last prompt line, try to shorten it enough to leave at least
   # COLUMNS * POWERLEVEL9K_DIR_MIN_COMMAND_COLUMNS_PCT * 0.01 columns for typing commands.
   typeset -g POWERLEVEL9K_DIR_MIN_COMMAND_COLUMNS_PCT=50
   # If set to true, embed a hyperlink into the directory. Useful for quickly
@@ -506,8 +506,8 @@
   #
   # If you are working in Git repositories with tens of millions of files and seeing performance
   # sagging, try setting POWERLEVEL9K_VCS_MAX_INDEX_SIZE_DIRTY to a number lower than the output
-  # of `git ls-files | wc -l`. Alternatively, add `bash.showDirtyState = false` to the repository's
-  # config: `git config bash.showDirtyState false`.
+  # of 'git ls-files | wc -l'. Alternatively, add 'bash.showDirtyState = false' to the repository's
+  # config: 'git config bash.showDirtyState false'.
   typeset -g POWERLEVEL9K_VCS_MAX_INDEX_SIZE_DIRTY=-1
 
   # Don't show Git status in prompt for repositories whose workdir matches this pattern.
@@ -632,9 +632,9 @@
   #
   # Available sources:
   #
-  # - shell   `asdf current` says "set by ASDF_${TOOL}_VERSION environment variable"
-  # - local   `asdf current` says "set by /some/not/home/directory/file"
-  # - global  `asdf current` says "set by /home/username/file"
+  # - shell   'asdf current' says "set by ASDF_${TOOL}_VERSION environment variable"
+  # - local   'asdf current' says "set by /some/not/home/directory/file"
+  # - global  'asdf current' says "set by /home/username/file"
   #
   # Note: If this parameter is set to (shell local global), it won't hide tools.
   # Tip:  Override this parameter for ${TOOL} with POWERLEVEL9K_ASDF_${TOOL}_SOURCES.
@@ -661,7 +661,7 @@
   # Tip: Override this parameter for ${TOOL} with POWERLEVEL9K_ASDF_${TOOL}_SHOW_ON_UPGLOB.
   #
   # Example: Hide nodejs version when there is no package.json and no *.js files in the current
-  # directory, in `..`, in `../..` and so on.
+  # directory, in '..', in '../..' and so on.
   #
   #   typeset -g POWERLEVEL9K_ASDF_NODEJS_SHOW_ON_UPGLOB='*.js|package.json'
   typeset -g POWERLEVEL9K_ASDF_SHOW_ON_UPGLOB=
@@ -871,7 +871,7 @@
   # - P9K_TODO_TOTAL_TASK_COUNT     The total number of tasks.
   # - P9K_TODO_FILTERED_TASK_COUNT  The number of tasks after filtering.
   #
-  # These variables correspond to the last line of the output of `todo.sh -p ls`:
+  # These variables correspond to the last line of the output of 'todo.sh -p ls':
   #
   #   TODO: 24 of 42 tasks shown
   #
@@ -900,8 +900,8 @@
 
   # Taskwarrior segment format. The following parameters are available within the expansion.
   #
-  # - P9K_TASKWARRIOR_PENDING_COUNT   The number of pending tasks: `task +PENDING count`.
-  # - P9K_TASKWARRIOR_OVERDUE_COUNT   The number of overdue tasks: `task +OVERDUE count`.
+  # - P9K_TASKWARRIOR_PENDING_COUNT   The number of pending tasks: 'task +PENDING count'.
+  # - P9K_TASKWARRIOR_OVERDUE_COUNT   The number of overdue tasks: 'task +OVERDUE count'.
   #
   # Zero values are represented as empty parameters.
   #
@@ -1124,8 +1124,8 @@
   typeset -g POWERLEVEL9K_PACKAGE_FOREGROUND=117
   # Package format. The following parameters are available within the expansion.
   #
-  # - P9K_PACKAGE_NAME     The value of `name` field in package.json.
-  # - P9K_PACKAGE_VERSION  The value of `version` field in package.json.
+  # - P9K_PACKAGE_NAME     The value of 'name' field in package.json.
+  # - P9K_PACKAGE_VERSION  The value of 'version' field in package.json.
   #
   # typeset -g POWERLEVEL9K_PACKAGE_CONTENT_EXPANSION='${P9K_PACKAGE_NAME//\%/%%}@${P9K_PACKAGE_VERSION//\%/%%}'
   # Custom icon.
@@ -1335,14 +1335,14 @@
   # - P9K_CONTENT                The content that would've been displayed if there was no content
   #                              expansion defined.
   # - P9K_KUBECONTEXT_NAME       The current context's name. Corresponds to column NAME in the
-  #                              output of `kubectl config get-contexts`.
+  #                              output of 'kubectl config get-contexts'.
   # - P9K_KUBECONTEXT_CLUSTER    The current context's cluster. Corresponds to column CLUSTER in the
-  #                              output of `kubectl config get-contexts`.
+  #                              output of 'kubectl config get-contexts'.
   # - P9K_KUBECONTEXT_NAMESPACE  The current context's namespace. Corresponds to column NAMESPACE
-  #                              in the output of `kubectl config get-contexts`. If there is no
+  #                              in the output of 'kubectl config get-contexts'. If there is no
   #                              namespace, the parameter is set to "default".
   # - P9K_KUBECONTEXT_USER       The current context's user. Corresponds to column AUTHINFO in the
-  #                              output of `kubectl config get-contexts`.
+  #                              output of 'kubectl config get-contexts'.
   #
   # If the context points to Google Kubernetes Engine (GKE) or Elastic Kubernetes Service (EKS),
   # the following extra parameters are available:
@@ -1441,7 +1441,7 @@
   # Google cloud format. Change the value of POWERLEVEL9K_GCLOUD_PARTIAL_CONTENT_EXPANSION and/or
   # POWERLEVEL9K_GCLOUD_COMPLETE_CONTENT_EXPANSION if the default is too verbose or not informative
   # enough. You can use the following parameters in the expansions. Each of them corresponds to the
-  # output of `gcloud` tool.
+  # output of 'gcloud' tool.
   #
   #   Parameter                | Source
   #   -------------------------|--------------------------------------------------------------------
@@ -1464,7 +1464,7 @@
   typeset -g POWERLEVEL9K_GCLOUD_PARTIAL_CONTENT_EXPANSION='${P9K_GCLOUD_PROJECT_ID//\%/%%}'
   typeset -g POWERLEVEL9K_GCLOUD_COMPLETE_CONTENT_EXPANSION='${P9K_GCLOUD_PROJECT_NAME//\%/%%}'
 
-  # Send a request to Google (by means of `gcloud projects describe ...`) to obtain project name
+  # Send a request to Google (by means of 'gcloud projects describe ...') to obtain project name
   # this often. Negative value disables periodic polling. In this mode project name is retrieved
   # only when the current configuration, account or project id changes.
   typeset -g POWERLEVEL9K_GCLOUD_REFRESH_PROJECT_NAME_SECONDS=60
@@ -1548,7 +1548,7 @@
   # When on VPN, show just an icon without the IP address.
   # Tip: To display the private IP address when on VPN, remove the next line.
   typeset -g POWERLEVEL9K_VPN_IP_CONTENT_EXPANSION=
-  # Regular expression for the VPN network interface. Run `ifconfig` or `ip -4 a show` while on VPN
+  # Regular expression for the VPN network interface. Run 'ifconfig' or 'ip -4 a show' while on VPN
   # to see the name of the interface.
   typeset -g POWERLEVEL9K_VPN_IP_INTERFACE='(gpd|wg|(.*tun)|tailscale)[0-9]*|(zt.*)'
   # If set to true, show one segment per matching network interface. If set to false, show only
@@ -1575,7 +1575,7 @@
   #   P9K_IP_TX_RATE        | send rate (since last prompt)
   typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='${P9K_IP_RX_RATE:+%70F⇣$P9K_IP_RX_RATE }${P9K_IP_TX_RATE:+%215F⇡$P9K_IP_TX_RATE }%38F$P9K_IP_IP'
   # Show information for the first network interface whose name matches this regular expression.
-  # Run `ifconfig` or `ip -4 a show` to see the names of all network interfaces.
+  # Run 'ifconfig' or 'ip -4 a show' to see the names of all network interfaces.
   typeset -g POWERLEVEL9K_IP_INTERFACE='[ew].*'
   # Custom icon.
   # typeset -g POWERLEVEL9K_IP_VISUAL_IDENTIFIER_EXPANSION='⭐'
@@ -1628,7 +1628,7 @@
   ####################################[ time: current time ]####################################
   # Current time color.
   typeset -g POWERLEVEL9K_TIME_FOREGROUND=66
-  # Format for the current time: 09:51:02. See `man 3 strftime`.
+  # Format for the current time: 09:51:02. See 'man 3 strftime'.
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%I:%M:%S %p}'
   # If set to true, time will update when you hit enter. This way prompts for the past
   # commands will contain the start times of their commands as opposed to the default
@@ -1640,10 +1640,10 @@
   # typeset -g POWERLEVEL9K_TIME_PREFIX='%244Fat '
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
-  # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
+  # prompt if 'example' prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
   # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS. It displays an icon and orange text greeting the user.
   #
-  # Type `p10k help segment` for documentation and a more sophisticated example.
+  # Type 'p10k help segment' for documentation and a more sophisticated example.
   function prompt_example() {
     p10k segment -f 208 -i '' -t '  '
   }
@@ -1653,16 +1653,16 @@
   # https://github.com/romkatv/powerlevel10k/blob/master/README.md#instant-prompt.
   #
   # Powerlevel10k will call instant_prompt_* at the same time as the regular prompt_* function
-  # and will record all `p10k segment` calls it makes. When displaying instant prompt, Powerlevel10k
+  # and will record all 'p10k segment' calls it makes. When displaying instant prompt, Powerlevel10k
   # will replay these calls without actually calling instant_prompt_*. It is imperative that
-  # instant_prompt_* always makes the same `p10k segment` calls regardless of environment. If this
+  # instant_prompt_* always makes the same 'p10k segment' calls regardless of environment. If this
   # rule is not observed, the content of instant prompt will be incorrect.
   #
   # Usually, you should either not define instant_prompt_* or simply call prompt_* from it. If
   # instant_prompt_* is not defined for a segment, the segment won't be shown in instant prompt.
   function instant_prompt_example() {
-    # Since prompt_example always makes the same `p10k segment` calls, we can call it from
-    # instant_prompt_example. This will give us the same `example` prompt segment in the instant
+    # Since prompt_example always makes the same 'p10k segment' calls, we can call it from
+    # instant_prompt_example. This will give us the same 'example' prompt segment in the instant
     # and regular prompts.
     prompt_example
   }
@@ -1703,7 +1703,7 @@
   (( ! $+functions[p10k] )) || p10k reload
 }
 
-# Tell `p10k configure` which file it should overwrite.
+# Tell 'p10k configure' which file it should overwrite.
 typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}

@@ -5,27 +5,46 @@ super + Return
 	kitty -c ~/.config/kitty/themes/47z1.conf
 
 	# program launcher
-super + d  
+super + a
 	rofi -no-lazy-grab -show drun -modi drun -theme  ~/.config/rofi/config.rasi
 
-	# r@fi light
-super + 
-    rofi -show drun
-
 	# make sxhkd reload its configuration files:
-super + Escape
+control + Escape
 	pkill -USR1 -x sxhkd
+
+	# finder
+super + e
+	dolphin
+
+	# Google-Chrome  
+super alt + g 
+	google-chrome
+
+	# firefox
+super alt + f
+	firefox-esr
+
+	# Burpsuite 
+super + alt + b 
+	burpsuite
 
 # -----------  bspwm hotkeys   ---------------------------------- 
 
 	# quit/restart bspwm
-super + shift + {q,r}
-	bspc {quit,wm -r}
+super + shitf + q
+	bspc quit
 
-	# close and kill
-super + alt + {q,a}
-	bspc node -{c,k}
+super + shitf + r
+	bspc -wm -r
 
+	# close 
+super + Escape
+	bspc node -c
+
+	# kill
+super + alt + Escape
+	bspc node -k
+	
 	# alternate between the tiled and monocle layout
 super + w
 	bspc desktop -l next
@@ -38,20 +57,22 @@ super + y
 super + g
 	bspc node -s biggest.window
 
+
 # -----------  state/flags ---------------------------------- 
 
 	# set the window state
-super + {t,shift + t,f,r}
+super + {d,shift + d,f,r}
 	bspc node -t {floating,tiled,pseudo_tiled,fullscreen}
 
 	# set the node flags
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
+
 # -----------  focus/swap ---------------------------------- 
 
 	# focus the next/previous window in the current desktop
-super + {_,shift + }q
+super + {_,shift + }d
 	bspc node -f {next,prev}.local.!hidden.window
 
 	# focus the last node/desktop
@@ -71,7 +92,7 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 	# focus the older or newer node in the focus history
-super + {a,s}
+super + {x,s}
 	bspc wm -h off; \
 	bspc node {older,newer} -f; \
 	bspc wm -h on
@@ -80,11 +101,12 @@ super + {a,s}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
+
 # -----------  resize ---------------------------------- 
 
 	# Custom resize, contract a window by moving one of its side inward
 super + alt {Left,Down,Up,Right}
-      $HOME/.config/bspwm/scripts/bspwm_resize {west,south,north,east} 
+      ${HOME}/.config/bspwm/scripts/bspwm_resize {west,south,north,east} 
 
 	# move a floating window
 super + alt + shift {Left,Down,Up,Right}
@@ -131,30 +153,12 @@ XF86AudioPrev
 XF86AudioStop
     playerctl stop
 
-# ----------- APPS  ---------------------------------- 
+# ----------- Polyb4r & m1Sc  ---------------------------------- 
 
-super + alt + e
-	dolphin
+super + alt + p
+	sudo killall polybar
 
-	# Google-Chrome  
-super alt + g 
-	google-chrome
-
-	# firefox
-super alt + f
-	firefox-esr
-
-	# Burpsuite 
-super + alt + b 
-	burpsuite
-
-	# Color Picker
-super + alt + c
-	$HOME/.config/bspwm/scripts/color_picker.sh
-
-# ----------- Polyb4r  ---------------------------------- 
-
-super + ctrl + 1
+	super + ctrl + 1
 	sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/pentest.ini
 
 super + ctrl + 2
@@ -166,12 +170,6 @@ super + ctrl + 3
 super + ctrl + 4
 	sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/47z1.ini
 
-	# Kill Polybar
-super + alt + p
-	sudo killall polybar
-
-# -----------   ---------------------------------- 
-
 	# Lab htb
 super + alt + v
 	sudo openvpn ~/d35kT0p/h7B/vp3n3s/lab_47z1Lu7h.ovpn
@@ -180,3 +178,6 @@ super + alt + v
 super + alt + k
 	sudo killall openvpn
 
+	# Color Picker
+super + alt + c
+	${HOME}/.config/bspwm/scripts/color_picker.sh

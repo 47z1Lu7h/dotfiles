@@ -1,26 +1,26 @@
 
 /*---------- General setting ----------*/
 configuration {
-	dpi: 180;
-	font:				"IosevkaTerm";
-	show-icons:			true;
-	icon-theme:			"WhiteSur-dark";
+	dpi:					180;
+	font:					"IosevkaTerm";
+	show-icons:				true;
+	icon-theme:				"WhiteSur-dark";
 	display-drun:			"";
-	drun-display-format:		"{icon} {name}";
+	drun-display-format:	"{icon} {name}";
 	disable-history:		false;
 	sidebar-mode:			true;
 	click-to-exit:			true;
-	location:			6;
-	modi:				[window,run,ssh,drun];
+	location:				6;
+	modi:					[window,run,ssh,drun];
 }
 
 * {
-	BG:				#10121399;
-	BGA:				#101213;
-	FG:				#edeff0ff;
-	UGT:				#df5b61ff;
-	VR:				#c21024;
-	Blue:				#0bd67e;
+	black:				#10121399;
+	veryBlack:			#101213;
+	white:				#edeff0ff;
+	allGreen:			#df5b61ff;
+	red:				#c21024;
+	blue:				#0bd67e;
 	purple:				#7a0785;
 	veryGreen:			#4af40b;
 	softGreen:			#0bf441;
@@ -33,62 +33,62 @@ configuration {
 
 window {
 	transparency:			"real";
-	background-color:		@BG;
-	text-color:			@FG;
+	background-color:		@black;
+	text-color:				@white;
 	border-radius:			1%;
-	width:				35%;
-	x-offset:			0%;
-	y-offset:			-6%;
+	width:					30%;
+	x-offset:				0%;
+	y-offset:				-4%;
 }
 
 prompt {
-	enabled:                        true;
-	background-color:               @BG;
-	text-color:                     @FG;
+	enabled:				true;
+	background-color:		@black;
+	text-color:				@white;
 }
 
 textbox-prompt-colon {
-	expand:				false;
-	str:				"   ";
-	background-color:		@BGA;
-	text-color:			@yellow;
-	paccing:			0 0 0 0;
-	font:				"Iosevka Term Thin 19";
+	expand:					false;
+	str:					"   ";
+	background-color:		@veryBlack;
+	text-color:				@yellow;
+	paccing:				0 0 0 0;
+	font:					"Iosevka Term Thin 14";
 }
 
 entry {
-	background-color:		@BGA;
-	text-color:                     @ligthBlue;
-	placeholder-color:              @turqoise;
-	expand:                         true;
-	horizontal-align:               0;
-	placeholder:                    "Tell your mother you LOVE her sometimes ...";
-	font:                           "Iosevka Term Light 9";
-	blink:                          true;
-	padding:                        0.3%;
+	background-color:		@veryBlack;
+	text-color:				@ligthBlue;
+	placeholder-color:		@turqoise;
+	expand:					true;
+	horizontal-align:		0;
+	placeholder:			"Tell your mother you LOVE her sometimes ...";
+	font:					"IosevkaTerm Light 10";
+	blink:					true;
+	padding:				0.3%;
 }
 
 inputbar {
-	children:                       [ textbox-prompt-colon, entry ];
-	spacing:                        0;
-	background-color:               @BGA;
-	text-color:                     @FG;
-	expand:                         false;
-	border-radius:                  0.1%;
-	position:                       center;
+	children:				[ textbox-prompt-colon, entry ];
+	spacing:				0;
+	background-color:		@veryBlack;
+	text-color:				@white;
+	expand:					false;
+	border-radius:			0.1%;
+	position:				center;
 }
 
 case-indicator {
-	background-color:		@BG;
-	text-color:			@FG;
+	background-color:	@black;
+	text-color:			@white;
 	spacing:			0;
 }
 
 
 listview {
-	background-color:               #00000000;
-	columns:                        5;
-	lines:                          3;
+	background-color:   #00000000;
+	columns:            5;
+	lines:              3;
 	spacing:			0.2%;
 	cycle:				false;
 	dynamic:			true;
@@ -96,61 +96,61 @@ listview {
 }
 
 mainbox {
-	background-color:		@BG;
+	background-color:	@black;
 	children:			[ inputbar, listview ];
 	spacing:			1%;
 	padding:			1%;
 }
 
 element {
-	background-color:		#00000000;
+	background-color:	#00000000;
 	text-color:			@ligthBlue;
-	orientation:			vertical;
-	border-radius:			0.1%;
+	orientation:		vertical;
+	border-radius:		0.1%;
 	padding:			0.1%;
 }
 
 element-icon {
-	background-color:		inherit;
+	background-color:	inherit;
 	text-color:			inherit;
-	horizontal-align:		0.5;
-	vertical-align:			0.5;
-	size:				6%;
+	horizontal-align:	0.5;
+	vertical-align:		0.5;
+	size:				3%;
 }
 
 element-text {
-	background-color:		inherit;
+	background-color:	inherit;
 	text-color:			inherit;
 	expand:				true;
-	horizontal-align:		0.5;
-	vertical-align:			0.5;
+	horizontal-align:	0.5;
+	vertical-align:		0.5;
 }
 
 element normal.urgent,
 element alternate.urgent {
-	background-color:		@UGT;
-	text-color:			@FG;
+	background-color:		@allGreen;
+	text-color:				@white;
 	border-radius:			0.5%;
 }
 
 element normal.active,
 element alternate.active {
-	background-color:		@BGA;
-	text-color:			@FG;
+	background-color:		@veryBlack;
+	text-color:				@white;
 }
 
 element selected {
-	background-color:		@BGA;
-	text-color:			@yellow;
-	border-radius:			0.4%;
+	background-color:		@veryBlack;
+	text-color:				@yellow;
+	border-radius:			0.2%;
 }
 
 element selected.urgent {
-	background-color:		@UGT;
-	text-color:			@FG;
+	background-color:		@allGreen;
+	text-color:				@white;
 }
 
 element selected.active {
-	background-color:		@BGA;
-	color:                          @FG;
+	background-color:		@veryBlack;
+	color:                	@white;
 }

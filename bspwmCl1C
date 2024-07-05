@@ -24,7 +24,7 @@ if test -t 1; then
 fi
 
 # --> Globals
-declare -r packages="zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance"
+declare -r packages="zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance ranger"
 declare -r dpnDeb_Bspwm="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
 declare -r dpnDeb_Poly="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev"
 declare -r dpnDeb_Picom="libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev"
@@ -127,7 +127,8 @@ function code() {
 			if [ $? -eq 0 ]; then
 				rm -f packages.microsoft.gpg &&
 				sudo apt install apt-transport-https -y &&
-				sudo apt update && sudo apt install code -y
+				sudo apt update && sudo apt install code -y &&
+				cp -r $cwd/config/Code/User/* ~/.config/Code*/User/
 			fi
 		fi
 
@@ -137,12 +138,12 @@ function code() {
 		sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 		if [ $? -eq 0 ]; then
 			dnf check-update && sudo dnf install code
-			code & disown; sleep 3 && sudo killall code && cp -r $cwd/misc/code/user/* ~/.config/Cod*/User/
+			code & disown; sleep 3 && sudo killall code && cp -r $cwd/config/Code/User/* ~/.config/Code*/User/
 		fi
 
 	elif [ $OS = Arch ]; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}~~${bold}${cyan}> \n\n"
-		sudo pacman -s code
+		sudo pacman -s code && cp -r $cwd/config/Code/User/* ~/.config/Code*/User/
 	fi
 
 	tput civis
@@ -176,23 +177,23 @@ function firefox_esr() {
 	which firefox-esr >/dev/null
 	if [ $? -eq 0 ]; then
 		if [ -d ~/.mozilla/ ]; then
-			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		~/.mozilla/*firefox*/*default-esr*/
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome/*		~/.mozilla/firefox*/*default-esr*/
 		else
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 2 &&
-			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		~/.mozilla/*firefox*/*default-esr*/
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome/*		~/.mozilla/firefox*/*default-esr*/chrome/
 		fi
 	else
 		if  [ $OS = debian ]; then
 			sudo apt update && sudo apt install firefox-esr -y && sudo apt autoremove -y && sudo apt autoclean -y &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
-			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		$HOME/.mozilla/*firefox-*/*default-esr*/
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		$HOME/.mozilla/firefox-*/*default-esr*/
 
 		elif [ $NAME = Ubuntu]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr${cyan}! \n"
 			sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
-			cp -r  $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/*firefox-*/*.default-esr*/
+			cp -r  $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox-*/*.default-esr*/
 
 		elif  [ $OS = Arch ]; then
 			sudo pacman -S firefox-esr
@@ -322,6 +323,12 @@ function zsh_Plugins(){
 		echo -ne "\n\t${bold}${black} ${end}${blue}fzf-history-search ${yellow}\t ${bold}\t${green}done  ${end}\t"
 	else
 		sudo git clone "https://github.com/joshskidmore/zsh-fzf-history-search.git"	/usr/share/zsh-fzf-history-search
+	fi
+
+	if [ -d /usr/share/zsh/hacker-quotes ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue}hacker-quotes ${yellow}\t ${bold}\t${green}done  ${end}\t"
+	else
+		sudo git clone https://github.com/oldratlee/hacker-quotes.git			 /usr/share/zsh/hacker-quotes
 	fi
 
 	if [ -d /usr/share/zsh-syntax-highlighting ]; then

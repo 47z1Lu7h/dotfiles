@@ -19,7 +19,27 @@ alias	lta='lsd -ha --tree --group-dirs=first --depth'
 alias	llt='lsd -lh --tree --group-dirs=first --depth'
 alias	llta='lsd -lha --tree --group-dirs=first --depth'
 
+alias   '..'='cd ../'
+alias	s='sudo'
+alias	n='neofetch'
+alias	na='nano'
+alias	rr='trash -frv'
+alias	nv='nvim'
+
+alias	upd='sudo apt update'
+alias	upg='sudo apt update && sudo apt upgrade -y'
+alias	up6='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y'
+alias	auT0-Remove='sudo apt autoremove -y'
+alias	auT0-Clean='sudo apt autoclean -y'
+alias	aUT0='sudo apt autoremove -y && sudo apt autoclean -y'
+alias	ki='kitty +kitten icat'
+
+alias   t-list='trash-list'
+alias   t-restore='trash-restore'
+alias   t-empty='trash-empty'
+
 alias	history="history 0"
+alias	hg='history | grep -Ei'
 alias	dir='dir --color=auto'
 alias	vdir='vdir --color=auto'
 alias	g53p='grep  --color=auto --exclude-dir=.bzr,CVS,.git,.hg,.svn'
@@ -32,31 +52,11 @@ alias	ip='ip --color=auto'
 alias	catn='/usr/bin/cat '
 alias	cat='/usr/bin/batcat'
 alias	c='/usr/bin/batcat -p'
-alias	hg='history | grep -Ei'
+
 alias	list-f0Nt5='kitty +list-fonts'
-
-alias   ..='cd ..'
-alias	s='sudo'
-alias   r3B00t='sudo reboot'
-alias	p0W350ff='sudo poweroff'
-alias	n='neofetch'
-alias	na='nano'
-alias	rr='trash -frv'
-alias	nv='nvim'
-alias	ki='kitty +kitten icat'
-
-alias	upd='sudo apt update'
-alias	upg='sudo apt upgrade -y'
-alias	uPG+='sudo apt update && sudo apt upgrade -y'
-alias	uPg-4Ut@='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y'
-alias	auT0-Clean='sudo apt autoclean -y'
-alias	auT0-Remove='sudo apt autoremove -y'
-alias	aUT@='sudo apt autoremove -y && sudo apt autoclean -y'
-alias	in5t4ll1ng='sudo apt install -y'
-alias	re1N5t4ll1ng='sudo apt reinstall -y'
-alias	un1N5t4ll1ng='sudo apt purge -y'
 alias	x4MP='sudo /opt/lampp/xampp'
 alias	sYs='sudo systemctl'
+alias	myIp='curl icanhazip.com'
 
 alias	tun0="echo '${BYellow}$(ip a | grep tun0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')'"
 alias	tun1="echo '${BYellow}$(ip a | grep tun1 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')'"
@@ -87,4 +87,44 @@ alias	kitty-daddy='kitty -c ~/.config/kitty/themes/daddy.conf & disown'
 alias	kitty-goMono='kitty -c ~/.config/kitty/themes/goMono.conf & disown'
 alias	kitty-hack='kitty -c ~/.config/kitty/themes/hack.conf & disown'
 
+alias netCons='lsof -i'                         #  Show all open TCP/IP sockets
+alias lsock='sudo lsof -i -P'                   # Disp0lay open sockets
+alias lsockU='sudo lsof -nP | grep UDP'         # Display only open UDP sockets
+alias lsockT='sudo lsof -nP | grep TCP'         # Display only open TCP sockets
+alias openPorts='sudo lsof -i | grep LISTEN'    # openPorts:    All listening connections
+
+#   findPid: find out the pid of a specified process
+#   -----------------------------------------------------
+#       Note that the command name can be specified via a regex
+#       E.g. findPid '/d$/' finds pids of all processes with names ending in 'd'
+#       Without the 'sudo' it will only find processes of the current user
+#   -----------------------------------------------------
+    findPid () { lsof -t -c "$@" ; }
+
+#   memHogsTop, memHogsPs:  Find memory hogs
+#   -----------------------------------------------------
+    alias memHogsTop='top -1 -o RES | head -20'
+    alias memHogsPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
+
+#   cpuHogs:  Find CPU hogs
+#   -----------------------------------------------------
+    alias cpuHogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
+
+#   topForever:  Continual 'top' listing (every 10 seconds)
+#   -----------------------------------------------------
+    alias topForever='top -d 10 -o %CPU'
+
+#   ii:  display useful host related informaton
+#   -------------------------------------------------------------------
+    ii() {
+        echo -e "\nYou are logged on ${RED}$HOST"
+        echo -e "\nAdditionnal information:$NC " ; uname -a
+        echo -e "\n${On_Iblack}Users logged on:$NC " ; w -h
+        echo -e "\n${BIgreen}Current date :$NC " ; date
+        echo -e "\n${Ired}Machine stats :$NC " ; uptime
+        echo -e "\n${BIcyan}Current network location :$NC " ; curl ipinfo.io
+        echo -e "\n${Byellow}Public facing IP Address :$NC " ; myIp
+        # echo -e "\n${red}DNS Configuration:$NC " ; scutil --dns
+        echo
+    }
 

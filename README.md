@@ -1,4 +1,4 @@
-<img src='/street.jpg'>
+<img src='.github/assets/image.jpg'>
 
 <h1 align="center">✨ 47z!Lu7h Dofiles! ✨</h1>
 
@@ -27,11 +27,11 @@
 <a id="about"></a>
 
 ## Starring:
-![Screenshot](street.jpg)
+![Screenshot](.github/assets/image.jpg)
 
 <img src="/screenshots/EwwLogo.png" alt="eww" align="right" height="180vh">
 
-- **Note:** Check out the `modified` branch for a newer setup. Hope you like it!
+- **Note:** Check out the 'modified' branch for a newer setup. Hope you like it!
 - **xmonad** ⚽ 
 - **eww** (Very wacky)
 - **firefox** 🦊
@@ -211,12 +211,12 @@ Workflow GIF: (This is a short one, for more goodies look at the links below)
 | <kbd>Meta</kbd> + <kbd>⯆</kbd>                              | Scroll down by line                |
 | <kbd>Meta</kbd> + <kbd>home</kbd>                            | Scroll up to top                   |
 | <kbd>Meta</kbd> + <kbd>end</kbd>                             | Scroll down to bottom              |
-| <kbd>Meta</kbd> + <kbd>`right click`</kbd> (hold)            | Show context-menu                  |
+| <kbd>Meta</kbd> + <kbd>'right click'</kbd> (hold)            | Show context-menu                  |
 |                                                              |                                    |
 | **URL Selection (matcher)**                                  |                                    |
 | <kbd>Meta</kbd> + <kbd>shift</kbd> + <kbd>U</kbd>            | Activate URL selection             |
 | <kbd>⯇</kbd> / <kbd>⯅</kbd> / <kbd>⯈</kbd> / <kbd>⯆</kbd> | Navigate URL selection             |
-| <kbd>enter</kbd> / <kbd>`left click`</kbd>                   | Open selected URL                  |
+| <kbd>enter</kbd> / <kbd>'left click'</kbd>                   | Open selected URL                  |
 | <kbd>esc</kbd>                                               | Deactivate URL selection           |
 |                                                              |                                    |
 | **Font Resizer**                                             |                                    |
@@ -237,9 +237,9 @@ Workflow GIF: (This is a short one, for more goodies look at the links below)
 > **SHELL**  
 > Most shells use the readline([3](https://www.man7.org/linux/man-pages/man3/readline.3.html#EDITING_COMMANDS)) library.
 > In addition, provided by shell plugins.
-> ```sh
+> '''sh
 > 💲 man 3 readline | less +/EDITING\ COMMANDS
-> ```
+> '''
 
 
 <a id="inst"></a>
@@ -254,25 +254,25 @@ If you feel like you don't want to read so much, here's a video, courtesy of [@S
 
 
 Note: Whatever method you follow, if you want the weather and quote features to work as well, you need to modify your crontab as follows: <br>
-(To edit your crontab, `crontab -e` as a normal user.)
+(To edit your crontab, 'crontab -e' as a normal user.)
 
 
 
-```
+'''
 0,30 * * * * /home/{Your-username}/.config/eww/scripts/getweather
 @reboot /home/{Your-username}/.config/eww/scripts/getquotes
-```
+'''
 
 
 And please follow these next few steps as well:
-- Add `export PATH="$PATH:$HOME/bin"` to your `~/.bashrc` file (or a shell of your choice).
-- Edit the script in `~/.config/eww/scripts/getweather`. Further steps are specified within that file.
-- Open `tint2conf` and edit the theme `panellauncher.tint2rc`. In there, head over to the `Launcher` tab and set the icon theme as candy-icons.
-- Get the Museo Sans 300 (ONLY THE 300 WEIGHT PLEASE, OTHERS LOOK WEIRD) font from Adobe itself or any other sources, put the `.ttf` or `.otf` file in your `~/.local/share/fonts`
-  - Run `fc-cache -f` after getting the font.
-- If the widgets don't work properly, go to [the main repository](https://github.com/elkowar/eww) and install `eww` as documented. Make sure the resulting binary is stored in `~/bin`.
-- Issue `xmonad --recompile` after you complete all the steps, and relogin to xmonad.
-- For the profile picture to load, it needs to have the full path in `eww.scss`. Open the file, search for the string containing `~/.config`(line number 329 to be exact) and edit it to point it to your image. Full path required. For example: `$HOME/path/to/image.png`.
+- Add 'export PATH="$PATH:$HOME/bin"' to your '~/.bashrc' file (or a shell of your choice).
+- Edit the script in '~/.config/eww/scripts/getweather'. Further steps are specified within that file.
+- Open 'tint2conf' and edit the theme 'panellauncher.tint2rc'. In there, head over to the 'Launcher' tab and set the icon theme as candy-icons.
+- Get the Museo Sans 300 (ONLY THE 300 WEIGHT PLEASE, OTHERS LOOK WEIRD) font from Adobe itself or any other sources, put the '.ttf' or '.otf' file in your '~/.local/share/fonts'
+  - Run 'fc-cache -f' after getting the font.
+- If the widgets don't work properly, go to [the main repository](https://github.com/elkowar/eww) and install 'eww' as documented. Make sure the resulting binary is stored in '~/bin'.
+- Issue 'xmonad --recompile' after you complete all the steps, and relogin to xmonad.
+- For the profile picture to load, it needs to have the full path in 'eww.scss'. Open the file, search for the string containing '~/.config'(line number 329 to be exact) and edit it to point it to your image. Full path required. For example: '$HOME/path/to/image.png'.
 
 
 
@@ -284,13 +284,13 @@ And please follow these next few steps as well:
 THIS MAKES BACKUPS TOO, SO YEAH. JUST DO IT. DO IT!
 
 
-```bash
+'''bash
 $ git clone https://github.com/Axarva/dotfiles-2.0.git
 $ cd ./dotfiles-2.0
 $ chmod +x ./install-on-arch.sh
 $ ./install-on-arch.sh
 $ sudo ln -s /usr/lib/libasan.so.8 /usr/lib/libasan.so.6 #This is here for tint2 to work.
-```
+'''
 
 
 
@@ -305,7 +305,7 @@ AND DON'T FORGET TO READ WHAT'S WRITTEN AT THE END OF THE MAIN INSTALLATION SECT
 ### For Gentoo Linux users (And basically any other distro): 🚂
 I'm sorry I couldn't do it. You'll have to manually install dependencies.
 
-**Piece of good advice**:  If you use `systemd`, go ahead and ignore this, and skip to [Going ahead: Others Edition](#ga-other).
+**Piece of good advice**:  If you use 'systemd', go ahead and ignore this, and skip to [Going ahead: Others Edition](#ga-other).
 
 
 In case you use something else, I recommend opening this repository in a text editor after you clone it, and global-replace the stuff that suits your system. After that, go ahead with [Going ahead: Others Edition](#ga-other).
@@ -316,12 +316,12 @@ In case you use something else, I recommend opening this repository in a text ed
 You need to install the dependencies yourself, this script will add the fonts and the configs (and back up existing ones too):
 
 
-```bash
+'''bash
 $ git clone https://github.com/Axarva/dotfiles-2.0.git
 $ cd ./dotfiles-2.0
 $ chmod +x ./install-on-gentoo.sh
 $ ./install-on-gentoo.sh
-```
+'''
 
 AND DON'T FORGET TO READ WHAT'S WRITTEN AT THE END OF THE MAIN INSTALLATION SECTION [UP THERE](#inst). Further steps are specified there. (Yes. Absolutely needs to be shouty capitals.)
 <a id="deps"></a>
@@ -358,14 +358,14 @@ Here you go. Make sure you have em all.
 And here we are:
 
 
-1. If xmonad doesn't build make sure you have the `xmonad-contrib` package.
-2. Bar looks weird: Try editing it a bit using `~/bin/tint2conf`. 
+1. If xmonad doesn't build make sure you have the 'xmonad-contrib' package.
+2. Bar looks weird: Try editing it a bit using '~/bin/tint2conf'. 
 3. Alacritty configs are faulty: I'm not sure about this one, works perfectly fine for me. 
 4. Widgets positioning weird: I hardcoded them for a 1366x768 screen, will create others if I can
 5. Fonts: GET THOSE FONTS!
-6. **MAKE SURE YOUR `~/bin` DIRECTORY IS IN YOUR PATH, OR NOTHING WILL WORK!** (Yes. Absolutely needs to be shouty capitals.)
-7. For instructions regarding use on VirtualMachine, please do check the `VM` folder of this repository.
-8. Bars not showing on Arch Linux: `sudo ln -s /usr/lib/libasan.so.8 /usr/lib/libasan.so.6`
+6. **MAKE SURE YOUR '~/bin' DIRECTORY IS IN YOUR PATH, OR NOTHING WILL WORK!** (Yes. Absolutely needs to be shouty capitals.)
+7. For instructions regarding use on VirtualMachine, please do check the 'VM' folder of this repository.
+8. Bars not showing on Arch Linux: 'sudo ln -s /usr/lib/libasan.so.8 /usr/lib/libasan.so.6'
 9. The workspace indicator bar issue has been solved through the binaries in my fork.
 10. Anything else? Open up an issue.
    

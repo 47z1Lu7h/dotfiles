@@ -6,12 +6,12 @@
 }
 
 * {
-  scrollbar-width: smaal;
+  scrollbar-width: small;
 }
 
 @-moz-document url("about:sessionrestore") {
   * {
-    font-family: "IosevkaTerm", monospace, !important;
+    font-family: "Iosevka", monospace, !important;
   }
 
   body {

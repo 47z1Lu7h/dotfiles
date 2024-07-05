@@ -38,6 +38,40 @@ function set_linux_colors(){
 }
 set_linux_colors()
 
+	# - Some git alias
+function gac-Push { git add -A; git commit -a -m "$1"; git push }
+function gs { git status }
+function gd { git diff }
+function ge { git commit --allow-empty -m "Empty commit" }
+function gf { git push --force }
+function gg { git checkout main || git checkout master; git pull; git status }
+function gi { ee git cherry-pick $(vv $@) }
+function gm { git add --all; git commit --amend --allow-empty }
+function gn { gg; ee git checkout -b $(vv $@) }
+function gP { git pull }
+function gp { git push }
+function gr { git log --all --grep="$@" --regexp-ignore-case --pretty=format:'%C(yellow)%h %C(magenta)%ad %C(green)%s %C(cyan)%an' --date=short }
+	# [b]ranch delete
+function gb { git branch --merged | grep --invert-match "main$" | grep --invert-match "^\*" }
+function gbb { gb | xargs git branch --delete; git remote prune origin }
+function gbd { git branch --delete --force $@; git push origin --delete $@ }
+	# rebase
+function gx { git add --all; ee git commit --fixup $(vv $@) }
+function gxx { (git fetch origin main && git rebase --interactive --autosquash origin/main) || (git fetch origin master && git rebase --interactive --autosquash origin/master) }
+function gxb { git rebase --interactive --autosquash HEAD~$(($@ + 1)) }
+	# rebase conflict
+function gxa { git add --all; git rebase --abort }
+function gxc { git add --all; git rebase --continue }
+	# [u]ndo and discard
+function gu { git reset --soft HEAD~$@ }
+function gz { git add --all; git reset --hard }
+function guz { gu $@; gz }
+	# stash
+function gc { git stash clear }
+function gl { git stash list }
+function gss { git add --all; git stash save }
+function ga { git stash apply "stash@{${@:-0}}" }
+
 function fshow(){
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" \
@@ -70,7 +104,7 @@ function  mans(){
       | less -R)"
 }
 
-	# - Set M4N colors
+ 	# - Set M4N colors
 function man() {
     env \
     LESS_TERMCAP_mb=$'\e[01;31m' \
@@ -177,47 +211,6 @@ function nice-FZF(){
 	fi
 }
 
-	# - Some git alias
-function git-ACP() { git add -A; git commit -a -m "$1"; git push }
-function gs { git status }
-function gd { git diff }
-function ge { git commit --allow-empty -m "Empty commit" }
-function gf { git push --force }
-function gg { git checkout main || git checkout master; git pull; git status }
-function gi { ee git cherry-pick $(vv $@) }
-function gm { git add --all; git commit --amend --allow-empty }
-function gn { gg; ee git checkout -b $(vv $@) }
-function gP { git pull }
-function gp { git push }
-function gr { git log --all --grep="$@" --regexp-ignore-case --pretty=format:'%C(yellow)%h %C(magenta)%ad %C(green)%s %C(cyan)%an' --date=short }
-	# [b]ranch delete
-function gb { git branch --merged | grep --invert-match "main$" | grep --invert-match "^\*" }
-function gbb { gb | xargs git branch --delete; git remote prune origin }
-function gbd { git branch --delete --force $@; git push origin --delete $@ }
-	# rebase
-function gx { git add --all; ee git commit --fixup $(vv $@) }
-function gxx { (git fetch origin main && git rebase --interactive --autosquash origin/main) || (git fetch origin master && git rebase --interactive --autosquash origin/master) }
-function gxb { git rebase --interactive --autosquash HEAD~$(($@ + 1)) }
-	# rebase conflict
-function gxa { git add --all; git rebase --abort }
-function gxc { git add --all; git rebase --continue }
-	# [u]ndo and discard
-function gu { git reset --soft HEAD~$@ }
-function gz { git add --all; git reset --hard }
-function guz { gu $@; gz }
-	# stash
-function gc { git stash clear }
-function gl { git stash list }
-function gss { git add --all; git stash save }
-function ga { git stash apply "stash@{${@:-0}}" }
-
-
-function scat() {
-  for arg in "$@"; do
-    pygmentize -g "$arg" 2> /dev/null || cat "$arg"
-  done
-}
-
 function ranger_cd() {
     tmp="$(mktemp)"
     ranger --choosedir="$tmp" "$@"
@@ -271,13 +264,13 @@ function rga-fzf() {
 	xdg-open "$file"
 }
 
-function c0l0R-GR1D_BACKGR0UNDS() {
+function color-GR1D_BACKGR0UNDS() {
 	echo -e "\n${On_IBlack}${UBlue}${IBlue}=============${On_ICyan}${BIBlue}   fuNCt10n  ~>  Color~Grid   ${end}${On_IBlack}${UBlue}${IBlue}================\n===========================================================${end}\n"
 	sleep 0.2
 	for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}  ${(l:3::0:)i}%f   " ${${(M)$((i%6)):#3}:+$'\n'}; done 
 }
 
-function c0l0R-GR1D() {
+function color-GR1D() {
 	echo -e "\n${On_IBlack}${UBlue}${IBlue}=============${On_ICyan}${BIBlue}   fuNCt10n  ~>  Color~Grid   ${end}${On_IBlack}${UBlue}${IBlue}================\n===========================================================${end}\n"
 	sleep 0.2
 
@@ -367,6 +360,6 @@ function sC4n-nM4p() {
 	nmap -sCV -vv -p${ports} $1 -oN targeted && /usr/bin/batcat targeted -ljava
 }
 
-function entry2h0sts() { echo $1 | sudo tee -a /etc/hosts }
+function entry-2-h0sTs() { echo $1 | sudo tee -a /etc/hosts }
 
 function matrix() { echo -e "\e[1;40m" ; clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|awk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4;        letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}' }
