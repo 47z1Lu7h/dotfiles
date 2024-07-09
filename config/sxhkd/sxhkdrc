@@ -17,11 +17,11 @@ super + e
 	dolphin
 
 	# Google-Chrome  
-super alt + g 
-	google-chrome
-
+super + alt + g 
+	google-chrome-stable
+	
 	# firefox
-super alt + f
+super + alt + f
 	firefox-esr
 
 	# Burpsuite 
@@ -31,10 +31,10 @@ super + alt + b
 # -----------  bspwm hotkeys   ---------------------------------- 
 
 	# quit/restart bspwm
-super + shitf + q
+super + shift + q
 	bspc quit
 
-super + shitf + r
+super + shift + r
 	bspc -wm -r
 
 	# close 

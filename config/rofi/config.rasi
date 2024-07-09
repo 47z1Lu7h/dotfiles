@@ -18,7 +18,7 @@ configuration {
 	black:				#10121399;
 	veryBlack:			#101213;
 	white:				#edeff0ff;
-	allGreen:			#df5b61ff;
+	tinto:				#df5b61ff;
 	red:				#c21024;
 	blue:				#0bd67e;
 	purple:				#7a0785;
@@ -49,7 +49,7 @@ prompt {
 
 textbox-prompt-colon {
 	expand:					false;
-	str:					"   ";
+	str:					"      ";
 	background-color:		@veryBlack;
 	text-color:				@yellow;
 	paccing:				0 0 0 0;
@@ -104,7 +104,7 @@ mainbox {
 
 element {
 	background-color:	#00000000;
-	text-color:			@ligthBlue;
+	text-color:			@veryBlack;
 	orientation:		vertical;
 	border-radius:		0.1%;
 	padding:			0.1%;
@@ -115,7 +115,7 @@ element-icon {
 	text-color:			inherit;
 	horizontal-align:	0.5;
 	vertical-align:		0.5;
-	size:				3%;
+	size:				4%;
 }
 
 element-text {
@@ -128,7 +128,7 @@ element-text {
 
 element normal.urgent,
 element alternate.urgent {
-	background-color:		@allGreen;
+	background-color:		@tinto;
 	text-color:				@white;
 	border-radius:			0.5%;
 }
@@ -141,12 +141,12 @@ element alternate.active {
 
 element selected {
 	background-color:		@veryBlack;
-	text-color:				@yellow;
+	text-color:				@veryGreen;
 	border-radius:			0.2%;
 }
 
 element selected.urgent {
-	background-color:		@allGreen;
+	background-color:		@tinto;
 	text-color:				@white;
 }
 

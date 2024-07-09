@@ -1,17 +1,10 @@
 {
-  "workbench.colorTheme": "Bearded Theme Monokai Metallian",
-  "window.menuBarVisibility": "toggle",
-  "workbench.startupEditor": "newUntitledFile",
-  "editor.minimap.enabled": false,
-  "explorer.confirmDelete": false
-  },
   "window.titleBarStyle": "native",
   "window.menuBarVisibility": "toggle",
   "window.restoreWindows": "all",
   "files.hotExit": "onExit",
   "workbench.startupEditor": "none",
   "explorer.confirmDelete": false,
-  "tabnine.experimentalAutoImports": true,
   "extensions.ignoreRecommendations": true,
   "files.associations": {
     "*.pl": "prolog"
@@ -19,15 +12,23 @@
   "security.workspace.trust.enabled": false,
   "editor.minimap.enabled": false,
   "editor.formatOnSave": true,
+  "editor.glyphMargin": false,
+  "editor.lineNumbers": "off",
+  "editor.folding": false,
   "editor.inlineSuggest.enabled": true,
   "editor.smoothScrolling": true,
   "editor.suggestSelection": "first",
-  "editor.fontFamily": "Iosevka Nerd Font",
+  "editor.fontFamily": "IosevkaTerm Nerd Font",
   "editor.fontLigatures": true,
   "editor.fontSize": 15,
   "workbench.list.smoothScrolling": true,
   "workbench.productIconTheme": "icons-carbon",
   "workbench.colorCustomizations": {
+    "workbench.colorTheme": "Bearded Theme Monokai Metallian",
+    "window.menuBarVisibility": "toggle",
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.minimap.enabled": false,
+    "explorer.confirmDelete": false,
     "list.activeSelectionBackground": "#0D181C",
     "list.hoverBackground": "#0D181C",
     "editorWidget.background": "#0D181C",
@@ -79,16 +80,4 @@
     "terminal.ansiBrightCyan": "#7acfe4",
     "terminal.ansiBrightWhite": "#e5e5e5"
   },
-  "customizeUI.activityBar": "bottom",
-  "customizeUI.titleBar": "inline",
-  "customizeUI.font.regular": "Iosevka",
-  "customizeUI.fontSizeMap": {
-    "13px": "13px",
-    "monospace": "13px"
-  },
-  "customizeUI.stylesheet": {
-    ".tabs-container ": "padding-top:7px; padding-left:2px; padding-bottom:5px",
-    ".tabs-container > .tab": "border-radius: 7px 7px 7px 7px; height: 20px; margin-left: 5px; padding-right:4px",
-    ".monaco-editor .suggest-widget": "border-radius: 10px 10px 10px 10px; overflow:hidden;"
-  }
 }
