@@ -59,7 +59,7 @@ UbuntuMono
 VictorMono
 )
 
-version='3.1.1'
+version='3.2.1'
 fonts_dir="${HOME}/.local/share/fonts"
 
 if [[ ! -d "$fonts_dir" ]]; then

@@ -346,7 +346,7 @@ function set-dpi_polybar() {
 function settarget() {
 	ip_address=$1
 	machine_name=$2
-	echo "$ip_address $machine_name" > /$HOME/.config/polybar/bin/target
+	echo "$ip_address $machine_name" > /$HOME/.config/polybar/scripts/target
 }
 function rrf() {
 	scrub -p dod $1

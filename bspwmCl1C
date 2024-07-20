@@ -24,7 +24,7 @@ if test -t 1; then
 fi
 
 # --> Globals
-declare -r packages="zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance ranger"
+declare -r packages="slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance ranger"
 declare -r dpnDeb_Bspwm="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
 declare -r dpnDeb_Poly="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev"
 declare -r dpnDeb_Picom="libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev"
@@ -157,7 +157,7 @@ function lsd(){
 		sudo apt install lsd -y
 		if [ $? -ne 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Downloading lsd ${end}${cyan}~~${bold}${cyan}> \n\n"
-			sleep 1 && wget "https://github.com/lsd-rs/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb" -O lsd.deb && sudo dpkg -i lsd.deb && rm lsd.deb
+			sleep 1 && wget "https://github.com/lsd-rs/lsd/releases/download/v1.1.2/lsd_1.1.2_amd64.deb" -O lsd.deb && sudo dpkg -i lsd.deb && rm lsd.deb
 		fi
 
 	elif [ $OS = arch ]; then
@@ -177,23 +177,23 @@ function firefox_esr() {
 	which firefox-esr >/dev/null
 	if [ $? -eq 0 ]; then
 		if [ -d ~/.mozilla/ ]; then
-			cp -r $cwd/misc/home/.mozilla/firefox/chrome/*		~/.mozilla/firefox*/*default-esr*/
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox*/*default-esr*/
 		else
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 2 &&
-			cp -r $cwd/misc/home/.mozilla/firefox/chrome/*		~/.mozilla/firefox*/*default-esr*/chrome/
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox*/*default-esr*/
 		fi
 	else
 		if  [ $OS = debian ]; then
 			sudo apt update && sudo apt install firefox-esr -y && sudo apt autoremove -y && sudo apt autoclean -y &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
-			cp -r $cwd/misc/home/.mozilla/firefox/chrome/		$HOME/.mozilla/firefox-*/*default-esr*/
+			cp -r $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox*/*default-esr*/
 
 		elif [ $NAME = Ubuntu]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr${cyan}! \n"
 			sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
-			cp -r  $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox-*/*.default-esr*/
+			cp -r  $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox*/*.default-esr*/
 
 		elif  [ $OS = Arch ]; then
 			sudo pacman -S firefox-esr
@@ -267,7 +267,7 @@ function fonts(){
 		echo -ne "\n\t${bold}${black} ${end}${blue} Iosevka${yellow}\t ${bold}\t${green}done  ${end}\t"
 	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Iosevka ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
-		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/Iosevka.zip"
+		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Iosevka.zip"
 		sudo unzip -o Iosevka.zip -d /usr/share/fonts && rm Iosevka.zip
 	fi
 
@@ -276,7 +276,7 @@ function fonts(){
 		echo -ne "\n\t${bold}${black} ${end}${blue} IosevkaTerm${yellow}\t ${bold}\t${green}done  ${end}\t"
 	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
-		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/IosevkaTerm.zip"
+		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/IosevkaTerm.zip"
 		sudo unzip -o IosevkaTerm.zip -d /usr/share/fonts && rm IosevkaTerm.zip
 	fi
 
@@ -285,7 +285,7 @@ function fonts(){
 		echo -ne "\n\t${bold}${black} ${end}${blue} ComicShannsMono${yellow}\t ${bold}\t${green}done  ${end}\t"
 	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting ComicShannsMono ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
-		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/ComicShannsMono.zip"
+		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/ComicShannsMono.zip"
 		sudo unzip -o ComicShannsMono.zip -d /usr/share/fonts && rm ComicShannsMono.zip
 	fi
 
@@ -323,12 +323,6 @@ function zsh_Plugins(){
 		echo -ne "\n\t${bold}${black} ${end}${blue}fzf-history-search ${yellow}\t ${bold}\t${green}done  ${end}\t"
 	else
 		sudo git clone "https://github.com/joshskidmore/zsh-fzf-history-search.git"	/usr/share/zsh-fzf-history-search
-	fi
-
-	if [ -d /usr/share/zsh/hacker-quotes ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}hacker-quotes ${yellow}\t ${bold}\t${green}done  ${end}\t"
-	else
-		sudo git clone https://github.com/oldratlee/hacker-quotes.git			 /usr/share/zsh/hacker-quotes
 	fi
 
 	if [ -d /usr/share/zsh-syntax-highlighting ]; then
@@ -528,6 +522,10 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 	echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing Packages ${bold}${cyan}~~> \n\n"
 	if [ $OS = debian ]; then
 		sudo apt install -y $packages
+		if [ $? -ne 0 ]; then
+			echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}${yellow}Instaling ${cyan}Packages ${end}${blue}======= \n\n" && sleep 1 && exit 1
+		fi
+
 	elif [ $OS = arch ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	elif [ $OS = fedora ]; then
