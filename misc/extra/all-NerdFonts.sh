@@ -60,10 +60,11 @@ VictorMono
 )
 
 version='3.2.1'
-fonts_dir="${HOME}/.local/share/fonts"
+
+fonts_dir="/usr/share/fonts/n3RD_f0ntS"
 
 if [[ ! -d "$fonts_dir" ]]; then
-    mkdir -p "$fonts_dir"
+    sudo mkdir -p "$fonts_dir"
 fi
 
 for font in "${fonts[@]}"; do
@@ -71,11 +72,11 @@ for font in "${fonts[@]}"; do
     download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
     echo "Downloading $download_url"
     wget "$download_url"
-    unzip -n "$zip_file" -d "$fonts_dir"
-#    unzip -n "$zip_file" -d "47z1-Evironment/misc/fonts"
+    sudo unzip -n "$zip_file" -d "$fonts_dir"
     rm "$zip_file"
 done
 
-find "$fonts_dir" -name '*Windows Compatible*' -delete
+sudo find "$fonts_dir" -name '*Windows Compatible*' -delete
+sudo find "$fonts_dir" -name '*LICENSE*' -delete
 
 sudo fc-cache

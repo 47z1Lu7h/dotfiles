@@ -2,7 +2,7 @@
 /*---------- General setting ----------*/
 configuration {
 	dpi:					180;
-	font:					"IosevkaTerm";
+	font:					"";
 	show-icons:				true;
 	icon-theme:				"WhiteSur-dark";
 	display-drun:			"";
@@ -35,10 +35,10 @@ window {
 	transparency:			"real";
 	background-color:		@black;
 	text-color:				@white;
-	border-radius:			1%;
-	width:					30%;
+	border-radius:			0;
+	width:					25%;
 	x-offset:				0%;
-	y-offset:				-4%;
+	y-offset:				-3%;
 }
 
 prompt {
@@ -53,7 +53,7 @@ textbox-prompt-colon {
 	background-color:		@veryBlack;
 	text-color:				@yellow;
 	paccing:				0 0 0 0;
-	font:					"Iosevka Term Thin 14";
+	font:					"IosevkaTerm Thin 14";
 }
 
 entry {
@@ -84,10 +84,9 @@ case-indicator {
 	spacing:			0;
 }
 
-
 listview {
 	background-color:   #00000000;
-	columns:            5;
+	columns:            4;
 	lines:              3;
 	spacing:			0.2%;
 	cycle:				false;
@@ -113,9 +112,9 @@ element {
 element-icon {
 	background-color:	inherit;
 	text-color:			inherit;
-	horizontal-align:	0.5;
-	vertical-align:		0.5;
-	size:				4%;
+	horizontal-align:	0.2;
+	vertical-align:		0.2;
+	size:				3%;
 }
 
 element-text {
@@ -142,7 +141,7 @@ element alternate.active {
 element selected {
 	background-color:		@veryBlack;
 	text-color:				@veryGreen;
-	border-radius:			0.2%;
+	border-radius:			0%;
 }
 
 element selected.urgent {

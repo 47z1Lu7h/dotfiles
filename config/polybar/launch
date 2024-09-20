@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DIR="$HOME/.config/polybar/themes"
+DIR='~/.config/polybar/themes'
 
 launch_bar() {
 	# Terminate already running bar instances
@@ -21,11 +21,17 @@ read ZONE
 if [ $ZONE == 1 ]; then
 	echo -ne "\n${white} ~> ${cyan}Great${BIwhite}!! ${cyan}you choose${BIyellow} Top${cyan} zone${BIwhite}!!\n${BIcyan}"
 	ZONE="top"
+
 elif [ $ZONE == 2 ]; then
 	echo -ne "\n${white} ~> ${cyan}Great${BIwhite}!! ${cyan}you choose ${On_IBlack}${Bcyan}Bottom${cyan} zone${BIwhite}!!\n${BIcyan}"
 	ZONE="bottom"
+
 elif [ $ZONE == 3 ];then
-	echo -ne "\n\n\t${BIcyan}Sorry${BIwhite},${cyan} this option is not ${On_Iwhite}${BIred}implemetened${cyan} yet... ${On_IBlack}${Bcyan}: (\n${BIcyan}\n\n"
+	echo -ne "\n\t${blue}You choose ${red}2 ${blue}Polybars!!\n"
+	sudo killall polybar 
+	polybar -q bottom -c .config/polybar/themes/47z1.ini & 
+	polybar -q top -c .config/polybar/themes/simple.ini &
+	echo -ne "\n\t${blue}Done! ${cyan}:-D\n\n"
 	exit 1
 else
 	echo -ne "\n\t${BIblue}B${BIred}y${BIblue}3${BIred}!! ${On_IBlack}${BIcyan};${cyan}~${BIcyan})" && exit 1

@@ -1,8 +1,11 @@
-# -----------  wm independent hotkeys ---------------------------------- 
 
 	# terminal emulator
 super + Return
 	kitty -c ~/.config/kitty/themes/47z1.conf
+
+	# sleep
+super + alt + y
+	sudo systemctl sleep
 
 	# program launcher
 super + a
@@ -28,14 +31,17 @@ super + alt + f
 super + alt + b 
 	burpsuite
 
+super + v
+	clipmenu
+
+super + z
+	${HOME}/.config/bspwm/scripts/hide
+
 # -----------  bspwm hotkeys   ---------------------------------- 
 
 	# quit/restart bspwm
-super + shift + q
-	bspc quit
-
-super + shift + r
-	bspc -wm -r
+super + shift + {q,r}
+	bspc {quit,wm -r}
 
 	# close 
 super + Escape
@@ -54,18 +60,18 @@ super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 	# swap the current node and the biggest window
-super + g
+super + q
 	bspc node -s biggest.window
 
 
 # -----------  state/flags ---------------------------------- 
 
 	# set the window state
-super + {d,shift + d,f,r}
-	bspc node -t {floating,tiled,pseudo_tiled,fullscreen}
+super + {d,shift + d,f,r,z}
+	bspc node -t {floating,tiled,pseudo_tiled,fullscreen,hidden}
 
 	# set the node flags
-super + ctrl + {m,x,y,z}
+super + ctrl + {m,x,y,a}
 	bspc node -g {marked,locked,sticky,private}
 
 
@@ -89,7 +95,7 @@ super + {p,b,comma,period}
 
 	# focus the next/previous desktop in the current monitor
 super + bracket{left,right}
-	bspc desktop -f {prev,next}.local
+	bspc desktop -f {prev,next}.localE
 
 	# focus the older or newer node in the focus history
 super + {x,s}
@@ -109,7 +115,7 @@ super + alt {Left,Down,Up,Right}
       ${HOME}/.config/bspwm/scripts/bspwm_resize {west,south,north,east} 
 
 	# move a floating window
-super + alt + shift {Left,Down,Up,Right}
+super + control {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # ----------- Display brightnes  ---------------------------------- 
@@ -153,12 +159,28 @@ XF86AudioPrev
 XF86AudioStop
     playerctl stop
 
-# ----------- Polyb4r & m1Sc  ---------------------------------- 
+# ----------- m1Sc  ---------------------------------- 
+	# l0Ck&sl33p
+super + alt + l
+        ${HOME}/.config/bspwm/scripts/powermenu/type-4/powermenu.sh
 
+        # Color Picker
+super + alt + c
+        ${HOME}/.config/bspwm/scripts/color_picker
+
+        # Seassonal htb
+super + alt + v
+        sudo openvpn ~/d35kT0p/h7B/vp3n3s/lab_47z1Lu7h.ovpn
+
+        # Kill openOvpn
+super + alt + k
+        sudo killall openvpn
+
+# ----------- Polyb4r  ---------------------------------- 
 super + alt + p
 	sudo killall polybar
 
-	super + ctrl + 1
+super + ctrl + 1
 	sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/pentest.ini
 
 super + ctrl + 2
@@ -170,14 +192,3 @@ super + ctrl + 3
 super + ctrl + 4
 	sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/47z1.ini
 
-	# Lab htb
-super + alt + v
-	sudo openvpn ~/d35kT0p/h7B/vp3n3s/lab_47z1Lu7h.ovpn
-
-	# Kill openOvpn
-super + alt + k
-	sudo killall openvpn
-
-	# Color Picker
-super + alt + c
-	${HOME}/.config/bspwm/scripts/color_picker.sh
