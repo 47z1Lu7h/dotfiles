@@ -59,7 +59,6 @@ select-word-style bash
 zle -N zle-keymap-select
 zmodload -i zsh/complist
 autoload -Uz compinit
-compinit
 compinit -d ~/.cache/zcompdump
 
 	# ~~>  Mixing zsh-autocomplete and zsh-autosuggestions

@@ -260,7 +260,7 @@ function nvim() {
 }
 
 	# --> Nice t@@L! ;D
-function 1htb-Xplorer(){
+function htb-Xplorer(){
 	tput cnorm
 
 	if [ -d /opt/h4Ck/htbXplorer-Plus ]; then
@@ -277,7 +277,7 @@ function 1htb-Xplorer(){
 }
 
 		# -->  Fonts & Icons
-function 1fonts(){
+function fonts(){
 
 	ls /usr/share/fonts/IosevkaNerdFont*.ttf >/dev/null 2>&1
 	if [ $? -eq 0 ]; then
