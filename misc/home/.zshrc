@@ -161,10 +161,6 @@ else
 	echo -ne "\n\n\t${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}󰭄 \t${Iblack}${BIcyan} aliases.zsh ${red}${BIred} \n\n\n"
 fi
 
-if [ -f /usr/share/zsh/hacker-quotes ]; then
-	source /usr/share/zsh/hacker-quotes/hacker-quotes.plugin.zsh
-else
-	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} hacker-quotes${red}${BIred} \n\n\n"
 fi
 
 if [ -f /usr/share/zsh/sudo.plugin.zsh ]; then

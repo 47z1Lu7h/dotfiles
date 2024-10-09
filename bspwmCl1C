@@ -100,7 +100,7 @@ function clipmenu() {
 
 	mkdir clipmenu && cd clipmenu
 	echo -ne "\n\t${bold}${cyan}|[+]|> ${green}Cloning Clipmenu${cyan}~~${bold}${cyan}> ${end}${cyan}\n\n\n" && sleep 1
-	git clone"https://github.com/cdown/clipmenu.git" && cd clipmenu && make && sudo make install
+	git clone" https://github.com/cdown/clipmenu.git" && cd clipmenu && make && sudo make install
 	if [ $? -eq 0 ]; then
 		git clone "https://github.com/cdown/clipnotify.git" && make && sudo make install
 		if [ $? -eq 0 ]; then
