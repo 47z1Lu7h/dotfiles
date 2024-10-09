@@ -24,7 +24,7 @@ if test -t 1; then
 fi
 
 # --> Globals
-declare -r packages="slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance ranger"
+declare -r packages="slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance ranger dmenu xsel libxtst-dev"
 declare -r dpnDeb_Bspwm="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
 declare -r dpnDeb_Poly="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev"
 declare -r dpnDeb_Picom="libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev"
@@ -50,10 +50,11 @@ echo -ne "\t\t\t${red}${bold}
 ░▓█  ▀█▒█████▒▒██▒ ░  ░░██▒██▓▒██▒   ░██▒ ▓███▀ ░██████░██▒ ▓███▀ ░
 ░▒▓███▀▒ ▒▓▒ ▒ ▒▓▒░ ░  ░ ▓░▒ ▒ ░ ▒░   ░  ░ ░▒ ▒  ░ ▒░▓  ░▓ ░ ░▒ ▒░
 ░▒░  ░░ ${bold}${red}By ${cyan}47z${bold}${red}!${cyan}Lu7h${end}${bold}${red}${standout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
-░ ░		▒ ░	░	░	░${end}\n"
+░     ░		▒ ░	░	░	░
+      ░         ░${end}\n"
 }
 
-	# --> msg exit when ctrl+c
+	# --> Msg exit when ctrl+c
 function ctrl_c(){
 	echo -ne "\n\n\t\t${bold}${red}<|[${black}!${red}]|> ${cyan}Ctrl+C ${black}--->${red}Exiting${cyan}!! ${red}\n\n\n"
 	exit 1
@@ -88,6 +89,22 @@ function compile_polybar() {
 		make -j$(nproc) && sudo make install
 		if [ $? -eq 0 ]; then
 			cd ../../../ && rm -rf polybar
+		fi
+	fi
+
+	tput civis
+}
+	# --> Clipmenu
+function clipmenu() {
+	tput cnorm
+
+	mkdir clipmenu && cd clipmenu
+	echo -ne "\n\t${bold}${cyan}|[+]|> ${green}Cloning Clipmenu${cyan}~~${bold}${cyan}> ${end}${cyan}\n\n\n" && sleep 1
+	git clone"https://github.com/cdown/clipmenu.git" && cd clipmenu && make && sudo make install
+	if [ $? -eq 0 ]; then
+		git clone "https://github.com/cdown/clipnotify.git" && make && sudo make install
+		if [ $? -eq 0 ]; then
+			cd ../../ && rm -rf clipmenu
 		fi
 	fi
 
@@ -478,7 +495,7 @@ function main(){
 	if [ $? -ne 0 ]; then
 		code; fi
 
-	firefox_esr && htb-Xplorer && nvim && fonts && zsh_Plugins && dotfiles
+	firefox_esr && htb-Xplorer && nvim && clipmenu && fonts && zsh_Plugins && dotfiles
 }
 
 
@@ -495,7 +512,7 @@ banner
 
 echo -ne "\n${cyan}<|${bold}[${red}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}This Script Will Add ${bold}${cyan}Bspwm ${end}${blue}Desktop Eviroment To Your Linux."
 echo -ne "\n${cyan}<|${bold}[${red}+${cyan}]${end}${cyan}|${cyan}>${bold}${black} ~~~ ${end}${blue}Alongside with some other packages like:\n\t\t${cyan}Polybar${blue},${cyan} Picom${blue},${cyan} ZHS${blue},${cyan} Sxhkd${blue},${cyan} Nvim${blue},${cyan} VS-Code${blue},${cyan} firefox_esr${blue},${cyan} Lsd${blue}..."
-echo -ne "\n\n\t${red}${bold}<${black}|${red}[${bold}${cyan}!${red}]${black}|${red}> ${end}${cyan}Do y@u want to continue${bold}? \n"
+echo -ne "\n\n\t${red}${bold}<${black}|${red}[${bold}${cyan}!${red}]${black}|${red}> ${end}${cyan}Do you want to continue${bold}? \n"
 echo -ne "\n\t\t${end}${blue}[ ${bold}${cyan}y${end}${blue} / ${bold}${cyan}n${end}${blue} ]${red} ~~> ${bold}${cyan}"
 
 read answer
@@ -542,9 +559,8 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 		sleep 1 && echo -ne "\n\n\t${bold}${red}------/-/-/-/~~~~>> >>> ${end}${yellow}Try reboot and select ${bold}${red}Bspwm ${end}${yellow}as desktop Evironment. Enjoy!! ${stnd}${bold}${red};-)${end}${red} <<< <<~~~~~\-\-\-\------${end}\n\n\n" && sleep 1
 	fi
 
-
 elif [ "$answer" != "${answer#[n/N]}" ]; then
-	sleep 0.3 && echo -ne "\n${cyan}<${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}>${bold}${black} ~~~>>  ${red}Have a ${end}${cyan}Nice ${bold}${red}day${end}${black}!!  ${stnd}${red};=)${end}\n\n"
+	sleep 0.3 && echo -ne "\n${cyan}<${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}>${bold}${black}\t~~~>>\t\t${red}Have a ${end}${cyan}Nice ${bold}${red}day${end}${black}!!\t\t${stnd}${red};=)${end}\n\n"
 else
-	sleep 0.3 && echo -ne "\n${cyan}<${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}>\t${bold}${black} ~~~>> ${red}Bye${cyan}!! ${bold}${black}<<~~~~${end}\n\n"
+	sleep 0.3 && echo -ne "\n${cyan}<${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}>\t${bold}${black}\t~~~>>\t\t${red}Bye${cyan}!!${bold}${black}\t\t<<~~~~${end}\n\n"
 fi

@@ -39,7 +39,11 @@ function set_linux_colors(){
 set_linux_colors()
 
 	# - Some git alias
-function ga { git add -A; git commit -a -m "$1"; git push }
+function git-c0M(){
+	git add -A
+	git commit -a -m "$1"
+	git push
+}
 function gs { git status }
 function gd { git diff }
 function ge { git commit --allow-empty -m "Empty commit" }
@@ -330,6 +334,16 @@ function set-dpi_polybar() {
 	read NEW_DPI;
 	new_dpi="dpi = ${NEW_DPI}"
 	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/*.ini && sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/*.ini
+	echo -ne "\t${light-blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your conf.ini \n\t${light-blue}~~~> ${yellow}Just ${red}relanuch ${yellow}your polybar\n\n"
+	sleep 1
+}
+
+set-height_polybar () {
+	height=$(cat ~/.config/polybar/themes/*.ini | grep height | head -1)
+	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}height ${yellow}to resice Polybar${light-blue} ~~>${cyan}\n\t\t\t"
+	read NEW_height
+	new_height="height = ${NEW_height} %"
+	sed -i "s/${height}/${new_height}/g" ~/.config/polybar/themes/*.ini && sed -i "s/${height}/${new_height}/g" ~/.config/polybar/themes/*.ini
 	echo -ne "\t${light-blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your conf.ini \n\t${light-blue}~~~> ${yellow}Just ${red}relanuch ${yellow}your polybar\n\n"
 	sleep 1
 }

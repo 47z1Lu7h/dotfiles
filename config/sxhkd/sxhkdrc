@@ -5,7 +5,11 @@ super + Return
 
 	# sleep
 super + alt + y
-	sudo systemctl sleep
+	sudo systemctl suspend
+
+	# l0Ck screen
+super + l
+	betterlockscreen -l
 
 	# program launcher
 super + a
@@ -31,9 +35,11 @@ super + alt + f
 super + alt + b 
 	burpsuite
 
+	# Clipmenu
 super + v
 	clipmenu
 
+	# Hide window
 super + z
 	${HOME}/.config/bspwm/scripts/hide
 
@@ -45,6 +51,9 @@ super + shift + {q,r}
 
 	# close 
 super + Escape
+	bspc node -c
+
+super + alt
 	bspc node -c
 
 	# kill
@@ -63,9 +72,7 @@ super + y
 super + q
 	bspc node -s biggest.window
 
-
 # -----------  state/flags ---------------------------------- 
-
 	# set the window state
 super + {d,shift + d,f,r,z}
 	bspc node -t {floating,tiled,pseudo_tiled,fullscreen,hidden}
@@ -74,11 +81,9 @@ super + {d,shift + d,f,r,z}
 super + ctrl + {m,x,y,a}
 	bspc node -g {marked,locked,sticky,private}
 
-
 # -----------  focus/swap ---------------------------------- 
-
 	# focus the next/previous window in the current desktop
-super + {_,shift + }d
+super + {_,shift + }r
 	bspc node -f {next,prev}.local.!hidden.window
 
 	# focus the last node/desktop
@@ -106,7 +111,6 @@ super + {x,s}
 	# focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
-
 
 # -----------  resize ---------------------------------- 
 
@@ -160,7 +164,7 @@ XF86AudioStop
     playerctl stop
 
 # ----------- m1Sc  ---------------------------------- 
-	# l0Ck&sl33p
+	# Powemenu
 super + alt + l
         ${HOME}/.config/bspwm/scripts/powermenu/type-4/powermenu.sh
 
@@ -168,7 +172,7 @@ super + alt + l
 super + alt + c
         ${HOME}/.config/bspwm/scripts/color_picker
 
-        # Seassonal htb
+        # Lab seassonal htb
 super + alt + v
         sudo openvpn ~/d35kT0p/h7B/vp3n3s/lab_47z1Lu7h.ovpn
 

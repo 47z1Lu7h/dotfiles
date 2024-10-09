@@ -14,7 +14,8 @@ alias	l='lsd --group-dirs=first'
 alias	ll='lsd -lh --group-dirs=first'
 alias	la='lsd -ha --group-dirs=first'
 alias	lla='lsd -lha --group-dirs=first'
-alias	lt='lsd --tree --group-dirs=first --depth'
+alias	lt='lsd --tree --group-dirs=first --depth 2'
+alias	ltt='lsd --tree --group-dirs=first --depth'
 alias	lta='lsd -ha --tree --group-dirs=first --depth'
 alias	llt='lsd -lh --tree --group-dirs=first --depth'
 alias	llta='lsd -lha --tree --group-dirs=first --depth'
@@ -63,10 +64,10 @@ alias	tun1="echo '${BYellow}$(ip a | grep tun1 | grep inet | awk {'print $2'} | 
 alias	eth="echo '${BYellow}$(ip a | grep eth0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')'"
 alias	wlan="echo '${BYellow}$(ip a | grep wlan0 | grep inet | awk {'print $2'} | awk {'print $1'} FS='/')'"
 
-alias	lab-HTB='sudo openvpn ~/d35kT0p/h7B/vp3n3s/lab_47z1Lu7h.ovpn & disown'
-alias	lab-Seassonal-HTB='sudo openvpn ~/d35kT0p/h7B/vp3n3s/competitive_47z1Lu7h.ovpn & disown'
-alias	lab-Fortress-HTB='sudo openvpn ~/d35kT0p/h7B/vp3n3s/fortresses_47z1Lu7h.ovpn & disown'
-alias	lab-Strtng-Point-HTB='sudo openvpn ~/d35kT0p/h7B/vp3n3s/starting_point_47z1Lu7h.ovpn & disown'
+alias	lab-HTB='sudo openvpn ~/w35kT0p/h7B/vp3n3s/lab_47z1Lu7h.ovpn & disown'
+alias	lab-Seassonal-HTB='sudo openvpn ~/w35kT0p/h7B/vp3n3s/competitive_47z1Lu7h.ovpn & disown'
+alias	lab-Fortress-HTB='sudo openvpn ~/w35kT0p/h7B/vp3n3s/fortresses_47z1Lu7h.ovpn & disown'
+alias	lab-Strtng-Point-HTB='sudo openvpn ~/w35kT0p/h7B/vp3n3s/starting_point_47z1Lu7h.ovpn & disown'
 alias	kill-oP3Nvpn='sudo killall openvpn'
 alias	kill-p0lyb4r='sudo killall polybar'
 
