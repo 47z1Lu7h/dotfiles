@@ -100,7 +100,7 @@ function clipmenu() {
 
 	mkdir clipmenu && cd clipmenu
 	echo -ne "\n\t${bold}${cyan}|[+]|> ${green}Cloning Clipmenu${cyan}~~${bold}${cyan}> ${end}${cyan}\n\n\n" && sleep 1
-	git clone" https://github.com/cdown/clipmenu.git" && cd clipmenu && make && sudo make install
+	git clone "https://github.com/cdown/clipmenu.git" && cd clipmenu && make && sudo make install
 	if [ $? -eq 0 ]; then
 		git clone "https://github.com/cdown/clipnotify.git" && make && sudo make install
 		if [ $? -eq 0 ]; then
@@ -260,7 +260,7 @@ function nvim() {
 }
 
 	# --> Nice t@@L! ;D
-function htb-Xplorer(){
+function 1htb-Xplorer(){
 	tput cnorm
 
 	if [ -d /opt/h4Ck/htbXplorer-Plus ]; then
@@ -277,7 +277,7 @@ function htb-Xplorer(){
 }
 
 		# -->  Fonts & Icons
-function fonts(){
+function 1fonts(){
 
 	ls /usr/share/fonts/IosevkaNerdFont*.ttf >/dev/null 2>&1
 	if [ $? -eq 0 ]; then
@@ -288,7 +288,6 @@ function fonts(){
 		sudo unzip -o Iosevka.zip -d /usr/share/fonts && rm Iosevka.zip
 	fi
 
-+
 	ls /usr/share/fonts/IosevkaTermNerdFont*.ttf >/dev/null 2>&1
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\t${bold}${black} ${end}${blue} IosevkaTerm${yellow}\t ${bold}\t${green}done  ${end}\t"

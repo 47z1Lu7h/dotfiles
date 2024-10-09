@@ -143,58 +143,12 @@ setopt	HIST_VERIFY               # Don't execute immediately upon history expans
             ############  ~~~~~~~~~~~~~~~~ ¡| Plugins & Cu5t@m Aliases & functions |! ~~~~~~~~~~~~   ############
 #####################################################################################################################
 
-if [ -f ~/.zsh/aliases.zsh ]; then
 	source ~/.zsh/aliases.zsh
-else
-	echo -ne "\n\n\t${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}󰭄 \t${Iblack}${BIcyan} aliases.zsh ${red}${BIred} \n\n\n"
-fi
-
-if [ -f ~/.zsh/functions.zsh ]; then
 	source ~/.zsh/functions.zsh
-else
-	echo -ne "\n\n\t\t${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}󰭄 \t${Iblack}${BIcyan} functions.zsh ${red}${BIred} \n\n\n"
-fi
-
-if [ -f ~/.zsh/misc.zsh ]; then
-	source ~/.zsh/misc.zsh
-else
-	echo -ne "\n\n\t${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}󰭄 \t${Iblack}${BIcyan} aliases.zsh ${red}${BIred} \n\n\n"
-fi
-
-fi
-
-if [ -f /usr/share/zsh/sudo.plugin.zsh ]; then
+#	source ~/.zsh/misc.zsh
 	source /usr/share/zsh/sudo.plugin.zsh
-else
-	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} sudo.plugin${red}${BIred} \n\n\n"
-fi
-
-if [ -d /usr/share/zsh/powerlevel10k ]; then
 	source /usr/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
-else
-	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} Powerlevel10k ${red}${BIred} \n\n\n"
-fi
-
-if [ -d /usr/share/zsh-syntax-highlighting ]; then
 	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-else
-	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} zsh-syntax-highlighting${red}${BIred} \n\n\n"
-fi
-
-if [ -d /usr/share/zsh-autosuggestions ]; then
 	source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-else
-	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} zsh-autosuggestions ${red}${BIred} \n\n\n"
-fi
-
-if [ -d /usr/share/zsh-autocomplete ]; then
 	source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-else
-	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} zsh-autocomplete${red}${BIred} \n\n\n"
-fi
-
-if [ -d /usr/share/zsh-fzf-history-search ]; then
 	source /usr/share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
-else
-	echo -ne "\n${Iblack} ${Igreen}󱡴  ${Iblack} ${Igreen}   ${Iblack}${Bblue} Missing${BIblue}! ${Iblack}\t󰭄 \t${Iblack}${BIcyan} zsh-fzf-history-search${red}${BIred} \n\n\n"
-fi
