@@ -279,44 +279,37 @@ function htb-Xplorer(){
 		# -->  Fonts & Icons
 function fonts(){
 
-	ls /usr/share/fonts/IosevkaNerdFont*.ttf >/dev/null 2>&1
-	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue} Iosevka${yellow}\t ${bold}\t${green}done  ${end}\t"
-	else
-		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Iosevka ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
-		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Iosevka.zip"
-		sudo unzip -o Iosevka.zip -d /usr/share/fonts && rm Iosevka.zip
-	fi
+version='3.2.1'
 
-	ls /usr/share/fonts/IosevkaTermNerdFont*.ttf >/dev/null 2>&1
-	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue} IosevkaTerm${yellow}\t ${bold}\t${green}done  ${end}\t"
-	else
-		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting IosevkaTerm ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
-		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/IosevkaTerm.zip"
-		sudo unzip -o IosevkaTerm.zip -d /usr/share/fonts && rm IosevkaTerm.zip
-	fi
+fonts_dir="/usr/share/fonts/nerd_fonts"
+declare -a fonts=( Iosevka, IosevkaTerm, DaddyTimeMono )
 
-	ls /usr/share/fonts/ComicShannsMono*.ttf >/dev/null 2>&1
-	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue} ComicShannsMono${yellow}\t ${bold}\t${green}done  ${end}\t"
-	else
-		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting ComicShannsMono ${bold}font ${cyan}~~${bold}${cyan}> \n\n"
-		wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/ComicShannsMono.zip"
-		sudo unzip -o ComicShannsMono.zip -d /usr/share/fonts && rm ComicShannsMono.zip
-	fi
+if [[ ! -d "$fonts_dir" ]]; then
+    sudo mkdir -p "$fonts_dir"
+fi
 
-	ls /usr/share/icons/candy*.ttf >/dev/null 2>&1
-	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue} Candy Icons${yellow}\t ${bold}\t${green}done  ${end}\t"
-	else
-		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
-		wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
-		sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
-	fi
+for font in "${fonts[@]}"; do
+    zip_file="${font}.zip"
+    download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
+    echo "Downloading $download_url"
+    wget "$download_url"
+    sudo unzip -n "$zip_file" -d "$fonts_dir"
+    rm "$zip_file"
+done
 
-	sudo find /usr/share/fonts -name '*Windows Compatible*' -delete &&
-	sudo find /usr/share/fonts -name '*FontMono*' -delete && fc-cache -fv
+ls /usr/share/icons/candy*.ttf >/dev/null 2>&1
+if [ $? -eq 0 ]; then
+	echo -ne "\n\t${bold}${black} ${end}${blue} Candy Icons${yellow}\t ${bold}\t${green}done  ${end}\t"
+else
+	echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
+	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
+	sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
+fi
+
+sudo find "$fonts_dir" -name '*Windows Compatible*' -delete
+sudo find "$fonts_dir" -name '*LICENSE*' -delete
+
+sudo fc-cache -fv
 }
 
 function zsh_Plugins(){
