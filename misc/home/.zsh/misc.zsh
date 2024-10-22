@@ -1,28 +1,3 @@
-  # ~> Ctrl-z toggle between suspend and resume
-function Resume() {
-  fg
-  zle push-input
-  BUFFER=""
-  zle accept-line
-}
-
-	# - Extended word movements/actions
-autoload -Uz select-word-style
-function _zle-with-style() {
-	setopt localoptions
-	unsetopt warn_create_global
-	local style
-	[[ -n "$3" ]] && WORDCHARS=${WORDCHARS/$3}
-	[[ $BUFFER = '^\s+$' ]] && style=shell || style=$2
-	select-word-style $style
-	zle $1
-	[[ -n "$3" ]] && WORDCHARS="${WORDCHARS}${3}"
-	select-word-style normal
-}
-zle -N select-word-style
-
-autoload -Uz vcs_info
-
 #####################################################################################################################
 ###################  ~~~~~~~~~~~~~~~~ ¡| autosuggestions |! ~~~~~~~~~~~~   #######################
 #####################################################################################################################
@@ -87,6 +62,31 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh ] 
     ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]=standout
 fi
 
+####################################################################################################################
+  # ~> Ctrl-z toggle between suspend and resume
+function Resume() {
+  fg
+  zle push-input
+  BUFFER=""
+  zle accept-line
+}
+
+	# - Extended word movements/actions
+autoload -Uz select-word-style
+function _zle-with-style() {
+	setopt localoptions
+	unsetopt warn_create_global
+	local style
+	[[ -n "$3" ]] && WORDCHARS=${WORDCHARS/$3}
+	[[ $BUFFER = '^\s+$' ]] && style=shell || style=$2
+	select-word-style $style
+	zle $1
+	[[ -n "$3" ]] && WORDCHARS="${WORDCHARS}${3}"
+	select-word-style normal
+}
+zle -N select-word-style
+
+autoload -Uz vcs_info
 
 ####################################################################################################################
      ######################  ~~~~~~~~~~~~~~~~ ¡| l0t of c0l05s|! ~~~~~~~~~~~~   ###########################

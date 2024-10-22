@@ -1,4 +1,4 @@
-#####################################################################
+######################################################################
 # ░▒ ░  ░▒ ░  ░▒ ░  ░▒ ░  ░▒ ░  ░▒ ░  ░▒ ░  ░▒ ░  ░▒ ░  ░▒ ░  ░▒ ░▒ 
 # ▄███████▄     ▄████████  ░▒▄█    █▄ ░  ░  ▄████████  ▄████████ ░ ▒ 
 #██▀ ░▒  ▄██   ███  ░▒███ ░▒███ ░▒ ███  ░▒ ███    ███ ███    ███  ░ 
@@ -138,16 +138,17 @@ setopt	HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt	HIST_redUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt	HIST_VERIFY               # Don't execute immediately upon history expansion.
 
+
 #####################################################################################################################
             ############  ~~~~~~~~~~~~~~~~ ¡| Plugins & Cu5t@m Aliases & functions |! ~~~~~~~~~~~~   ############
 #####################################################################################################################
-
-	source ~/.zsh/aliases.zsh
-	source ~/.zsh/functions.zsh
-#	source ~/.zsh/misc.zsh
-	source /usr/share/zsh/sudo.plugin.zsh
-	source /usr/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
-	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-	source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-	source /usr/share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
+source ~/.zsh/m1sc.zsh
+source ~/.zsh/misc.zsh
+source ~/.zsh/aliases.zsh
+source ~/.zsh/functions.zsh
+source /usr/share/zsh/sudo.plugin.zsh
+source /usr/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh

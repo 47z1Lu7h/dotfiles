@@ -48,7 +48,7 @@ function _zle-with-style() {
 	[[ $BUFFER = '^\s+$' ]] && style=shell || style=$2
 	select-word-style $style
 	zle $1
-	[[ -n "$3" ]] && WORDCHARS="${WORDCHARS}${3}"
+	[[ -n "$3" ]] && WORDCHARS="${WORDCHARS}${3}"man
 	select-word-style normal
 }
 zle -N select-word-style

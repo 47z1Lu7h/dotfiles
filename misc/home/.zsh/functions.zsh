@@ -39,11 +39,7 @@ function set_linux_colors(){
 set_linux_colors()
 
 	# - Some git alias
-function git-c0M(){
-	git add -A
-	git commit -a -m "$1"
-	git push
-}
+function g1t { git add -A; git commit -a -m $1; git push }
 function gs { git status }
 function gd { git diff }
 function ge { git commit --allow-empty -m "Empty commit" }
@@ -319,7 +315,7 @@ function extractPorts(){
 	batcat -lruby  extractPorts.tmp; rm extractPorts.tmp
 }
 
-function set-api_token-htbXplorer() {
+function et-api_token-htbXplorer() {
 	echo -ne "\t${light-blue}~~~> ${yellow}Enter your ${green}HTB ${red}API_TOKEN ${yellow}:\n\t${light-blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> ${cyan}\n\n"
 	echo -e "\n  ~ Enter your HTB API_TOKEN:"
 	read API;
@@ -329,22 +325,22 @@ function set-api_token-htbXplorer() {
 }
 
 function set-dpi_polybar() {
-	dpi=$(cat ~/.config/polybar/themes/*.ini | grep dpi | head -1)
+	dpi=$(cat ~/.config/polybar/cnf/*.ini | grep dpi | head -1)
 	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}DPI ${yellow}to resice Polybar${light-blue} ~~>${cyan}\n\t\t\t"
 	read NEW_DPI;
 	new_dpi="dpi = ${NEW_DPI}"
-	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/*.ini && sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/themes/*.ini
-	echo -ne "\t${light-blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your conf.ini \n\t${light-blue}~~~> ${yellow}Just ${red}relanuch ${yellow}your polybar\n\n"
+	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/cnf/*.ini &&
+	echo -ne "\t${light-blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your settings.ini\n\t${light-blue}~~~> ${yellow}${red}Reload ${yellow}your polybar\n\n"
 	sleep 1
 }
 
-set-height_polybar () {
-	height=$(cat ~/.config/polybar/themes/*.ini | grep height | head -1)
+function set-height_polybar () {
+	height=$(cat ~/.config/polybar/cnf/*.ini | grep height | head -1)
 	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}height ${yellow}to resice Polybar${light-blue} ~~>${cyan}\n\t\t\t"
 	read NEW_height
-	new_height="height = ${NEW_height} %"
-	sed -i "s/${height}/${new_height}/g" ~/.config/polybar/themes/*.ini && sed -i "s/${height}/${new_height}/g" ~/.config/polybar/themes/*.ini
-	echo -ne "\t${light-blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your conf.ini \n\t${light-blue}~~~> ${yellow}Just ${red}relanuch ${yellow}your polybar\n\n"
+	new_height="height = ${NEW_height}%"
+	sed -i "s/${height}/${new_height}/g" ~/.config/polybar/cnf/*.ini
+	echo -ne "\t${light-blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your settings.ini\n\t${light-blue}~~~> ${yellow}Just ${red}relanuch ${yellow}your polybar\n\n"
 	sleep 1
 }
 
@@ -360,7 +356,7 @@ set-height_polybar () {
 function settarget() {
 	ip_address=$1
 	machine_name=$2
-	echo "$ip_address $machine_name" > /$HOME/.config/polybar/scripts/target
+	echo "$ip_address $machine_name" > ~/.config/polybar/scripts/target
 }
 function rrf() {
 	scrub -p dod $1

@@ -31,7 +31,6 @@ alias	upg='sudo apt update && sudo apt upgrade -y'
 alias	up6='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y'
 alias	auT0-Remove='sudo apt autoremove -y'
 alias	auT0-Clean='sudo apt autoclean -y'
-alias	aUT0='sudo apt autoremove -y && sudo apt autoclean -y'
 alias	ki='kitty +kitten icat'
 
 alias   t-list='trash-list'
@@ -71,7 +70,6 @@ alias	kill-oP3Nvpn='sudo killall openvpn'
 alias	kill-p0lyb4r='sudo killall polybar'
 
 alias	set-backgroung='feh --bg-fill $1'
-alias	set-0WN3r='sudo chown $USER:$USER .'
 alias	mkl='mkdir nmap content exploits'
 alias	htb-Xpl0r3r='sudo /opt/h4Ck/htbXplorer-Plus/htbXplorer $1 $2 $3'
 
@@ -87,8 +85,8 @@ alias	kitty-daddy='kitty -c ~/.config/kitty/themes/daddy.conf & disown'
 alias	kitty-goMono='kitty -c ~/.config/kitty/themes/goMono.conf & disown'
 alias	kitty-hack='kitty -c ~/.config/kitty/themes/hack.conf & disown'
 
-alias netCons='lsof -i'                         #  Show all open TCP/IP sockets
-alias lsock='sudo lsof -i -P'                   # Disp0lay open sockets
+alias netCons='lsof -i'                         # Show all open TCP/IP sockets
+alias lsock='sudo lsof -i -P'                   # Display open sockets
 alias lsockU='sudo lsof -nP | grep UDP'         # Display only open UDP sockets
 alias lsockT='sudo lsof -nP | grep TCP'         # Display only open TCP sockets
 alias openPorts='sudo lsof -i | grep LISTEN'    # openPorts:    All listening connections
@@ -124,6 +122,5 @@ alias openPorts='sudo lsof -i | grep LISTEN'    # openPorts:    All listening co
         echo -e "${Bred}Machine stats :$NC " ; uptime
         echo -e "\n\t${BIcyan}Current network location :$NC  " ; curl ipinfo.io
         echo -e "\t\n${BIyellow}Public facing IP Address :$NC   " ; myIp
-        echo
     }
 

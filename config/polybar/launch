@@ -28,9 +28,9 @@ elif [ $ZONE == 2 ]; then
 
 elif [ $ZONE == 3 ];then
 	echo -ne "\n\t${blue}You choose ${red}2 ${blue}Polybars!!\n"
-	sudo killall polybar 
-	polybar -q bottom -c .config/polybar/themes/47z1.ini & 
-	polybar -q top -c .config/polybar/themes/simple.ini &
+	sudo killall polybar
+	polybar -q bottom -c ~/.config/polybar/themes/47z1.ini &
+	polybar -q top -c ~/.config/polybar/themes/simple.ini &
 	echo -ne "\n\t${blue}Done! ${cyan}:-D\n\n"
 	exit 1
 else

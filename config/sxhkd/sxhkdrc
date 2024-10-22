@@ -36,12 +36,16 @@ super + alt + b
 	burpsuite
 
 	# Clipmenu
-super + v
-	clipmenu
+super + v 
+	clipmenu -i -fn "DaddyTimeMono Nerd Font:size=14" -nb '#010308' -nf '#19CB00' -sb '#19CB00' -sf '#010308' -p "󰢚 " -l "30" -b
 
 	# Hide window
 super + z
-	${HOME}/.config/bspwm/scripts/hide
+	~/.config/bspwm/scripts/hide
+
+	# Powermenu
+suoer + alt + p
+	~/.config/rofi/powermenu/type-4/powermenu.sh
 
 # -----------  bspwm hotkeys   ---------------------------------- 
 
@@ -83,7 +87,7 @@ super + ctrl + {m,x,y,a}
 
 # -----------  focus/swap ---------------------------------- 
 	# focus the next/previous window in the current desktop
-super + {_,shift + }r
+super + {_,shift + }w
 	bspc node -f {next,prev}.local.!hidden.window
 
 	# focus the last node/desktop
@@ -116,7 +120,7 @@ super + {_,shift + }{1-9,0}
 
 	# Custom resize, contract a window by moving one of its side inward
 super + alt {Left,Down,Up,Right}
-      ${HOME}/.config/bspwm/scripts/bspwm_resize {west,south,north,east} 
+	~/.config/bspwm/scripts/bspwm_resize {west,south,north,east} 
 
 	# move a floating window
 super + control {Left,Down,Up,Right}
@@ -164,24 +168,21 @@ XF86AudioStop
     playerctl stop
 
 # ----------- m1Sc  ---------------------------------- 
-	# Powemenu
-super + alt + l
-        ${HOME}/.config/bspwm/scripts/powermenu/type-4/powermenu.sh
 
         # Color Picker
 super + alt + c
-        ${HOME}/.config/bspwm/scripts/color_picker
+	~/.config/bspwm/scripts/color_picker
 
         # Lab seassonal htb
-super + alt + v
-        sudo openvpn ~/d35kT0p/h7B/vp3n3s/lab_47z1Lu7h.ovpn
+super + alt + l
+        sudo openvpn ~/w35kT0p/h7B/vp3n3s/lab_47z1Lu7h.ovpn
 
         # Kill openOvpn
 super + alt + k
         sudo killall openvpn
 
 # ----------- Polyb4r  ---------------------------------- 
-super + alt + p
+super + alt + o
 	sudo killall polybar
 
 super + ctrl + 1
