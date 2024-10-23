@@ -33,7 +33,7 @@ declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
 declare -r cwd=$(pwd)
-declare -r OS=$(cat /etc/*release | grep '^ID_LIKE' | awk '{print $NF}' FS='=')
+declare -r OS=$(cat /etc/*release | grep '^ID*' | awk '{print $NF}' FS='=')
 declare -r VERSION=$(cat /etc/*release | grep '^VERSION_ID' |  awk '{print $NF}' FS='=' | tr -d '"' )
 declare -r NAME=$(cat /etc/*release | grep '^NAME' | awk '{print $NF}' FS='='| tr -d '"' |  awk '{print $1}')
 declare -r ID=$(cat /etc/*release | grep '^ID' | awk '{print $NF}' FS='=')
@@ -290,7 +290,7 @@ function fonts(){
 version='3.2.1'
 
 fonts_dir="/usr/share/fonts/nerd_fonts"
-declare -a fonts=( Iosevka, IosevkaTerm, DaddyTimeMono )
+declare -a fonts=( Iosevka IosevkaTerm addyTimeMono )
 
 if [[ ! -d "$fonts_dir" ]]; then
     sudo mkdir -p "$fonts_dir"
