@@ -37,7 +37,7 @@ super + alt + b
 
 	# Clipmenu
 super + v 
-	clipmenu -i -fn "DaddyTimeMono Nerd Font:size=14" -nb '#010308' -nf '#19CB00' -sb '#19CB00' -sf '#010308' -p "󰢚 " -l "30" -b
+	clipmenu -i -fn "DaddyTimeMono Nerd Font:size=14" -nb '#010308' -nf '#19CB00' -sb '#19CB00' -sf '#010308' -p "󰢚 " -l "22" -b
 
 	# Hide window
 super + z

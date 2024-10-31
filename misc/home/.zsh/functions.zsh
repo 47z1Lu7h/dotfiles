@@ -315,7 +315,7 @@ function extractPorts(){
 	batcat -lruby  extractPorts.tmp; rm extractPorts.tmp
 }
 
-function et-api_token-htbXplorer() {
+function set-api_token-htbXplorer() {
 	echo -ne "\t${light-blue}~~~> ${yellow}Enter your ${green}HTB ${red}API_TOKEN ${yellow}:\n\t${light-blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> ${cyan}\n\n"
 	echo -e "\n  ~ Enter your HTB API_TOKEN:"
 	read API;
@@ -331,7 +331,7 @@ function set-dpi_polybar() {
 	new_dpi="dpi = ${NEW_DPI}"
 	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/cnf/*.ini &&
 	echo -ne "\t${light-blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your settings.ini\n\t${light-blue}~~~> ${yellow}${red}Reload ${yellow}your polybar\n\n"
-	sleep 1
+	sleep 0.5
 }
 
 function set-height_polybar () {
@@ -363,7 +363,7 @@ function rrf() {
 	shred -zun 10 -v $1
 }
 
-	# - Function nmap full scan
+	# ~~> Function Nmap full ports-scan
 function sC4n-nM4p() {
 	sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn $1 -oG allPorts && sleep 2
 	ports="$(cat allPorts | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"

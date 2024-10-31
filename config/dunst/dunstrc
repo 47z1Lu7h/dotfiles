@@ -1,0 +1,30 @@
+[global]
+  display = DP-2
+  follow = mouse
+  origin = top-center
+  idle_threshold = 10s
+  mouse_left_click = "do_action, close_current"
+  mouse_right_click = "close_current"
+  mouse_middle_click = "close_all"
+  icon_path = "/usr/share/icons/AdwaitaLegacy/48x48/legacy/"
+  icon_theme = AdwaitaLegacy
+
+[script_waybar_signal]
+  summary = "*"
+  script = $HOME/.config/waybar/scripts/update_notifications_signal.sh
+
+[ignore_volume_change]
+  stack_tag = "change_volume"
+  history_ignore = yes
+  timeout = 1s
+
+[ignore_brightness_change]
+  stack_tag = "change_brightness"
+  history_ignore = yes
+  timeout = 1s
+
+[skip_google_meet_notifications]
+  body = "*meet.google.com*"
+  skip_display = yes
+  history_ignore = yes
+

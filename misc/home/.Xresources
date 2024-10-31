@@ -1,14 +1,15 @@
 ! Font options - ~/.fonts.conf seems to override this
 ! Resolution for Xft in dots per inch (e.g. 96)
-Xft.dpi:       200
+Xft.dpi:       170
 
 ! Type of subpixel antialiasing (none, rgb, bgr, vrgb or vbgr)
 Xft.rgba:      rgba
-!Xft.antialias: 1
-!Xft.hinting:   1
-!Xft.autohint:  0
+Xft.antialias: 1
+Xft.hinting:   1
+Xft.autohint:  0
+
 ! What degree of hinting to use (hintnone, hintslight, hintmedium, or hintfull)
-!Xft.hintstyle: hintslight
+Xft.hintstyle: hintmedium
 
 #define FONTSIZE 14
 xterm*faceName: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohint=false:hintstyle=hintnone:dpi=105
@@ -18,4 +19,4 @@ URxvt*boldFont: xft:PragmataPro:size=FONTSIZE:antialias=true:hinting=true:autohi
 ! Extra options for xft font spec - ~/.fonts.conf seems to override this
 !:antialias=false:hintstyle=hintfull
 
-Xcursor.size: 35
+Xcursor.size: 45

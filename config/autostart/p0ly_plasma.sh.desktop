@@ -1,0 +1,18 @@
+[Desktop Entry]
+Comment[es_ES]=
+Comment=
+Exec=$HOME/.config/polybar/scripts/p0ly_plasma.sh
+GenericName[es_ES]=
+GenericName=
+Icon=dialog-scripts
+MimeType=
+Name[es_ES]=p0ly_plasma.sh
+Name=p0ly_plasma.sh
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-AutostartScript=true
+X-KDE-SubstituteUID=false
+X-KDE-Username=

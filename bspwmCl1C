@@ -3,7 +3,7 @@
 
 # --> Check if stdout is a terminal...
 if test -t 1; then
-    # --> See if it supports colors...
+transport    # --> See if it supports colors...
     ncolors=$(tput colors)
 
 	if test -n "$ncolors" && test $ncolors -ge 8; then
@@ -24,7 +24,7 @@ if test -t 1; then
 fi
 
 # --> Globals
-declare -r packages="slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance ranger suckless-tools xsel libxtst-dev libwayland-dev libnotify-dev notification-daemon"
+declare -r packages="slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance ranger suckless-tools xsel libwayland-dev libnotify-dev betterlockscreen"
 declare -r dpnDeb_Bspwm="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
 declare -r dpnDeb_Poly="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libnl-genl-3-dev"
 declare -r dpnDeb_Picom="libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev"
@@ -32,11 +32,9 @@ declare -r dpnFed_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms libxcb-dev
 declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel libX11-devel libX11-xcb libXext-devel libxcb-devel libGL-devel libEGL-devel meson pcre2-devel pixman-devel uthash-devel xcb-util-image-devel xcb-util-renderutil-devel xorg-x11-proto-devel"
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
-declare -r cwd=$(pwd)
-declare -r OS=$(cat /etc/*release | grep '^ID*' | awk '{print $NF}' FS='=')
-declare -r VERSION=$(cat /etc/*release | grep '^VERSION_ID' |  awk '{print $NF}' FS='=' | tr -d '"' )
+declare -r OS=$(cat /etc/*release | grep '^ID_LIKE*' | awk '{print $NF}' FS='=')
 declare -r NAME=$(cat /etc/*release | grep '^NAME' | awk '{print $NF}' FS='='| tr -d '"' |  awk '{print $1}')
-declare -r ID=$(cat /etc/*release | grep '^ID' | awk '{print $NF}' FS='=')
+declare -r cwd=$(pwd)
 
 trap ctrl_c INT
 
@@ -218,7 +216,7 @@ function firefox_esr() {
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing firefox-esr${cyan}! \n"
 			sleep 1 && sudo add-apt-repository ppa:mozillateam/ppa && sudo apt update && sudo apt install firefox-esr &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
-			cp -r  $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox*/*.default-esr*/
+			cp -r  $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox*/*default-esr*/
 
 		elif  [ $OS = Arch ]; then
 			sudo pacman -S firefox-esr
@@ -287,37 +285,42 @@ function htb-Xplorer(){
 		# -->  Fonts & Icons
 function fonts(){
 
-version='3.2.1'
+	version='3.2.1'
+	declare -a fonts=( Iosevka IosevkaTerm DaddyTimeMono )
 
-fonts_dir="/usr/share/fonts/nerd_fonts"
-declare -a fonts=( Iosevka IosevkaTerm addyTimeMono )
+	fonts-Path="/usr/share/fonts/nerd_fonts"
 
-if [[ ! -d "$fonts_dir" ]]; then
-    sudo mkdir -p "$fonts_dir"
-fi
+	if [[ ! -d "$fonts-Path" ]]; then
+	    sudo mkdir -p "$fonts-Path"
+	fi
 
-for font in "${fonts[@]}"; do
-    zip_file="${font}.zip"
-    download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
-    echo "Downloading $download_url"
-    wget "$download_url"
-    sudo unzip -n "$zip_file" -d "$fonts_dir"
-    rm "$zip_file"
-done
+	ls /usr/share/fonts/nerd_fonts >/dev/null 2>&1
+	if [ $? -eq 0 ]; then
+		for font in "${fonts[@]}"; do
+			zip_file="${font}.zip"
+			download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
+			echo "Downloading $download_url"
+			wget "$download_url"
+			sudo unzip -n "$zip_file" -d "$fonts-Path"
+			rm "$zip_file"
+		done
+	else
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}NerdFonts ${bold}icons ${cyan}${bold}done${BIred}! \n\n"
+	fi
 
-ls /usr/share/icons/candy*.ttf >/dev/null 2>&1
-if [ $? -eq 0 ]; then
-	echo -ne "\n\t${bold}${black} ${end}${blue} Candy Icons${yellow}\t ${bold}\t${green}done  ${end}\t"
-else
-	echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
-	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
-	sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
-fi
+	ls /usr/share/icons/candy*.ttf >/dev/null 2>&1
+	if [ $? -eq 0 ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue} Candy Icons${yellow}\t ${bold}\t${green}done  ${end}\t"
+	else
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
+		wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
+		sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
+	fi
 
-sudo find "$fonts_dir" -name '*Windows Compatible*' -delete
-sudo find "$fonts_dir" -name '*LICENSE*' -delete
+	sudo find "$fonts-Path" -name '*Windows Compatible*' -delete
+	sudo find "$fonts-Path" -name '*LICENSE*' -delete
 
-sudo fc-cache -fv
+	sudo fc-cache -fv
 }
 
 function zsh_Plugins(){
@@ -326,7 +329,7 @@ function zsh_Plugins(){
 	echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning zsh plugins ${cyan} -->\n\n${Bcyan}" && sleep 0.5
 
 	if [ -d /usr/share/zsh/powerlevel10k ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}powerlevel10k ${yellow}\t ${bold}\t${green}done  ${end}\t"
+		echo -ne "\n\t${bold}${black} ${end}${blue}powerlevel10k ${yellow}\t \t${green}done ${bold} ${end}\t"
 	else
 		sudo git clone --depth=1 "https://github.com/romkatv/powerlevel10k.git"	/usr/share/zsh/powerlevel10k
 	fi
@@ -524,21 +527,30 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 	echo -e "${blue}${bold}======================================================================== "
 
 	echo -ne "\n\t${cyan}${bold}<|[+]|> ${end}${blue}Upgrading System ${bold}${cyan}~~> \n\n"
-	if [[ "$OS" == "debian"* ]]; then
-		if [ $NAME = Parrot ]; then
-			sudo apt update && sudo parrot-upgrade -y && sudo apt autoremove -y && sudo dpkg --configure -a
-		else
-			sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && sudo dpkg --configure -a
+	if [ $OS = "debian" ]; then
+
+		if [[ ${NAME} = "Parrot" ]]; then
+			sudo apt update && sudo parrot-upgrade -y && sudo apt install linux-headers-$(uname -r) && sudo apt autoremove -y && sudo dpkg --configure -a
+			if [ $? -ne 0 ]; then
+				echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}${yellow}Upgrading${cyan} System ${end}${blue}======= \n\n" && sleep 1 && exit 1
+			fi
+
+		elif [ ${NAME} = "Kali" ]; then
+			sudo apt update && sudo apt upgrade -y && sudo apt install linux-headers-${(uname -r)} && sudo apt autoremove -y && sudo dpkg --configure -a
+			if [ $? -ne 0 ]; then
+				echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}${yellow} ${cyan}Upgrading ${end}${blue}======= \n\n" && sleep 1 && exit 1
+			fi
 		fi
 
 	elif [ $OS = arch ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
+
 	elif [ $OS = fedora ]; then
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	fi
 
 	echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing Packages ${bold}${cyan}~~> \n\n"
-	if [ $OS = debian ]; then
+	if [ $OS = "debian"  ]; then
 		sudo apt install -y $packages
 		if [ $? -ne 0 ]; then
 			echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}${yellow}Instaling ${cyan}Packages ${end}${blue}======= \n\n" && sleep 1 && exit 1
@@ -557,6 +569,8 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 		\n\t${end}${red}~${end}${blue} For dark theme Firefox-esr, open it & type => ${end}${cyan}about${red}:${end}${cyan}config${end}${blue}, then search for -->\
 		\n\t${end}${red}<${end}${cyan}toolkit.legacyUserProfileCustomizations.stylesheets${end}${red}>${blue}, and set it to ${bold}${cyan}True${end}${blue}."
 		sleep 1 && echo -ne "\n\n\t${bold}${red}------/-/-/-/~~~~>> >>> ${end}${yellow}Try reboot and select ${bold}${red}Bspwm ${end}${yellow}as desktop Evironment. Enjoy!! ${stnd}${bold}${red};-)${end}${red} <<< <<~~~~~\-\-\-\------${end}\n\n\n" && sleep 1
+	else
+		sleep 0.1 && echo -ne "\n${cyan}<${bold}${black}|${cyan}[${black}!${cyan}]${bold}${black}|${end}${cyan}>${bold}${black}\t~~~>>\t\t${red}Some ${end}${cyan}Problem ${bold}${red}With the main function${end}${black}!!\t\t${stnd}${red}:/${end}\n\n" && sleep 1 && exit 1
 	fi
 
 elif [ "$answer" != "${answer#[n/N]}" ]; then
