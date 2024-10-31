@@ -536,7 +536,7 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 			fi
 
 		elif [ ${NAME} = "Kali" ]; then
-			sudo apt update && sudo apt upgrade -y && sudo apt install linux-headers-${(uname -r)} && sudo apt autoremove -y && sudo dpkg --configure -a
+			sudo apt update && sudo apt upgrade -y && sudo apt install linux-headers-$(uname -r) && sudo apt autoremove -y && sudo dpkg --configure -a
 			if [ $? -ne 0 ]; then
 				echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}${yellow} ${cyan}Upgrading ${end}${blue}======= \n\n" && sleep 1 && exit 1
 			fi
