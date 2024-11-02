@@ -7,6 +7,10 @@ super + Return
 super + alt + y
 	sudo systemctl suspend
 
+	# Logout
+super + shift + l
+	 sudo systemctl restart systemd-logind 
+
 	# l0Ck screen
 super + l
 	betterlockscreen -l
@@ -46,6 +50,14 @@ super + z
 	# Powermenu
 suoer + alt + p
 	~/.config/rofi/powermenu/type-4/powermenu.sh
+
+        # Color Picker
+super + alt + c
+	~/.config/bspwm/scripts/color_picker
+
+	# Obs studio
+super + alt + o
+	flatpak run com.obsproject.Studio 
 
 # -----------  bspwm hotkeys   ---------------------------------- 
 
@@ -168,10 +180,6 @@ XF86AudioStop
     playerctl stop
 
 # ----------- m1Sc  ---------------------------------- 
-
-        # Color Picker
-super + alt + c
-	~/.config/bspwm/scripts/color_picker
 
         # Lab seassonal htb
 super + alt + l
