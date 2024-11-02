@@ -1,3 +1,4 @@
+
 #!/bin/bash
 # Author: Roi Diéguez - aka 47z!Lu7h
 
@@ -24,7 +25,7 @@ transport    # --> See if it supports colors...
 fi
 
 # --> Globals
-declare -r packages="slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl qt5ct jsbeautifier lxappearance ranger suckless-tools xsel libwayland-dev libnotify-dev betterlockscreen"
+declare -r packages="slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl jsbeautifier lxappearance ranger suckless-tools xsel betterlockscreen"
 declare -r dpnDeb_Bspwm="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
 declare -r dpnDeb_Poly="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libnl-genl-3-dev"
 declare -r dpnDeb_Picom="libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev"
@@ -35,8 +36,55 @@ declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
 declare -r OS=$(cat /etc/*release | grep '^ID_LIKE*' | awk '{print $NF}' FS='=')
 declare -r NAME=$(cat /etc/*release | grep '^NAME' | awk '{print $NF}' FS='='| tr -d '"' |  awk '{print $1}')
 declare -r cwd=$(pwd)
+declare -a fonts=( 0xProto 3270 Agave AnonymousPro Arimo AurulentSansMono BigBlueTerminal BitstreamVeraSansMono CascadiaCode CascadiaMono CodeNewRoman ComicShannsMono CommitMono Cousine D2Coding DaddyTimeMono DejaVuSansMono DroidSansMono EnvyCodeR FantasqueSansMono FiraCode FiraMono FontPatcher GeistMono Go-Mono Gohu Hack Hasklig HeavyData Hermit iA-Writer IBMPlexMono Inconsolata InconsolataGo InconsolataLGC IntelOneMono Iosevka IosevkaTerm IosevkaTermSlab JetBrainsMono Lekton LiberationMono Lilex MartianMono Meslo Monaspace Monofur Monoid Mononoki MPlus NerdFontsSymbolsOnly Noto OpenDyslexic Overpass ProFont ProggyClean Recursive RobotoMono ShareTechMono SourceCodePro SpaceMono Terminus Tinos Ubuntu UbuntuMono UbuntuSans VictorMono ZedMono )
+
+version='3.2.1'
+
+fonts_path="$HOME/.fonts/nerd_fonts"
+if [ ! -d = $fonts_path ]; then
+	mkdir -p $fonts_path
+fi
 
 trap ctrl_c INT
+
+		# -->  Fonts & Icons
+function fonts(){
+	tput cnorm
+
+	ls $fonts_path/* >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+
+		echo -ne "\n\n${bold}${cyan}<|[+]|> ${end}${blue}Getting ${BIblue}fonts ${BIyellow}!!! \n\n"
+		for font in "${fonts[@]}"; do
+			zip_file="${font}.zip"
+			download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
+			echo -ne "\n\n${bold}${cyan}<|[+]|> ${end}${blue}Installing ${Bicyan}'$font' in${BIyellow} "HOME/.fonts/nerd_fonts" \n\n${blue}"
+			echo "Downloading $download_url"
+			wget "$download_url"
+			unzip -n "$zip_file" -d "$fonts_path"
+			rm "$zip_file"
+		done
+	else
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}NerdFonts ${bold}icons ${cyan}${bold}done${BIred}! \n\n"
+	fi
+
+	find "$HOME/.fonts/nerd_fonts" -name '*Windows Compatible*' -delete
+	find "$HOME/.fonts/nerd_fonts" -name '*LICENSE*' -delete
+	find "$HOME/.fonts/nerd_fonts" -name '*README*' -delete
+
+	fc-cache -fv
+
+ 	ls $HOME/.icons/candy*.ttf >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue} Candy Icons${yellow}\t ${bold}\t${green}done  ${end}\t"
+	else
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
+		wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
+		sudo unzip -o candy-icons.zip -d /usr/share/icons/ && rm -rf candy-icons.zip
+	fi
+
+	tput civis
+}
 
 	# --> Banner
 function banner(){
@@ -96,11 +144,11 @@ function compile_polybar() {
 function clipmenu() {
 	tput cnorm
 
-	mkdir clipmenu && cd clipmenu
+	mkdir clipmenu && cd clipnotify
 	echo -ne "\n\t${bold}${cyan}|[+]|> ${green}Cloning Clipmenu${cyan}~~${bold}${cyan}> ${end}${cyan}\n\n\n" && sleep 1
-	git clone "https://github.com/cdown/clipmenu.git" && cd clipmenu && make && sudo make install
+	git clone "https://github.com/cdown/clipnotify.git" && make && sudo make install
 	if [ $? -eq 0 ]; then
-		git clone "https://github.com/cdown/clipnotify.git" && make && sudo make install
+		&& cd clipmenu && make && sudo make install
 		if [ $? -eq 0 ]; then
 			cd ../../ && rm -rf clipmenu
 		fi
@@ -282,46 +330,6 @@ function htb-Xplorer(){
 	tput civis
 }
 
-		# -->  Fonts & Icons
-function fonts(){
-
-	version='3.2.1'
-	declare -a fonts=( Iosevka IosevkaTerm DaddyTimeMono )
-
-	fonts-Path="/usr/share/fonts/nerd_fonts"
-
-	if [[ ! -d "$fonts-Path" ]]; then
-	    sudo mkdir -p "$fonts-Path"
-	fi
-
-	ls /usr/share/fonts/nerd_fonts >/dev/null 2>&1
-	if [ $? -eq 0 ]; then
-		for font in "${fonts[@]}"; do
-			zip_file="${font}.zip"
-			download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
-			echo "Downloading $download_url"
-			wget "$download_url"
-			sudo unzip -n "$zip_file" -d "$fonts-Path"
-			rm "$zip_file"
-		done
-	else
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}NerdFonts ${bold}icons ${cyan}${bold}done${BIred}! \n\n"
-	fi
-
-	ls /usr/share/icons/candy*.ttf >/dev/null 2>&1
-	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue} Candy Icons${yellow}\t ${bold}\t${green}done  ${end}\t"
-	else
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
-		wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
-		sudo unzip -o candy-icons.zip -d  /usr/share/icons && rm -rf candy-icons.zip
-	fi
-
-	sudo find "$fonts-Path" -name '*Windows Compatible*' -delete
-	sudo find "$fonts-Path" -name '*LICENSE*' -delete
-
-	sudo fc-cache -fv
-}
 
 function zsh_Plugins(){
 
@@ -353,20 +361,17 @@ function zsh_Plugins(){
 		if [ $OS = debian ]; then
 			sudo apt install -y zsh-syntax-highlighting
 			if [ $? -ne 0 ]; then
-				${z5H5YNt4x}
-			fi
+				${z5H5YNt4x}; fi
 
 		elif [ $OS = arch ]; then
 			sudo pacman -S zsh-syntax-highlighting
 			if [ $? -ne 0 ]; then
-				${z5H5YNt4x}
-			fi
+				${z5H5YNt4x}; fi
 
 		elif [ $OS = fedora ]; then
 			sudo dnf install zsh-syntax-highlighting -y
 			if [ $? -ne 0 ]; then
-				${z5H5YNt4x}
-			fi
+				${z5H5YNt4x}; fi
 		fi
 	fi
 
@@ -411,11 +416,14 @@ function dotfiles(){
 		mv $HOME/.config/rofi $HOME/.config/rofi.OLD
 	fi
 
-	cp -r $cwd/config/* $HOME/.config/ &&
- 	sudo cp -r $cwd/misc/usr/share/* /usr/share/ &&
-	mv $HOME/.zshrc $HOME/.zshrc.OLD && cp -r $cwd/misc/home/.*? $HOME &&
-	sudo sed -i "s/bash/zsh/g" /etc/passwd && sudo ln -sf $HOME/.zsh /root &&
-	sudo ln -s -f $HOME/.zshrc /root && sudo ln -s -f $HOME/.p10k.zsh /root && sudo locale-gen
+	cp -r $cwd/config/* $HOME/.config/
+	sudo cp -r $cwd/misc/usr/share/* /usr/share/
+	mv $HOME/.zshrc $HOME/.zshrc.OLD
+	cp -r $cwd/misc/home/.*? $HOME/
+	sudo sed -i "s/bash/zsh/g" /etc/passwd
+	sudo ln -sf $HOME/.zsh /root
+	sudo ln -s -f $HOME/.zshrc /root
+	sudo ln -s -f $HOME/.p10k.zsh /root
 	if [ $? -eq 0 ]; then
 		echo -ne "\n\t${bold}${black} ${end}${cyan}Dotfiles ${yellow}\t ${bold}\t${green}Done${Bgreen}! ${BIgreen} ${end}\n\n"
 	fi
@@ -423,6 +431,14 @@ function dotfiles(){
 
 	# --> Multi d1stro
 function main(){
+
+	which lsd >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		lsd; fi
+
+	which code >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		code; fi
 
 	which bspwm >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
@@ -490,17 +506,8 @@ function main(){
 		fi
 	fi
 
-	which lsd >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
-		lsd; fi
-
-	which code >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
-		code; fi
-
-	firefox_esr && htb-Xplorer && nvim && clipmenu && fonts && zsh_Plugins && dotfiles
+	firefox_esr && htb-Xplorer && nvim && fonts && zsh_Plugins && dotfiles
 }
-
 
 ################################################################################################################
            ###################  ~~~~~~~~~~~~~~~~ ¡| m41n |! ~~~~~~~~~~~~   #######################
