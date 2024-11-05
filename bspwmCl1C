@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # Author: Roi Diéguez - aka 47z!Lu7h
 
@@ -25,7 +24,7 @@ transport    # --> See if it supports colors...
 fi
 
 # --> Globals
-declare -r packages="slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl jsbeautifier lxappearance ranger suckless-tools xsel betterlockscreen"
+declare -r packages="slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl jsbeautifier lxappearance ranger suckless-tools xsel betterlockscreen qt5tc"
 declare -r dpnDeb_Bspwm="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
 declare -r dpnDeb_Poly="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libnl-genl-3-dev"
 declare -r dpnDeb_Picom="libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev"
@@ -52,7 +51,7 @@ function fonts(){
 	tput cnorm
 
 	ls $fonts_path/* >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
+	if [ $? -eq 0 ]; then
 
 		echo -ne "\n\n${bold}${cyan}<|[+]|> ${end}${blue}Getting ${BIblue}fonts ${BIyellow}!!! \n\n"
 		for font in "${fonts[@]}"; do
@@ -74,13 +73,13 @@ function fonts(){
 
 	fc-cache -fv
 
- 	ls $HOME/.icons/candy*.ttf >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue} Candy Icons${yellow}\t ${bold}\t${green}done  ${end}\t"
-	else
+	ls $HOME/.icons/candy*.ttf >/dev/null 2>&1
+	if [ $? -eq 0 ]; then
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
 		wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
 		sudo unzip -o candy-icons.zip -d /usr/share/icons/ && rm -rf candy-icons.zip
+	else
+		echo -ne "\n\t${bold}${black} ${end}${blue} Candy Icons${yellow}\t ${bold}\t${green}done  ${end}\t"
 	fi
 
 	tput civis
@@ -144,11 +143,11 @@ function compile_polybar() {
 function clipmenu() {
 	tput cnorm
 
-	mkdir clipmenu && cd clipnotify
 	echo -ne "\n\t${bold}${cyan}|[+]|> ${green}Cloning Clipmenu${cyan}~~${bold}${cyan}> ${end}${cyan}\n\n\n" && sleep 1
-	git clone "https://github.com/cdown/clipnotify.git" && make && sudo make install
+
+	git clone "git@github.com:cdown/clipmenu.git" && cd clipmenu && make && sudo make install
 	if [ $? -eq 0 ]; then
-		&& cd clipmenu && make && sudo make install
+		git clone "https://github.com/cdown/clipnotify.git" && cd clipnotify && make && sudo make install
 		if [ $? -eq 0 ]; then
 			cd ../../ && rm -rf clipmenu
 		fi
@@ -188,9 +187,9 @@ function code() {
 			sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 			sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 			if [ $? -eq 0 ]; then
-				rm -f packages.microsoft.gpg &&
-				sudo apt install apt-transport-https -y &&
-				sudo apt update && sudo apt install code -y &&
+				rm -f packages.microsoft.gpg && sudo apt putfe -f code*
+				sudo apt install apt-transport-https -y
+				sudo apt update && sudo apt install code -y && code && sleep 0.5 && killall code 
 				cp -r $cwd/config/Code/User/settings.json ~/.config/Code*/User/settings.json
 			fi
 		fi
@@ -322,7 +321,7 @@ function htb-Xplorer(){
 	else
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning htbXplorer from github${cyan}~~${bold}${cyan}> ${end}${cyan}\n\n"
 		sleep 1 && sudo mkdir -p /opt/h4Ck/htbXplorer-Plus
-	   	if [ $? -eq 0 ]; then
+		if [ $? -eq 0 ]; then
 			sudo git clone "https://github.com/4tz1Lu7h/htbXplorer-Plus.git" /opt/h4Ck/htbXplorer-Plus && sudo chmod +x /opt/h4Ck/htbXplorer-Plus/htbXplorer
 		fi
 	fi
@@ -468,7 +467,7 @@ function main(){
 			sudo apt install polybar -y
 			if [ $? -ne 0 ]; then
 				sudo apt install $dpnDeb_Poly -y && compile_polybar
-	           	fi
+			fi
 
 		elif [ $OS = arch ]; then
 			sudo pacman -S polybar
@@ -490,7 +489,7 @@ function main(){
 			sudo apt install picom -y
 			if [ $? -ne 0 ]; then
 				sudo apt install $dpnDeb_Poly -y && compile_picom
-	           	fi
+			fi
 
 		elif [ $OS = arch ]; then
 			sudo pacman -S picom
@@ -543,7 +542,7 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 			fi
 
 		elif [ ${NAME} = "Kali" ]; then
-			sudo apt update && sudo apt upgrade -y && sudo apt install linux-headers-$(uname -r) && sudo apt autoremove -y && sudo dpkg --configure -a
+			sudo apt update -y && sudo apt upgrade -y && sudo apt install linux-headers-$(uname -r) && sudo apt autoremove -y && sudo dpkg --configure -a
 			if [ $? -ne 0 ]; then
 				echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}${yellow} ${cyan}Upgrading ${end}${blue}======= \n\n" && sleep 1 && exit 1
 			fi
@@ -558,7 +557,7 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 
 	echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Installing Packages ${bold}${cyan}~~> \n\n"
 	if [ $OS = "debian"  ]; then
-		sudo apt install -y $packages
+		sudo apt install $packages -y
 		if [ $? -ne 0 ]; then
 			echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}${yellow}Instaling ${cyan}Packages ${end}${blue}======= \n\n" && sleep 1 && exit 1
 		fi
