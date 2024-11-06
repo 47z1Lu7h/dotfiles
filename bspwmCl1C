@@ -24,9 +24,9 @@ transport    # --> See if it supports colors...
 fi
 
 # --> Globals
-declare -r packages="slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl jsbeautifier lxappearance ranger suckless-tools xsel betterlockscreen qt5tc"
+declare -r packages="linux-headers-$(uname -r) slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl jsbeautifier lxappearance ranger suckless-tools xsel betterlockscreen qt5ct libxfixes-dev"
 declare -r dpnDeb_Bspwm="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
-declare -r dpnDeb_Poly="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libnl-genl-3-dev"
+declare -r dpnDeb_Poly="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev"
 declare -r dpnDeb_Picom="libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-dpms0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev"
 declare -r dpnFed_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms libxcb-devel xcb-util-wm-devel xcb-util-keysyms-devel xcb-util-devel"
 declare -r dpnFed_Picom="dbus-devel gcc libconfig-devel libdrm-devel libev-devel libX11-devel libX11-xcb libXext-devel libxcb-devel libGL-devel libEGL-devel meson pcre2-devel pixman-devel uthash-devel xcb-util-image-devel xcb-util-renderutil-devel xorg-x11-proto-devel"
@@ -37,54 +37,6 @@ declare -r NAME=$(cat /etc/*release | grep '^NAME' | awk '{print $NF}' FS='='| t
 declare -r cwd=$(pwd)
 declare -a fonts=( 0xProto 3270 Agave AnonymousPro Arimo AurulentSansMono BigBlueTerminal BitstreamVeraSansMono CascadiaCode CascadiaMono CodeNewRoman ComicShannsMono CommitMono Cousine D2Coding DaddyTimeMono DejaVuSansMono DroidSansMono EnvyCodeR FantasqueSansMono FiraCode FiraMono FontPatcher GeistMono Go-Mono Gohu Hack Hasklig HeavyData Hermit iA-Writer IBMPlexMono Inconsolata InconsolataGo InconsolataLGC IntelOneMono Iosevka IosevkaTerm IosevkaTermSlab JetBrainsMono Lekton LiberationMono Lilex MartianMono Meslo Monaspace Monofur Monoid Mononoki MPlus NerdFontsSymbolsOnly Noto OpenDyslexic Overpass ProFont ProggyClean Recursive RobotoMono ShareTechMono SourceCodePro SpaceMono Terminus Tinos Ubuntu UbuntuMono UbuntuSans VictorMono ZedMono )
 
-version='3.2.1'
-
-fonts_path="$HOME/.fonts/nerd_fonts"
-if [ ! -d = $fonts_path ]; then
-	mkdir -p $fonts_path
-fi
-
-trap ctrl_c INT
-
-		# -->  Fonts & Icons
-function fonts(){
-	tput cnorm
-
-	ls $fonts_path/* >/dev/null 2>&1
-	if [ $? -eq 0 ]; then
-
-		echo -ne "\n\n${bold}${cyan}<|[+]|> ${end}${blue}Getting ${BIblue}fonts ${BIyellow}!!! \n\n"
-		for font in "${fonts[@]}"; do
-			zip_file="${font}.zip"
-			download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
-			echo -ne "\n\n${bold}${cyan}<|[+]|> ${end}${blue}Installing ${Bicyan}'$font' in${BIyellow} "HOME/.fonts/nerd_fonts" \n\n${blue}"
-			echo "Downloading $download_url"
-			wget "$download_url"
-			unzip -n "$zip_file" -d "$fonts_path"
-			rm "$zip_file"
-		done
-	else
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}NerdFonts ${bold}icons ${cyan}${bold}done${BIred}! \n\n"
-	fi
-
-	find "$HOME/.fonts/nerd_fonts" -name '*Windows Compatible*' -delete
-	find "$HOME/.fonts/nerd_fonts" -name '*LICENSE*' -delete
-	find "$HOME/.fonts/nerd_fonts" -name '*README*' -delete
-
-	fc-cache -fv
-
-	ls $HOME/.icons/candy*.ttf >/dev/null 2>&1
-	if [ $? -eq 0 ]; then
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
-		wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
-		sudo unzip -o candy-icons.zip -d /usr/share/icons/ && rm -rf candy-icons.zip
-	else
-		echo -ne "\n\t${bold}${black} ${end}${blue} Candy Icons${yellow}\t ${bold}\t${green}done  ${end}\t"
-	fi
-
-	tput civis
-}
-
 	# --> Banner
 function banner(){
 echo -ne "\t\t\t${red}${bold}
@@ -94,7 +46,7 @@ echo -ne "\t\t\t${red}${bold}
 ▒██░█▀   ▒   ██▒██▄█▓▒ ░█░ █ ░█▒██    ▒██▒▓▓▄ ▄██▒██░   ░██▒▓▓▄ ▄██▒
 ░▓█  ▀█▒█████▒▒██▒ ░  ░░██▒██▓▒██▒   ░██▒ ▓███▀ ░██████░██▒ ▓███▀ ░
 ░▒▓███▀▒ ▒▓▒ ▒ ▒▓▒░ ░  ░ ▓░▒ ▒ ░ ▒░   ░  ░ ░▒ ▒  ░ ▒░▓  ░▓ ░ ░▒ ▒░
-░▒░  ░░ ${bold}${red}By ${cyan}47z${bold}${red}!${cyan}Lu7h${end}${bold}${red}${standout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
+░▒░  ░░ ${bold}${red}By ${BIblack}47z${bold}${red}!${BIblack}Lu7h${end}${bold}${red}${standout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
 ░     ░		▒ ░	░	░	░
       ░         ░${end}\n"
 }
@@ -103,6 +55,39 @@ echo -ne "\t\t\t${red}${bold}
 function ctrl_c(){
 	echo -ne "\n\n\t\t${bold}${red}<|[${black}!${red}]|> ${cyan}Ctrl+C ${black}--->${red}Exiting${cyan}!! ${red}\n\n\n"
 	exit 1
+}
+
+trap ctrl_c INT
+
+		# -->  Fonts & Icons
+function fonts(){
+	tput cnorm
+
+	version='3.2.1'
+	fonts_path="/usr/fonts/nerd_fonts"
+
+	echo -ne "\n\n${bold}${cyan}<|[+]|> ${end}${blue}Getting ${BIblue}fonts ${BIyellow}!!! \n\n"
+	for font in "${fonts[@]}"; do
+		zip_file="${font}.zip"
+		download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
+		echo -ne "\n\n${bold}${cyan}<|[+]|> ${end}${blue}Installing ${BIyellow}'$font' ${end}${blue}in${Ipurple} "/usr/fonts/nerd_fonts" \n\n${blue}"
+		echo "Downloading $download_url"
+		wget "$download_url"
+		sudo unzip -n "$zip_file" -d "$fonts_path"
+		rm "$zip_file"
+	done
+
+	sudo find "$fonts_path" -name '*Windows Compatible*' -delete
+	sudo find "$fonts_path" -name 'LICENSE*' -delete
+	sudo find "$fonts_path" -name 'README*' -delete
+
+	fc-cache -fv
+
+	echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
+	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
+	sudo unzip -o candy-icons.zip -d /usr/share/icons/ && rm -rf candy-icons.zip
+
+	tput civis
 }
 
 	# --> Complie Bspwm & Sxhkd
@@ -182,15 +167,16 @@ function code() {
 
 	if [ $OS = debian ]; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}~~${bold}${cyan}> \n\n" &&
+		sudo apt purge code-oss -fy
 		sleep 1 && sudo apt-get install wget gpg && wget -qO- "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > packages.microsoft.gpg
 		if [ $? -eq 0 ]; then
 			sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 			sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 			if [ $? -eq 0 ]; then
-				rm -f packages.microsoft.gpg && sudo apt putfe -f code*
+				rm -f packages.microsoft.gpg && sudo apt purge -f code*
 				sudo apt install apt-transport-https -y
-				sudo apt update && sudo apt install code -y && code && sleep 0.5 && killall code 
-				cp -r $cwd/config/Code/User/settings.json ~/.config/Code*/User/settings.json
+				sudo apt update && sudo apt install code -y && code && sleep 0.5 && killall code
+				cp -r $cwd/config/Code/User/settings.json $HOME/.config/Code*/User/settings.json
 			fi
 		fi
 
@@ -200,12 +186,12 @@ function code() {
 		sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 		if [ $? -eq 0 ]; then
 			dnf check-update && sudo dnf install code
-			code & disown; sleep 3 && sudo killall code && cp -r $cwd/config/Code/User/settings.json ~/.config/Code*/User/settings.json
+			code & disown; sleep 3 && sudo killall code && cp -r $cwd/config/Code/User/settings.json $HOME/.config/Code*/User/settings.json
 		fi
 
 	elif [ $OS = Arch ]; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}~~${bold}${cyan}> \n\n"
-		sudo pacman -s code && cp -r $cwd/config/Code/User/settings.json ~/.config/Code*/User*/settings.json
+		sudo pacman -s code && cp -r $cwd/config/Code/User/settings.json $HOME/.config/Code*/User*/settings.json
 	fi
 
 	tput civis
@@ -246,7 +232,7 @@ function firefox_esr() {
 
 	which firefox-esr >/dev/null
 	if [ $? -eq 0 ]; then
-		if [ -d ~/.mozilla/ ]; then
+		if [ -d $HOME/.mozilla/ ]; then
 			cp -r $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox*/*default-esr*/
 		else
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${end}${blue}Setting firefox-esr theme${bold}${cyan}! \n\n"
@@ -282,15 +268,15 @@ function nvim() {
 
 	which nvim >/dev/null 2>&1
 	if [ $? -eq 0 ]; then
-		ls ~/.config/nvim >/dev/null 2>&1
+		ls $HOME/.config/nvim >/dev/null 2>&1
 		if [ $? -eq 0 ]; then
 			echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Nvim~NvChad ${cyan}D0N3!!\n\n"
 		else
 			echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning Nvim~NvChad${cyan} -->\n\n\n" && sleep 1 &&
-			rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
+			rm -rf $HOME/.config/nvim; rm -rf $HOME/.local/share/nvim; rm -rf $HOME/.cache/nvim; sudo rm -rf $HOME/.config/nvim; sudo rm -rf $HOME/.local/share/nvim; sudo rm -rf $HOME/.cache/nvim
  			sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
 			if [ $? -eq 0 ]; then
-				git clone --depth 1 "https://github.com/NvChad/starter" ~/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/starter" /root/.config/nvim
+				git clone --depth 1 "https://github.com/NvChad/starter" $HOME/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/starter" /root/.config/nvim
 			fi
 		fi
 	else
@@ -298,10 +284,10 @@ function nvim() {
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning & compiling neovim + cloning NvChad${cyan} -->\n\n\n" && sleep 1 &&
 		git clone "https://github.com/neovim/neovim" && cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
 		if [ $? -eq 0 ]; then
-			rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.cache/nvim; sudo rm -rf ~/.config/nvim; sudo rm -rf ~/.local/share/nvim; sudo rm -rf ~/.cache/nvim
+			rm -rf $HOME/.config/nvim; rm -rf $HOME/.local/share/nvim; rm -rf $HOME/.cache/nvim; sudo rm -rf $HOME/.config/nvim; sudo rm -rf $HOME/.local/share/nvim; sudo rm -rf $HOME/.cache/nvim
 			sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim; sudo rm -rf /root/.config/nvim; sudo rm -rf /root/.local/share/nvim; sudo rm -rf /root/.cache/nvim
 			if [ $? -eq 0 ]; then
-				git clone --depth 1 "https://github.com/NvChad/starter" ~/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/starter" /root/.config/nvim
+				git clone --depth 1 "https://github.com/NvChad/starter" $HOME/.config/nvim  && sudo git clone --depth 1 "https://github.com/NvChad/starter" /root/.config/nvim
 				if [ $? -eq 0 ]; then
 					cd ../../ && rm -rf nvim
 				fi
@@ -353,6 +339,18 @@ function zsh_Plugins(){
 		sudo git clone "https://github.com/joshskidmore/zsh-fzf-history-search.git"	/usr/share/zsh-fzf-history-search
 	fi
 
+	if [ -f $HOME/.zsh/git-completion.zsh ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue}git-completion${yellow}\t ${bold}\t${green}done  ${end}\t"
+	else
+		wget "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh" -P $HOME/.zsh/
+	fi
+
+	if [ -f /usr/share/zsh/sudo.plugin.zsh ]; then
+		echo -ne "\n\t${bold}${black} ${end}${blue}sudo.plugin ${yellow}\t\t ${bold}\t${green}done  ${end}\t"
+	else
+		sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/
+	fi
+
 	if [ -d /usr/share/zsh-syntax-highlighting ]; then
 		echo -ne "\n\t${bold}${black} ${end}${blue}syntax-highlighting${yellow}\t ${bold}\t${green}done  ${end}\t"
 	else
@@ -372,18 +370,6 @@ function zsh_Plugins(){
 			if [ $? -ne 0 ]; then
 				${z5H5YNt4x}; fi
 		fi
-	fi
-
-	if [ -f ~/.zsh/git-completion.zsh ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}git-completion${yellow}\t ${bold}\t${green}done  ${end}\t"
-	else
-		wget "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh" -P ~/.zsh/
-	fi
-
-	if [ -f /usr/share/zsh/sudo.plugin.zsh ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}sudo.plugin ${yellow}\t\t ${bold}\t${green}done  ${end}\t"
-	else
-		sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/
 	fi
 }
 
@@ -505,7 +491,7 @@ function main(){
 		fi
 	fi
 
-	firefox_esr && htb-Xplorer && nvim && fonts && zsh_Plugins && dotfiles
+	fonts && clipmenu && firefox_esr && htb-Xplorer && nvim && zsh_Plugins && dotfiles
 }
 
 ################################################################################################################
@@ -536,13 +522,13 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 	if [ $OS = "debian" ]; then
 
 		if [[ ${NAME} = "Parrot" ]]; then
-			sudo apt update && sudo parrot-upgrade -y && sudo apt install linux-headers-$(uname -r) && sudo apt autoremove -y && sudo dpkg --configure -a
+			sudo apt update && sudo parrot-upgrade  && sudo apt autoremove -y && sudo dpkg --configure -a
 			if [ $? -ne 0 ]; then
 				echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}${yellow}Upgrading${cyan} System ${end}${blue}======= \n\n" && sleep 1 && exit 1
 			fi
 
 		elif [ ${NAME} = "Kali" ]; then
-			sudo apt update -y && sudo apt upgrade -y && sudo apt install linux-headers-$(uname -r) && sudo apt autoremove -y && sudo dpkg --configure -a
+			sudo apt update -y && sudo apt -y upgrade && sudo apt autoremove -y && sudo dpkg --configure -a
 			if [ $? -ne 0 ]; then
 				echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}${yellow} ${cyan}Upgrading ${end}${blue}======= \n\n" && sleep 1 && exit 1
 			fi
