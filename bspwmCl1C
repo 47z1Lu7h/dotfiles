@@ -35,7 +35,7 @@ declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
 declare -r OS=$(cat /etc/*release | grep '^ID_LIKE*' | awk '{print $NF}' FS='=')
 declare -r NAME=$(cat /etc/*release | grep '^NAME' | awk '{print $NF}' FS='='| tr -d '"' |  awk '{print $1}')
 declare -r cwd=$(pwd)
-declare -a fonts=( 0xProto 3270 Agave AnonymousPro Arimo AurulentSansMono BigBlueTerminal BitstreamVeraSansMono CascadiaCode CascadiaMono CodeNewRoman ComicShannsMono CommitMono Cousine D2Coding DaddyTimeMono DejaVuSansMono DroidSansMono EnvyCodeR FantasqueSansMono FiraCode FiraMono FontPatcher GeistMono Go-Mono Gohu Hack Hasklig HeavyData Hermit iA-Writer IBMPlexMono Inconsolata InconsolataGo InconsolataLGC IntelOneMono Iosevka IosevkaTerm IosevkaTermSlab JetBrainsMono Lekton LiberationMono Lilex MartianMono Meslo Monaspace Monofur Monoid Mononoki MPlus NerdFontsSymbolsOnly Noto OpenDyslexic Overpass ProFont ProggyClean Recursive RobotoMono ShareTechMono SourceCodePro SpaceMono Terminus Tinos Ubuntu UbuntuMono UbuntuSans VictorMono ZedMono )
+declare -a fonts=( 0xProto 3270 Agave Arimo BigBlueTerminal BitstreamVeraSansMono CascadiaCode CascadiaMono CodeNewRoman ComicShannsMono CommitMono Cousine D2Coding DaddyTimeMono DejaVuSansMono FiraCode FiraMono Go-Mono Gohu Hack Hasklig HeavyData Hermit iA-Writer IBMPlexMono IntelOneMono Iosevka IosevkaTerm IosevkaTermSlab JetBrainsMono Lekton Lilex MartianMono Meslo MPlus OpenDyslexic Overpass ProFont ProggyClean RobotoMono ShareTechMono SourceCodePro SpaceMono Tinos ZedMono )
 
 	# --> Banner
 function banner(){
@@ -64,24 +64,29 @@ function fonts(){
 	tput cnorm
 
 	version='3.2.1'
-	fonts_path="/usr/fonts/nerd_fonts"
+        fonts_Path="/usr/share/fonts/nerd_fonts"
+
+        if [[ ! -d "$fonts_Path" ]]; then
+                sudo mkdir -p "$fonts_Path"
+        fi
 
 	echo -ne "\n\n${bold}${cyan}<|[+]|> ${end}${blue}Getting ${BIblue}fonts ${BIyellow}!!! \n\n"
 	for font in "${fonts[@]}"; do
 		zip_file="${font}.zip"
 		download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
-		echo -ne "\n\n${bold}${cyan}<|[+]|> ${end}${blue}Installing ${BIyellow}'$font' ${end}${blue}in${Ipurple} "/usr/fonts/nerd_fonts" \n\n${blue}"
+		echo -ne "\n\n${bold}${cyan}<|[+]|> ${end}${blue}Installing ${BIyellow}'$font' ${end}${blue}in${purple} ${fonts_Path} \n\n${blue}"
 		echo "Downloading $download_url"
 		wget "$download_url"
-		sudo unzip -n "$zip_file" -d "$fonts_path"
+		sudo unzip -n "$zip_file" -d "$fonts_Path"
 		rm "$zip_file"
 	done
 
-	sudo find "$fonts_path" -name '*Windows Compatible*' -delete
-	sudo find "$fonts_path" -name 'LICENSE*' -delete
-	sudo find "$fonts_path" -name 'README*' -delete
+	sudo find "$fonts_Path" -name '*Windows Compatible*' -delete
+	sudo find "$fonts_Path" -name 'LICENSE*' -delete
+	sudo find "$fonts_Path" -name 'README*' -delete
+	sudo find "$fonts_Path" -name '*.txt' -delete
 
-	fc-cache -fv
+	sudo fc-cache -fv
 
 	echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Getting Candy ${bold}icons ${cyan}~~${bold}${cyan}> \n\n"
 	wget "https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip" -O candy-icons.zip &&
@@ -270,7 +275,7 @@ function nvim() {
 	if [ $? -eq 0 ]; then
 		ls $HOME/.config/nvim >/dev/null 2>&1
 		if [ $? -eq 0 ]; then
-			echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Nvim~NvChad ${cyan}D0N3!!\n\n"
+			echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Nvim~NvChad ${cyan}d@n3!!\n\n"
 		else
 			echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}Cloning Nvim~NvChad${cyan} -->\n\n\n" && sleep 1 &&
 			rm -rf $HOME/.config/nvim; rm -rf $HOME/.local/share/nvim; rm -rf $HOME/.cache/nvim; sudo rm -rf $HOME/.config/nvim; sudo rm -rf $HOME/.local/share/nvim; sudo rm -rf $HOME/.cache/nvim
@@ -410,7 +415,7 @@ function dotfiles(){
 	sudo ln -s -f $HOME/.zshrc /root
 	sudo ln -s -f $HOME/.p10k.zsh /root
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${black} ${end}${cyan}Dotfiles ${yellow}\t ${bold}\t${green}Done${Bgreen}! ${BIgreen} ${end}\n\n"
+		echo -ne "\n\t${bold}${black}󰧟${end}${cyan}Dotfiles ${yellow}\t ${bold}\t${green}Done${Bgreen}! ${BIgreen} ${end}\n\n"
 	fi
 }
 
@@ -419,11 +424,17 @@ function main(){
 
 	which lsd >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
-		lsd; fi
+		lsd
+	else
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}l5d ${cyan}d0n3!!\n\n"
+	fi
 
 	which code >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
-		code; fi
+		code
+	else
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}cOd3 ${cyan}d0n3!!\n\n"
+	fi
 
 	which bspwm >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
@@ -445,6 +456,8 @@ function main(){
 				sudo dnf install $dpnFed_Bspwm && compile_bspwm
 			fi
 		fi
+	else
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}b5pWm ${cyan}d0n3!!\n\n"
 	fi
 
 	which polybar >/dev/null 2>&1
@@ -467,6 +480,8 @@ function main(){
 				sudo dnf install $dpnFed_Poly && compile_polybar
 			fi
 		fi
+	else
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}p0ly ${cyan}d0n3!!\n\n"
 	fi
 
 	which picom >/dev/null 2>&1
@@ -489,6 +504,8 @@ function main(){
 				sudo dnf install $dpnFed_Poly && compile_picom
 			fi
 		fi
+	else
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}p1c0m ${cyan}d0n3!!\n\n"
 	fi
 
 	fonts && clipmenu && firefox_esr && htb-Xplorer && nvim && zsh_Plugins && dotfiles
