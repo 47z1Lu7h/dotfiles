@@ -1,9 +1,44 @@
 #!/bin/bash
 # Author: Roi Diéguez - aka 47z!Lu7h
 
+	# --> Banner
+function banner(){
+echo -ne "\t\t\t${red}${bold}
+▄█████  ██████ ██▓███  █     █░███▄ ▄███▓▄████▄  ██▓    ██▓▄████▄
+▓██████▒██    ▒▓██░  ██▓█░ █ ░█▓██▒▀█▀ ██▒██▀ ▀█ ▓██▒   ▓██▒██▀ ▀█
+█    ▄█░ ▓██▄  ▓██░ ██▓▒█░ █ ░█▓██    ▓██▒▓█    ▄▒██░   ▒██▒▓██
+▒██░█▀   ▒   ██▒██▄█▓▒ ░█░ █ ░█▒██    ▒██▒▓▓▄ ▄██▒██░   ░██▒▓▓▄ ▄██▒
+░▓█  ▀█▒█████▒▒██▒ ░  ░░██▒██▓▒██▒   ░██▒ ▓███▀ ░██████░██▒ ▓███▀ ░
+░▒▓███▀▒ ▒▓▒ ▒ ▒▓▒░ ░  ░ ▓░▒ ▒ ░ ▒░   ░  ░ ░▒ ▒  ░ ▒░▓  ░▓ ░ ░▒ ▒░
+░▒░  ░░ ${bold}${red}By ${BIblack}47z${bold}${red}!${BIblack}Lu7h${end}${bold}${red}${standout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
+░     ░		▒ ░	░	░	░
+      ░         ░${end}\n"
+}
+
+# --> Globals
+declare -r packages="slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl jsbeautifier lxappearance ranger suckless-tools xsel qt5ct libxfixes-dev"
+declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
+declare -r dpnDeb_Bspwm="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
+declare -r dpnFed_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms libxcb-devel xcb-util-wm-devel xcb-util-keysyms-devel xcb-util-devel"
+declare -r dpnDeb_Poly="libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev i3-wm libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev"
+declare -r dpnFed_Poly="xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-devel jsoncpp-devel libmpdclient-devel libcurl-devel libnl3-devel"
+declare -r dpnDeb_Picom="libconfig-dev libdbus-1-dev libegl-dev libev-dev libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev libx11-xcb-dev libxcb1-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev libxcb-present-dev libxcb-randr0-dev libxcb-render0-dev libxcb-render-util0-dev libxcb-shape0-dev libxcb-util-dev libxcb-xfixes0-dev meson ninja-build uthash-dev"
+declare -r dpnFed_Picom="dbus-devel gcc git libconfig-devel libev-devel libX11-devel libX11-xcb libxcb-devel libGL-devel libEGL-devel libepoxy-devel meson pcre2-devel pixman-devel uthash-devel xcb-util-image-devel xcb-util-renderutil-devel xorg-x11-proto-devel xcb-util-devel"
+declare -r OS=$(cat /etc/*release | grep '^ID*' | awk '{print $NF}' FS='='| tail -n 1)
+declare -r NAME=$(cat /etc/*release | grep '^NAME' | awk '{print $NF}' FS='=' | tr -d '"' | awk '{print $1}')
+declare -r cwd=$(pwd)
+declare -a fonts=( ShareTechMono IosevkaTermSlab DaddyTimeMono Iosevka )
+
+	# --> Msg exit when ctrl+c
+function ctrl_c(){
+	echo -ne "\n\n\t\t${bold}${red}<|[${black}!${red}]|> ${cyan}Ctrl+C ${black}--->${red}Exiting${cyan}!! ${red}\n\n\n"
+	exit 1
+}
+
+trap ctrl_c INT
+
 # --> Check if stdout is a terminal...
 if test -t 1; then
-transport    # --> See if it supports colors...
     ncolors=$(tput colors)
 
 	if test -n "$ncolors" && test $ncolors -ge 8; then
@@ -22,43 +57,6 @@ transport    # --> See if it supports colors...
 		white="$(tput setaf 7)"
 	fi
 fi
-
-# --> Globals
-declare -r packages="linux-headers-$(uname -r) slop wmctrl zsh rofi kitty git jq cmake npm g++ gettext feh dash bat meson neofetch wget curl xclip net-tools openvpn html2text fzf rlwrap gpick meson trash-cli brightnessctl jsbeautifier lxappearance ranger suckless-tools xsel qt5ct libxfixes-dev"
-declare -r dpnDeb_Bspwm="libxcb-xinerama0-dev libxcb-icccm4-dev libxcb-randr0-dev libxcb-util0-dev libxcb-ewmh-dev libxcb-keysyms1-dev libxcb-shape0-dev"
-declare -r dpnDeb_Poly="build-essential cmake cmake-data pkg-config python3-sphinx python3-packaging libuv1-dev libcairo2-dev libxcb1-dev libxcb-util0-dev libxcb-randr0-dev libxcb-composite0-dev python3-xcbgen xcb-proto libxcb-image0-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-cursor-dev libasound2-dev libpulse-dev libjsoncpp-dev libmpdclient-dev libcurl4-openssl-dev libnl-genl-3-dev"
-declare -r dpnDeb_Picom="libconfig-dev libdbus-1-dev libegl-dev libev-dev libgl-dev libepoxy-dev libpcre2-dev libpixman-1-dev libx11-xcb-dev libxcb1-dev libxcb-composite0-dev libxcb-damage0-dev libxcb-glx0-dev libxcb-image0-dev libxcb-present-dev libxcb-randr0-dev libxcb-render0-dev libxcb-render-util0-dev libxcb-shape0-dev libxcb-util-dev libxcb-xfixes0-dev meson ninja-build uthash-dev"
-declare -r dpnFed_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms libxcb-devel xcb-util-wm-devel xcb-util-keysyms-devel xcb-util-devel"
-declare -r dpnFed_Picom="dbus-devel gcc git libconfig-devel libev-devel libX11-devel libX11-xcb libxcb-devel libGL-devel libEGL-devel libepoxy-devel meson pcre2-devel pixman-devel uthash-devel xcb-util-image-devel xcb-util-renderutil-devel xorg-x11-proto-devel xcb-util-devel"
-declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
-declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
-declare -r OS=$(cat /etc/*release | grep '^ID*' | awk '{print $NF}' FS='='| tail -n 1)
-declare -r NAME=$(cat /etc/*release | grep '^NAME' | awk '{print $NF}' FS='='| tr -d '"' |  awk '{print $1}')
-declare -r cwd=$(pwd)
-declare -a fonts=( ShareTechMono IosevkaTermSlab DaddyTimeMono Iosevka )
-
-	# --> Banner
-function banner(){
-echo -ne "\t\t\t${red}${bold}
-▄█████  ██████ ██▓███  █     █░███▄ ▄███▓▄████▄  ██▓    ██▓▄████▄
-▓██████▒██    ▒▓██░  ██▓█░ █ ░█▓██▒▀█▀ ██▒██▀ ▀█ ▓██▒   ▓██▒██▀ ▀█
-█    ▄█░ ▓██▄  ▓██░ ██▓▒█░ █ ░█▓██    ▓██▒▓█    ▄▒██░   ▒██▒▓██
-▒██░█▀   ▒   ██▒██▄█▓▒ ░█░ █ ░█▒██    ▒██▒▓▓▄ ▄██▒██░   ░██▒▓▓▄ ▄██▒
-░▓█  ▀█▒█████▒▒██▒ ░  ░░██▒██▓▒██▒   ░██▒ ▓███▀ ░██████░██▒ ▓███▀ ░
-░▒▓███▀▒ ▒▓▒ ▒ ▒▓▒░ ░  ░ ▓░▒ ▒ ░ ▒░   ░  ░ ░▒ ▒  ░ ▒░▓  ░▓ ░ ░▒ ▒░
-░▒░  ░░ ${bold}${red}By ${BIblack}47z${bold}${red}!${BIblack}Lu7h${end}${bold}${red}${standout} :)${red}  ░ ░ ░    ▒    ░ ░  ░      ░ ░    ░
-░     ░		▒ ░	░	░	░
-      ░         ░${end}\n"
-}
-
-	# --> Msg exit when ctrl+c
-function ctrl_c(){
-	echo -ne "\n\n\t\t${bold}${red}<|[${black}!${red}]|> ${cyan}Ctrl+C ${black}--->${red}Exiting${cyan}!! ${red}\n\n\n"
-	exit 1
-}
-
-trap ctrl_c INT
-
 		# -->  Fonts & Icons
 function fonts(){
 	tput cnorm
@@ -96,7 +94,7 @@ function fonts(){
 }
 
 	# --> Complie Bspwm & Sxhkd
-function compile_bspwm(){
+function compile_Bspwm(){
 	tput cnorm
 
 	mkdir bspwm && cd bspwm
@@ -114,7 +112,7 @@ function compile_bspwm(){
 }
 
 	# --> Compile polybar
-function compile_polybar() {
+function compile_Polybar() {
 	tput cnorm
 
 	mkdir polybar && cd polybar
@@ -125,6 +123,8 @@ function compile_polybar() {
 		if [ $? -eq 0 ]; then
 			cd ../../../ && rm -rf polybar
 		fi
+	else
+		echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}compiling ${yellow}Polybar ${cyan} ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	fi
 
 	tput civis
@@ -141,13 +141,15 @@ function clipmenu() {
 		if [ $? -eq 0 ]; then
 			cd ../../ && rm -rf clipmenu
 		fi
+	else
+		echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}compiling ${yellow}clipmenu ${cyan} ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	fi
 
 	tput civis
 }
 
 	# --> Compile Picom
-function compile_picom() {
+function compile_Picom() {
 	tput cnorm
 
 	mkdir picom && cd picom
@@ -159,6 +161,8 @@ function compile_picom() {
 			ninja -C build && ninja -C build install
 			if [ $? -eq 0 ]; then
 				cd ../../ && rm -rf picom
+			else
+				echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}compiling ${yellow}Picom ${cyan} ${end}${blue}======= \n\n" && sleep 1 && exit 1
 			fi
 		fi
 	fi
@@ -170,7 +174,8 @@ function compile_picom() {
 function code() {
 	tput cnorm
 
-	if [ $OS = debian ]; then
+	if  [[ $OS = debian ]]; then
+
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}~~${bold}${cyan}> \n\n" &&
 		sleep 1 && sudo apt-get install -y wget gpg && wget -qO- "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > packages.microsoft.gpg
 		if [ $? -eq 0 ]; then
@@ -181,10 +186,14 @@ function code() {
 				sudo apt install apt-transport-https -y
 				sudo apt update && sudo apt install code -y && code && sleep 0.5 && killall code
 				cp -r $cwd/config/Code/User/settings.json $HOME/.config/Code*/User/settings.json
+			else
+				echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}installing ${yellow}Code ${cyan} ${end}${blue}======= \n\n" && sleep 1 && exit 1
+		
 			fi
 		fi
 
-	elif [ $OS = fedora ]; then
+	elif  [[ $OS = fedora ]]; then
+
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}~~${bold}${cyan}> \n\n"
 		sleep 1 && sudo rpm --import "https://packages.microsoft.com/keys/microsoft.asc" &&
 		sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
@@ -193,7 +202,8 @@ function code() {
 			code & disown; sleep 3 && sudo killall code && cp -r $cwd/config/Code/User/settings.json $HOME/.config/Code*/User/settings.json
 		fi
 
-	elif [ $OS = Arch ]; then
+	elif  [[ $OS = arch ]]; then
+
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}~~${bold}${cyan}> \n\n"
 		sudo pacman -s code && cp -r $cwd/config/Code/User/settings.json $HOME/.config/Code*/User*/settings.json
 	fi
@@ -205,21 +215,24 @@ function code() {
 function lsd(){
 	tput cnorm
 
-	if [ $OS = debian ]; then
+	if  [[ $OS = debian ]]; then
+
 		sudo apt install lsd -y
 		if [ $? -ne 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Downloading lsd ${end}${cyan}~~${bold}${cyan}> \n\n"
 			sleep 1 && wget "https://github.com/lsd-rs/lsd/releases/download/v1.1.2/lsd_1.1.2_amd64.deb" -O lsd.deb && sudo dpkg -i lsd.deb && rm lsd.deb
 		fi
 
-	elif [ $OS = arch ]; then
+	elif  [[ $OS = arch ]]; then
+
 		sudo pacman -S lsd
 		if [ $? -ne 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Downloading lsd ${end}${cyan}~~${bold}${cyan}> \n\n"
 			sleep 1 && wget "https://github.com/lsd-rs/lsd/releases/download/v1.1.2/lsd_1.1.2_amd64.deb" -O lsd.deb && sudo dpkg -i lsd.deb && rm lsd.deb
 		fi
 
-	elif [ $OS = fedora ]; then
+	elif  [[ $OS = fedora ]]; then
+
 		sudo dnf install lsd -y
 		if [ $? -ne 0 ]; then
 			echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Downloading lsd ${end}${cyan}~~${bold}${cyan}> \n\n"
@@ -244,7 +257,7 @@ function firefox_esr() {
 			cp -r $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox*/*default-esr*/
 		fi
 	else
-		if  [ $OS = debian ]; then
+		if  [[ $OS = debian ]]; then
 			sudo apt update && sudo apt install firefox-esr -y && sudo apt autoremove -y && sudo apt autoclean -y &&
 			firefox-esr & disown; sleep 4 && sudo killall firefox-esr && sleep 1 &&
 			cp -r $cwd/misc/home/.mozilla/firefox/chrome		$HOME/.mozilla/firefox*/*default-esr*/
@@ -332,44 +345,47 @@ function zsh_Plugins(){
 	fi
 
 	if [ -d /usr/share/zsh-autocomplete ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}autocomplete ${yellow}\t\t ${bold}\t${green}done  ${end}\t"
+		echo -ne "\n\t${bold}${black} ${end}${blue}autocomplete ${yellow}\t\t ${bold}\t${green}done ${bold} ${end}\t"
 	else
 		sudo git clone --depth 1 -- "https://github.com/marlonrichert/zsh-autocomplete.git" /usr/share/zsh-autocomplete
 	fi
 
 	if [ -d /usr/share/zsh-fzf-history-search ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}fzf-history-search ${yellow}\t ${bold}\t${green}done  ${end}\t"
+		echo -ne "\n\t${bold}${black} ${end}${blue}fzf-history-search ${yellow}\t ${bold}\t${green}done ${bold} ${end}\t"
 	else
 		sudo git clone "https://github.com/joshskidmore/zsh-fzf-history-search.git"	/usr/share/zsh-fzf-history-search
 	fi
 
 	if [ -f $HOME/.zsh/git-completion.zsh ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}git-completion${yellow}\t ${bold}\t${green}done  ${end}\t"
+		echo -ne "\n\t${bold}${black} ${end}${blue}git-completion${yellow}\t ${bold}\t${green}done ${bold} ${end}\t"
 	else
 		wget "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh" -P $HOME/.zsh/
 	fi
 
 	if [ -f /usr/share/zsh/sudo.plugin.zsh ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}sudo.plugin ${yellow}\t\t ${bold}\t${green}done  ${end}\t"
+		echo -ne "\n\t${bold}${black} ${end}${blue}sudo.plugin ${yellow}\t\t ${bold}\t${green}done ${bold} ${end}\t"
 	else
 		sudo wget "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/sudo/sudo.plugin.zsh" -P /usr/share/zsh/
 	fi
 
 	if [ -d /usr/share/zsh-syntax-highlighting ]; then
-		echo -ne "\n\t${bold}${black} ${end}${blue}syntax-highlighting${yellow}\t ${bold}\t${green}done  ${end}\t"
+		echo -ne "\n\t${bold}${black} ${end}${blue}syntax-highlighting${yellow}\t ${bold}\t${green}done ${bold} ${end}\t"
 	else
 		export z5H5YNt4x=$(sudo git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git"	/usr/share/zsh-syntax-highlighting)
-		if [ $OS = debian ]; then
+		if  [[ $OS = debian ]]; then
+
 			sudo apt install -y zsh-syntax-highlighting
 			if [ $? -ne 0 ]; then
 				${z5H5YNt4x}; fi
 
-		elif [ $OS = arch ]; then
+		elif  [[ $OS = arch ]]; then
+
 			sudo pacman -S zsh-syntax-highlighting
 			if [ $? -ne 0 ]; then
 				${z5H5YNt4x}; fi
 
-		elif [ $OS = fedora ]; then
+		elif  [[ $OS = fedora ]]; then
+
 			sudo dnf install zsh-syntax-highlighting -y
 			if [ $? -ne 0 ]; then
 				${z5H5YNt4x}; fi
@@ -379,7 +395,7 @@ function zsh_Plugins(){
 
 function dotfiles(){
 
-	echo -ne "\n\n\t${bold}${cyan}<[+]> ${end}${blue}Coping dotfiles ${cyan}\n\n" && sleep 1
+	echo -ne "\n\n\t${bold}${cyan}<[+]> ${end}${blue}Coping ${bold}dotfiles ${cyan}\n\n" && sleep 1
 
 	if [ -d $HOME/.config/bspwm ]; then
 		mv $HOME/.config/bspwm $HOME/.config/bspwm.OLD
@@ -414,100 +430,100 @@ function dotfiles(){
 	sudo ln -s -f $HOME/.zshrc /root
 	sudo ln -s -f $HOME/.p10k.zsh /root
 	if [ $? -eq 0 ]; then
-		echo -ne "\n\t${bold}${black}󰧟${end}${cyan}Dotfiles ${yellow}\t ${bold}\t${green}Done${Bgreen}! ${BIgreen} ${end}\n\n"
+		echo -ne "\n\t${bold}${black}󰧟${end}${cyan}Dotfiles ${yellow}\t ${bold}\t${green}Done${white}! ${bold}${green} ${end}\n\n"
 	fi
 }
 
 	# --> Multi d1stro
 function main(){
 
+	which picom >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		if  [[ $OS = debian ]]; then
+			sudo apt install picom -y
+			if [ $? -ne 0 ]; then
+				sudo apt install -y $dpnDeb_Picom && compile_Picom
+			fi
+
+		elif  [[ $OS = arch ]]; then
+			sudo pacman -S picom
+			if [ $? -ne 0 ]; then
+				compile_Picom
+			fi
+
+		elif  [[ $OS = fedora ]]; then
+			sudo dnf install picom
+			if [ $? -ne 0 ]; then
+				sudo dnf install $dpnFed_Picom && compile_Picom
+			fi
+		fi
+	else
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${red}p1c0m ${cyan}d0n3!!\n\n"
+	fi
+	
+	which bspwm >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		if  [[ $OS = debian ]]; then
+			sudo apt install bspwm sxhkd -y
+			if [ $? -ne 0 ]; then
+				sudo apt install $dpnDeb_Bspwm -y && compile_Bspwm
+			fi
+
+		elif  [[ $OS = arch ]]; then
+			sudo pacman -S bwpwm sxhkd
+			if [ $? -ne 0 ]; then
+				sudo pacman -S $dpnArch_Bspwm && compile_Bspwm
+			fi
+
+		elif  [[ $OS = fedora ]]; then
+			sudo dnf install bspwm sxhkd -y
+			if [ $? -ne 0 ]; then
+				sudo dnf install $dpnFed_Bspwm && compile_Bspwm
+			fi
+		fi
+	else
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${red}b5pWm ${cyan}d0n3!!\n\n"
+	fi
+
+	which polybar >/dev/null 2>&1
+	if [ $? -ne 0 ]; then
+		if  [[ $OS = debian ]]; then
+			sudo apt install polybar -y
+			if [ $? -ne 0 ]; then
+				sudo apt install $dpnDeb_Poly -y && compile_Polybar
+			fi
+
+		elif  [[ $OS = arch ]]; then
+			sudo pacman -S polybar
+			if [ $? -ne 0 ]; then
+				compile_Polybar
+			fi
+
+		elif  [[ $OS = fedora ]]; then
+			sudo dnf install polybar
+			if [ $? -ne 0 ]; then
+				sudo dnf install $dpnFed_Poly && compile_Polybar
+			fi
+		fi
+	else
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${red}p0ly ${cyan}d0n3!!\n\n"
+	fi
+
 	which lsd >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		lsd
 	else
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}l5d ${cyan}d0n3!!\n\n"
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${red}l5d ${cyan}d0n3!!\n\n"
 	fi
 
 	which code >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		code
 	else
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}cOd3 ${cyan}d0n3!!\n\n"
+		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${red}cOd3 ${cyan}d0n3!!\n\n"
 	fi
 
-	which bspwm >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
-		if [ $OS = debian ]; then
-			sudo apt install bspwm sxhkd -y
-			if [ $? -ne 0 ]; then
-				sudo apt install $dpnDeb_Bspwm -y && compile_bspwm
-			fi
-
-		elif [ $OS = arch ]; then
-			sudo pacman -S bwpwm sxhkd
-			if [ $? -ne 0 ]; then
-				sudo pacman -S $dpnArch_Bspwm && compile_bspwm
-			fi
-
-		elif [ $OS = fedora ]; then
-			sudo dnf install bspwm sxhkd -y
-			if [ $? -ne 0 ]; then
-				sudo dnf install $dpnFed_Bspwm && compile_bspwm
-			fi
-		fi
-	else
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}b5pWm ${cyan}d0n3!!\n\n"
-	fi
-
-	which polybar >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
-		if [ $OS = debian ]; then
-			sudo apt install polybar -y
-			if [ $? -ne 0 ]; then
-				sudo apt install $dpnDeb_Poly -y && compile_polybar
-			fi
-
-		elif [ $OS = arch ]; then
-			sudo pacman -S polybar
-			if [ $? -ne 0 ]; then
-				compile_polybar
-			fi
-
-		elif [ $OS = fedora ]; then
-			sudo dnf install polybar
-			if [ $? -ne 0 ]; then
-				sudo dnf install $dpnFed_Poly && compile_polybar
-			fi
-		fi
-	else
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}p0ly ${cyan}d0n3!!\n\n"
-	fi
-
-	which picom >/dev/null 2>&1
-	if [ $? -ne 0 ]; then
-		if [ $OS = debian ]; then
-			sudo apt install picom -y
-			if [ $? -ne 0 ]; then
-				sudo apt install $dpnDeb_Poly -y && compile_picom
-			fi
-
-		elif [ $OS = arch ]; then
-			sudo pacman -S picom
-			if [ $? -ne 0 ]; then
-				compile_picom
-			fi
-
-		elif [ $OS = fedora ]; then
-			sudo dnf install picom
-			if [ $? -ne 0 ]; then
-				sudo dnf install $dpnFed_Poly && compile_picom
-			fi
-		fi
-	else
-		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${blue}p1c0m ${cyan}d0n3!!\n\n"
-	fi
-
-	fonts && clipmenu && firefox_esr && htb-Xplorer && nvim && zsh_Plugins && dotfiles
+	#fonts && clipmenu && firefox_esr && htb-Xplorer && nvim && zsh_Plugins && dotfiles
 }
 
 ################################################################################################################
@@ -550,10 +566,12 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 			fi
 		fi
 
-	elif [ $OS = arch ]; then
+	elif  [[ $OS = arch ]]; then
+
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 
-	elif [ $OS = fedora ]; then
+	elif  [[ $OS = fedora ]]; then
+
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	fi
 
@@ -564,9 +582,11 @@ if [ "$answer" != "${answer#[y/Y]}" ]; then
 			echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}${yellow}Instaling ${cyan}Packages ${end}${blue}======= \n\n" && sleep 1 && exit 1
 		fi
 
-	elif [ $OS = arch ]; then
+	elif  [[ $OS = arch ]]; then
+
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}Arch ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
-	elif [ $OS = fedora ]; then
+	elif  [[ $OS = fedora ]]; then
+
 		echo -e "\n\n\t${blue}${bold}======= ${cyan}Still in development for ${bold}${yellow}v ${cyan}Distro ${end}${blue}======= \n\n" && sleep 1 && exit 1
 	fi
 
