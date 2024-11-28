@@ -32,10 +32,10 @@ declare -r dpnFed_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms libxcb-dev
 declare -r dpnFed_Picom="dbus-devel gcc git libconfig-devel libev-devel libX11-devel libX11-xcb libxcb-devel libGL-devel libEGL-devel libepoxy-devel meson pcre2-devel pixman-devel uthash-devel xcb-util-image-devel xcb-util-renderutil-devel xorg-x11-proto-devel xcb-util-devel"
 declare -r dpnFed_Poly="gcc-c++ clang cmake @development-tools python3-sphinx python3-packaging cairo-devel libuv xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel xcb-util-xrm-devel xcb-util-cursor-devel alsa-lib-devel pulseaudio-libs-devel i3-wm jsoncpp-devel libmpdclient-devel libcurl-devel wireless-tools-devel libnl3-devel"
 declare -r dpnArch_Bspwm="libxcb xcb-util xcb-util-wm xcb-util-keysyms"
-declare -r OS=$(cat /etc/*release | grep '^ID*' | awk '{print $NF}' FS='=')
+declare -r OS=$(cat /etc/*release | grep '^ID*' | awk '{print $NF}' FS='='| tail -n 1)
 declare -r NAME=$(cat /etc/*release | grep '^NAME' | awk '{print $NF}' FS='='| tr -d '"' |  awk '{print $1}')
 declare -r cwd=$(pwd)
-declare -a fonts=( 0xProto 3270 Agave Arimo BigBlueTerminal BitstreamVeraSansMono CascadiaCode CascadiaMono CodeNewRoman ComicShannsMono CommitMono Cousine D2Coding DaddyTimeMono DejaVuSansMono FiraCode FiraMono Go-Mono Gohu Hack Hasklig HeavyData Hermit iA-Writer IBMPlexMono IntelOneMono Iosevka IosevkaTerm IosevkaTermSlab JetBrainsMono Lekton Lilex MartianMono Meslo MPlus OpenDyslexic Overpass ProFont ProggyClean RobotoMono ShareTechMono SourceCodePro SpaceMono Tinos ZedMono )
+declare -a fonts=( ShareTechMono IosevkaTermSlab DaddyTimeMono Iosevka )
 
 	# --> Banner
 function banner(){
@@ -172,13 +172,12 @@ function code() {
 
 	if [ $OS = debian ]; then
 		echo -ne "\n\t${bold}${cyan}<|[+]|> ${blue}Installing VS Code ${end}${cyan}~~${bold}${cyan}> \n\n" &&
-		sudo apt purge code-oss -fy
-		sleep 1 && sudo apt-get install wget gpg && wget -qO- "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > packages.microsoft.gpg
+		sleep 1 && sudo apt-get install -y wget gpg && wget -qO- "https://packages.microsoft.com/keys/microsoft.asc" | gpg --dearmor > packages.microsoft.gpg
 		if [ $? -eq 0 ]; then
 			sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 			sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
 			if [ $? -eq 0 ]; then
-				rm -f packages.microsoft.gpg && sudo apt purge -f code*
+				rm -f packages.microsoft.gpg && sudo apt purge -fy code*
 				sudo apt install apt-transport-https -y
 				sudo apt update && sudo apt install code -y && code && sleep 0.5 && killall code
 				cp -r $cwd/config/Code/User/settings.json $HOME/.config/Code*/User/settings.json
