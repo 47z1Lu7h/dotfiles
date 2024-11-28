@@ -184,11 +184,11 @@ function code() {
 			if [ $? -eq 0 ]; then
 				rm -f packages.microsoft.gpg && sudo apt purge -fy code*
 				sudo apt install apt-transport-https -y
-				sudo apt update && sudo apt install code -y && code && sleep 0.5 && killall code
+				sudo apt update && sudo apt install code -y
+				code && sleep 0.5 && killall code
 				cp -r $cwd/config/Code/User/settings.json $HOME/.config/Code*/User/settings.json
 			else
 				echo -e "\n\n\t${blue}${bold}======= ${cyan}Some Problem ${bold}installing ${yellow}Code ${cyan} ${end}${blue}======= \n\n" && sleep 1 && exit 1
-		
 			fi
 		fi
 
@@ -460,7 +460,7 @@ function main(){
 	else
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${red}p1c0m ${cyan}d0n3!!\n\n"
 	fi
-	
+
 	which bspwm >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		if  [[ $OS = debian ]]; then
