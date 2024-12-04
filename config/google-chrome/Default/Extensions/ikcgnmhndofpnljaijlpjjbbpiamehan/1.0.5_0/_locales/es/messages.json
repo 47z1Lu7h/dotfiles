@@ -1,0 +1,20 @@
+{
+   "description": {
+      "message": "Descargue Publicar fotos, videos, historias, carretes en Instagram desde la Web. Programa publicaciones, envía DM desde Instagram."
+   },
+   "name": {
+      "message": "App Client for Instagram™ - InLoad"
+   },
+   "rateDialogDesc": {
+      "message": "Please rate us! It is very important for us! Thank you:)"
+   },
+   "rateDialogNo": {
+      "message": "Maybe next time"
+   },
+   "rateDialogTitle": {
+      "message": "Our extension is useful for you?"
+   },
+   "rateDialogYes": {
+      "message": "Yes, of course"
+   }
+}

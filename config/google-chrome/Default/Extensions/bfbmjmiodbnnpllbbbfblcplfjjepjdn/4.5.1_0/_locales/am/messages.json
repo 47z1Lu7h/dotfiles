@@ -1,0 +1,1649 @@
+{
+   "about": {
+      "message": "ስለ"
+   },
+   "activelayertoday": {
+      "message": "Number of clicks today"
+   },
+   "addbutton": {
+      "message": "አክል"
+   },
+   "advancedoptions": {
+      "message": "የላቁ አማራጮች"
+   },
+   "analyticsoption": {
+      "message": "Analytics"
+   },
+   "areyouhappy": {
+      "message": "መብራቶችን ማጥፋት ያስደስትዎታል?"
+   },
+   "autostopbannerred": {
+      "message": "Show a red banner"
+   },
+   "autostopbannertrans": {
+      "message": "Show a transparent banner"
+   },
+   "autostopblocked": {
+      "message": "Blocked by Turn Off the Lights™ - www.turnoffthelights.com"
+   },
+   "autostopclickme": {
+      "message": "Click on me to play this HTML5 video"
+   },
+   "autostopdetails": {
+      "message": "DETAILS"
+   },
+   "autostopenabled": {
+      "message": "AutoStop is enabled!"
+   },
+   "basicsettings": {
+      "message": "መሠረታዊ"
+   },
+   "bottom": {
+      "message": "Bottom"
+   },
+   "btnsharestats": {
+      "message": "Share Stats"
+   },
+   "cardavgprevweektime": {
+      "message": "Previous total week time (in minutes)"
+   },
+   "cardtexsubscribe": {
+      "message": "Subscribe Now!"
+   },
+   "cardtextfavdayweek": {
+      "message": "Favorite day of the week"
+   },
+   "cardtextyestime": {
+      "message": "Yesterday total time (in minutes)"
+   },
+   "changelog": {
+      "message": "ቻውሎግ"
+   },
+   "charttitle30dayssaved": {
+      "message": "Energy saved this last 30 days"
+   },
+   "charttitleavgday": {
+      "message": "Average daily schedule (when the lights turn off frequently)"
+   },
+   "charttitlelayeractive": {
+      "message": "Dark layer active (#)"
+   },
+   "charttitlelblenergysaved": {
+      "message": "Total saved Energy"
+   },
+   "charttitlelblenergytotal": {
+      "message": "Total used Energy"
+   },
+   "charttitlelblwebsiteused": {
+      "message": "Websites used this last 30 days"
+   },
+   "charttitletotaltime": {
+      "message": "Total time the dark layer is active (minutes)"
+   },
+   "deletebutton": {
+      "message": "ሰርዝ"
+   },
+   "desactions": {
+      "message": "Actions"
+   },
+   "desaddvideobutton": {
+      "message": "Show the save button from the YouTube video"
+   },
+   "desalllightsoff": {
+      "message": "የመብራት አዝራሩን መጫን በሁሉም መብራቶች ላይ መብራቶቹን ማብራት / ማጥፋት ያደርገዋል"
+   },
+   "desambilight": {
+      "message": "የአሁኑ የመጫወት ቪዲዮን የከባቢ ብርሃን መከፈት ያሳዩ"
+   },
+   "desambilight4color": {
+      "message": "Español"
+   },
+   "desambilightfixcolor": {
+      "message": "Only one color"
+   },
+   "desambilightrangeblurradius": {
+      "message": "ዝቅተኛ ዋጋዎች ጥላውን ይቀንሳሉ, ከፍተኛ እሴቶች ደግሞ የበለጠ የደበዘዙ ያደርጋሉ."
+   },
+   "desambilightrangespreadradius": {
+      "message": "አዎንታዊ እሴቶች የስሜቱን መጠን ይጨምራሉ, አሉታዊ እሴቶች መጠኑን ይቀንሳሉ."
+   },
+   "desambilightvarcolor": {
+      "message": "Extract the color from the video"
+   },
+   "desapause": {
+      "message": "ለአፍታ አቁም"
+   },
+   "desapitext": {
+      "message": "ውክ ኤፒአይ ለድር ጣቢያ ገንቢ"
+   },
+   "desaplay": {
+      "message": "ተጫወት"
+   },
+   "desastop": {
+      "message": "ተወ"
+   },
+   "desatmosfpsauto": {
+      "message": "Synchronized as a best effort with the frame rate of the video playing on screen"
+   },
+   "desatmosfpsmanual": {
+      "message": "Manually"
+   },
+   "desatmosontotlmode": {
+      "message": "የቲቶል ሁነታ በሚነቃበት ጊዜ ብቻ የአከባቢ መከፈት ተጽዕኖውን አሳይ"
+   },
+   "desatmosphereonly": {
+      "message": "Use the atmosphere lighting feature only on the following video website:"
+   },
+   "desatmossolidcolor": {
+      "message": "Choose your one solid glow effect color"
+   },
+   "desatmosvivid": {
+      "message": "Vivid atmosphere effects"
+   },
+   "desauroraplayer": {
+      "message": "አከባቢው ብርሃን ሰጪ ማጫወቻ ለኮምፒዩተርዎ ሊገኝ ይችላል."
+   },
+   "desautodim": {
+      "message": "የጨዋታ አዝራሩን ጠቅ ሲያደርጉ እና በተቃራኒ ሲጫኑ ጀርባውን በራስ-ሰር ያበቅላሉ"
+   },
+   "desautodimdelay": {
+      "message": "Brighten the background again when the video has ended after"
+   },
+   "desautodimdelayend": {
+      "message": "seconds"
+   },
+   "desautodimonly": {
+      "message": "Dim only the following video site(s):"
+   },
+   "desautostop": {
+      "message": "አንድ ድረ-ገጽ ስከፍተው ቪዲዮውን በራስ-ሰር ማጫወት አቁም"
+   },
+   "desautostopfeatureblack": {
+      "message": "ALLOWS below websites, but BLOCKS automatic playing on any other website."
+   },
+   "desautostopfeaturewhite": {
+      "message": "BLOCKS below websites, but ALLOWS automatic playing on any other website."
+   },
+   "desautostoponly": {
+      "message": "ቪዲዮውን በራስሰር በሚከተለው (ሉት) ጣቢያ (ዎች) ማቆም ያቁሙት:"
+   },
+   "desbadgeanalytics": {
+      "message": "Show the badge with the number of clicks you have dimmed the webpage"
+   },
+   "desbrowserextension": {
+      "message": "የአሳሽ ቅጥያ"
+   },
+   "desbrowsersupport": {
+      "message": "አሳሽዎ ይህን ባህሪ ገና አይደግፍም. በኮምፒዩተርህ ላይ የተጫነ የቅርብ ጊዜ የአሳሽ ስሪት እንዳለህ አረጋግጥ."
+   },
+   "desbrowsertheme": {
+      "message": "የአሳሽ ገጽታ"
+   },
+   "desbuttonps": {
+      "message": "Button on PlayStation"
+   },
+   "desbuttonxb": {
+      "message": "Button on Xbox"
+   },
+   "descolorfixcolor": {
+      "message": "Choose your dark layer color"
+   },
+   "desconfirmpassword": {
+      "message": "የይለፍ ቃል አረጋግጥ"
+   },
+   "desconfirmtime": {
+      "message": "ሰዓት ያረጋግጡ"
+   },
+   "desconfirmtimesaver": {
+      "message": "የማያጥን ቆጣቢ ሰዓት አረጋግጥ"
+   },
+   "descontextmenus": {
+      "message": "አንድ ንጥል ለማተኮር የአውድ ምናሌውን አሳይ"
+   },
+   "description": {
+      "message": "The entire page will be fading to dark, so you can watch the videos as if you were in the cinema. Works for YouTube™ and beyond."
+   },
+   "descriptionshort": {
+      "message": "ሙሉው ገጽ ወደ ጨለማ ይለወጣል, ስለዚህ በሲዲ ውስጥ እንደነበሩ ቪዲዮዎቹን መመልከት ይችላሉ."
+   },
+   "desdarkbrowsertheme": {
+      "message": "Switch to a dark browser theme"
+   },
+   "desdynamicblocks": {
+      "message": "እገዳዎች"
+   },
+   "desdynamiccloud": {
+      "message": "የእነማ ደመናዎች"
+   },
+   "desdynamicdotscolor": {
+      "message": "የቀለም ነጥቦች"
+   },
+   "desdynamicfishtank": {
+      "message": "የአሳ ማርቢያ ገንዳ"
+   },
+   "desdynamicraindrops": {
+      "message": "ዝናብ"
+   },
+   "desdynamicsmoke": {
+      "message": "ጭስ"
+   },
+   "desdynamicspace": {
+      "message": "ቦታ"
+   },
+   "desdynamicstars": {
+      "message": "Stars"
+   },
+   "desdynamicstorm": {
+      "message": "ማዕበል"
+   },
+   "desdynamictriangulation": {
+      "message": "ሦስትዮሽ"
+   },
+   "deseastereggs": {
+      "message": "የቲኪን ቁልፍ መጫን የቲያትር መጋረጃ ጨለማ ክፍልን ይጨምራል"
+   },
+   "desenterpassword": {
+      "message": "የይለፍ ቃልዎን ከዚህ በታች ባለው ሳጥን ውስጥ ያስገቡት:"
+   },
+   "deseyea": {
+      "message": "አንድ ድረ-ገጽ ሲከፈት ዳራውን በራስ-ሰር ያበድራል"
+   },
+   "deseyealist": {
+      "message": "ዳራውን በራስ-ሰር በጣቢያ (ዎች) ላይ አጨልም:"
+   },
+   "deseyen": {
+      "message": "መደበኛ አጠቃቀም (መብራቱ ላይ ጠቅ ሲያደርጉ ብርሃኖች ይወጣሉ)"
+   },
+   "deseyetimesaver": {
+      "message": "አንድ ገጽ ገባሪ ባይሆን (ከታች ምንም ዓይነት የመዳፊት ወይም የቁልፍ ሰሌዳ ግቤት) ከጠፋ, በራስ ሰር ይለቃል."
+   },
+   "desfadein": {
+      "message": "ቀስ በቀስ ውጤቱን አሳይ"
+   },
+   "desfadeout": {
+      "message": "ቀስ በቀስ ውጤትን ያሳዩ"
+   },
+   "desflash": {
+      "message": "Show all multimedia objects"
+   },
+   "desgamepad": {
+      "message": "Control the multimedia with your game controller"
+   },
+   "desgamepaddirdown": {
+      "message": "Directional Down"
+   },
+   "desgamepaddirleft": {
+      "message": "Directional Left"
+   },
+   "desgamepaddirright": {
+      "message": "Directional Right"
+   },
+   "desgamepaddirup": {
+      "message": "Directional Up"
+   },
+   "desgamepadleftstickpress": {
+      "message": "Left Stick Pressed"
+   },
+   "desgamepadonly": {
+      "message": "Activate the Game Controller only on the following site(s):"
+   },
+   "desgamepadoptions": {
+      "message": "Options"
+   },
+   "desgamepadpslogo": {
+      "message": "PlayStation Logo"
+   },
+   "desgamepadrightstickpress": {
+      "message": "Right Stick Pressed"
+   },
+   "desgamepadshare": {
+      "message": "Share"
+   },
+   "desgamepadshowaddress": {
+      "message": "Show Address Bar"
+   },
+   "desgamepadshowmenu": {
+      "message": "Show Menu"
+   },
+   "desgamepadsquare": {
+      "message": "Square"
+   },
+   "desgamepadtriangle": {
+      "message": "Triangle"
+   },
+   "desgamepadxboxlogo": {
+      "message": "Xbox Logo"
+   },
+   "desgpbuttonbackwardbig": {
+      "message": "play back 3 seconds"
+   },
+   "desgpbuttonbackwardsmall": {
+      "message": "play back 1 second"
+   },
+   "desgpbuttondirdown": {
+      "message": "Move the view down"
+   },
+   "desgpbuttondirleft": {
+      "message": "Move the view left"
+   },
+   "desgpbuttondirreset": {
+      "message": "Reset the zoom view"
+   },
+   "desgpbuttondirright": {
+      "message": "Move the view right"
+   },
+   "desgpbuttondirup": {
+      "message": "Move the view up"
+   },
+   "desgpbuttonforwardbig": {
+      "message": "play forward 3 seconds"
+   },
+   "desgpbuttonforwardsmall": {
+      "message": "play forward 1 second"
+   },
+   "desgpbuttonhome": {
+      "message": "Gamepad video test page"
+   },
+   "desgpbuttonnextvideo": {
+      "message": "Play next YouTube video"
+   },
+   "desgpbuttonplaypause": {
+      "message": "Play/Pause the current video"
+   },
+   "desgpbuttonprevvideo": {
+      "message": "Play previous YouTube video"
+   },
+   "desgpbuttonshare": {
+      "message": "Exit Zoom Edit"
+   },
+   "desgpbuttonvolumedecrease": {
+      "message": "Decrease volume"
+   },
+   "desgpbuttonvolumeincrease": {
+      "message": "Increase volume"
+   },
+   "desgpbuttonzoominout": {
+      "message": "Zoom in or out"
+   },
+   "desgpbuttonzoompos": {
+      "message": "Zoom position"
+   },
+   "deshardflash": {
+      "message": "Show all multimedia objects, skipping the URL filter. This will fix problems with some video players being hidden, but will also display ads."
+   },
+   "deshead": {
+      "message": "ይህን አሳይ ዩ ቱብ የሰርጥ አሞሌ ወይም ስም"
+   },
+   "deshovervideo": {
+      "message": "ለተወሰነ የተወሰነ የሰከንዶች ብዛት መዳፊትዎን በቪዲዮ ክፍሎች ላይ ያንዣብቡ, ከዚያ በኋላ ድረ-ገጽ በራስ-ሰር እየደበዘዘ ነው"
+   },
+   "desinfobar": {
+      "message": "ስለ ቪዲዮው መግለጫ መረጃ ያሳዩ"
+   },
+   "desintroduce": {
+      "message": "All the features you're used to, with a brand new look and feel, and personalized to you."
+   },
+   "deslampandnightmode": {
+      "message": "ግራጫማ መብራት ላይ ጠቅ ሲያደርጉ የምሽት ሁነታየሚለውን አማራጭ ያግብሩ"
+   },
+   "desleftstick": {
+      "message": "Left stick"
+   },
+   "deslikebar": {
+      "message": "ተመሳሳይ / ያልተወደደ አሞሌን በታች ስር አሳይ ዩ ቱብ ቪዲዮዎች"
+   },
+   "deslikebutton": {
+      "message": "የዩቲዩብን መውደዶች እና መውደድ አዝራሮች አሳይ ለቪዲዮው"
+   },
+   "desmobileapp": {
+      "message": "ለእርስዎ ተንቀሳቃሽ መሣሪያም መብራቶችን ያጥፉ."
+   },
+   "desmousespotlighta": {
+      "message": "መብራቶች ጠፍተዋል, በመዳፊት ጠቋሚ ዙሪያ የፍሬ ምልክት ያሳያል."
+   },
+   "desmousespotlightc": {
+      "message": "መብራቶቹ ሲበሩ በአንድ ንጥል ላይ ለማተኮር የአካባቢ ምርጫን ያንቁ"
+   },
+   "desmousespotlighto": {
+      "message": "መደበኛ አጠቃቀም (ከታች የመዳፊት ቅንብሮችን ያሰናክላል)"
+   },
+   "desmousespotlights": {
+      "message": "ከፍ ያለ ገጽታዎችን ለመምረጥም የመጠባበቂያ ጥላን አንቃ"
+   },
+   "desmousespotlightt": {
+      "message": "ማያ ገጹ ሲጨልም ተያያዥ ገጾችን መስቀል አንቃ"
+   },
+   "desmultiopacitynormal": {
+      "message": "All websites have the same opacity value"
+   },
+   "desmultiopacitynot": {
+      "message": "If a website is not in the list, the default opacity value will apply."
+   },
+   "desmultiopacitysel": {
+      "message": "The below websites have the selected opacities"
+   },
+   "desnightactivetime": {
+      "message": "ማብሪያው በሚከተሉት ጊዜያት መካከል ይታያል:"
+   },
+   "desnightenabletheme": {
+      "message": "አዲስ ድረ-ገጽ ሲከፈት በራስ-ሰር ወደ የማታ ሞድ ይሂዱ"
+   },
+   "desnighthover": {
+      "message": "በድረ-ገጽ ላይ ግልጽ ሽግግር ያሳያል"
+   },
+   "desnightmodegesture": {
+      "message": "Make the page go dark or light by long-pressing the current web page"
+   },
+   "desnightmodeimage": {
+      "message": "Dim images"
+   },
+   "desnightmodeimagedarken": {
+      "message": "Darkened"
+   },
+   "desnightmodeimagegrayscale": {
+      "message": "Grayscaled"
+   },
+   "desnightmodeos": {
+      "message": "Automatically switch the current web page to Night Mode if the OS appearance is set to Dark"
+   },
+   "desnightmodeswitchhide": {
+      "message": "Automatically hide the night switch after your chosen seconds"
+   },
+   "desnightonly": {
+      "message": "የምሽት ሁነታን ብቻ የሚከተለው (ሉት) ጣቢያ (ዎች) ላይ ያግብሩ:"
+   },
+   "desnightowl": {
+      "message": "አንድ ጠቅ ማድረግ ገጹን በቀጥታ ጠቅ በማድረግ ወደ ጭብጥ ገጽታ እና ሊነበብ የሚችል ቀጥተኛ አገናኝ ይፈጥራል. ወደ መደበኛው እይታ ለመመለስ እንደገና ይጫኑ. ይህንን ባህሪ ለማሰናከል የጨረሩን አዝራሩን እንደገና ይጫኑ."
+   },
+   "desnighttheme": {
+      "message": "ገጹን ጨለማ ወይም ብርሃን ለማድረግ ከድር ድረ-ገጽ በታች ያለውን የማታ አዝራር አዝራር አሳይ"
+   },
+   "desnmautoclock": {
+      "message": "Activate between the following hours:"
+   },
+   "desnoflash": {
+      "message": "Do not use this feature"
+   },
+   "despassword": {
+      "message": "መብራቶቹን ከማብራትዎ በፊት ለመግባት የይለፍ ቃል ይጠይቁ."
+   },
+   "despasswordhide": {
+      "message": "Hide password"
+   },
+   "despasswordshow": {
+      "message": "Show password"
+   },
+   "despermissiontab": {
+      "message": "Remove the tab permission"
+   },
+   "despip": {
+      "message": "The Picture-in-Picture allows you to create a floating video window that is always on top of other windows."
+   },
+   "desplaylist": {
+      "message": "ይህን አሳይ ዩ ቱብ በላዩ ላይ ዩ ቱብ ድህረገፅ"
+   },
+   "desplayrate": {
+      "message": "ነባሪ የመልሶ ማጫወት ፍጥነት"
+   },
+   "desproject": {
+      "message": "ፕሮጀክት"
+   },
+   "desratebad": {
+      "message": "Sorry you have had this bad experience. Please let us know on how we can improve our extension for you."
+   },
+   "desratebadaction": {
+      "message": "Yes, I will give feedback"
+   },
+   "desratebadtitle": {
+      "message": "How can we make it better?"
+   },
+   "desrategood": {
+      "message": "Happy to hear that you love Turn Off the Lights! Will you take a moment to rate us in the browser extension store? Your browser extension store reviews make a difference!"
+   },
+   "desrategoodaction": {
+      "message": "Write a Review"
+   },
+   "desrategoodtitle": {
+      "message": "Thank you!"
+   },
+   "desratenothanks": {
+      "message": "No, thanks"
+   },
+   "desratenotnowthanks": {
+      "message": "Not now thanks"
+   },
+   "desratetitle": {
+      "message": "Do you love this browser extension?"
+   },
+   "desreadera": {
+      "message": "መብራቶቹ ሲወጡ ሁልጊዜ የዝምታ ደረጃ አሞሌን አሳይ"
+   },
+   "desreadern": {
+      "message": "የረብታ ደረጃ አሞሌን በጭራሽ አታሳይ"
+   },
+   "desreflection": {
+      "message": "በሁሉም ቪዲዮዎች ላይ የአንጸባራቂ ውጤት አሳይ"
+   },
+   "desregularuser": {
+      "message": "ይህ ነባሪ እና ለአዲስ ተጠቃሚዎች የተለመደ መደበኛ ቅንብር ነው. ግራጫ መብራት ቁልፍን ጠቅ ስታደርግ, ይህ አሠራር አሁን ባለው ድረ-ገጽ ላይ ይተገበራል."
+   },
+   "desrememberpage": {
+      "message": "የአስታዋሽ ገጽ አታሳይ"
+   },
+   "desremfacebook": {
+      "message": "ይሄ በፌስቡክ ላይ ምክር ይስጡ"
+   },
+   "desremrate": {
+      "message": "If you like Turn Off the Lights™, please do not hesitate to rate this extension to five stars now. This gives us courage to continue to maintain and improve this product for you. Writing a review is recommended, but not mandatory. If you do not have the time to write a review, you can rate it anonymously. It is important to give it ★★★★★. Thank you!"
+   },
+   "desremyoutube": {
+      "message": "ለዩቲዩብ ይመዝገቡ"
+   },
+   "desrightstick": {
+      "message": "Right stick"
+   },
+   "dessaver": {
+      "message": "የማያ ኃይል ቆጣቢ:"
+   },
+   "desscreenprotection": {
+      "message": "አንድ ጠቅ ማድረግ ገጹን ወደ አረንጓዴ ቀለም ያሸበረቀ ወፍራም ብርጭቆ ወደ ሁሉም የተከፈቱ ትሮች ለመቀነስ ነው. ይህንን ባህሪ ለማሰናከል የጨረሩን አዝራሩን እንደገና ይጫኑ."
+   },
+   "desscrolltip": {
+      "message": "You can scroll inside the top navigation bar and the color bars. When you scroll horizontally, you can see more buttons in this bar."
+   },
+   "dessharebutton": {
+      "message": "የ ያጋሩ አዝራሩን አሳይ ዩ ቱብ ለቪዲዮው"
+   },
+   "desshortcutlight": {
+      "message": "የቁልፍ ሰሌዳ አቋራጮችን ከታች አንቃ"
+   },
+   "dessitewhitelist": {
+      "message": "Whitelist this site?"
+   },
+   "desspeedtoolbar": {
+      "message": "በአሁኑ የአጫዋች ማጫወቻ ውስጥ መልሶ የመጫወት አሞሌውን አሳይ"
+   },
+   "desspotlightradius": {
+      "message": "የብርሃን ትኩረት:"
+   },
+   "desstickplaystation": {
+      "message": "Joystick on PlayStation"
+   },
+   "desstickxbox": {
+      "message": "Joystick on Xbox"
+   },
+   "dessuggestions": {
+      "message": "የ የአስተያየት ጥቆማዎችን አሳይ ዩ ቱብ ድህረገፅ"
+   },
+   "destapstar": {
+      "message": "Tap a star to rate it on the browser extension store."
+   },
+   "destime": {
+      "message": "በሚከተሉት ሰዓቶች መካከል ብርሀኖች መካከል:"
+   },
+   "destrymotion": {
+      "message": "ያ በጣም ጥሩ ነው, ከሁሉም በላይ ደግሞ በሁሉም ቦታ የሚሰራ ነው. በዩ ቱብ, በዜና ድር ጣቢያ, ወዘተ."
+   },
+   "destrythiswebsite": {
+      "message": "Try this web page"
+   },
+   "desuntil": {
+      "message": "እስከ"
+   },
+   "desvideoheadline": {
+      "message": "የቪዲዮ ርእስ ቀለሙን አሳይ እና አስተላልፍ"
+   },
+   "desvideotool": {
+      "message": "የአሁኑን የቪዲዮ ማጫወቻ ለማበጀትዎ በማያ ገጽዎ ውስጥ ያለውን የመሳሪያ አሞሌ ያሳዩ"
+   },
+   "desvideotoolcolor": {
+      "message": "የመሣሪያ አሞሌ ቀለም"
+   },
+   "desvideotoolonly": {
+      "message": "የቪዲዮ መሳሪያ አሞሌን በሚከተለው ጣቢያ (ዎች) ላይ ብቻ ያድርጉት:"
+   },
+   "desvideovolumalt": {
+      "message": "Only if the alt key is pressed"
+   },
+   "desvideovolume": {
+      "message": "በመውጫ አሞሌ አማካኝነት የአሁኑን የቪዲዮ ማጫወቻ ድምጽ ይቆጣጠሩ"
+   },
+   "desvideovolumecolor": {
+      "message": "Color of the bar"
+   },
+   "desvideovolumeonly": {
+      "message": "Activate the Mouse Volume Scroll only on the following site(s):"
+   },
+   "desvideovolumhold": {
+      "message": "Hold down the left or right mouse button, and move your mouse to change the volume"
+   },
+   "desvideozoom": {
+      "message": "የአጉላ አዝራሩን በመጠቀም በቪዲዮ ይዘት ላይ ያጉሉ ወይም ያጉሉ"
+   },
+   "desviewcount": {
+      "message": "ለቪዲዮው የተመልካች ብዛት አሳይ"
+   },
+   "desvisopacity": {
+      "message": "የድምፅ ምስል ዳራ የብርሃን ዋጋ"
+   },
+   "desvolumelabel": {
+      "message": "Show volume bar (step size:)"
+   },
+   "desvolumeposa": {
+      "message": "Show the volume meter in center of the current video player"
+   },
+   "desvolumeposb": {
+      "message": "Show the volume value on top left of the current video player"
+   },
+   "desvolumeposc": {
+      "message": "Show the volume value on top right of the current video player"
+   },
+   "desvolumeposd": {
+      "message": "Show the volume meter on top left of the current video player"
+   },
+   "desvolumepose": {
+      "message": "Show the volume meter on top right of the current video player"
+   },
+   "desvolumescrolla": {
+      "message": "Automatically adjust the scroll direction depending on the current operating system"
+   },
+   "desvolumescrollb": {
+      "message": "Scrolling up increases the volume"
+   },
+   "desvolumescrollc": {
+      "message": "Scrolling down increases the volume"
+   },
+   "desvolumesteps": {
+      "message": "Number of volume steps (in %) for each scroll wheel notch"
+   },
+   "desyoutube": {
+      "message": "Uncover the power of the Turn Off the Lights browser extension. Watch it now on YouTube."
+   },
+   "donatepromotext": {
+      "message": "ማንኛውንም መጠን መስጠት ከቻሉ በጣም ደስ ይለናል!"
+   },
+   "downloadtheapp": {
+      "message": "መተግበሪያውን አሁን ያውርዱ"
+   },
+   "eastereggsquestion": {
+      "message": "እውነተኛውን የፊልም ቤት ይወዱታል?"
+   },
+   "ecoblowdrying": {
+      "message": "Blow-drying your hair for 10 minutes uses approximately"
+   },
+   "ecobrewsomecoffee": {
+      "message": "Brew some Coffee, brewing one pot of coffee"
+   },
+   "ecochargeiphone": {
+      "message": "Charge your iPhone"
+   },
+   "ecochargelaptop": {
+      "message": "Charge your laptop"
+   },
+   "ecochargeteslacar": {
+      "message": "Charge your Tesla car for 20 miles"
+   },
+   "ecochargeteslacarhundred": {
+      "message": "Charge your Tesla electric vehicle to 100%"
+   },
+   "ecochargeteslathreetimes": {
+      "message": "Charge 3 times your Tesla electric vehicle to 100%"
+   },
+   "ecoeiffeltoweryear": {
+      "message": "To illuminate the Eiffel Tower for 1 year"
+   },
+   "ecoheatingtenshower": {
+      "message": "Heating enough water for a 10-minute shower"
+   },
+   "ecokeepfridgeday": {
+      "message": "Keep the Fridge Running for a day"
+   },
+   "ecokeeplightonforsix": {
+      "message": "Keep the Lights on for 6 hours"
+   },
+   "ecolayear": {
+      "message": "To power Los Angeles for 1 year"
+   },
+   "ecoloadlaundry": {
+      "message": "One load of laundry in the dryer"
+   },
+   "econothingthisyear": {
+      "message": "Nothing this year. Keeps the lights off to save energy"
+   },
+   "ecoplanetearth": {
+      "message": "Ready to save the planet Earth"
+   },
+   "ecoplayingxbox": {
+      "message": "Playing Xbox 360 for one hour"
+   },
+   "ecopowerbaseballgame": {
+      "message": "To power 1 jumbotron for a baseball game"
+   },
+   "ecopowercamonth": {
+      "message": "Enough electric energy for 1 month in California"
+   },
+   "ecopowereiffeltower": {
+      "message": "To illuminate the Eiffel Tower for 1 day"
+   },
+   "ecopowereurostar": {
+      "message": "For a Eurostar trip from Brussels to London"
+   },
+   "ecopowereurostarparis": {
+      "message": "For a Eurostar trip from Paris to London"
+   },
+   "ecopowerhawaiimonth": {
+      "message": "Enough electric energy for 1 month in Hawaii"
+   },
+   "ecopowernwymonth": {
+      "message": "Enough electric energy for 1 month in New York"
+   },
+   "ecorunningdishwasher": {
+      "message": "Running your dishwasher in energy-saver mode will use"
+   },
+   "ecosfoyear": {
+      "message": "To power San Francisco for 1 year"
+   },
+   "ecothirtyminutes": {
+      "message": "30 minutes of light saved"
+   },
+   "ecotoastermaking": {
+      "message": "Toaster making two loaves of toast"
+   },
+   "ecotwentyfourghome": {
+      "message": "Enough to run Google Home for 24h"
+   },
+   "ecovacuumingfor": {
+      "message": "Vacuuming for 15 minutes"
+   },
+   "ecowashingclothes": {
+      "message": "Washing your clothes in a cold-rinse cycle uses approximately"
+   },
+   "ecowatchtvfortwo": {
+      "message": "Watch TV for 2 hours"
+   },
+   "ecowififoraday": {
+      "message": "Wi-Fi for a day"
+   },
+   "enjoyshare": {
+      "message": "በዚህ ቅጥያ ይደሰቱትና እንደሚወደዱ በሚያስቡላቸው ሰዎች ያጋሩ."
+   },
+   "eyedivoff": {
+      "message": "ጠፍቷል"
+   },
+   "eyedivon": {
+      "message": "በርቷል"
+   },
+   "flashembedobject": {
+      "message": "ድጋፎች \u003C\u003Cነገር>, \u003Cተካትቷል>, \u003Cመተግበሪያ አክል>, \u003Cየማይታዩ ፍሬም ፍሬሞች>."
+   },
+   "friday": {
+      "message": "Friday"
+   },
+   "friendlyremember": {
+      "message": "ወዳጃዊ አስታዋሽ..."
+   },
+   "functionactive": {
+      "message": "This function is activated when you click on a tab, or when you refresh the web page. However, this function stops automatically after 15 seconds."
+   },
+   "gamecontrollerstep1description": {
+      "message": "Connect your Game Controller to your device via USB or Bluetooth."
+   },
+   "gamecontrollerstep2description": {
+      "message": "Enable the Game Controller feature."
+   },
+   "gamecontrollerstep3description": {
+      "message": "Open any web page, and press any button to activate the Game Controller."
+   },
+   "gamecontrollerstep4description": {
+      "message": "Now the Game Controller is active on the current web page."
+   },
+   "gamepadoption": {
+      "message": "Game Controller"
+   },
+   "guide": {
+      "message": "ጠቅላላው የደስታ መመሪያ"
+   },
+   "handytip": {
+      "message": "Handy Tip..."
+   },
+   "help": {
+      "message": "Help"
+   },
+   "helpautodim": {
+      "message": "The 'Eye protection' mode is enabled and needs to be disabled first to use the below feature."
+   },
+   "helpeyeprotection": {
+      "message": "«የአይን መከላከያ» ን ማንቃት ራስ-ማጫወትን ባህሪ በራስ-ሰር ያሰናክለዋል."
+   },
+   "hoveroptionapply": {
+      "message": "ማመልከት"
+   },
+   "hoveroptiondyn5": {
+      "message": "በራሪ"
+   },
+   "howworkmotion": {
+      "message": "How does it work?"
+   },
+   "html5andyoutube": {
+      "message": "5 የግልጽ ጽሑፍ አሻሽል ቋንቋ & ዩ ቱብ ™ ቪድዮ"
+   },
+   "installadblocker": {
+      "message": "ማስታወቂያዎችን ማየት ካልፈለጉ, ይጠቀሙ አጭበርባሪ ቅጥያ."
+   },
+   "lastchecked": {
+      "message": "የቅርብ ጊዜ ስሪት በ.. ላይ"
+   },
+   "left": {
+      "message": "Left"
+   },
+   "lockentername": {
+      "message": "እባክዎ የይለፍ ቃልዎን ያስገቡ"
+   },
+   "lockwrongpassword": {
+      "message": "የተሳሳተ የይለፍ ቃል, እባክዎ እንደገና ይሞክሩ."
+   },
+   "longdonatetext": {
+      "message": "ይህን የአሳሽ ቅጥያ ለሌላ አዲስ ተጠቃሚዎች ሕያው ለማድረግ እንድውል አድርገውኝ ቢሆን ደስ ይለኛል. $$ 1 ወይም $$ 100, የእርስዎ ድጋፍ በጣም የተደነቀ ነው!"
+   },
+   "monday": {
+      "message": "Monday"
+   },
+   "name": {
+      "message": "Turn Off the Lights"
+   },
+   "nightoptions": {
+      "message": "የምሽት ሁነታ"
+   },
+   "nightstep1description": {
+      "message": "Enable the Night Mode feature."
+   },
+   "nightstep2description": {
+      "message": "Open any web page, and you see this night switch."
+   },
+   "nightstep3description": {
+      "message": "Click on the switch to see the web page in a dark theme."
+   },
+   "nmbottomleft": {
+      "message": "ከታች በስተ ግራ"
+   },
+   "nmbottomright": {
+      "message": "ከታች በስተቀኝ"
+   },
+   "nmcustom": {
+      "message": "ብጁ (ተፈላጊውን ጠቅ ያድርጉ, ይያዙ እና ወደ ሚፈልጉበት ማሳያ ቦታ ያንቀሳቅሱ)"
+   },
+   "nmtopleft": {
+      "message": "ከላይ ግራ"
+   },
+   "nmtopright": {
+      "message": "ከላይ በስተቀኝ"
+   },
+   "nothanks": {
+      "message": "አይ አመሰግናለሁ"
+   },
+   "omnidaymode": {
+      "message": "day mode"
+   },
+   "omnihelp": {
+      "message": "እገዛ"
+   },
+   "omnilightoff": {
+      "message": "light off"
+   },
+   "omnilighton": {
+      "message": "light on"
+   },
+   "omninightmode": {
+      "message": "night mode"
+   },
+   "optionecosaversaved": {
+      "message": "ሰከንዶች በተሳካ ሁኔታ ተቀምጠዋል!"
+   },
+   "optionpagetitle": {
+      "message": "መብራቶችን አጥፋ - አማራጮች"
+   },
+   "optionpasswordsaved": {
+      "message": "የይለፍ ቃል በተሳካ ሁኔታ ተቀምጧል!"
+   },
+   "optionprofilesaved": {
+      "message": "አዲስ የጨረር እርምጃ በተሳካ ሁኔታ ተቀምጧል!"
+   },
+   "optiontimesaved": {
+      "message": "ጊዜው በተሳካ ሁኔታ ተቀምጧል!"
+   },
+   "optionwrongimg": {
+      "message": "ልክ ያልሆነ የምስል ፋይል!"
+   },
+   "pageatitle": {
+      "message": "Turn Off the Lights"
+   },
+   "pagehelp": {
+      "message": "እገዛ"
+   },
+   "pagestillloading": {
+      "message": "ገጹ አሁንም በመጫን ላይ ነው?"
+   },
+   "pagetitle": {
+      "message": "ይህን ገጽ አጨልጠው"
+   },
+   "permissionactivetab": {
+      "message": "This will only dim the web page on the currently open tab page."
+   },
+   "permissionalarms": {
+      "message": "This is to schedule code execution, either periodically or at a specific time in the future."
+   },
+   "permissionallurl": {
+      "message": "This is to control the lamp button on all websites that include http, https, file, and ftp."
+   },
+   "permissioncontextmenu": {
+      "message": "This is to add the \"Darken this page\" menu item in the web browser context menu."
+   },
+   "permissionoption": {
+      "message": "Permission must be enabled to use this feature."
+   },
+   "permissionrequired": {
+      "message": "Current Active Permissions"
+   },
+   "permissionscripting": {
+      "message": "This is to inject JavaScript and CSS code into websites."
+   },
+   "permissionstorage": {
+      "message": "This is to save the settings on your local computer, and to sync it to your web browser account."
+   },
+   "permissiontabs": {
+      "message": "This is needed for the following features: to show you the welcome and guide page, detect the current playing HTML5 video, take a screenshot of the HTML5 video, and to open the Options page."
+   },
+   "permissiontheme": {
+      "message": "This is to change the web browser user interface in a dark or light theme."
+   },
+   "permissionwebnav": {
+      "message": "This is to add the Night Mode immediately before the web page loads."
+   },
+   "productshare": {
+      "message": "መግብሮች"
+   },
+   "promotitle": {
+      "message": "የቀኑ ምክር"
+   },
+   "ratedes": {
+      "message": "Please rate and review the extension on the Store. Your support is really appreciated."
+   },
+   "rateitema": {
+      "message": "ለ 5 ኮከቦች ደረጃ ስጥ"
+   },
+   "ratetitle": {
+      "message": "Thank you for using Turn Off the Lights"
+   },
+   "rectext": {
+      "message": "የሚመከር"
+   },
+   "rememberrate": {
+      "message": "ደረጃ ይስጡ"
+   },
+   "reportbug": {
+      "message": "አንድ ችግር ሪፖርት ያድርጉ"
+   },
+   "reportlist": {
+      "message": "ለመጨረሻ ጊዜ የሚታወቀው"
+   },
+   "resetbrowserextension": {
+      "message": "የብርሃን ቅንብሮችን ያብሩ"
+   },
+   "resetlampanalytic": {
+      "message": "Reset your Turn Off the Lights Analytics Data"
+   },
+   "right": {
+      "message": "Right"
+   },
+   "saturday": {
+      "message": "Saturday"
+   },
+   "scoregame": {
+      "message": "My amazing high score $scorevalue$ on the HIDDEN easter egg game in the Turn Off the Lights Browser extension. Try it yourself!",
+      "placeholders": {
+         "scorevalue": {
+            "content": "$1",
+            "example": "123"
+         }
+      }
+   },
+   "searchplaceholder": {
+      "message": "Search"
+   },
+   "settings": {
+      "message": "ቅንብሮች"
+   },
+   "shareanalyticenergy": {
+      "message": "I saved $energyvalue$ kWh thanks to Turn Off the Lights",
+      "placeholders": {
+         "energyvalue": {
+            "content": "$1",
+            "example": "123"
+         }
+      }
+   },
+   "shareanalyticenergyWh": {
+      "message": "I saved $energyvalue$ Wh thanks to Turn Off the Lights",
+      "placeholders": {
+         "energyvalue": {
+            "content": "$1",
+            "example": "123"
+         }
+      }
+   },
+   "shareanalyticlove": {
+      "message": "The website I most love is $websiteurl$ with Turn Off the Lights",
+      "placeholders": {
+         "websiteurl": {
+            "content": "$1",
+            "example": "123"
+         }
+      }
+   },
+   "sharemenudonatetitle": {
+      "message": "Make a donation"
+   },
+   "sharemenupostonfacebook": {
+      "message": "Post on Facebook"
+   },
+   "sharemenupostonqq": {
+      "message": "Post on QQ"
+   },
+   "sharemenupostonvkontakte": {
+      "message": "Post on Vkontakte"
+   },
+   "sharemenupostonweibo": {
+      "message": "Post on Weibo"
+   },
+   "sharemenupostonwhatsapp": {
+      "message": "Post on WhatsApp"
+   },
+   "sharemenuratetitle": {
+      "message": "Rate this extension"
+   },
+   "sharemenusharetitle": {
+      "message": "Share this"
+   },
+   "sharemenutellafriend": {
+      "message": "Tell a Friend"
+   },
+   "sharemenuwelcomeguidetitle": {
+      "message": "Welcome Guide"
+   },
+   "sharetexta": {
+      "message": "ይህንን አሪፍ (ኩኪስ) (ማቀዝቀዣ) ያብሩ"
+   },
+   "sharetextb": {
+      "message": "እሺ, ይህ አስደናቂ ነው. ዛሬ ይህን የብርሃን ማሰሻዎችን ያጥፉ "
+   },
+   "sharetextc": {
+      "message": "ምርጥ እና አስገራሚ ጨረሮችን ያበሩ የአሳሽ ቅጥያ"
+   },
+   "sharetextd": {
+      "message": "Turn Off the Lights' browser extension is the Best Tool for YouTube and beyond. Download it now and try it yourself!"
+   },
+   "shortcutalllights": {
+      "message": "ለሁሉም ክፍት ትሮች አብራ / አጥፋ መብራቶቹን ለማብራት"
+   },
+   "shortcutbright": {
+      "message": "ማያ ገጹን ለማብራት (የአማራጭነት ጨምር)"
+   },
+   "shortcutdark": {
+      "message": "ማያ ገጹን ለማብራት (ብቅ-ባይነትን ይጨምራል)"
+   },
+   "shortcuteyeprotection": {
+      "message": "የዓይንን ጥበቃ ባህሪ ለማንቃት / ለማሰናከል"
+   },
+   "shortcutopacity": {
+      "message": "ወደ ድብቅ ጨለማ (ድነት) ቅንብር ለመመለስ"
+   },
+   "shortcutsavingopacity": {
+      "message": "ይህን ፍርፍ እሴት ለማስቀመጥ"
+   },
+   "shortcuttotl": {
+      "message": "መብራቶቹን ለማብራት / ማጥፊያውን ለማብራት"
+   },
+   "showremember": {
+      "message": "አማራጮቹን ስከፍት ይህን የማስታወሻ ገጽ እንደገና አታሳይ"
+   },
+   "skipremember": {
+      "message": "ይህንን ዝለል እና የአማራጮች ገጽን አሁን ይክፈቱ"
+   },
+   "sunday": {
+      "message": "Sunday"
+   },
+   "tellothers": {
+      "message": "የእርስዎ አስተያየት ይቆጠራል"
+   },
+   "textfoot": {
+      "message": "ይህ ሶፍትዌር በ CC-GNU GPL ስር ፈቃድ ነው. የዚህን ፍቃድ ቅጂ ለማየት, ለማየት"
+   },
+   "thursday": {
+      "message": "Thursday"
+   },
+   "titel360youtube": {
+      "message": "በአንድ ክፈፍ ውስጥ ባለ 360 ዲግሪ የ ዩ ቱብ ቪዲዮን ያሳያል"
+   },
+   "titeladdvideobutton": {
+      "message": "Save Button"
+   },
+   "titelalllightsoff": {
+      "message": "ሁሉም ክፍት ትሮች"
+   },
+   "titelambilight": {
+      "message": "ከባቢ አየር ብርሃን"
+   },
+   "titelapideveloper": {
+      "message": "ኤ. ፒ. አይ ገንቢ"
+   },
+   "titelautodim": {
+      "message": "AutoDim"
+   },
+   "titelautostop": {
+      "message": "ራስ-አቁም"
+   },
+   "titelautowidthyoutube": {
+      "message": "አውቶማቲካሊ አቀናጅ ዩ ቱብ ተጫዋቹ ወደ ትልቁ መጠን"
+   },
+   "titelblacklist": {
+      "message": "Blacklist"
+   },
+   "titelblock60fps": {
+      "message": "60ረገጽ ይያዙ"
+   },
+   "titelblur": {
+      "message": "የቀረውን አደብዝዝ"
+   },
+   "titelblurradius": {
+      "message": "የብሩህነት ራዲየስ:"
+   },
+   "titelcinemaontop": {
+      "message": "የፊልም ቲያትር ሁነታ የ \"መብራቶች\" ንብርብር በመስኮቱ አናት ላይ ብቻ ያሳየዋል"
+   },
+   "titelcolor": {
+      "message": "ቀለም"
+   },
+   "titelcolora": {
+      "message": "ቀለም ሀ:"
+   },
+   "titelcolorb": {
+      "message": "ቀለም ለ:"
+   },
+   "titelcontextmenus": {
+      "message": "የአውድ ምናሌ"
+   },
+   "titeldeveloper": {
+      "message": "ገንቢ"
+   },
+   "titeldoesntwork": {
+      "message": "Turn Off the Lights does not work on this web page. Please try another page."
+   },
+   "titeldownloadbutton": {
+      "message": "ይህንን ማሻሻያ አውርድ!"
+   },
+   "titeldownloadthemeupgrade": {
+      "message": "እሱን ለማልበስ ወደ አንድ አሳሽ ጨለማ ገጽታ ያክሉ. ጭብጡ በአሳሹ ጠርዝ ዙሪያ ይታያል."
+   },
+   "titeldownloadupgrade": {
+      "message": "ማሻሻያ የተመረጡ ምስሎችን ለማተኮር ድጋፍ ያክላል, እናም በጣቢያው ላይ የምስሎች ማዕከለ-ስዕላት ያሳያሉ."
+   },
+   "titeldownloadupgradefinancetoolbar": {
+      "message": "ይሄ የእውነተኛ ጊዜ የአክሲዮን ገበያ መረጃን ያሳየዎታል."
+   },
+   "titeldownloadupgradepropermenubar": {
+      "message": "ጥቁር ማንውሩን በ ጉግል ድር ጣቢያ ላይ ይመልሳል."
+   },
+   "titeldownloadupgradezoom": {
+      "message": "ለትንሽ ንባብን ለማጉላት የአጉላ አዝራሩን በመጠቀም በድር ይዘት ውስጥ ለቃለ-መጠን በአንድ ላይ ወይንም ለቃ."
+   },
+   "titeldynamic": {
+      "message": "ተለዋዋጭ ዳራ"
+   },
+   "titeleastereggs": {
+      "message": "የትንሳኤ እንቁላል"
+   },
+   "titeleye": {
+      "message": "የአይን ጥበቃ"
+   },
+   "titelfadein": {
+      "message": "አደብዝዝ"
+   },
+   "titelfadeout": {
+      "message": "ቀዝቅዝ"
+   },
+   "titelgpconnect": {
+      "message": "Connected"
+   },
+   "titelgpdisconnect": {
+      "message": "Disconnected"
+   },
+   "titelhead": {
+      "message": "ሰርጥ"
+   },
+   "titelhovervideo": {
+      "message": "ቪዲዮ ማንሳትን"
+   },
+   "titelimage": {
+      "message": "ዳራ ምስል"
+   },
+   "titelinfobar": {
+      "message": "መረጃአሞባይል"
+   },
+   "titelintroduce": {
+      "message": "Introducing the new Turn Off the Lights!"
+   },
+   "titellamp": {
+      "message": "ቡል"
+   },
+   "titellampchoose": {
+      "message": "ተወዳጅ የዓምድዎን ቅጥ ይምረጡ"
+   },
+   "titellampregular": {
+      "message": "በኦምኒቦክስ ውስጥ ያለውን የዕልባቶ ምልክት ሁልጊዜ አሳይ"
+   },
+   "titellampvideo": {
+      "message": "የቪዲዮ ማጫወቻ ከተገኘ ብቻ የዓይን አዶን አሳይ"
+   },
+   "titellessmore": {
+      "message": "ያነሰ አሳይ"
+   },
+   "titellikebar": {
+      "message": "ልክ እንደ ባር"
+   },
+   "titellikebutton": {
+      "message": "እነኚህን እና ያልተደሰቱ አዝራሮች"
+   },
+   "titellinear": {
+      "message": "ሊኒየር"
+   },
+   "titelmaxqualityyoutube": {
+      "message": "በራስ-ሰር ለዚህ ጥራት አዘጋጅ:"
+   },
+   "titelmouse": {
+      "message": "መዳፊት"
+   },
+   "titelmultimedia": {
+      "message": "Multimedia Detection"
+   },
+   "titelnightmodebck": {
+      "message": "የዳራ ቀለም"
+   },
+   "titelnightmodeborder": {
+      "message": "Border color"
+   },
+   "titelnightmodebutton": {
+      "message": "Button color"
+   },
+   "titelnightmodedomain": {
+      "message": "Domain"
+   },
+   "titelnightmodehyperlink": {
+      "message": "Hyperlink color"
+   },
+   "titelnightmodepage": {
+      "message": "Web page"
+   },
+   "titelnightmodeposition": {
+      "message": "የመቀየሪያ አቀማመጥ"
+   },
+   "titelnightmodetxt": {
+      "message": "የጽሑፍ ቀለም"
+   },
+   "titelnighttheme": {
+      "message": "የምሽት ሁነታ"
+   },
+   "titeloff": {
+      "message": "ጠፍቷል"
+   },
+   "titelon": {
+      "message": "በርቷል"
+   },
+   "titelonoff": {
+      "message": "ON/OFF"
+   },
+   "titelopacity": {
+      "message": "ብርሃን-አልባነት"
+   },
+   "titelpageaction": {
+      "message": "በኦምኒቦክስ ውስጥ የዓይን አዶን ደብቅ"
+   },
+   "titelpassword": {
+      "message": "የይለፍ ቃል ጥበቃ"
+   },
+   "titelpermission": {
+      "message": "Permissions"
+   },
+   "titelpip": {
+      "message": "Picture-in-Picture"
+   },
+   "titelpiperror": {
+      "message": "No video found on the current web page. Try a different web page."
+   },
+   "titelpipvideo": {
+      "message": "The current Video"
+   },
+   "titelpipvisual": {
+      "message": "Music Visualization"
+   },
+   "titelplaylist": {
+      "message": "አጫዋች ዝርዝር"
+   },
+   "titelpopupoptions": {
+      "message": "Options"
+   },
+   "titelpopupratestars": {
+      "message": "ለ 5 ኮከቦች ደረጃ ስጥ"
+   },
+   "titelpopupsupport": {
+      "message": "ድጋፍ"
+   },
+   "titelpopupvideo": {
+      "message": "YouTube"
+   },
+   "titelpopupwelcomeguide": {
+      "message": "Welcome Guide"
+   },
+   "titelqualityyoutube": {
+      "message": "በራስ-ሰር የ ዩ ቱብ ቪዲዮዎች ጥራት ያቀናብሩ"
+   },
+   "titelreader": {
+      "message": "የእይታ ደረጃ አሞሌ"
+   },
+   "titelreflection": {
+      "message": "ልምምድ"
+   },
+   "titelrememberpage": {
+      "message": "የአስታዋሽ ገጽ"
+   },
+   "titelreset": {
+      "message": "ቅንብሮችን ዳግም ያስጀምሩ"
+   },
+   "titelrightsreserved": {
+      "message": "የተወሰኑ መብቶች የተጠበቁ ናቸው."
+   },
+   "titelscreen": {
+      "message": "ማያ"
+   },
+   "titelseeonline": {
+      "message": "ለተጨማሪ ምሳሌዎች መስመር ላይ ይመልከቱ"
+   },
+   "titelsharebutton": {
+      "message": "የማጋሪያ አዝራር"
+   },
+   "titelsharethis": {
+      "message": "ይህንን አጋራ:"
+   },
+   "titelshortcutlight": {
+      "message": "አቋራጭ ቁልፍ"
+   },
+   "titelshowmore": {
+      "message": "ተጨማሪ አሳይ"
+   },
+   "titelspreadradius": {
+      "message": "የተሰራ ራዲየስ:"
+   },
+   "titelsuggestions": {
+      "message": "ጥቆማዎች"
+   },
+   "titelsupportatmos": {
+      "message": "Supports only the HTML5 \u003Cvideo> player. It also uses the GPU from your device."
+   },
+   "titelsync": {
+      "message": "አመሳስል"
+   },
+   "titelsyncbrowser": {
+      "message": "የቅጥያ ቅንብሮችዎን ከሌሎች አሳሽዎ ጋር ያመሳስሉት"
+   },
+   "titelupgrade": {
+      "message": "አልቅ"
+   },
+   "titelvideoheadline": {
+      "message": "የቪዲዮ ርዕስ"
+   },
+   "titelvideosample": {
+      "message": "የቪዲዮ ናሙና"
+   },
+   "titelvideotool": {
+      "message": "የቪዲዮ መሳሪያ አሞሌ"
+   },
+   "titelvideotoolbrightness": {
+      "message": "ብሩህነት"
+   },
+   "titelvideotoolcontrast": {
+      "message": "ተቃርኖ"
+   },
+   "titelvideotoolfilter": {
+      "message": "ማጣሪያ"
+   },
+   "titelvideotoolfullwindow": {
+      "message": "ሙሉ መስኮት በርቷል"
+   },
+   "titelvideotoolgrayscale": {
+      "message": "ግራጫማ"
+   },
+   "titelvideotoolhueroration": {
+      "message": "ቀለም ማሽከርከር"
+   },
+   "titelvideotoolinvert": {
+      "message": "ወደዋናው"
+   },
+   "titelvideotoollike": {
+      "message": "ልክ"
+   },
+   "titelvideotoolnormal": {
+      "message": "የተለመደ"
+   },
+   "titelvideotoolrepeat": {
+      "message": "ድገም"
+   },
+   "titelvideotoolsaturate": {
+      "message": "የቀለም ሙሌት"
+   },
+   "titelvideotoolscreenshot": {
+      "message": "ቅጽበታዊ ገጽ እይታ ይውሰዱ"
+   },
+   "titelvideotoolsepia": {
+      "message": "ሴፒያ"
+   },
+   "titelvideotoolsubscribe": {
+      "message": "Subscribe"
+   },
+   "titelviewcount": {
+      "message": "የእይታዎች ቁጥር"
+   },
+   "titelvisblocks": {
+      "message": "እገዳዎች"
+   },
+   "titelvischoose": {
+      "message": "የኦዲዮ ምስል መስጫ ምረጥ"
+   },
+   "titelvisenable": {
+      "message": "የድምጽ ምልከታዎችን አንቃ / አሰናክል"
+   },
+   "titelvisfrequency": {
+      "message": "ድግግሞሽ"
+   },
+   "titelvistunnel": {
+      "message": "የሙዚቃ ዋሻ"
+   },
+   "titelvisualization": {
+      "message": "የድምጽ ምስል ማስተዋወቅ"
+   },
+   "titelvolume": {
+      "message": "Video Volume Bar"
+   },
+   "titelwebsite": {
+      "message": "ድህረገፅ"
+   },
+   "titelwhitelist": {
+      "message": "Whitelist"
+   },
+   "titelwikiatmos": {
+      "message": "ስለ አቶሜምቢያ ብርሃን የመብራት ባህሪ"
+   },
+   "titleanalytics": {
+      "message": "Analytics"
+   },
+   "titleavgdayschedule": {
+      "message": "Average daily schedule"
+   },
+   "titlecancel": {
+      "message": "ሰርዝ"
+   },
+   "titledarkmodeauto": {
+      "message": "Use device appearance"
+   },
+   "titledarkmodeoff": {
+      "message": "Dark Mode OFF"
+   },
+   "titledarkmodeon": {
+      "message": "Dark Mode ON"
+   },
+   "titledonatebutton": {
+      "message": "ይለግሱ"
+   },
+   "titlegamepad": {
+      "message": "Controller"
+   },
+   "titleinfobx": {
+      "message": "Info"
+   },
+   "titlelanalyticprivacy": {
+      "message": "Turn Off the Lights browser extension takes your privacy very seriously. The Turn Off the Lights Analytics you are seeing on this page is only stored locally on your computer. Your personal site engagement information will not be sold and not transferred to unaffiliated third parties."
+   },
+   "titlelater": {
+      "message": "Later"
+   },
+   "titlelearnmore": {
+      "message": "ተጨማሪ እወቅ"
+   },
+   "titlelprivacy": {
+      "message": "የ ግል የሆነ"
+   },
+   "titlelratenow": {
+      "message": "Rate Now!"
+   },
+   "titlemultiopacity": {
+      "message": "Each website, its own opacity"
+   },
+   "titlenightowl": {
+      "message": "የማታ ጉጉት"
+   },
+   "titleok": {
+      "message": "እሺ"
+   },
+   "titleorigin": {
+      "message": "Origin"
+   },
+   "titleprofile": {
+      "message": "Profile"
+   },
+   "titleprofilealwaysscreentab": {
+      "message": "ለሁሉም የተከፈቱ ትሮች ሁልጊዜ ነቅቷል"
+   },
+   "titleprofilenovideofocus": {
+      "message": "የቪዲዮ ትኩረት ቦዝኗል"
+   },
+   "titleprofilescreenclick": {
+      "message": "ማያ ገጹ ሲጨልም ተያያዥ ገጾችን መስቀል አንቃ"
+   },
+   "titleprofilesubmit": {
+      "message": "እነዚህን ቅንብሮች ይምረጡ"
+   },
+   "titleprofilevideofocus": {
+      "message": "የቪዲዮ ትኩረት ነቅቷል"
+   },
+   "titleratelater": {
+      "message": "Later"
+   },
+   "titleregularuser": {
+      "message": "ቪዲዮ ማንሳትን"
+   },
+   "titlescreenprotection": {
+      "message": "የአይን ጥበቃ"
+   },
+   "titlesharestats": {
+      "message": "Share Your Stats"
+   },
+   "titlesiteengagement": {
+      "message": "Site Engagement"
+   },
+   "titlesub": {
+      "message": "Subscribe Now!"
+   },
+   "titletime": {
+      "message": "Time (minutes)"
+   },
+   "titletipok": {
+      "message": "Got it"
+   },
+   "titleuserprofile": {
+      "message": "ከታች, ግራጫማ መብራት ላይ ጠቅ ሲያደርጉ መጠቀም የሚፈልጉትን ቅንብሮችን ይምረጡ. እያንዳንዱ መገለጫ የራሱ ባህሪያት አለው."
+   },
+   "titlevideoplayrate": {
+      "message": "የቪዲዮ ፍጥነት"
+   },
+   "titleyoutube": {
+      "message": "Join Turn Off the Lights Channel."
+   },
+   "top": {
+      "message": "Top"
+   },
+   "totalenergysaved": {
+      "message": "Total electrical energy saved"
+   },
+   "translateme": {
+      "message": "ተርጓሚ እገዛ"
+   },
+   "trymotion": {
+      "message": "ይሞክሩት!"
+   },
+   "tuesday": {
+      "message": "Tuesday"
+   },
+   "version": {
+      "message": "ስሪት"
+   },
+   "videotitle": {
+      "message": "ይህን ቪዲዮ ላይ አተኩር"
+   },
+   "visualeffects": {
+      "message": "የሚታይ ውጤቶች"
+   },
+   "vtoolalign": {
+      "message": "በአሳሽዎ መስኮት ውስጥ የቪዲዮ አጫዋቹን ወደ መሃል ለመጫን አዝራር"
+   },
+   "vtoolfilter": {
+      "message": "በአሁኑ የቪዲዮ አጫዋችን ውስጥ ማጣሪያ ለማከል አዝራር"
+   },
+   "vtoolfullscreen": {
+      "message": "የቪዲዮ ማጫወቻውን ወደ ሙሉ የመስኮት መጠን ለማዘጋጀት ቁልፍ"
+   },
+   "vtoolreplay": {
+      "message": "በአሁኑ የቪዲዮ አጫዋችን ውስጥ ማጣሪያ ለማከል አዝራር"
+   },
+   "vtoolscreenshot": {
+      "message": "በአሁኑ የቪዲዮ አጫዋችን ውስጥ ማጣሪያ ለማከል አዝራር"
+   },
+   "vtoolvisualization": {
+      "message": "ለአሁኑ የቪዲዮ ማጫወቻ የድምፅ ህትመት ለማሳየት የሚያስችል አዝራር"
+   },
+   "warning": {
+      "message": "ማስጠንቀቂያ!"
+   },
+   "warningtextambilight": {
+      "message": "በአንድ የድር ጣቢያ የደህንነት መመሪያ ምክንያት የቪዲዮ ውሂብ መቀበል ሳይችሉ ሲቀሩ, የተመረጠው ጠንካራ ጥቁር ይጠቀማል."
+   },
+   "wednesday": {
+      "message": "Wednesday"
+   },
+   "wpermissionnotremoved": {
+      "message": "The permissions have already been removed"
+   },
+   "wpermissionremoved": {
+      "message": "The permissions have been removed."
+   },
+   "writeareview": {
+      "message": "አንድ ግምገማ ጻፍ"
+   }
+}

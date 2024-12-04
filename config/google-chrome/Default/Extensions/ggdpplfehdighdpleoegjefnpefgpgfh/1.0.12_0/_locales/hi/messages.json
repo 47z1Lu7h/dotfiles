@@ -1,0 +1,166 @@
+{
+   "3pGroupAds": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "विज्ञापन"
+   },
+   "3pGroupAnnoyances": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "झुंझलाहटें"
+   },
+   "3pGroupDefault": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "डिफॉल्ट"
+   },
+   "3pGroupMalware": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "मैलवेयर डोमेन"
+   },
+   "3pGroupMisc": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "विविध"
+   },
+   "3pGroupPrivacy": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "गोपनीयता"
+   },
+   "3pGroupRegions": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "क्षेत्र, भाषाएँ"
+   },
+   "aboutChangelog": {
+      "description": "",
+      "message": "परिवर्तन पत्र"
+   },
+   "aboutCode": {
+      "description": "English: Source code (GPLv3)",
+      "message": "सोर्स कोड (GPLv3)"
+   },
+   "aboutContributors": {
+      "description": "English: Contributors",
+      "message": "योगदानकर्ता"
+   },
+   "aboutDependencies": {
+      "description": "Shown in the About pane",
+      "message": "बाहरी निर्भरता (GPLv3-compatible):"
+   },
+   "aboutFilterLists": {
+      "description": "Link text to uBO's own filter lists repo",
+      "message": "फिल्टर सूची"
+   },
+   "aboutPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "जानकारी"
+   },
+   "aboutPrivacyPolicy": {
+      "description": "Link to privacy policy on GitHub (English)",
+      "message": "गोपनीयता नीति"
+   },
+   "aboutSourceCode": {
+      "description": "Link text to source code repo",
+      "message": "सोर्स कोड"
+   },
+   "aboutTranslations": {
+      "description": "Link text to translations repo",
+      "message": "अनुवाद"
+   },
+   "autoReloadLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "फ़िल्टरिंग मोड बदलते समय स्वचालित रूप से पृष्ठ पुनः लोड करें"
+   },
+   "basicFilteringModeDescription": {
+      "description": "This describes the 'basic' filtering mode",
+      "message": "चयनित फ़िल्टर सूचियों में से बुनियादी नेटवर्क फ़िल्टरिंग.\n\nवेबसाइटों पर डेटा पढ़ने और बदलने के लिए अनुमति की आवश्यकता नहीं हौती है."
+   },
+   "behaviorSectionLabel": {
+      "description": "The header text for the 'Behavior' section",
+      "message": "व्यवहार"
+   },
+   "completeFilteringModeDescription": {
+      "description": "This describes the 'complete' filtering mode",
+      "message": "चयनित फ़िल्टर सूचियों में से उन्नत नेटवर्क फ़िल्टरिंग के साथ  विशिष्ट विस्तारित फ़िल्टरिंग.\n\nसभी वेबसाइटों पर डेटा पढ़ने और बदलने के लिए व्यापक अनुमति की आवश्यकता है.\n\nसामान्य विस्तारित फ़िल्टरिंग के कारण वेबपृष्ठ संसाधनों का अधिक उपयोग हो सकता है."
+   },
+   "dashboardName": {
+      "description": "English: AdBlock Max — Dashboard",
+      "message": "AdBlock Max — डैशबोर्ड"
+   },
+   "defaultFilteringModeDescription": {
+      "description": "This describes the default filtering mode setting",
+      "message": "डिफ़ॉल्ट फ़िल्टरिंग मोड प्रति-वेबसाइट फ़िल्टरिंग मोड द्वारा ओवरराइड किया जाएगा. आप किसी भी वेबसाइट पर फ़िल्टरिंग मोड को उस वेबसाइट पर सबसे अच्छा काम करने वाले मोड के अनुसार समायोजित कर सकते हैं. प्रत्येक मोड के अपने फायदे और नुकसान हैं."
+   },
+   "defaultFilteringModeSectionLabel": {
+      "description": "The header text for the default filtering mode section",
+      "message": "डिफ़ॉल्ट फ़िल्टरिंग मोड"
+   },
+   "extName": {
+      "description": "extension name.",
+      "message": "AdBlock Max"
+   },
+   "extName666": {
+      "description": "extension name.",
+      "message": "AdBlock Max - विज्ञापन अवरोधक"
+   },
+   "extShortDesc": {
+      "description": "this will be in the Chrome web store: must be 132 characters or less",
+      "message": "एक प्रयोगात्मक, अनुमति-रहित सामग्री अवरोधक. इंस्टालेशन के तुरंत बाद विज्ञापनों, ट्रैकर्स, माइनर्स और बहुत कुछ को ब्लॉक कर देता है."
+   },
+   "filteringMode0Name": {
+      "description": "Name of blocking mode 0",
+      "message": "कोई फ़िल्टर नहीं"
+   },
+   "filteringMode1Name": {
+      "description": "Name of blocking mode 1",
+      "message": "बुनियादी"
+   },
+   "filteringMode2Name": {
+      "description": "Name of blocking mode 2",
+      "message": "अनुकूलतम"
+   },
+   "filteringMode3Name": {
+      "description": "Name of blocking mode 3",
+      "message": "पूर्ण"
+   },
+   "firstRunDescription": {
+      "description": "Descriptive text shown at first install time only ",
+      "message": "आपने अभी-अभी AdBlock Max स्थापित किया है. आप यहां सभी वेबसाइटों पर उपयोग करने के लिए डिफ़ॉल्ट फ़िल्टरिंग मोड चुन सकते हैं.\n\nडिफ़ॉल्ट रूप से, \u003Cem>बुनियादी\u003C/em> मोड चुना जाता है क्योंकि इसमें डेटा को पढ़ने और बदलने की अनुमति की आवश्यकता नहीं होती है. यदि आप AdBlock Max पर भरोसा करते हैं, तो आप डिफ़ॉल्ट रूप से सभी वेबसाइटों के लिए अधिक उन्नत फ़िल्टरिंग क्षमताओं को सक्षम करने के लिए सभी वेबसाइटों पर डेटा को पढ़ने और बदलने की व्यापक अनुमति दे सकते हैं."
+   },
+   "firstRunSectionLabel": {
+      "description": "The header text for the welcome message section",
+      "message": "स्वागत"
+   },
+   "noFilteringModeDescription": {
+      "description": "A short description for the editable field which lists trusted sites",
+      "message": "होस्टनामों की सूची जिनके लिए कोई फ़िल्टरिंग नहीं होगी"
+   },
+   "optimalFilteringModeDescription": {
+      "description": "This describes the 'optimal' filtering mode",
+      "message": "चयनित फ़िल्टर सूचियों में से उन्नत नेटवर्क फ़िल्टरिंग के साथ  विशिष्ट विस्तारित फ़िल्टरिंग.\n\nसभी वेबसाइटों पर डेटा पढ़ने और बदलने के लिए व्यापक अनुमति की आवश्यकता है."
+   },
+   "perRulesetStats": {
+      "description": "Appears aside each filter list in the _3rd-party filters_ pane",
+      "message": "{{filterCount}} नेटवर्क फ़िल्टर से रूपांतरित, {{ruleCount}} नियम"
+   },
+   "popupFilteringModeLabel": {
+      "description": "Label in the popup panel for the current filtering mode",
+      "message": "फ़िल्टरिंग मोड"
+   },
+   "popupLessButton": {
+      "description": "Label to be used to hide popup panel sections",
+      "message": "कम"
+   },
+   "popupMoreButton": {
+      "description": "Label to be used to show popup panel sections",
+      "message": "अधिक"
+   },
+   "popupTipDashboard": {
+      "description": "English: Click to open the dashboard",
+      "message": "डैशबोर्ड खोलें"
+   },
+   "settingsPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "सेटिंग्स"
+   },
+   "showBlockedCountLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "टूलबार आइकन पर अवरुद्ध अनुरोधों की संख्या दिखाएं"
+   }
+}

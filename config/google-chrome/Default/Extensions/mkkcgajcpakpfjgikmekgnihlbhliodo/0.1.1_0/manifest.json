@@ -1,0 +1,14 @@
+{
+   "content_scripts": [ {
+      "css": [ "swipe-back.css" ],
+      "js": [ "swipe-back.js" ],
+      "matches": [ "*://*/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "Go back to previous page by swiping left with two fingers on a trackpad.",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvB/ucSvVIPigSjOHdUP+5UIRVE3LdZ4bvbZVKCD5ETjM3PsDR64FSqryEYxUfwItuVeGyUqYkUQ8Q+sk41W4rN13cPYIcIQc7trSMLqr86mIdKAnfiNgDNTrKb4NAzsRLpUTimtJ8UIJnJP+r2A/oS2I/X1AAb8og+5edV37zPcT3b3sFNf7rhzed/kaZi9hgTBOXDjUtsypnOokQn9IM5ljr3q13Dsn6RkON/QUQaknnkquMqOKKA4Z9jF63CpzrFVNMX4AszhoAu6NUM9JN4/y2YCDIbmiPzAF+IqsO2Miu9not6XhUqdXk1nXuI51gFF2FjdL6g/vnC9X4HPnKwIDAQAB",
+   "manifest_version": 3,
+   "name": "swipe-back",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.1.1"
+}

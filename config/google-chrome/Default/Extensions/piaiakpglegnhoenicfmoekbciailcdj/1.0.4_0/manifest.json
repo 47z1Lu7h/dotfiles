@@ -1,0 +1,36 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/logo.png"
+      },
+      "default_popup": "popup.html"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "js": [ "content_bandlab.js" ],
+      "matches": [ "https://www.bandlab.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "kodepayContent.js" ],
+      "matches": [ "https://kodepay.io/*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Download tracks/m4a/sound/video/mp4 from BandLab",
+   "host_permissions": [  ],
+   "icons": {
+      "128": "icons/logo.png",
+      "32": "icons/32.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsPDOXFX1mYGXTe/7Tmcf/WSgzhvrmioxI2uCJpIXiNDiIJm5ahJ00QoP2m79aP5DlYgN+2MJrJonqhdYSEgnvS23T/IpnY0l3FXx26kSAdBGU8O9rqrbi6aywrYcdFTvAR7PtJNKirPSGnLHx0S7L7z4mLNjon/j23B3CSbh885zKdxQvA7O2v7kNT0tmkmrKQ9Tq6JZzOh+j2Ze3WYAx0HyG7ePRbGZ7To4nvTZfYRoS2U8kcJcHavkWxE6s4ntaaXLolxPIZQMWwfINUB+RaC2zNZ/1N/eQM2clwr1J4VrSzl88GYwz6F6J42Ld9Cq/e2N1jMc8hsZ26DEyO+75wIDAQAB",
+   "manifest_version": 3,
+   "name": "BandLab Music Downloader",
+   "permissions": [ "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.4",
+   "web_accessible_resources": [ {
+      "matches": [ "*://*/*" ],
+      "resources": [ "popup.html", "price.html", "price.js", "price.json", "icons/*", "js/bandlab_inject.js", "popup.js", "kodepayContent.js" ]
+   } ]
+}

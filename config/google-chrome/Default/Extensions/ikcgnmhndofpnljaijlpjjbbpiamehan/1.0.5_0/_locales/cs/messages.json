@@ -1,0 +1,20 @@
+{
+   "description": {
+      "message": "Aplikace Instagram – stáhněte si z webu fotky, videa, příběhy, kotouče na Instagram. Plánujte příspěvky, posílejte DM z Instagramu."
+   },
+   "name": {
+      "message": "App Client for Instagram™ - InLoad"
+   },
+   "rateDialogDesc": {
+      "message": "Please rate us! It is very important for us! Thank you:)"
+   },
+   "rateDialogNo": {
+      "message": "Maybe next time"
+   },
+   "rateDialogTitle": {
+      "message": "Our extension is useful for you?"
+   },
+   "rateDialogYes": {
+      "message": "Yes, of course"
+   }
+}

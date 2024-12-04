@@ -1,0 +1,29 @@
+2024-12-01 19:52:01.608 [info] Started local extension host with pid 247724.
+2024-12-01 19:52:02.416 [info] Settings Sync: Updating due to initialize
+2024-12-01 19:52:02.416 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-12-01 19:52:02.416 [info] Settings Sync: Authentication providers updated []
+2024-12-01 19:52:02.425 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-12-01 19:52:02.425 [info] Settings Sync: Authentication providers updated ["github"]
+2024-12-01 19:52:02.425 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-12-01 19:52:02.425 [info] Settings Sync: Authentication providers updated ["github"]
+2024-12-01 19:52:02.426 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-12-01 19:52:02.426 [info] Settings Sync: Authentication providers updated ["github","microsoft"]
+2024-12-01 19:52:02.426 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-12-01 19:52:02.426 [info] Settings Sync: Authentication providers updated ["github","microsoft"]
+2024-12-01 19:52:02.434 [info] Settings Sync: Updating due to declared authentication providers changed
+2024-12-01 19:52:02.434 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-12-01 19:52:02.434 [info] Settings Sync: Authentication providers updated ["github","microsoft"]
+2024-12-01 19:52:02.434 [info] Settings Sync: Updating due to declared authentication providers changed
+2024-12-01 19:52:02.434 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-12-01 19:52:02.434 [info] Settings Sync: Authentication providers updated ["github","microsoft"]
+2024-12-01 19:52:02.650 [info] Settings Sync: Updating authentication providers. Authentication Providers from store: [{"id":"github","scopes":["user:email"]},{"id":"microsoft","scopes":["openid","profile","email","offline_access"]}]
+2024-12-01 19:52:02.650 [info] Settings Sync: Authentication providers updated ["github","microsoft"]
+2024-12-01 19:52:04.306 [info] [perf] Render performance baseline is 16ms
+2024-12-01 19:52:48.690 [error] Unable to read file '/home/a7z1lu7h/d35kT0p/r3p0s/47z1Lu7h.github.io/docs/_posts/2017-05-05-chart.md' (Error: File not modified since): Error: Unable to read file '/home/a7z1lu7h/d35kT0p/r3p0s/47z1Lu7h.github.io/docs/_posts/2017-05-05-chart.md' (Error: File not modified since)
+    at Pnt.F (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3088:69590)
+    at Pnt.D (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3088:69499)
+    at async Gnt.M (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3089:9119)
+    at async Gnt.readStream (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3089:8894)
+    at async Pde.Db (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1275:11960)
+    at async Pde.resolve (vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1275:10435)
+    at async vscode-file://vscode-app/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:3089:5479

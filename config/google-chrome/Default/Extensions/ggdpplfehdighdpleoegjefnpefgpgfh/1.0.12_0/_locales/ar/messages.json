@@ -1,0 +1,166 @@
+{
+   "3pGroupAds": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "اعلانات"
+   },
+   "3pGroupAnnoyances": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "مضايقات"
+   },
+   "3pGroupDefault": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "افتراضي"
+   },
+   "3pGroupMalware": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "نطاقات البرامج الضارة"
+   },
+   "3pGroupMisc": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "متنوع"
+   },
+   "3pGroupPrivacy": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "الخصوصية"
+   },
+   "3pGroupRegions": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "المناطق واللغات"
+   },
+   "aboutChangelog": {
+      "description": "",
+      "message": "سجل التغييرات"
+   },
+   "aboutCode": {
+      "description": "English: Source code (GPLv3)",
+      "message": "شفرة المصدر (GPLv3)"
+   },
+   "aboutContributors": {
+      "description": "English: Contributors",
+      "message": "المساهمون"
+   },
+   "aboutDependencies": {
+      "description": "Shown in the About pane",
+      "message": "التبعيات الخارجية (متوافقة مع GPLv3):"
+   },
+   "aboutFilterLists": {
+      "description": "Link text to uBO's own filter lists repo",
+      "message": "قوائم التصفية"
+   },
+   "aboutPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "عن التطبيق"
+   },
+   "aboutPrivacyPolicy": {
+      "description": "Link to privacy policy on GitHub (English)",
+      "message": "سياسة الخصوصية"
+   },
+   "aboutSourceCode": {
+      "description": "Link text to source code repo",
+      "message": "شيفرة المصدر"
+   },
+   "aboutTranslations": {
+      "description": "Link text to translations repo",
+      "message": "الترجمات"
+   },
+   "autoReloadLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "إعادة تحميل الصفحة تلقائيًا عند تغيير وضع التصفية"
+   },
+   "basicFilteringModeDescription": {
+      "description": "This describes the 'basic' filtering mode",
+      "message": "تصفية الشبكة الأساسية من قوائم التصفية المحددة.\n\nلا يتطلب إذنًا لقراءة البيانات وتعديلها على مواقع الويب."
+   },
+   "behaviorSectionLabel": {
+      "description": "The header text for the 'Behavior' section",
+      "message": "السلوك"
+   },
+   "completeFilteringModeDescription": {
+      "description": "This describes the 'complete' filtering mode",
+      "message": "تصفية الشبكة المتقدمة بالإضافة إلى تصفية موسعة محددة وعامة من قوائم التصفية المحددة.\n\nيتطلب إذنًا واسعًا لقراءة البيانات وتعديلها على جميع مواقع الويب.\n\nقد تؤدي التصفية الموسعة العامة إلى زيادة استخدام موارد صفحة الويب."
+   },
+   "dashboardName": {
+      "description": "English: AdBlock Max — Dashboard",
+      "message": "لوحة التحكم"
+   },
+   "defaultFilteringModeDescription": {
+      "description": "This describes the default filtering mode setting",
+      "message": "سيتم تجاوز وضع التصفية الافتراضي بواسطة أوضاع التصفية لكل موقع ويب. يمكنك ضبط وضع التصفية على أي موقع ويب معين وفقًا للوضع الذي يعمل بشكل أفضل على موقع الويب هذا. كل وضع له مزاياه وعيوبه."
+   },
+   "defaultFilteringModeSectionLabel": {
+      "description": "The header text for the default filtering mode section",
+      "message": "وضع التصفية الافتراضي"
+   },
+   "extName": {
+      "description": "extension name.",
+      "message": "AdBlock Max"
+   },
+   "extName666": {
+      "description": "extension name.",
+      "message": "AdBlock Max - مانع الإعلانات"
+   },
+   "extShortDesc": {
+      "description": "this will be in the Chrome web store: must be 132 characters or less",
+      "message": "حاجب محتوى و بأقل التراخيص المسبقة. يحجب الإعلانات والمتتبعات والمعدنات والكثير فوراً عند التثبيت."
+   },
+   "filteringMode0Name": {
+      "description": "Name of blocking mode 0",
+      "message": "لا تصفية"
+   },
+   "filteringMode1Name": {
+      "description": "Name of blocking mode 1",
+      "message": "أساسي"
+   },
+   "filteringMode2Name": {
+      "description": "Name of blocking mode 2",
+      "message": "الأفضل"
+   },
+   "filteringMode3Name": {
+      "description": "Name of blocking mode 3",
+      "message": "مكتمل"
+   },
+   "firstRunDescription": {
+      "description": "Descriptive text shown at first install time only ",
+      "message": "لقد قمت للتو بتثبيت AdBlock Max. هنا يمكنك اختيار وضع التصفية الافتراضي لاستخدامه في جميع مواقع الويب.\n\nبشكل افتراضي ، يتم تحديد الوضع \u003Cem>الأساسي\u003C/em> لأنه لا يتطلب الإذن لقراءة البيانات وتعديلها. إذا كنت تثق في AdBlock Max ، فيمكنك منحه إذنًا واسعًا لقراءة البيانات وتعديلها على جميع مواقع الويب من أجل تمكين المزيد من إمكانات التصفية المتقدمة لجميع مواقع الويب افتراضيًا."
+   },
+   "firstRunSectionLabel": {
+      "description": "The header text for the welcome message section",
+      "message": "مرحبا"
+   },
+   "noFilteringModeDescription": {
+      "description": "A short description for the editable field which lists trusted sites",
+      "message": "قائمة بأسماء المضيفين التي لن تتم أي تصفية لها"
+   },
+   "optimalFilteringModeDescription": {
+      "description": "This describes the 'optimal' filtering mode",
+      "message": "تصفية الشبكة المتقدمة بالإضافة إلى تصفية موسعة محددة من قوائم التصفية المحددة.\n\nيتطلب إذنًا واسعًا لقراءة البيانات وتعديلها على جميع مواقع الويب."
+   },
+   "perRulesetStats": {
+      "description": "Appears aside each filter list in the _3rd-party filters_ pane",
+      "message": "{{ruleCount}} شرط محولة من {{filterCount}} مصفيّات الشبكة "
+   },
+   "popupFilteringModeLabel": {
+      "description": "Label in the popup panel for the current filtering mode",
+      "message": "وضع التصفية"
+   },
+   "popupLessButton": {
+      "description": "Label to be used to hide popup panel sections",
+      "message": "أقل"
+   },
+   "popupMoreButton": {
+      "description": "Label to be used to show popup panel sections",
+      "message": "المزيد"
+   },
+   "popupTipDashboard": {
+      "description": "English: Click to open the dashboard",
+      "message": "افتح لوحة التحكم"
+   },
+   "settingsPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "الإعدادات"
+   },
+   "showBlockedCountLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "إظهار عدد الطلبات المحظورة على أيقونة شريط الأدوات"
+   }
+}

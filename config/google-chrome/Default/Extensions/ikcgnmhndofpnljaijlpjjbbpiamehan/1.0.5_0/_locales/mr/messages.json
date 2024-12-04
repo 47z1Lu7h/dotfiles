@@ -1,0 +1,20 @@
+{
+   "description": {
+      "message": "Instagram downloader allows to download photo, image, video from Instagram, save story. Download video from Instagram"
+   },
+   "name": {
+      "message": "Image Downloader Instagram"
+   },
+   "rateDialogDesc": {
+      "message": "Please rate us! It is very important for us! Thank you:)"
+   },
+   "rateDialogNo": {
+      "message": "Maybe next time"
+   },
+   "rateDialogTitle": {
+      "message": "Our extension is useful for you?"
+   },
+   "rateDialogYes": {
+      "message": "Yes, of course"
+   }
+}

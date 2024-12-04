@@ -1,0 +1,6 @@
+2024/11/27-14:09:10.786 3d3e0 Creating DB /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_sid4hack.medium.com_0.indexeddb.leveldb since it was missing.
+2024/11/27-14:09:10.788 3d3e0 Reusing MANIFEST /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_sid4hack.medium.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/11/27-14:09:32.461 3d3e1 Level-0 table #5: started
+2024/11/27-14:09:32.462 3d3e1 Level-0 table #5: 14209 bytes OK
+2024/11/27-14:09:32.462 3d3e1 Delete type=0 #3
+2024/11/27-14:09:32.463 3d3e1 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

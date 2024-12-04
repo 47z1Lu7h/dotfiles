@@ -1,0 +1,34 @@
+{
+   "action": {
+      "default_icon": "assets/img/128.png",
+      "default_popup": "html/popup.html",
+      "default_title": "Translator"
+   },
+   "background": {
+      "service_worker": "javaScripts/serviceWorker.js"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "javaScripts/content.js" ],
+      "matches": [ "*://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_description__",
+   "host_permissions": [ "*://*/*" ],
+   "icons": {
+      "128": "assets/img/128.png",
+      "48": "assets/img/48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA9Af8JP4ZYEwtAuQhP3beYfmc4K8N5LjtNqAOdce6f/d+Pq7b/TiWyy1EI6pmnKoge00D5tXjHqEoXmqFlHZNPXxPorVoYZVuNm36ZPr+nLdm7K3lXK6X5v/rc01xai6ewEzEGbFnQfQL7zknQnT8IH74Pia49kmMCfF+LKeUuvhO8+T1JMt7adnVuksB0LOs/pLBOazh9KsysnVeo5D2fIDjWDmmm08dLLU568cFKHdZ2+uPsXQqB7Ft3NMPYBxWKmQOZMz5xRQ+MU6KaVUU8tMWwUadOSgnhD22/eXwslNAPpn1WqC8aQ/LhzvYo/tw0KvXFjJeYruUcryY5c8N0QIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_name__",
+   "options_page": "html/options.html",
+   "permissions": [ "contextMenus", "storage", "tabs" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.16",
+   "web_accessible_resources": [ {
+      "matches": [ "*://*/*" ],
+      "resources": [ "javaScripts/*", "javaScripts/img/*", "javaScripts/style/*" ]
+   } ]
+}

@@ -1,0 +1,20 @@
+2024/11/29-19:43:31.293 b0cd Creating DB /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_mail.proton.me_0.indexeddb.leveldb since it was missing.
+2024/11/29-19:43:31.294 b0cd Reusing MANIFEST /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_mail.proton.me_0.indexeddb.leveldb/MANIFEST-000001
+2024/11/29-19:43:32.035 b0d7 Level-0 table #5: started
+2024/11/29-19:43:32.039 b0d7 Level-0 table #5: 1309 bytes OK
+2024/11/29-19:43:32.039 b0d7 Delete type=0 #3
+2024/11/29-19:43:32.039 b0cd Manual compaction at level-0 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/11/29-19:43:32.263 b0cd Level-0 table #7: started
+2024/11/29-19:43:32.264 b0cd Level-0 table #7: 811 bytes OK
+2024/11/29-19:43:32.265 b0cd Delete type=0 #4
+2024/11/29-19:43:32.265 b0cd Manual compaction at level-0 from '\x00\x03\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x04\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/11/29-19:43:32.366 b0cf Level-0 table #9: started
+2024/11/29-19:43:32.367 b0cf Level-0 table #9: 809 bytes OK
+2024/11/29-19:43:32.368 b0cf Delete type=0 #6
+2024/11/29-19:43:32.368 b0ce Manual compaction at level-0 from '\x00\x04\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at '\x00\x04\x00\x00\x05' @ 85 : 1
+2024/11/29-19:43:32.368 b0ce Compacting 1@0 + 1@1 files
+2024/11/29-19:43:32.369 b0ce Generated table #10@0: 13 keys, 816 bytes
+2024/11/29-19:43:32.369 b0ce Compacted 1@0 + 1@1 files => 816 bytes
+2024/11/29-19:43:32.370 b0ce compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/11/29-19:43:32.370 b0ce Delete type=2 #9
+2024/11/29-19:43:32.370 b0ce Manual compaction at level-0 from '\x00\x04\x00\x00\x05' @ 85 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at (end)

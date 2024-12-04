@@ -1,0 +1,53 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "images/browsers128.png",
+         "16": "images/browsers16.png",
+         "256": "images/browsers256.png",
+         "48": "images/browsers48.png",
+         "64": "images/browsers64.png"
+      }
+   },
+   "author": "stefanXO",
+   "background": {
+      "service_worker": "dist/service_worker/service_worker.js"
+   },
+   "commands": {
+      "_execute_action": {
+         "suggested_key": {
+            "default": "Ctrl+Shift+M",
+            "mac": "Command+Shift+M",
+            "windows": "Ctrl+Shift+M"
+         }
+      },
+      "switch_to_previous_active_tab": {
+         "description": "Switches to previously active tab",
+         "suggested_key": {
+            "default": "Ctrl+Shift+Space",
+            "mac": "Command+Shift+Space",
+            "windows": "Ctrl+Shift+Space"
+         }
+      }
+   },
+   "description": "Quickly find open tabs, see all windows in one view, find duplicates and limit tabs per window. The best Tab Manager for Chrome.",
+   "icons": {
+      "128": "images/browsers128.png",
+      "16": "images/browsers16.png",
+      "256": "images/browsers256.png",
+      "48": "images/browsers48.png",
+      "64": "images/browsers64.png"
+   },
+   "incognito": "spanning",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl7OZO8qWHbX/+fZnDSNsnmmA3QZPYt3PRSv/g7iTYHUVyCZ9qLZuLcg1zBzTQyExmzZuR0GBgnIiJP7fVKL64HeYXYe5qH67phqTYxBzllD/d7FSQv5R2QoV9xPf2xjPIEsC4dfX4v4Az0pQMpGtlEVsfHSJP01vldNO8d7Tc9a7G/qJw3fJv8rxA5pvzD1izspyqJluMqvxJQSFJv7T+u4lIeHQOvS0nzURwGQTTBZl+xcuCK0LtAdOoDW7XHA4p0TV8fr/weuLpxQ51GVUXiD85FDy5LxpbpiK6UxWrZQ7fErcBlpFjjH7+ehowRHmZG4bUtq7NBgIfWfvAimK+QIDAQAB",
+   "manifest_version": 3,
+   "name": "Tab Manager Plus for Chrome",
+   "offline_enabled": true,
+   "optional_permissions": [ "system.display" ],
+   "options_ui": {
+      "page": "options.html"
+   },
+   "permissions": [ "tabs", "contextMenus", "storage", "favicon" ],
+   "short_name": "Tab Manager+",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "6.0.0"
+}

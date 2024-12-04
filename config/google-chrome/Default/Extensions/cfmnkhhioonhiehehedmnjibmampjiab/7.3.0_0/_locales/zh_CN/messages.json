@@ -1,0 +1,453 @@
+{
+   "____________________________________________________________________________________________________": {
+      "description": "This file has been generated automatically. Don't modify manually.",
+      "message": ""
+   },
+   "account": {
+      "message": "账户"
+   },
+   "account_details": {
+      "message": "帐户详情"
+   },
+   "account_type_pro": {
+      "message": "专业的"
+   },
+   "add_bookmark": {
+      "message": "添加书签"
+   },
+   "add_description": {
+      "message": "+添加描述"
+   },
+   "add_feed": {
+      "message": "添加订阅"
+   },
+   "add_group": {
+      "message": "添加群组"
+   },
+   "add_tabs": {
+      "message": "添加标签"
+   },
+   "add_title": {
+      "message": "+ Add title"
+   },
+   "add_to_startme": {
+      "message": "添加至start.me"
+   },
+   "add_widget": {
+      "message": "添加工具"
+   },
+   "allow_access_to_tabs": {
+      "message": "要查看您的公开浏览器标签，请确保start.me有访问您浏览器标签的权限。"
+   },
+   "already_have_startme_account": {
+      "message": "已有 start.me 帐户？"
+   },
+   "already_saved_in_x_ext": {
+      "message": "已经保存在"
+   },
+   "anonymous_user": {
+      "message": "匿名用户"
+   },
+   "app_description": {
+      "message": "将您的新标签页替换为个人管理板面。"
+   },
+   "app_name": {
+      "message": "start.me创作的新标签页"
+   },
+   "app_short_name": {
+      "message": "start.me"
+   },
+   "auto_saving": {
+      "message": "自动保存"
+   },
+   "autosave_in_inbox": {
+      "message": "Auto-save bookmarks (in Inbox)"
+   },
+   "autosaved_in_x_ext": {
+      "message": "自动保存在"
+   },
+   "available_feeds": {
+      "message": "可用的推送"
+   },
+   "bookmark": {
+      "message": "书签"
+   },
+   "change": {
+      "message": "更改"
+   },
+   "change_description_and_url": {
+      "message": "更改描述和URL"
+   },
+   "change_user_settings": {
+      "message": "更改用户设置"
+   },
+   "clear": {
+      "message": "清理"
+   },
+   "clear_cache": {
+      "message": "清理cache"
+   },
+   "clear_extension_cache": {
+      "message": "清除扩展缓存"
+   },
+   "click_to_choose_a_different_country": {
+      "message": "点击选择其他国家"
+   },
+   "close": {
+      "message": "关闭"
+   },
+   "close_tabs_after_saving": {
+      "message": "Close selected tabs after saving"
+   },
+   "close_window": {
+      "message": "关闭窗口"
+   },
+   "create_account": {
+      "message": "创建账户"
+   },
+   "create_new_bookmark": {
+      "message": "创建新书签"
+   },
+   "create_new_free_account": {
+      "message": "创建免费的start.me账户"
+   },
+   "create_new_group": {
+      "message": "创建新群组"
+   },
+   "create_new_group_on_page_widget_ext": {
+      "message": "创建新群组"
+   },
+   "create_new_widget": {
+      "message": "创建新微件"
+   },
+   "create_new_widget_on_page_ext": {
+      "message": "创建新的小部件"
+   },
+   "default_page": {
+      "message": "\u003C默认页面>"
+   },
+   "description": {
+      "message": "将您的新标签页替换为个人管理板面。"
+   },
+   "description_bookmarker": {
+      "message": "此书签可用于在您浏览时将网页添加到您的 start.me 页面 - start.me"
+   },
+   "done": {
+      "message": "完成"
+   },
+   "edit_link": {
+      "message": "编辑书签"
+   },
+   "eg_email": {
+      "message": "例如john@gmail.com"
+   },
+   "eg_name": {
+      "message": "比如， John Smith"
+   },
+   "enable": {
+      "message": "启用"
+   },
+   "enable_autosaving": {
+      "message": "启用自动保存"
+   },
+   "extension_options": {
+      "message": "扩展程序选项"
+   },
+   "feeds": {
+      "message": "推送"
+   },
+   "full_name": {
+      "message": "start.me创作的新标签页"
+   },
+   "full_name_bookmarker": {
+      "message": "将start.me 加入书签"
+   },
+   "get_help": {
+      "message": "寻求帮助"
+   },
+   "grant_access": {
+      "message": "授予访问权限"
+   },
+   "have_startme_account": {
+      "message": "您已经有start.me账户了吗？"
+   },
+   "help": {
+      "message": "帮助"
+   },
+   "help_and_support": {
+      "message": "帮助与支持"
+   },
+   "hide": {
+      "message": "隐藏"
+   },
+   "hide_description_and_url": {
+      "message": "隐藏描述和URL"
+   },
+   "home_name": {
+      "message": "start.me"
+   },
+   "i_may_do_this_later": {
+      "message": "我可能晚点再导入"
+   },
+   "import": {
+      "message": "导入"
+   },
+   "import_bookmarks": {
+      "message": "导入网址收藏"
+   },
+   "import_bookmarks_from_chrome": {
+      "message": "从浏览器导入书签"
+   },
+   "import_browser_bookmarks": {
+      "message": "导入浏览器书签"
+   },
+   "import_your_bookmarks_question": {
+      "message": "导入您的网址收藏吗？"
+   },
+   "imported_from_chrome": {
+      "message": "从Chrome浏览器导入"
+   },
+   "importing_your_bookmarks": {
+      "message": "导入您的网址收藏"
+   },
+   "inbox": {
+      "message": "收件箱"
+   },
+   "learn_how_this_works": {
+      "message": "了解其工作原理"
+   },
+   "lets_personalize_it": {
+      "message": "让我们对它进行个性化设置。用不了多久。"
+   },
+   "logout": {
+      "message": "登出"
+   },
+   "logout_confirm": {
+      "message": "您确定要注销您的匿名帐户吗?这意味着您将无法再次登录您的页面。如果您想在未来继续访问页面，请先注册帐户。"
+   },
+   "markdown_supported": {
+      "message": "支持Markdown"
+   },
+   "my_email_is": {
+      "message": "我的电子邮件是"
+   },
+   "my_name_is": {
+      "message": "我的名字是"
+   },
+   "my_startme_homepage": {
+      "message": "我的 start.me 主页"
+   },
+   "name_bookmarker": {
+      "message": "start.me 书签"
+   },
+   "new_tab_page": {
+      "message": "新标签页"
+   },
+   "new_widget": {
+      "message": "新工具"
+   },
+   "no": {
+      "message": "否"
+   },
+   "open_browser_tabs": {
+      "message": "打开浏览器标签"
+   },
+   "open_default_chrome_startpage": {
+      "message": "打开浏览器的默认起始页"
+   },
+   "open_my_startme_homepage": {
+      "message": "打开我的starts.me主页"
+   },
+   "open_pagesmenu": {
+      "message": "打开start.me 菜单"
+   },
+   "open_startme_blog": {
+      "message": "打开 start.me 的博客"
+   },
+   "open_startme_homepage": {
+      "message": "打开 start.me 主页"
+   },
+   "open_tabs": {
+      "message": "打开标签"
+   },
+   "options": {
+      "message": "选项"
+   },
+   "other_preferences": {
+      "message": "其他偏好"
+   },
+   "personal_pages": {
+      "message": "个人页面"
+   },
+   "please_import_them": {
+      "message": "请导入"
+   },
+   "please_specify_title": {
+      "message": "请指定一个标题"
+   },
+   "please_try_again_later": {
+      "message": "非常抱歉，请稍后重试。"
+   },
+   "please_wait_a_moment": {
+      "message": "这需要花费一些时间，请稍等。"
+   },
+   "plus_n_others": {
+      "message": "+%{number}个其他"
+   },
+   "preferences": {
+      "message": "偏好"
+   },
+   "pro": {
+      "message": "专业的"
+   },
+   "pure_description": {
+      "message": "描述"
+   },
+   "refresh": {
+      "message": "刷新"
+   },
+   "refresh_data": {
+      "message": "Refresh data"
+   },
+   "refresh_list": {
+      "message": "刷新列表"
+   },
+   "remove": {
+      "message": "删除"
+   },
+   "save": {
+      "message": "保存"
+   },
+   "save_bookmark": {
+      "message": "Save bookmark"
+   },
+   "save_bookmarks": {
+      "message": "Save bookmarks"
+   },
+   "save_changes": {
+      "message": "保存更改"
+   },
+   "save_in": {
+      "message": "保存至"
+   },
+   "save_selected_tabs": {
+      "message": "Save selected tabs"
+   },
+   "save_tabs": {
+      "message": "Save tabs"
+   },
+   "saved_in": {
+      "message": "保存于"
+   },
+   "search_bookmarks_from_address_bar": {
+      "message": "直接从地址栏搜索书签"
+   },
+   "search_widgets": {
+      "message": "搜索小部件"
+   },
+   "select_a_widget": {
+      "message": "选择一个小部件"
+   },
+   "select_all": {
+      "message": "选择全部"
+   },
+   "select_location": {
+      "message": "选择位置"
+   },
+   "select_new_tab_page": {
+      "message": "选择新标签页面"
+   },
+   "select_your_new_tab_page": {
+      "message": "选择新标签页"
+   },
+   "settings": {
+      "message": "设置"
+   },
+   "shake_hands": {
+      "message": "握手"
+   },
+   "shortcuts": {
+      "message": "快捷方式"
+   },
+   "show_chromes_default_page": {
+      "message": "显示浏览器的默认页面"
+   },
+   "show_my_startme_page": {
+      "message": "显示我的start.me页面"
+   },
+   "sign_in_to_startme": {
+      "message": "登录到 start.me"
+   },
+   "signin_with_email": {
+      "message": "使用您的电子邮箱地址登录"
+   },
+   "something_went_wrong": {
+      "message": "出错了"
+   },
+   "take_me_to_start_page": {
+      "message": "带我去我的新起始页 ！"
+   },
+   "terms": {
+      "message": "条款"
+   },
+   "title": {
+      "message": "标题"
+   },
+   "title_for_new_group": {
+      "message": "新组的名称"
+   },
+   "title_for_new_widget": {
+      "message": "标题和新小工具"
+   },
+   "unsorted_bookmarks": {
+      "message": "未分类书签"
+   },
+   "url": {
+      "message": "网址"
+   },
+   "use": {
+      "message": "使用"
+   },
+   "view_my_account_details": {
+      "message": "查看我的帐户详细信息"
+   },
+   "visit_account_profile": {
+      "message": "访问账户资料"
+   },
+   "visit_support_centre": {
+      "message": "访问支持中心"
+   },
+   "welcome_to": {
+      "message": "欢迎来到"
+   },
+   "welcome_to_startme": {
+      "message": "欢迎来到 start.me"
+   },
+   "what_is_your_name": {
+      "message": "您的名字是什么？"
+   },
+   "when_browser_tab_is_opened": {
+      "message": "当打开一个新的浏览器标签"
+   },
+   "when_i_open_a_new_chrome_tab": {
+      "message": "当我打开新标签页时"
+   },
+   "where_do_you_come_from": {
+      "message": "您来自哪里？"
+   },
+   "which_page_as_your_homepage": {
+      "message": "您希望将哪个页面作为您的首页？"
+   },
+   "yes": {
+      "message": "是"
+   },
+   "you_already_saved_this_link": {
+      "message": "您已保存此链接"
+   },
+   "your_bookmarks_are_being_imported": {
+      "message": "正在导入您的网址收藏。"
+   },
+   "your_new_tab_page_question": {
+      "message": "这是您的新标签页？"
+   }
+}

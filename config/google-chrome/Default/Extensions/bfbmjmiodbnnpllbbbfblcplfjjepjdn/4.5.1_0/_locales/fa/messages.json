@@ -1,0 +1,1649 @@
+{
+   "about": {
+      "message": "درباره"
+   },
+   "activelayertoday": {
+      "message": "تعداد کلیک های امروز"
+   },
+   "addbutton": {
+      "message": "اضافه کردن"
+   },
+   "advancedoptions": {
+      "message": "گزینه های پیشرفته"
+   },
+   "analyticsoption": {
+      "message": "تجزیه و تحلیل ها"
+   },
+   "areyouhappy": {
+      "message": "از لامپ اضافی خاموش خوشتان آمده؟"
+   },
+   "autostopbannerred": {
+      "message": "نمایش یک کادر سرخ رنگ"
+   },
+   "autostopbannertrans": {
+      "message": "نمایش یک کادر شفاف"
+   },
+   "autostopblocked": {
+      "message": "محدود شده توسط لامپ اضافی خاموش™-www.turnoffthelights.com"
+   },
+   "autostopclickme": {
+      "message": "برای پخش ویدئوی HTML5 اینجا کلیک کنید"
+   },
+   "autostopdetails": {
+      "message": "جزئیات"
+   },
+   "autostopenabled": {
+      "message": "توقف خودکار فعال شد!"
+   },
+   "basicsettings": {
+      "message": "اصول اولیه"
+   },
+   "bottom": {
+      "message": "پایین"
+   },
+   "btnsharestats": {
+      "message": "اشتراک گذاری آمار"
+   },
+   "cardavgprevweektime": {
+      "message": "زمان کل استفاده هفته گذشته (به دقیقه)"
+   },
+   "cardtexsubscribe": {
+      "message": "اکنون مشترک شوید!"
+   },
+   "cardtextfavdayweek": {
+      "message": "روز موردعلاقه از هفته"
+   },
+   "cardtextyestime": {
+      "message": "زمان کل استفاده دیروز (به دقیقه)"
+   },
+   "changelog": {
+      "message": "تغییرات"
+   },
+   "charttitle30dayssaved": {
+      "message": "صرفه جویی در انرژی در ۳۰ روز اخیر"
+   },
+   "charttitleavgday": {
+      "message": "متوسط روزانه کار برنامه (مدت زمان خاموشی)"
+   },
+   "charttitlelayeractive": {
+      "message": "لایه تاریک فعال(#)"
+   },
+   "charttitlelblenergysaved": {
+      "message": "صرفه جویی در انرژی کل"
+   },
+   "charttitlelblenergytotal": {
+      "message": "انرژی استفاده شده کل"
+   },
+   "charttitlelblwebsiteused": {
+      "message": "وب‌سایت‌های استفاده شده در ۳۰ روز اخیر"
+   },
+   "charttitletotaltime": {
+      "message": "کل زمان فعال بودن لایه تاریک به دقیقه"
+   },
+   "deletebutton": {
+      "message": "حذف"
+   },
+   "desactions": {
+      "message": "Actions"
+   },
+   "desaddvideobutton": {
+      "message": "نمایش دکمه ثبت در YouTube video"
+   },
+   "desalllightsoff": {
+      "message": "کلیک دکمه لامپی باعث روشن / خاموش شدن نور صفحه در تمام برگه های مرورگر میشود"
+   },
+   "desambilight": {
+      "message": "شما اثر روشنایی فضای بازی ویدیویی فعلی را نشان می دهد."
+   },
+   "desambilight4color": {
+      "message": "از میان چهار رنگ موجود یکی را برای نمایش اطراف ویدیو ها انتخاب کنید"
+   },
+   "desambilightfixcolor": {
+      "message": "فقط یک رنگ"
+   },
+   "desambilightrangeblurradius": {
+      "message": "مقادیر کمتر سایه های تیزتری را به همراه دارند ، و مقادیر بیشتر باعث تغییرات ملایم تری میشود."
+   },
+   "desambilightrangespreadradius": {
+      "message": "مقادیر مثبت افزایش اندازه سایه، مقدارهای منفی کاهش اندازه."
+   },
+   "desambilightvarcolor": {
+      "message": "نمونه برداری رنگ از فایل ویدئویی"
+   },
+   "desapause": {
+      "message": "مکث"
+   },
+   "desapitext": {
+      "message": "ویکی API برای توسعه دهنده ی وب سایت"
+   },
+   "desaplay": {
+      "message": "اجرا"
+   },
+   "desastop": {
+      "message": "توقف"
+   },
+   "desatmosfpsauto": {
+      "message": "Synchronized as a best effort with the frame rate of the video playing on screen"
+   },
+   "desatmosfpsmanual": {
+      "message": "Manually"
+   },
+   "desatmosontotlmode": {
+      "message": "نمایش جلوه های جوی فقط در صورت فعال بودن حالت TOtL"
+   },
+   "desatmosphereonly": {
+      "message": "Ok"
+   },
+   "desatmossolidcolor": {
+      "message": "انتخاب رنگ افکت زرق و برق"
+   },
+   "desatmosvivid": {
+      "message": "جلوه های جوی زنده"
+   },
+   "desauroraplayer": {
+      "message": "پخش نورمحیط در نسخه رایانه نیز در دسترس شماست."
+   },
+   "desautodim": {
+      "message": "به طور خودکار پس زمینه کم نور هنگامی که شما دکمه بازی کلیک کنید و در مقابل."
+   },
+   "desautodimdelay": {
+      "message": "بازگشت پس زمینه به روشنایی عادی پس از اتمام تماشای ویدئو"
+   },
+   "desautodimdelayend": {
+      "message": "ثانیه ها"
+   },
+   "desautodimonly": {
+      "message": "Dim only the following video site(s):"
+   },
+   "desautostop": {
+      "message": "توقف خودکار نمایش ویدئو هنگام باز کردن صفحه وب"
+   },
+   "desautostopfeatureblack": {
+      "message": "اجازه به پخش خووکار در وب‌سایت‌های زیر ، ممانعت از پخش خودکار در سایر وبسایت ها."
+   },
+   "desautostopfeaturewhite": {
+      "message": "ممانعت در وب‌سایت‌های زیر ، پخش خودکار در سایر وبسایت ها."
+   },
+   "desautostoponly": {
+      "message": "فعال کردن خودکار توقف پخش ویدئوها فقط در سایت (های) زیر:"
+   },
+   "desbadgeanalytics": {
+      "message": "نمایش نشان برنامه همراه با یک عدد که نشانگر تعداد کلیک های شما برای کاهش نوردهی است"
+   },
+   "desbrowserextension": {
+      "message": "افزونه مرورگر"
+   },
+   "desbrowsersupport": {
+      "message": "مرورگر شما از این ویژگی پشتیبانی نمی نماید. اطمینان حاصل کنید که آخرین نسخه از مرورگر را بر روی رایانه خود نصب نموده اید."
+   },
+   "desbrowsertheme": {
+      "message": "تم مرورگر"
+   },
+   "desbuttonps": {
+      "message": "Button on PlayStation"
+   },
+   "desbuttonxb": {
+      "message": "Button on Xbox"
+   },
+   "descolorfixcolor": {
+      "message": "انتخاب رنگ لایه تاریک کننده"
+   },
+   "desconfirmpassword": {
+      "message": "تکرار رمز عبور"
+   },
+   "desconfirmtime": {
+      "message": "تایید زمان"
+   },
+   "desconfirmtimesaver": {
+      "message": "تایید زمان محافظ صفحه نمایش"
+   },
+   "descontextmenus": {
+      "message": "منوی مضمون به تمرکز مورد نشان می دهد."
+   },
+   "description": {
+      "message": "کل صفحه تا پنهان شدن کامل از چشمان شما تاریکتر و تاریکتر میشود ، طوری که حس تماشای فیلم در یک سینما را به شما القا میکند. برای یوتیوب و سایت های مشابه نیز کارایی دارد."
+   },
+   "descriptionshort": {
+      "message": "The entire page will be fading to dark, so you can watch the videos as if you were in the cinema."
+   },
+   "desdarkbrowsertheme": {
+      "message": "تغییر تم مرورگر به حالت تاریک"
+   },
+   "desdynamicblocks": {
+      "message": "بلوک"
+   },
+   "desdynamiccloud": {
+      "message": "ابرهای پویانمایی شده"
+   },
+   "desdynamicdotscolor": {
+      "message": "نقاط رنگارنگ"
+   },
+   "desdynamicfishtank": {
+      "message": "تانک ماهی"
+   },
+   "desdynamicraindrops": {
+      "message": "قطرات باران"
+   },
+   "desdynamicsmoke": {
+      "message": "دود"
+   },
+   "desdynamicspace": {
+      "message": "جهان فضا"
+   },
+   "desdynamicstars": {
+      "message": "ستاره"
+   },
+   "desdynamicstorm": {
+      "message": "طوفان"
+   },
+   "desdynamictriangulation": {
+      "message": "تریگرسازی"
+   },
+   "deseastereggs": {
+      "message": "Persian"
+   },
+   "desenterpassword": {
+      "message": "رمز عبور خود را در کادر زیر وارد کنید:"
+   },
+   "deseyea": {
+      "message": "کاهش خودکار نور پس زمینه در حین بازکردن صفحات وب"
+   },
+   "deseyealist": {
+      "message": "کاهش خودکار نور پس زمینه در سایت های ذیل:"
+   },
+   "deseyen": {
+      "message": "استفاده نرمال ( با کیک کردن روی دکمه لامپی نور صفحه به حالت عادی بازمیگردد)"
+   },
+   "deseyetimesaver": {
+      "message": "وقتی صفحه برای مدتی معین غیرفعال باشد ( فاقد دیتای ورودی از صفحه کلید و ماوس) ، به طور خودکار تاریک میشود."
+   },
+   "desfadein": {
+      "message": "محو شدن در اثر نشان می دهد."
+   },
+   "desfadeout": {
+      "message": "محو اثر نشان می دهد."
+   },
+   "desflash": {
+      "message": "نمایش تمامی ابزارهای مولتی مدیا"
+   },
+   "desgamepad": {
+      "message": "Control the multimedia with your game controller"
+   },
+   "desgamepaddirdown": {
+      "message": "Directional Down"
+   },
+   "desgamepaddirleft": {
+      "message": "Directional Left"
+   },
+   "desgamepaddirright": {
+      "message": "Directional Right"
+   },
+   "desgamepaddirup": {
+      "message": "Directional Up"
+   },
+   "desgamepadleftstickpress": {
+      "message": "Left Stick Pressed"
+   },
+   "desgamepadonly": {
+      "message": "Activate the Game Controller only on the following site(s):"
+   },
+   "desgamepadoptions": {
+      "message": "گزینه‌ها"
+   },
+   "desgamepadpslogo": {
+      "message": "PlayStation Logo"
+   },
+   "desgamepadrightstickpress": {
+      "message": "Right Stick Pressed"
+   },
+   "desgamepadshare": {
+      "message": "Share"
+   },
+   "desgamepadshowaddress": {
+      "message": "Show Address Bar"
+   },
+   "desgamepadshowmenu": {
+      "message": "Show Menu"
+   },
+   "desgamepadsquare": {
+      "message": "Square"
+   },
+   "desgamepadtriangle": {
+      "message": "Triangle"
+   },
+   "desgamepadxboxlogo": {
+      "message": "Xbox Logo"
+   },
+   "desgpbuttonbackwardbig": {
+      "message": "play back 3 seconds"
+   },
+   "desgpbuttonbackwardsmall": {
+      "message": "play back 1 second"
+   },
+   "desgpbuttondirdown": {
+      "message": "Move the view down"
+   },
+   "desgpbuttondirleft": {
+      "message": "Move the view left"
+   },
+   "desgpbuttondirreset": {
+      "message": "Reset the zoom view"
+   },
+   "desgpbuttondirright": {
+      "message": "Move the view right"
+   },
+   "desgpbuttondirup": {
+      "message": "Move the view up"
+   },
+   "desgpbuttonforwardbig": {
+      "message": "play forward 3 seconds"
+   },
+   "desgpbuttonforwardsmall": {
+      "message": "play forward 1 second"
+   },
+   "desgpbuttonhome": {
+      "message": "Gamepad video test page"
+   },
+   "desgpbuttonnextvideo": {
+      "message": "Play next YouTube video"
+   },
+   "desgpbuttonplaypause": {
+      "message": "Play/Pause the current video"
+   },
+   "desgpbuttonprevvideo": {
+      "message": "Play previous YouTube video"
+   },
+   "desgpbuttonshare": {
+      "message": "Exit Zoom Edit"
+   },
+   "desgpbuttonvolumedecrease": {
+      "message": "Decrease volume"
+   },
+   "desgpbuttonvolumeincrease": {
+      "message": "Increase volume"
+   },
+   "desgpbuttonzoominout": {
+      "message": "Zoom in or out"
+   },
+   "desgpbuttonzoompos": {
+      "message": "Zoom position"
+   },
+   "deshardflash": {
+      "message": "تمامی فایل های مولتی‌مدیا نمایش داده شده و فیلتر URL حذف می شود. این عمل سبب بهبود کارکرد ویدئو پلیر های مخفی خواهد شد ، ضمن اینکه ویدئوهای تبلیغاتی همچنان نمایش داده می شوند."
+   },
+   "deshead": {
+      "message": "نشان دادن نوار کانال یوتیوب یا نام"
+   },
+   "deshovervideo": {
+      "message": "اشاره گر ماوس خود را روی ویدئو برای چند ثانیه حرکت دهید ، پس از آن صفحه وب به طور خودکار کم نور می شود"
+   },
+   "desinfobar": {
+      "message": "نمایش توضیحات در مورد این ویدئو"
+   },
+   "desintroduce": {
+      "message": "All the features you're used to, with a brand new look and feel, and personalized to you."
+   },
+   "deslampandnightmode": {
+      "message": "فعال شدن گزینه های حالت شبانه در صورت کلیک کردن روی دکمه خاکستری لامپی"
+   },
+   "desleftstick": {
+      "message": "Left stick"
+   },
+   "deslikebar": {
+      "message": "نشان می دهد مانند/دوست نداشتن نوار زیر فیلم YouTube."
+   },
+   "deslikebutton": {
+      "message": "نشان می دهد مانند & دوست نداشتن دکمه های YouTube برای این ویدئو."
+   },
+   "desmobileapp": {
+      "message": "لامپ اضافی خاموش برای تلفن همراه شما هم در دسترس است."
+   },
+   "desmousespotlighta": {
+      "message": "اگر نور خاموش است، کانون توجه اطراف اشاره گر ماوس را نشان دهد."
+   },
+   "desmousespotlightc": {
+      "message": "اگر نور خاموش، می توانید منطقه مورد تمرکز کنید."
+   },
+   "desmousespotlighto": {
+      "message": "استفاده عادی (غیر فعال می کند تنظیمات ماوس در زیر)"
+   },
+   "desmousespotlights": {
+      "message": "فعال سازی محافظ صفحه با امکان کلیک کردن بر روی لینکها"
+   },
+   "desmousespotlightt": {
+      "message": "فعال سازی کلیک بر روی لینک ها زمانی که صفحه تاریک است"
+   },
+   "desmultiopacitynormal": {
+      "message": "تمام وبسایت ها مقدار تاری یکسانی را دارند"
+   },
+   "desmultiopacitynot": {
+      "message": "در صورتیکه وبسایت در لیست زیر نباشد ، مقدار تاری پیش فرض اعمال می‌شود."
+   },
+   "desmultiopacitysel": {
+      "message": "وبسایت های زیر مقدار تاری معین شده را خواهند داشت"
+   },
+   "desnightactivetime": {
+      "message": "سوئیچ در حالت های زیر قابل رویت خواهد بود:"
+   },
+   "desnightenabletheme": {
+      "message": "هنگامی که شما برای باز کردن یک صفحه جدید آن رفتن خودکار به حالت شب."
+   },
+   "desnighthover": {
+      "message": "نمایش یک سوئیچ شفاف در صفحه وب"
+   },
+   "desnightmodegesture": {
+      "message": "Make the page go dark or light by long-pressing the current web page"
+   },
+   "desnightmodeimage": {
+      "message": "Dim images"
+   },
+   "desnightmodeimagedarken": {
+      "message": "Darkened"
+   },
+   "desnightmodeimagegrayscale": {
+      "message": "Grayscaled"
+   },
+   "desnightmodeos": {
+      "message": "Automatically switch the current web page to Night Mode if the OS appearance is set to Dark"
+   },
+   "desnightmodeswitchhide": {
+      "message": "Automatically hide the night switch after your chosen seconds"
+   },
+   "desnightonly": {
+      "message": "حالت شب تنها سایت(ها) زیر را نشان می دهد:"
+   },
+   "desnightowl": {
+      "message": "تنها یک کلیک کافیست تا صفحه وب با تم شبانه نمایش داده شود. کلیک مجدد آن صفحه را به حالت نمایش عادی بازمیگرداند. برای غیرفعال کردن ویژگی فوق دکمه لامپی را دوباره فشار دهید."
+   },
+   "desnighttheme": {
+      "message": "دکمه سوئیچ شب زیر صفحه وب به صفحه تیره یا روشن را نشان می دهد."
+   },
+   "desnmautoclock": {
+      "message": "Activate between the following hours:"
+   },
+   "desnoflash": {
+      "message": "عدم استفاده از این ویژگی"
+   },
+   "despassword": {
+      "message": "نیاز به کلمه عبور خود را قبل از چراغ دوباره فعال وارد شود."
+   },
+   "despasswordhide": {
+      "message": "Hide password"
+   },
+   "despasswordshow": {
+      "message": "Show password"
+   },
+   "despermissiontab": {
+      "message": "Remove the tab permission"
+   },
+   "despip": {
+      "message": "The Picture-in-Picture allows you to create a floating video window that is always on top of other windows."
+   },
+   "desplaylist": {
+      "message": "لیست پخش YouTube را در وب سایت یوتیوب نشان می دهد."
+   },
+   "desplayrate": {
+      "message": "سرعت پخش پیش‌فرض"
+   },
+   "desproject": {
+      "message": "پروژه"
+   },
+   "desratebad": {
+      "message": "Sorry you have had this bad experience. Please let us know on how we can improve our extension for you."
+   },
+   "desratebadaction": {
+      "message": "Yes, I will give feedback"
+   },
+   "desratebadtitle": {
+      "message": "How can we make it better?"
+   },
+   "desrategood": {
+      "message": "Happy to hear that you love Turn Off the Lights! Will you take a moment to rate us in the browser extension store? Your browser extension store reviews make a difference!"
+   },
+   "desrategoodaction": {
+      "message": "Persian"
+   },
+   "desrategoodtitle": {
+      "message": "Thank you!"
+   },
+   "desratenothanks": {
+      "message": "No, thanks"
+   },
+   "desratenotnowthanks": {
+      "message": "Not now thanks"
+   },
+   "desratetitle": {
+      "message": "Do you love this browser extension?"
+   },
+   "desreadera": {
+      "message": "هنگامی که چراغ های بیرون رفتن همیشه نوار سطح dimness را نشان می دهد."
+   },
+   "desreadern": {
+      "message": "هرگز نوار سطح dimness را نشان می دهد."
+   },
+   "desreflection": {
+      "message": "اعمال فیلتر بازتاب در تمام ویدئوها"
+   },
+   "desregularuser": {
+      "message": "تنظیمات پیش فرض برای کاربران جدید. هنگام فشردن دکمه لامپی ویژگی ها در صفحه وب پیش رو اعمال میشوند."
+   },
+   "desrememberpage": {
+      "message": "صفحه یادآوری نشان داده نشود"
+   },
+   "desremfacebook": {
+      "message": "توصیه برنامه در فیسبوک"
+   },
+   "desremrate": {
+      "message": "اگر از برنامه لامپ اضافی خاموش خوشتان آمده ، لطفا با دادن پنج ستاره ما را مطلع کنید. این کار شما باعث خواهد شد تا جهت بهبود عملکرد و پیشرفت برنامه انگیزه داشته باشیم. در صورت امکان یک بازخورد هم بنویسید. باتشکر!"
+   },
+   "desremyoutube": {
+      "message": "مشترک شدن در یوتیوب"
+   },
+   "desrightstick": {
+      "message": "Right stick"
+   },
+   "dessaver": {
+      "message": "محافظ صفحه نمایش:"
+   },
+   "desscreenprotection": {
+      "message": "با یک کلیک صفحه را با فیلتر نارنجی رنگ آرام بخشی سایه می زند تا فشار وارده به چشم در تمام برگه های بازشده ، کاهش دهد. برای غیرفعال کردن ویژگی فوق دکمه لامپی را دوباره فشاردهید."
+   },
+   "desscrolltip": {
+      "message": "You can scroll inside the top navigation bar and the color bars. When you scroll horizontally, you can see more buttons in this bar."
+   },
+   "dessharebutton": {
+      "message": "دکمه های اشتراک گذاری یوتیوب برای این فیلم نشان می دهد."
+   },
+   "desshortcutlight": {
+      "message": "میانبر های صفحه کلید در زیر را فعال کنید."
+   },
+   "dessitewhitelist": {
+      "message": "Whitelist this site?"
+   },
+   "desspeedtoolbar": {
+      "message": "نوارافزار پخش ویدئو را نمایش بده"
+   },
+   "desspotlightradius": {
+      "message": "Persian"
+   },
+   "desstickplaystation": {
+      "message": "Joystick on PlayStation"
+   },
+   "desstickxbox": {
+      "message": "Joystick on Xbox"
+   },
+   "dessuggestions": {
+      "message": "پیشنهاد وب سایت یوتیوب نشان می دهد."
+   },
+   "destapstar": {
+      "message": "Tap a star to rate it on the browser extension store."
+   },
+   "destime": {
+      "message": "چراغ خاموش بین بار زیر:"
+   },
+   "destrymotion": {
+      "message": "بسیار عالی و قابل توجه است که این کارایی همه جا قابل استفاده است. از جمله سایت یوتیوب ، وب سایت های خبری و نظایر آنها"
+   },
+   "destrythiswebsite": {
+      "message": "Try this web page"
+   },
+   "desuntil": {
+      "message": "تا"
+   },
+   "desvideoheadline": {
+      "message": "برعکس شود رنگ عنوان و نشان می دهد."
+   },
+   "desvideotool": {
+      "message": "نمایش نوارافزار در پایین صفحه نمایش برای سفارشی سازی ویدئو پلیر"
+   },
+   "desvideotoolcolor": {
+      "message": "رنگ نوار کنترل"
+   },
+   "desvideotoolonly": {
+      "message": "فعالسازی نوارافزار ویدئو فقط در سایت (های):"
+   },
+   "desvideovolumalt": {
+      "message": "فقط زمانی که دکمه alt را نگه داشته باشید"
+   },
+   "desvideovolume": {
+      "message": "کنترل صدای ویدئو پلیر با چرخش ماوس"
+   },
+   "desvideovolumecolor": {
+      "message": "رنگ نوار کنترل"
+   },
+   "desvideovolumeonly": {
+      "message": "Activate the Mouse Volume Scroll only on the following site(s):"
+   },
+   "desvideovolumhold": {
+      "message": "دکمه راست یا چپ ماوس را برای تغییر میزان صدا ، نگه داشته و آن را حرکت دهید"
+   },
+   "desvideozoom": {
+      "message": "با دکمه زوم میتوانید حین نمایش ویدئو از بزرگنمایی بهره ببرید"
+   },
+   "desviewcount": {
+      "message": "تعداد مشاهده این ویدیو نشان می دهد."
+   },
+   "desvisopacity": {
+      "message": "The opacity value of the audio visualization background"
+   },
+   "desvolumelabel": {
+      "message": "نمایش نوار کنترل صدا (اندازه گام ها:)"
+   },
+   "desvolumeposa": {
+      "message": "نمایش نوار میزان صدا در مرکز پخش کننده ویدئو"
+   },
+   "desvolumeposb": {
+      "message": "نمایش میزان صدا در گوشه چپ بالای صفحه"
+   },
+   "desvolumeposc": {
+      "message": "نمایش میزان صدا در گوشه راست بالای صفحه"
+   },
+   "desvolumeposd": {
+      "message": "Show the volume meter on top left of the current video player"
+   },
+   "desvolumepose": {
+      "message": "Show the volume meter on top right of the current video player"
+   },
+   "desvolumescrolla": {
+      "message": "Automatically adjust the scroll direction depending on the current operating system"
+   },
+   "desvolumescrollb": {
+      "message": "Scrolling up increases the volume"
+   },
+   "desvolumescrollc": {
+      "message": "Scrolling down increases the volume"
+   },
+   "desvolumesteps": {
+      "message": "مقدار گام افزایش صدا (به درصد) برای هر دندانه چرخش ماوس"
+   },
+   "desyoutube": {
+      "message": "Uncover the power of the Turn Off the Lights browser extension. Watch it now on YouTube."
+   },
+   "donatepromotext": {
+      "message": "اگر شما می توانید کمک مالی از هر مقدار، من آن فوق العاده را درک!"
+   },
+   "downloadtheapp": {
+      "message": "همین حالا دانلود کنید"
+   },
+   "eastereggsquestion": {
+      "message": "آیا واقعی سینما؟"
+   },
+   "ecoblowdrying": {
+      "message": "Blow-drying your hair for 10 minutes uses approximately"
+   },
+   "ecobrewsomecoffee": {
+      "message": "Brew some Coffee, brewing one pot of coffee"
+   },
+   "ecochargeiphone": {
+      "message": "Charge your iPhone"
+   },
+   "ecochargelaptop": {
+      "message": "Charge your laptop"
+   },
+   "ecochargeteslacar": {
+      "message": "Tesla car خود را برای ۲۰ مایل شارژ کنید"
+   },
+   "ecochargeteslacarhundred": {
+      "message": "وسیله نقلیه برقی خود را تا ۱۰۰٪ شارژ کنید"
+   },
+   "ecochargeteslathreetimes": {
+      "message": "وسیله نقلیه برقی خود را ۳ بار تا ۱۰۰٪ شارژ کنید"
+   },
+   "ecoeiffeltoweryear": {
+      "message": "برای روشنایی برج ایفل به مدت یک سال"
+   },
+   "ecoheatingtenshower": {
+      "message": "Heating enough water for a 10-minute shower"
+   },
+   "ecokeepfridgeday": {
+      "message": "Keep the Fridge Running for a day"
+   },
+   "ecokeeplightonforsix": {
+      "message": "Keep the Lights on for 6 hours"
+   },
+   "ecolayear": {
+      "message": "انرژی لازم برای لس‌آنجلس به مدت یک سال"
+   },
+   "ecoloadlaundry": {
+      "message": "One load of laundry in the dryer"
+   },
+   "econothingthisyear": {
+      "message": "Nothing this year. Keeps the lights off to save energy"
+   },
+   "ecoplanetearth": {
+      "message": "برای نجات سیاره بشتابید"
+   },
+   "ecoplayingxbox": {
+      "message": "Playing Xbox 360 for one hour"
+   },
+   "ecopowerbaseballgame": {
+      "message": "به قدرت یک jumbotron برای یک بازی بیس بال"
+   },
+   "ecopowercamonth": {
+      "message": "انرژی الکتریکی کافی به مدت ۱ ماه در کالیفرنیا"
+   },
+   "ecopowereiffeltower": {
+      "message": "برای روشنایی برج ایفل برای مدت یک روز"
+   },
+   "ecopowereurostar": {
+      "message": "برای سفر یورواستار از بروکسل تا لندن"
+   },
+   "ecopowereurostarparis": {
+      "message": "برای سفر یورواستار از پاریس تا لندن"
+   },
+   "ecopowerhawaiimonth": {
+      "message": "انرژی الکتریکی کافی به مدت ۱ ماه در هاوایی"
+   },
+   "ecopowernwymonth": {
+      "message": "انرژی الکتریکی کافی به مدت ۱ ماه در نیویورک"
+   },
+   "ecorunningdishwasher": {
+      "message": "Running your dishwasher in energy-saver mode will use"
+   },
+   "ecosfoyear": {
+      "message": "انرژی لازم برای سانفرانسیسکو به مدت یک سال"
+   },
+   "ecothirtyminutes": {
+      "message": "30 minutes of light saved"
+   },
+   "ecotoastermaking": {
+      "message": "Toaster making two loaves of toast"
+   },
+   "ecotwentyfourghome": {
+      "message": "به اندازه کافی برای اجرای گوگل هوم به مدت ۲۴ ساعت"
+   },
+   "ecovacuumingfor": {
+      "message": "Vacuuming for 15 minutes"
+   },
+   "ecowashingclothes": {
+      "message": "Washing your clothes in a cold-rinse cycle uses approximately"
+   },
+   "ecowatchtvfortwo": {
+      "message": "Watch TV for 2 hours"
+   },
+   "ecowififoraday": {
+      "message": "Wi-Fi for a day"
+   },
+   "enjoyshare": {
+      "message": "لذت بردن از این فرمت و تقسیم آن با دیگران است که شما فکر می کنم آن را قدردانی میکنیم."
+   },
+   "eyedivoff": {
+      "message": "خاموش"
+   },
+   "eyedivon": {
+      "message": "روشن"
+   },
+   "flashembedobject": {
+      "message": "پشتیبانی: ‌‌‌‌\u003Cobject>، \u003Cembed>، \u003Capplet>، \u003Ciframe>."
+   },
+   "friday": {
+      "message": "جمعه"
+   },
+   "friendlyremember": {
+      "message": "یادآوری دوستانه..."
+   },
+   "functionactive": {
+      "message": "این عملگر وقتی روی چیزی کلیک می کنید یا وقتی صفحه وب را تازه می کنید فعال می شود. با این حال ، این عملکرد پس از 15 ثانیه به طور خودکار متوقف می شود."
+   },
+   "gamecontrollerstep1description": {
+      "message": "Connect your Game Controller to your device via USB or Bluetooth."
+   },
+   "gamecontrollerstep2description": {
+      "message": "Enable the Game Controller feature."
+   },
+   "gamecontrollerstep3description": {
+      "message": "Open any web page, and press any button to activate the Game Controller."
+   },
+   "gamecontrollerstep4description": {
+      "message": "Now the Game Controller is active on the current web page."
+   },
+   "gamepadoption": {
+      "message": "Game Controller"
+   },
+   "guide": {
+      "message": "راهنمای TOtL خوش آمدید"
+   },
+   "handytip": {
+      "message": "Handy Tip..."
+   },
+   "help": {
+      "message": "کمک"
+   },
+   "helpautodim": {
+      "message": "حالت \"محافظت از چشم \" فعاله ، برای استفاده از این ویژگی اول باید اونو غیرفعالش کرد."
+   },
+   "helpeyeprotection": {
+      "message": "'حفاظت چشم' را قادر می سازد به طور خودکار 'خودکار بازی' غیرفعال خواهد شد."
+   },
+   "hoveroptionapply": {
+      "message": "درخواست"
+   },
+   "hoveroptiondyn5": {
+      "message": "با پرواز"
+   },
+   "howworkmotion": {
+      "message": "چگونه کار می کند؟"
+   },
+   "html5andyoutube": {
+      "message": "ویدئوهای HTML5 و یوتیوب™"
+   },
+   "installadblocker": {
+      "message": "اگر نمی خواهید تبلیغات را ببینید، از یک افزونه adblocker استفاده کنید."
+   },
+   "lastchecked": {
+      "message": "بررسی آخرین نسخه"
+   },
+   "left": {
+      "message": "چپ"
+   },
+   "lockentername": {
+      "message": "لطفا رمز عبور خود را وارد کنید"
+   },
+   "lockwrongpassword": {
+      "message": "اشتباه رمز عبور، لطفا دوباره سعی کنید."
+   },
+   "longdonatetext": {
+      "message": "قطعا مراتب قدردانی خودم رو نسبت به کسایی که با حمایت مالی به من در سرپا نگهداشتن این برنامه و رسوندن اون به کاربرای جدید کمک میکنن ، اعلام میکنم. فرقی نداره که این مبلغ یک دلار باشه یا صد دلار ، از حمایت شما صمیمانه سپاس گزاریم!"
+   },
+   "monday": {
+      "message": "دوشنبه"
+   },
+   "name": {
+      "message": "خاموش کردن چراغ"
+   },
+   "nightoptions": {
+      "message": "شب حالت"
+   },
+   "nightstep1description": {
+      "message": "فعال کردن حالت شب."
+   },
+   "nightstep2description": {
+      "message": "صفحه وب را باز کنید تا سوئیچ را مشاهده نمایید."
+   },
+   "nightstep3description": {
+      "message": "بر روی سوئیچ کلیک کنید تا صفحه وب را در تم تاریک مشاهده نمایید."
+   },
+   "nmbottomleft": {
+      "message": "پایین سمت چپ"
+   },
+   "nmbottomright": {
+      "message": "پایین سمت راست"
+   },
+   "nmcustom": {
+      "message": "سفارشی (کلیک کنید ، نگه دارید و سوئیچ را به مکان صفحه مورد نظر منتقل کنید)"
+   },
+   "nmtopleft": {
+      "message": "بالا سمت چپ"
+   },
+   "nmtopright": {
+      "message": "بالا سمت راست"
+   },
+   "nothanks": {
+      "message": "خیر، متشکرم"
+   },
+   "omnidaymode": {
+      "message": "day mode"
+   },
+   "omnihelp": {
+      "message": "کمک"
+   },
+   "omnilightoff": {
+      "message": "light off"
+   },
+   "omnilighton": {
+      "message": "light on"
+   },
+   "omninightmode": {
+      "message": "night mode"
+   },
+   "optionecosaversaved": {
+      "message": "ذخیره ثانیه شده است با موفقیت!"
+   },
+   "optionpagetitle": {
+      "message": "خاموش کردن چراغ قوه--گزینه ها"
+   },
+   "optionpasswordsaved": {
+      "message": "رمز عبور با موفقیت ذخیره شده است!"
+   },
+   "optionprofilesaved": {
+      "message": "فعالیت های جدید لامپ با موفقیت ثبت شد!"
+   },
+   "optiontimesaved": {
+      "message": "زمان با موفقیت ذخیره می شود!"
+   },
+   "optionwrongimg": {
+      "message": "پرونده تصویر نامعتبر!"
+   },
+   "pageatitle": {
+      "message": "خاموش کردن چراغ"
+   },
+   "pagehelp": {
+      "message": "کمک"
+   },
+   "pagestillloading": {
+      "message": "بارگذاری صفحه هنوز است؟"
+   },
+   "pagetitle": {
+      "message": "این صفحه تیره"
+   },
+   "permissionactivetab": {
+      "message": "This will only dim the web page on the currently open tab page."
+   },
+   "permissionalarms": {
+      "message": "This is to schedule code execution, either periodically or at a specific time in the future."
+   },
+   "permissionallurl": {
+      "message": "This is to control the lamp button on all websites that include http, https, file, and ftp."
+   },
+   "permissioncontextmenu": {
+      "message": "This is to add the \"Darken this page\" menu item in the web browser context menu."
+   },
+   "permissionoption": {
+      "message": "Permission must be enabled to use this feature."
+   },
+   "permissionrequired": {
+      "message": "Current Active Permissions"
+   },
+   "permissionscripting": {
+      "message": "This is to inject JavaScript and CSS code into websites."
+   },
+   "permissionstorage": {
+      "message": "This is to save the settings on your local computer, and to sync it to your web browser account."
+   },
+   "permissiontabs": {
+      "message": "This is needed for the following features: to show you the welcome and guide page, detect the current playing HTML5 video, take a screenshot of the HTML5 video, and to open the Options page."
+   },
+   "permissiontheme": {
+      "message": "This is to change the web browser user interface in a dark or light theme."
+   },
+   "permissionwebnav": {
+      "message": "This is to add the Night Mode immediately before the web page loads."
+   },
+   "productshare": {
+      "message": "سهم"
+   },
+   "promotitle": {
+      "message": "نکات آموزشی روزانه"
+   },
+   "ratedes": {
+      "message": "لطفا با رتبه دهی و ارسال بازخود و نظرات خودتان از ما حمایت کنید."
+   },
+   "rateitema": {
+      "message": "اهدای امیتاز 5 ستاره"
+   },
+   "ratetitle": {
+      "message": "به خاطر استفاده از لامپ اضافی خاموش از شما متشکریم"
+   },
+   "rectext": {
+      "message": "توصیه می شود"
+   },
+   "rememberrate": {
+      "message": "نرخ"
+   },
+   "reportbug": {
+      "message": "گزارش یک مشکل،"
+   },
+   "reportlist": {
+      "message": "(نگاه کنید به لیست)"
+   },
+   "resetbrowserextension": {
+      "message": "تنظیم مجدد تنظیمات روشن کردن چراغ"
+   },
+   "resetlampanalytic": {
+      "message": "بازنشانی نتایج تجزیه و تحلیل لامپ اضافی خاموش"
+   },
+   "right": {
+      "message": "راست"
+   },
+   "saturday": {
+      "message": "شنبه"
+   },
+   "scoregame": {
+      "message": "My amazing high score $scorevalue$ on the HIDDEN easter egg game in the Turn Off the Lights Browser extension. Try it yourself!",
+      "placeholders": {
+         "scorevalue": {
+            "content": "$1",
+            "example": "۱۲۳"
+         }
+      }
+   },
+   "searchplaceholder": {
+      "message": "جستوجو"
+   },
+   "settings": {
+      "message": "تنظیمات"
+   },
+   "shareanalyticenergy": {
+      "message": "من به میزان $energyvalue$ کیلووات ساعت (kWh) صرفه جویی در انرژی داشته ام. با تشکر از تیم لامپ اضافی خاموش",
+      "placeholders": {
+         "energyvalue": {
+            "content": "$1",
+            "example": "۱۲۳"
+         }
+      }
+   },
+   "shareanalyticenergyWh": {
+      "message": "من به میزان $energyvalue$ وات ساعت (Wh) صرفه جویی در انرژی داشته ام. با تشکر از تیم لامپ اضافی خاموش",
+      "placeholders": {
+         "energyvalue": {
+            "content": "$1",
+            "example": "۱۲۳"
+         }
+      }
+   },
+   "shareanalyticlove": {
+      "message": "وبسایت موردعلاقه من برای استفاده با برنامه لامپ اضافی خاموش ، $websiteurl$ است",
+      "placeholders": {
+         "websiteurl": {
+            "content": "$1",
+            "example": "۱۲۳"
+         }
+      }
+   },
+   "sharemenudonatetitle": {
+      "message": "کمک مالی کنید"
+   },
+   "sharemenupostonfacebook": {
+      "message": "ارسال به فیس بوک"
+   },
+   "sharemenupostonqq": {
+      "message": "Post on QQ"
+   },
+   "sharemenupostonvkontakte": {
+      "message": "Post on Vkontakte"
+   },
+   "sharemenupostonweibo": {
+      "message": "Post on Weibo"
+   },
+   "sharemenupostonwhatsapp": {
+      "message": "Post on WhatsApp"
+   },
+   "sharemenuratetitle": {
+      "message": "به این افزونه امتیاز دهید"
+   },
+   "sharemenusharetitle": {
+      "message": "به اشتراک بگذارید"
+   },
+   "sharemenutellafriend": {
+      "message": "ارسال به دوستان"
+   },
+   "sharemenuwelcomeguidetitle": {
+      "message": "خوش آمدید به راهنمای"
+   },
+   "sharetexta": {
+      "message": "دریافت افزونه جذاب لامپ اضافی خاموش"
+   },
+   "sharetextb": {
+      "message": "سلام ، خیلی باحاله! همین امروز افزونه لامپ اضافی خاموش رو امتحانش کنین."
+   },
+   "sharetextc": {
+      "message": "افزونه جذاب و عالی لامپ اضافی خاموش"
+   },
+   "sharetextd": {
+      "message": "افزونه مرورگر لامپ اضافی خاموش برای تماشای سایت هایی مثل یوتیوب خیلی عالیه. اون رو خودتون دانلود و امتحانش کنین!"
+   },
+   "shortcutalllights": {
+      "message": "روشن/خاموش کردن چراغ برای همه زبانه ها"
+   },
+   "shortcutbright": {
+      "message": "روشن کردن صفحه نمایش ( کاهش توهم بینایی)"
+   },
+   "shortcutdark": {
+      "message": "تیره کردن صفحه نمایش ( افزایش توهم بینایی)"
+   },
+   "shortcuteyeprotection": {
+      "message": "فعال / غیرفعال کردن ویژگی محافظ چشم"
+   },
+   "shortcutopacity": {
+      "message": "بازنشانی تنظیمات تاریکی (تنظیمات ایهام)"
+   },
+   "shortcutsavingopacity": {
+      "message": "برای ذخیره کردن این مقدار تاری"
+   },
+   "shortcuttotl": {
+      "message": "تغییر سوئیچ روشن / خاموش لامپ ها"
+   },
+   "showremember": {
+      "message": "عدم نمایش متن یادآور هنگام ورود به تنظیمات"
+   },
+   "skipremember": {
+      "message": "رد شدن از این صفحه و باز کردن درصفحه تنظیمات اضافی"
+   },
+   "sunday": {
+      "message": "یکشنبه"
+   },
+   "tellothers": {
+      "message": "مطمئن باشید که نظرات شما برای ما مهم است"
+   },
+   "textfoot": {
+      "message": "این نرم‌افزار تحت لیسانس CC-GNU GPL است. برای مشاهده یک نسخه از قرارداد"
+   },
+   "thursday": {
+      "message": "پنج شنبه"
+   },
+   "titel360youtube": {
+      "message": "نمایش ۳۶۰ درجه ویدئو یوتیوب در یک فریم"
+   },
+   "titeladdvideobutton": {
+      "message": "دکمه ثبت"
+   },
+   "titelalllightsoff": {
+      "message": "همه زبانه های باز"
+   },
+   "titelambilight": {
+      "message": "نورپردازی فضا"
+   },
+   "titelapideveloper": {
+      "message": "توسعه دهنده ی API"
+   },
+   "titelautodim": {
+      "message": "کاهش خودکار روشنایی"
+   },
+   "titelautostop": {
+      "message": "توقف خودکار"
+   },
+   "titelautowidthyoutube": {
+      "message": "به طور خودکار پخش کننده YouTube به بزرگترین اندازه تنظیم شود"
+   },
+   "titelblacklist": {
+      "message": "Blacklist"
+   },
+   "titelblock60fps": {
+      "message": "بلوک ۶۰ فریم در ثانیه"
+   },
+   "titelblur": {
+      "message": "محو کردن بقیه"
+   },
+   "titelblurradius": {
+      "message": "تاری دید:"
+   },
+   "titelcinemaontop": {
+      "message": "حالت فیلم: لایه 'چراغ خاموش' را فقط در بالای صفحه نشان می دهد"
+   },
+   "titelcolor": {
+      "message": "رنگ"
+   },
+   "titelcolora": {
+      "message": "رنگ الف:"
+   },
+   "titelcolorb": {
+      "message": "رنگ ب:"
+   },
+   "titelcontextmenus": {
+      "message": "منوی مضمون"
+   },
+   "titeldeveloper": {
+      "message": "برنامه نویس"
+   },
+   "titeldoesntwork": {
+      "message": "لامپ اضافی خاموش در این صفحه وب قابل استفاده نیست. لطفا جای دیگری ازش استفاده کنین."
+   },
+   "titeldownloadbutton": {
+      "message": "دانلود این ارتقا!"
+   },
+   "titeldownloadthemeupgrade": {
+      "message": "یک تم تاریک به مرورگر خود بیافزایید. این تم در حوالی مرزی مرورگر شما پدیدار خواهد شد."
+   },
+   "titeldownloadupgrade": {
+      "message": "ارتقاء می افزاید: حمایت برای تمرکز تصاویر انتخاب شده و گالری تصاویر در سایت نمایش داده خواهد شد."
+   },
+   "titeldownloadupgradefinancetoolbar": {
+      "message": "اطلاعات بازار سهام را در لحظه به شما نشان می دهد."
+   },
+   "titeldownloadupgradepropermenubar": {
+      "message": "اضافه کردن نوار سیاه در وب سایت گوگل."
+   },
+   "titeldownloadupgradezoom": {
+      "message": "با بزرگنمایی و کوچکنمایی روی صفحه وب به کمک دکمه زوم محتوای صفحات را راحت تر بخوانید."
+   },
+   "titeldynamic": {
+      "message": "پس زمینه پویا"
+   },
+   "titeleastereggs": {
+      "message": "تخم مرغ عید پاک"
+   },
+   "titeleye": {
+      "message": "حفاظت از چشم"
+   },
+   "titelfadein": {
+      "message": "آشکار شدن تدریجی"
+   },
+   "titelfadeout": {
+      "message": "محو شدن تدریجی"
+   },
+   "titelgpconnect": {
+      "message": "Connected"
+   },
+   "titelgpdisconnect": {
+      "message": "Disconnected"
+   },
+   "titelhead": {
+      "message": "کانال"
+   },
+   "titelhovervideo": {
+      "message": "عشق فیلم و سریال"
+   },
+   "titelimage": {
+      "message": "تصویر پس زمینه"
+   },
+   "titelinfobar": {
+      "message": "نوار اطلاعات"
+   },
+   "titelintroduce": {
+      "message": "معرفی نسخه جدید برنامه!"
+   },
+   "titellamp": {
+      "message": "لامپ"
+   },
+   "titellampchoose": {
+      "message": "سبک موردعلاقه خودتون رو انتخابش کنین"
+   },
+   "titellampregular": {
+      "message": "نماد لامپ همیشه در تنظیمات سریع دیده شود"
+   },
+   "titellampvideo": {
+      "message": "نمایش نماد لامپ فقط زمانی که فایل ویدئویی تشخیص داده شده"
+   },
+   "titellessmore": {
+      "message": "نمایش کمتر"
+   },
+   "titellikebar": {
+      "message": "مانند نوار"
+   },
+   "titellikebutton": {
+      "message": "مانند & دوست نداشتن دکمه ها"
+   },
+   "titellinear": {
+      "message": "خطی"
+   },
+   "titelmaxqualityyoutube": {
+      "message": "به طور خودکار به این دقت تصویر تنظیم کنید:"
+   },
+   "titelmouse": {
+      "message": "ماوس"
+   },
+   "titelmultimedia": {
+      "message": "فایل مولتی مدیا تشخیص داده شد"
+   },
+   "titelnightmodebck": {
+      "message": "رنگ پس‌زمینه"
+   },
+   "titelnightmodeborder": {
+      "message": "Border color"
+   },
+   "titelnightmodebutton": {
+      "message": "Button color"
+   },
+   "titelnightmodedomain": {
+      "message": "دامنه"
+   },
+   "titelnightmodehyperlink": {
+      "message": "رنگ هایپر لینک"
+   },
+   "titelnightmodepage": {
+      "message": "صفحه وب"
+   },
+   "titelnightmodeposition": {
+      "message": "موقعیت سوئیچ"
+   },
+   "titelnightmodetxt": {
+      "message": "رنگ متن"
+   },
+   "titelnighttheme": {
+      "message": "شب حالت"
+   },
+   "titeloff": {
+      "message": "خاموش"
+   },
+   "titelon": {
+      "message": "در"
+   },
+   "titelonoff": {
+      "message": "ON/OFF"
+   },
+   "titelopacity": {
+      "message": "تاری"
+   },
+   "titelpageaction": {
+      "message": "پنهان کردن نماد لامپ"
+   },
+   "titelpassword": {
+      "message": "حفاظت از رمز عبور"
+   },
+   "titelpermission": {
+      "message": "Permissions"
+   },
+   "titelpip": {
+      "message": "Picture-in-Picture"
+   },
+   "titelpiperror": {
+      "message": "No video found on the current web page. Try a different web page."
+   },
+   "titelpipvideo": {
+      "message": "The current Video"
+   },
+   "titelpipvisual": {
+      "message": "Music Visualization"
+   },
+   "titelplaylist": {
+      "message": "لیست پخش"
+   },
+   "titelpopupoptions": {
+      "message": "گزینه‌ها"
+   },
+   "titelpopupratestars": {
+      "message": "اهدای امیتاز 5 ستاره"
+   },
+   "titelpopupsupport": {
+      "message": "پشتیبانی"
+   },
+   "titelpopupvideo": {
+      "message": "YouTube"
+   },
+   "titelpopupwelcomeguide": {
+      "message": "خوش آمدید به راهنمای"
+   },
+   "titelqualityyoutube": {
+      "message": "به طور خودکار کیفیت ویدیوهای YouTube را تنظیم کنید."
+   },
+   "titelreader": {
+      "message": "Dimness سطح نوار"
+   },
+   "titelreflection": {
+      "message": "بازتاب"
+   },
+   "titelrememberpage": {
+      "message": "صفحه یادآوری"
+   },
+   "titelreset": {
+      "message": "تنظیم مجدد تنظیمات"
+   },
+   "titelrightsreserved": {
+      "message": "کلیه حقوق محفوظ است."
+   },
+   "titelscreen": {
+      "message": "صفحه نمایش"
+   },
+   "titelseeonline": {
+      "message": "برای نمونه های بیشتر آنلاین شوید"
+   },
+   "titelsharebutton": {
+      "message": "دکمه اشتراک"
+   },
+   "titelsharethis": {
+      "message": "به اشتراک بگذارید:"
+   },
+   "titelshortcutlight": {
+      "message": "کلید میانبر"
+   },
+   "titelshowmore": {
+      "message": "نمایش بیشتر"
+   },
+   "titelspreadradius": {
+      "message": "گسترش تشعشعات:"
+   },
+   "titelsuggestions": {
+      "message": "پیشنهادات و انتقادات"
+   },
+   "titelsupportatmos": {
+      "message": "فقط از \u003Cvideo> پلیر HTML5 پشتیبانی میکند. همچنین از GPU سیستم شما بهره میبرد."
+   },
+   "titelsync": {
+      "message": "همگام سازی"
+   },
+   "titelsyncbrowser": {
+      "message": "تنظیمات افزونه را با مرورگر خود همگام سازی کنید"
+   },
+   "titelupgrade": {
+      "message": "ارتقاء"
+   },
+   "titelvideoheadline": {
+      "message": "عنوان"
+   },
+   "titelvideosample": {
+      "message": "ویدئو نمونه"
+   },
+   "titelvideotool": {
+      "message": "نوارافزار ویدئو"
+   },
+   "titelvideotoolbrightness": {
+      "message": "روشنایی"
+   },
+   "titelvideotoolcontrast": {
+      "message": "کنتراست"
+   },
+   "titelvideotoolfilter": {
+      "message": "فیلتر"
+   },
+   "titelvideotoolfullwindow": {
+      "message": "تمام صفحه"
+   },
+   "titelvideotoolgrayscale": {
+      "message": "سیاه و سفید"
+   },
+   "titelvideotoolhueroration": {
+      "message": "چرخش رنگ"
+   },
+   "titelvideotoolinvert": {
+      "message": "معکوس"
+   },
+   "titelvideotoollike": {
+      "message": "پسندیدن"
+   },
+   "titelvideotoolnormal": {
+      "message": "عادي"
+   },
+   "titelvideotoolrepeat": {
+      "message": "تکرار"
+   },
+   "titelvideotoolsaturate": {
+      "message": "اشباع"
+   },
+   "titelvideotoolscreenshot": {
+      "message": "گرفتن عکس صفحه"
+   },
+   "titelvideotoolsepia": {
+      "message": "قرمز قهوه‌ای"
+   },
+   "titelvideotoolsubscribe": {
+      "message": "Subscribe"
+   },
+   "titelviewcount": {
+      "message": "تعداد بازدید"
+   },
+   "titelvisblocks": {
+      "message": "بلوک"
+   },
+   "titelvischoose": {
+      "message": "وضوح صدا را انتخاب کنید"
+   },
+   "titelvisenable": {
+      "message": "فعالسازی/ غیرفعالسازی وضوح صدا"
+   },
+   "titelvisfrequency": {
+      "message": "فرکانس"
+   },
+   "titelvistunnel": {
+      "message": "تونل موزیک"
+   },
+   "titelvisualization": {
+      "message": "وضوح صدا"
+   },
+   "titelvolume": {
+      "message": "نوار تنظیم صدای ویدئو"
+   },
+   "titelwebsite": {
+      "message": "سايت"
+   },
+   "titelwhitelist": {
+      "message": "Whitelist"
+   },
+   "titelwikiatmos": {
+      "message": "در مورد ویژگی رعد و برق جوی در ویکی"
+   },
+   "titleanalytics": {
+      "message": "تجزیه و تحلیل ها"
+   },
+   "titleavgdayschedule": {
+      "message": "میانگین برنامه روزانه"
+   },
+   "titlecancel": {
+      "message": "Cancel"
+   },
+   "titledarkmodeauto": {
+      "message": "استفاده از ظاهرسازی دستگاه"
+   },
+   "titledarkmodeoff": {
+      "message": "حالت تاریک روشن"
+   },
+   "titledarkmodeon": {
+      "message": "حالت تاریک روشن"
+   },
+   "titledonatebutton": {
+      "message": "کمک مالی"
+   },
+   "titlegamepad": {
+      "message": "Controller"
+   },
+   "titleinfobx": {
+      "message": "Info"
+   },
+   "titlelanalyticprivacy": {
+      "message": "افزونه مرورگر لامپ اضافی خاموش در مورد حفظ حریم خصوصی افراد بسیار جدی و سخت گیر است. نتایج حاصل از تجزیه و تحلیل توسط برنامه به صورت محرمانه در سیستم رایانه شما باقی میماند و این اطلاعات خصوصی مانده و به هیچ برنامه یا وبسایت سوم شخصی فروخته یا منتقل نمی شوند."
+   },
+   "titlelater": {
+      "message": "Later"
+   },
+   "titlelearnmore": {
+      "message": "اطلاعات بیشتر"
+   },
+   "titlelprivacy": {
+      "message": "سیاست حفظ حریم خصوصی"
+   },
+   "titlelratenow": {
+      "message": "همین حالا امتیاز دهید!"
+   },
+   "titlemultiopacity": {
+      "message": "هر وبسایت مقدار تاری مختص به خودش را داراست"
+   },
+   "titlenightowl": {
+      "message": "جغدهای خونگی"
+   },
+   "titleok": {
+      "message": "OK"
+   },
+   "titleorigin": {
+      "message": "مبدا"
+   },
+   "titleprofile": {
+      "message": "پروفایل"
+   },
+   "titleprofilealwaysscreentab": {
+      "message": "فعالسازی همیشه تمام صفحات بازشده را شامل میشود"
+   },
+   "titleprofilenovideofocus": {
+      "message": "غیرفعالسازی تمرکز ویدئویی"
+   },
+   "titleprofilescreenclick": {
+      "message": "فعال سازی کلیک بر روی لینک ها زمانی که صفحه تاریک است"
+   },
+   "titleprofilesubmit": {
+      "message": "انتخاب تنظیمات"
+   },
+   "titleprofilevideofocus": {
+      "message": "فعالسازی تمرکز ویدئویی"
+   },
+   "titleratelater": {
+      "message": "Later"
+   },
+   "titleregularuser": {
+      "message": "عشق فیلم و سریال"
+   },
+   "titlescreenprotection": {
+      "message": "حفاظت از چشم"
+   },
+   "titlesharestats": {
+      "message": "آمار خود را به اشتراک بگذارید"
+   },
+   "titlesiteengagement": {
+      "message": "مشارکت در سایت"
+   },
+   "titlesub": {
+      "message": "اکنون مشترک شوید!"
+   },
+   "titletime": {
+      "message": "زمان (دقیقه)"
+   },
+   "titletipok": {
+      "message": "Got it"
+   },
+   "titleuserprofile": {
+      "message": "انتخاب تنظیمات دلخواه هنگام کلیک روی دکمه خاکستری لامپی.\nهر پروفایل دارای ویژگی های خاص خودش است."
+   },
+   "titlevideoplayrate": {
+      "message": "سرعت پخش"
+   },
+   "titleyoutube": {
+      "message": "Join Turn Off the Lights Channel."
+   },
+   "top": {
+      "message": "بالا"
+   },
+   "totalenergysaved": {
+      "message": "انرژی الکتریکی صرفه جویی شده"
+   },
+   "translateme": {
+      "message": "ترجمه"
+   },
+   "trymotion": {
+      "message": "خودتان امتحانش کنید!"
+   },
+   "tuesday": {
+      "message": "سه شنبه"
+   },
+   "version": {
+      "message": "نسخهٔ"
+   },
+   "videotitle": {
+      "message": "تمرکز این ویدیو"
+   },
+   "visualeffects": {
+      "message": "جلوه های بصری"
+   },
+   "vtoolalign": {
+      "message": "دکمه ای برای نمایش ویدئو پلیر در مرکز صفحه مرورگر شما"
+   },
+   "vtoolfilter": {
+      "message": "دکمه ای برای اعمال فیلتر در ویدئو پلیر"
+   },
+   "vtoolfullscreen": {
+      "message": "دکمه ای جهت اعمال نمایش تمام صفحه در ویدئو پلیر"
+   },
+   "vtoolreplay": {
+      "message": "دکمه ای برای بازپخش در ویدئو پلیر"
+   },
+   "vtoolscreenshot": {
+      "message": "دکمه ای برای گرفتن عکس از صفحه در ویدئو پلیر"
+   },
+   "vtoolvisualization": {
+      "message": "دکمه نمایش وضوح صدا برای ویدئو پلیر"
+   },
+   "warning": {
+      "message": "هشدار!"
+   },
+   "warningtextambilight": {
+      "message": "علت عدم توانایی در دریافت داده های ویدئویی قوانین امنیتی بعضی وب سایت هاست ، در این صورت رنگ ها سرد و بی روح دیده خواهند شد."
+   },
+   "wednesday": {
+      "message": "چهارشنبه"
+   },
+   "wpermissionnotremoved": {
+      "message": "The permissions have already been removed"
+   },
+   "wpermissionremoved": {
+      "message": "The permissions have been removed."
+   },
+   "writeareview": {
+      "message": "نوشتن نظر"
+   }
+}

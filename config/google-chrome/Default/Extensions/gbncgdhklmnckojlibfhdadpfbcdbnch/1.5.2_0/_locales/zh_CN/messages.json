@@ -1,0 +1,8 @@
+{
+   "appDesc": {
+      "message": "这个ChatGPT等AI聊天服务让你用'Ctrl+Enter'发送消息，防止误发。用 Enter 键可以直接换行，用起来很直观。"
+   },
+   "appName": {
+      "message": "ChatGPT Ctrl+Enter Sender"
+   }
+}

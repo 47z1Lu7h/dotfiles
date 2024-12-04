@@ -1,0 +1,5 @@
+2024-12-02 21:27:13.094 [warning] Running on the desktop; workspaceId=64cd2d91dbbf4b9705e50be0328078f9; storageUri=vscode-userdata:/home/a7z1lu7h/.config/Code/User/globalStorage/github.remotehub
+2024-12-02 21:27:13.094 [info] [    2] ChangeStore.getWorkspacesWithChanges()
+2024-12-02 21:27:13.094 [info] [    2] ChangeStore.getWorkspacesWithChanges() took 0 ms
+2024-12-02 21:34:36.670 [error] Failed to save workspace repositories
+Canceled: Canceled

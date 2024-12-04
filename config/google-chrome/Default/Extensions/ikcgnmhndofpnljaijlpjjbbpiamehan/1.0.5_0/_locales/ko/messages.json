@@ -1,0 +1,20 @@
+{
+   "description": {
+      "message": "웹에서 Instagram으로 사진, 동영상, 스토리, 릴을 다운로드하세요. 게시물 예약, Instagram에서 DM 보내기."
+   },
+   "name": {
+      "message": "App Client for Instagram™ - InLoad"
+   },
+   "rateDialogDesc": {
+      "message": "Please rate us! It is very important for us! Thank you:)"
+   },
+   "rateDialogNo": {
+      "message": "Maybe next time"
+   },
+   "rateDialogTitle": {
+      "message": "Our extension is useful for you?"
+   },
+   "rateDialogYes": {
+      "message": "Yes, of course"
+   }
+}

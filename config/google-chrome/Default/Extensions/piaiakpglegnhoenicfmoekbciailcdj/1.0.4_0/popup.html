@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Popup</title>
+    <style>
+        body {
+            width: 400px;
+            background-color: #f2f2f2;
+        }
+
+        .scrollable-table {
+            width: 100%;
+            height: 400px;
+            overflow-y: auto;
+            border-collapse: collapse;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            text-align: left;
+            padding: 4px;
+        }
+
+        th {
+            background-color: #e2e2e2;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        #action-buttons-div button {
+            margin-right: 10px;
+        }
+
+        .action-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            background-color: #2596be;
+            color: white;
+            padding: 3px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .action-button:hover {
+            background-color: #1e7490;
+        }
+
+        .action-button:active {
+            background-color: #163d58;
+        }
+
+        .calltoaction-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 5px;
+            background-color: #f7941e;
+            color: white;
+            padding: 6px 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .calltoaction-button:hover {
+            background-color: #fdad4a;
+        }
+
+        .calltoaction-button:active {
+            background-color: #b96f15;
+        }
+
+        .select-item {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <noscript><strong>We're sorry but this Software doesn't work properly without JavaScript enabled. Please
+            enable it.</strong></noscript>
+    <div style="padding: 3;background-color: white;">
+        <div class="app-tool-bar"
+            style="min-height:30px ;margin: 2px; display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex;gap: 5px;">
+                <img style=" max-height: 16px;" src="icons/32.png">
+                <div style="font-weight: bold;color: #2596be;" class="app-name">BandLab Music Downloader</div>
+            </div>
+            <!-- <div class="app-plan">Plan: free</div> -->
+            <button class="calltoaction-button" id="subscribe">Subscribe / Sign in</button>
+        </div>
+    </div>
+    <hr>
+    <div class="foot-changes" style="margin-top: 2dp; display: flex; gap: 10px;">
+        <div class="version">Version: </div>
+        <a class="contact_us" href="https://t.me/+2Q-PlIjjqm9jZTlh" target="_blank">Contact Us</a>
+    </div>
+    <script src="/popup.js"></script>
+</body>
+
+</html>

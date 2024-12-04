@@ -1,0 +1,6 @@
+2024/11/29-16:15:20.973 b0cd Creating DB /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_chatgpt.com_0.indexeddb.leveldb since it was missing.
+2024/11/29-16:15:20.975 b0cd Reusing MANIFEST /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_chatgpt.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/11/29-16:15:27.013 b0ce Level-0 table #5: started
+2024/11/29-16:15:27.014 b0ce Level-0 table #5: 3817 bytes OK
+2024/11/29-16:15:27.014 b0ce Delete type=0 #3
+2024/11/29-16:15:27.014 b0ce Manual compaction at level-0 from (begin) .. (end); will stop at (end)

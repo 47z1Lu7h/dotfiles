@@ -1,0 +1,166 @@
+{
+   "3pGroupAds": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Hirdetések"
+   },
+   "3pGroupAnnoyances": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Bosszúságok"
+   },
+   "3pGroupDefault": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Alapértelmezett"
+   },
+   "3pGroupMalware": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Malware domainek"
+   },
+   "3pGroupMisc": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Egyéb"
+   },
+   "3pGroupPrivacy": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Adatvédelem"
+   },
+   "3pGroupRegions": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Régiók, nyelvek"
+   },
+   "aboutChangelog": {
+      "description": "",
+      "message": "Változások listája"
+   },
+   "aboutCode": {
+      "description": "English: Source code (GPLv3)",
+      "message": "Forráskód (GPLv3)"
+   },
+   "aboutContributors": {
+      "description": "English: Contributors",
+      "message": "Közreműködők"
+   },
+   "aboutDependencies": {
+      "description": "Shown in the About pane",
+      "message": "Külső függőségek (GPLv3-kompatibilis):"
+   },
+   "aboutFilterLists": {
+      "description": "Link text to uBO's own filter lists repo",
+      "message": "Szűrőlisták"
+   },
+   "aboutPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Névjegy"
+   },
+   "aboutPrivacyPolicy": {
+      "description": "Link to privacy policy on GitHub (English)",
+      "message": "Adatvédelmi irányelvek"
+   },
+   "aboutSourceCode": {
+      "description": "Link text to source code repo",
+      "message": "Forráskód"
+   },
+   "aboutTranslations": {
+      "description": "Link text to translations repo",
+      "message": "Fordítások"
+   },
+   "autoReloadLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "Az oldal automatikus újratöltése a szűrési mód megváltoztatásakor"
+   },
+   "basicFilteringModeDescription": {
+      "description": "This describes the 'basic' filtering mode",
+      "message": "Alapvető hálózati szűrés a kiválasztott szűrőlistákból.\n\nNem igényel engedélyt a webhelyeken található adatok olvasásához és módosításához."
+   },
+   "behaviorSectionLabel": {
+      "description": "The header text for the 'Behavior' section",
+      "message": "Viselkedés"
+   },
+   "completeFilteringModeDescription": {
+      "description": "This describes the 'complete' filtering mode",
+      "message": "Speciális hálózati szűrés, valamint speciális és általános kiterjesztett szűrés a kiválasztott szűrőlistákból.\n\nSzéles körű engedély szükséges az adatok olvasásához és módosításához az összes webhelyen.\n\nAz általános kiterjesztett szűrés nagyobb weboldal-erőforrás-felhasználást eredményezhet."
+   },
+   "dashboardName": {
+      "description": "English: AdBlock Max — Dashboard",
+      "message": "AdBlock Max — Vezérlőpult"
+   },
+   "defaultFilteringModeDescription": {
+      "description": "This describes the default filtering mode setting",
+      "message": "Az alapértelmezett szűrési módot a webhelyenkénti szűrési módok felülírják. Bármely webhelyen beállíthatja a szűrési módot aszerint, hogy melyik mód működik a legjobban az adott webhelyen. Mindegyik módnak megvannak a maga előnyei és hátrányai."
+   },
+   "defaultFilteringModeSectionLabel": {
+      "description": "The header text for the default filtering mode section",
+      "message": "Alapértelmezett szűrő"
+   },
+   "extName": {
+      "description": "extension name.",
+      "message": "AdBlock Max"
+   },
+   "extName666": {
+      "description": "extension name.",
+      "message": "AdBlock Max - reklám blokkoló"
+   },
+   "extShortDesc": {
+      "description": "this will be in the Chrome web store: must be 132 characters or less",
+      "message": "Kísérleti, engedélyt nem igénylő nélküli tartalomblokkoló. A telepítés után azonnal blokkolja a hirdetéseket, nyomkövetőket, bányászokat és egyebeket."
+   },
+   "filteringMode0Name": {
+      "description": "Name of blocking mode 0",
+      "message": "Nincs szűrés"
+   },
+   "filteringMode1Name": {
+      "description": "Name of blocking mode 1",
+      "message": "alapok"
+   },
+   "filteringMode2Name": {
+      "description": "Name of blocking mode 2",
+      "message": "optimális"
+   },
+   "filteringMode3Name": {
+      "description": "Name of blocking mode 3",
+      "message": "elkészült"
+   },
+   "firstRunDescription": {
+      "description": "Descriptive text shown at first install time only ",
+      "message": "Alapértelmezés szerint az \u003Cem>Alap\u003C/em> mód van kiválasztva, mert nem igényel engedélyt az adatok olvasásához és módosításához. Ha megbízik az AdBlock Max-ban, széles körű engedélyt adhat neki az adatok olvasására és módosítására az összes webhelyen, hogy alapértelmezés szerint fejlettebb szűrési lehetőségeket tegyen lehetővé minden webhelyen."
+   },
+   "firstRunSectionLabel": {
+      "description": "The header text for the welcome message section",
+      "message": "Üdvözlünk"
+   },
+   "noFilteringModeDescription": {
+      "description": "A short description for the editable field which lists trusted sites",
+      "message": "Azon hosztnevek listája, amelyek esetében nem történik szűrés"
+   },
+   "optimalFilteringModeDescription": {
+      "description": "This describes the 'optimal' filtering mode",
+      "message": "Speciális hálózati szűrés plusz speciális kiterjesztett szűrés a kiválasztott szűrőlistákból.\n\nSzéles körű engedély szükséges az adatok olvasásához és módosításához az összes webhelyen."
+   },
+   "perRulesetStats": {
+      "description": "Appears aside each filter list in the _3rd-party filters_ pane",
+      "message": "{{ruleCount}} szabály, {{filterCount}} hálózati szűrőből átalakítva"
+   },
+   "popupFilteringModeLabel": {
+      "description": "Label in the popup panel for the current filtering mode",
+      "message": "szűrési mód"
+   },
+   "popupLessButton": {
+      "description": "Label to be used to hide popup panel sections",
+      "message": "Kevesebb"
+   },
+   "popupMoreButton": {
+      "description": "Label to be used to show popup panel sections",
+      "message": "Több"
+   },
+   "popupTipDashboard": {
+      "description": "English: Click to open the dashboard",
+      "message": "Vezérlőpult megnyitása"
+   },
+   "settingsPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Beállítások"
+   },
+   "showBlockedCountLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "Blokkolt kérések számának megjelenítése az eszköztárikonon"
+   }
+}

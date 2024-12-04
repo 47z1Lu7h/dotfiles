@@ -1,0 +1,166 @@
+{
+   "3pGroupAds": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Reklamlar"
+   },
+   "3pGroupAnnoyances": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Rahatsız ediciler"
+   },
+   "3pGroupDefault": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Varsayılan"
+   },
+   "3pGroupMalware": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Zararlı alan adları"
+   },
+   "3pGroupMisc": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Diğer"
+   },
+   "3pGroupPrivacy": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Gizlilik"
+   },
+   "3pGroupRegions": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Bölgeler, diller"
+   },
+   "aboutChangelog": {
+      "description": "",
+      "message": "Değişiklik günlüğü"
+   },
+   "aboutCode": {
+      "description": "English: Source code (GPLv3)",
+      "message": "Kaynak kodu (GPLv3)"
+   },
+   "aboutContributors": {
+      "description": "English: Contributors",
+      "message": "Katkıda bulunanlar"
+   },
+   "aboutDependencies": {
+      "description": "Shown in the About pane",
+      "message": "Dış bağlılıklar (GPLv3-uyumlu):"
+   },
+   "aboutFilterLists": {
+      "description": "Link text to uBO's own filter lists repo",
+      "message": "Filtre listeleri"
+   },
+   "aboutPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Hakkında"
+   },
+   "aboutPrivacyPolicy": {
+      "description": "Link to privacy policy on GitHub (English)",
+      "message": "Gizlilik ilkesi"
+   },
+   "aboutSourceCode": {
+      "description": "Link text to source code repo",
+      "message": "Kaynak kodu"
+   },
+   "aboutTranslations": {
+      "description": "Link text to translations repo",
+      "message": "Çeviriler"
+   },
+   "autoReloadLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "Filtreleme modu değiştirildiğinde sayfayı yenile"
+   },
+   "basicFilteringModeDescription": {
+      "description": "This describes the 'basic' filtering mode",
+      "message": "Seçilen filtre listelerinden temel ağ filtrelemesi.\n\nWeb sitelerindeki verileri okumak ve değiştirmek için izin gerektirmez."
+   },
+   "behaviorSectionLabel": {
+      "description": "The header text for the 'Behavior' section",
+      "message": "Davranış"
+   },
+   "completeFilteringModeDescription": {
+      "description": "This describes the 'complete' filtering mode",
+      "message": "Gelişmiş ağ filtrelemenin yanı sıra seçilen filtre listelerinden özel ve genel genişletilmiş filtreleme.\n\nTüm web sitelerindeki verileri okumak ve değiştirmek için geniş izin gerektirir.\n\nGenel genişletilmiş filtreleme daha yüksek kaynak kullanımına neden olabilir."
+   },
+   "dashboardName": {
+      "description": "English: AdBlock Max — Dashboard",
+      "message": "AdBlock Max — Kontrol Paneli"
+   },
+   "defaultFilteringModeDescription": {
+      "description": "This describes the default filtering mode setting",
+      "message": "Varsayılan filtreleme modu, web sitesi başına filtreleme modları tarafından geçersiz kılınacaktır. Herhangi bir web sitesindeki filtreleme modunu, o web sitesinde en iyi çalışan moda göre ayarlayabilirsiniz. Her modun avantajları ve dezavantajları vardır."
+   },
+   "defaultFilteringModeSectionLabel": {
+      "description": "The header text for the default filtering mode section",
+      "message": "Varsayılan filtreleme modu"
+   },
+   "extName": {
+      "description": "extension name.",
+      "message": "AdBlock Max"
+   },
+   "extName666": {
+      "description": "extension name.",
+      "message": "AdBlock Max - reklam engelleyici"
+   },
+   "extShortDesc": {
+      "description": "this will be in the Chrome web store: must be 132 characters or less",
+      "message": "İzin gerektirmeyen içerik engelleyicisi. Kurulumdan hemen sonra reklamları, izleyicileri, kripto madencilerini, ve daha fazlasını engeller."
+   },
+   "filteringMode0Name": {
+      "description": "Name of blocking mode 0",
+      "message": "filtreleme yok"
+   },
+   "filteringMode1Name": {
+      "description": "Name of blocking mode 1",
+      "message": "temel"
+   },
+   "filteringMode2Name": {
+      "description": "Name of blocking mode 2",
+      "message": "ideal"
+   },
+   "filteringMode3Name": {
+      "description": "Name of blocking mode 3",
+      "message": "kapsamlı"
+   },
+   "firstRunDescription": {
+      "description": "Descriptive text shown at first install time only ",
+      "message": "Az önce AdBlock Max'ı indirdiniz. Buradan tüm siteler için varsayılan filtreleme modlarını seçebilirsiniz.\n\nVarsayılan olarak, \u003Cem>Basit\u003C/em> mod seçilidir çünkü verileri okuma ve yazma izni gerektirmez. AdBlock Max'a güveniyorsanız, tüm sitelerde verileri okuma ve yazma izni verebilirsiniz ve daha gelişmiş filtreleme yeteneklerine tüm sitelerde sahip olabilirsiniz."
+   },
+   "firstRunSectionLabel": {
+      "description": "The header text for the welcome message section",
+      "message": "Hoş geldiniz"
+   },
+   "noFilteringModeDescription": {
+      "description": "A short description for the editable field which lists trusted sites",
+      "message": "Filtreleme yapılmayacak alan alarının listesi"
+   },
+   "optimalFilteringModeDescription": {
+      "description": "This describes the 'optimal' filtering mode",
+      "message": "Gelişmiş ağ filtrelemesi ve seçilen filtre listelerinden genişletilmiş filtreleme.\n\nTüm web sitelerindeki verileri okumak ve değiştirmek için izin gerektirir."
+   },
+   "perRulesetStats": {
+      "description": "Appears aside each filter list in the _3rd-party filters_ pane",
+      "message": "{{filterCount}} ağ filtresinden {{ruleCount}} adet kural dönüştürüldü"
+   },
+   "popupFilteringModeLabel": {
+      "description": "Label in the popup panel for the current filtering mode",
+      "message": "Filtreleme modu"
+   },
+   "popupLessButton": {
+      "description": "Label to be used to hide popup panel sections",
+      "message": "Daha Az"
+   },
+   "popupMoreButton": {
+      "description": "Label to be used to show popup panel sections",
+      "message": "Daha Fazla"
+   },
+   "popupTipDashboard": {
+      "description": "English: Click to open the dashboard",
+      "message": "Kontrol panelini aç"
+   },
+   "settingsPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Ayarlar"
+   },
+   "showBlockedCountLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "Engellenen isteklerin sayısını araç çubuğu simgesinde göster"
+   }
+}

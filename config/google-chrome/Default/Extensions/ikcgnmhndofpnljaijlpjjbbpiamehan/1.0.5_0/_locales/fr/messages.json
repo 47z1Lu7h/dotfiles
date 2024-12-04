@@ -1,0 +1,20 @@
+{
+   "description": {
+      "message": "Téléchargez Publiez des photos, des vidéos, des histoires, des bobines sur Instagram à partir du Web. Planifiez des publications, envoyez des DM depuis Instagram."
+   },
+   "name": {
+      "message": "App Client for Instagram™ - InLoad"
+   },
+   "rateDialogDesc": {
+      "message": "Please rate us! It is very important for us! Thank you:)"
+   },
+   "rateDialogNo": {
+      "message": "Maybe next time"
+   },
+   "rateDialogTitle": {
+      "message": "Our extension is useful for you?"
+   },
+   "rateDialogYes": {
+      "message": "Yes, of course"
+   }
+}

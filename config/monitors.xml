@@ -1,0 +1,49 @@
+<monitors version="1">
+  <configuration>
+      <clone>no</clone>
+      <output name="DP-1">
+          <vendor>SAM</vendor>
+          <product>0x0f96</product>
+          <serial>0x43584e45</serial>
+          <width>3840</width>
+          <height>2160</height>
+          <rate>60</rate>
+          <x>0</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>no</primary>
+      </output>
+      <output name="DP-2">
+          <vendor>SAM</vendor>
+          <product>0x0f96</product>
+          <serial>0x43584e45</serial>
+          <width>3840</width>
+          <height>2160</height>
+          <rate>60</rate>
+          <x>3840</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>yes</primary>
+      </output>
+      <output name="DP-3">
+          <vendor>SAM</vendor>
+          <product>0x0f96</product>
+          <serial>0x30385535</serial>
+          <width>3840</width>
+          <height>2160</height>
+          <rate>60</rate>
+          <x>7680</x>
+          <y>0</y>
+          <rotation>normal</rotation>
+          <reflect_x>no</reflect_x>
+          <reflect_y>no</reflect_y>
+          <primary>no</primary>
+      </output>
+      <output name="HDMI-1">
+      </output>
+  </configuration>
+</monitors>

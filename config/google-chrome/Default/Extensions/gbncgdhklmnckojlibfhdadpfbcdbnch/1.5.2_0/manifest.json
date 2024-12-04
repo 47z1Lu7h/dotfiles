@@ -1,0 +1,40 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icon/icon128.png",
+         "16": "icon/icon16.png",
+         "48": "icon/icon48.png"
+      },
+      "default_popup": "popup.html"
+   },
+   "author": "Kamada Masachika",
+   "background": {
+      "service_worker": "background.js",
+      "type": "module"
+   },
+   "content_scripts": [ {
+      "js": [ "script_chatgpt.js" ],
+      "matches": [ "https://chatgpt.com/*" ]
+   }, {
+      "js": [ "script.js" ],
+      "matches": [ "https://poe.com/*", "https://www.phind.com/*", "https://chat.mistral.ai/*", "https://www.chatpdf.com/*", "https://www.perplexity.ai/*", "https://you.com/*", "https://dashboard.cohere.com/playground/chat" ]
+   }, {
+      "js": [ "script_document_start.js" ],
+      "matches": [ "https://claude.ai/*", "https://www.bing.com/chat*" ],
+      "run_at": "document_start"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_appDesc__",
+   "host_permissions": [ "https://chatgpt.com/*", "https://poe.com/*", "https://www.phind.com/*", "https://chat.mistral.ai/*", "https://www.chatpdf.com/*", "https://www.perplexity.ai/*", "https://claude.ai/*", "https://www.bing.com/chat*", "https://you.com/*", "https://dashboard.cohere.com/playground/chat" ],
+   "icons": {
+      "128": "icon/icon128.png",
+      "16": "icon/icon16.png",
+      "48": "icon/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvfyDziPxLav43Sh6PEWFdn6zrGcVUlbvLHDJaFg8CNXiOJYDLnpsF2tim994xy5jqt2DZeF+WZ8LD7EDmDPxPqThzrD7oE/EKDYncPns1ewy4OoMmyZ1L3z8eL+q6njzA/QhkRf5ujldS3DLQG0dqsjRgP8tZ7M7LlH+5qUFuC3+NhHk8BNj56ItUH7/I4q18StGE001ladnAY9/nXYFFGvTlxgIo//oxbwXdqVfWWKsXI/F4rJvnjJMl7k8TodIgXewDPBzyE9iOH0290dvAG+gO/CfnkB8FUmHftEzKaEp5wQh6bcVuetPgM1A8rwExHtBWnKONSS6EdFmlkG1DQIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_appName__",
+   "permissions": [ "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.5.2"
+}

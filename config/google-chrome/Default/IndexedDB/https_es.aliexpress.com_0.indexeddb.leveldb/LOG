@@ -1,0 +1,15 @@
+2024/12/03-10:37:07.260 4403c Reusing MANIFEST /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_es.aliexpress.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/12/03-10:37:07.260 4403c Recovering log #7
+2024/12/03-10:37:07.261 4403c Reusing old log /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_es.aliexpress.com_0.indexeddb.leveldb/000007.log 
+2024/12/03-10:37:41.019 4403c Level-0 table #12: started
+2024/12/03-10:37:41.020 4403c Level-0 table #12: 209 bytes OK
+2024/12/03-10:37:41.021 4403c Delete type=0 #7
+2024/12/03-10:37:41.021 4403c Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2024/12/03-10:37:41.021 4403c Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x00\x00\x00\x06' @ 89 : 1
+2024/12/03-10:37:41.021 4403c Compacting 1@1 + 1@2 files
+2024/12/03-10:37:41.021 4403c Generated table #13@1: 32 keys, 683 bytes
+2024/12/03-10:37:41.021 4403c Compacted 1@1 + 1@2 files => 683 bytes
+2024/12/03-10:37:41.022 4403c compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/12/03-10:37:41.022 4403c Delete type=2 #12
+2024/12/03-10:37:41.022 4403c Delete type=2 #9
+2024/12/03-10:37:41.022 4403c Manual compaction at level-1 from '\x00\x00\x00\x00\x06' @ 89 : 1 .. (end); will stop at (end)

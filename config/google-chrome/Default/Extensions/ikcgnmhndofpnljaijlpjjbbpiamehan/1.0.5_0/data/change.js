@@ -1,0 +1,1 @@
+!function(){"use strict";window.innerWidth>600||document.documentElement.classList.add("mobile_mode")}();

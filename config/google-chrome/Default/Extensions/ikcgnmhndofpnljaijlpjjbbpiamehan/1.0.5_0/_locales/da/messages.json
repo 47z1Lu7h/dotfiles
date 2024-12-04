@@ -1,0 +1,20 @@
+{
+   "description": {
+      "message": "Download Post billeder, videoer, historier, ruller til Instagram fra internettet. Planlæg opslag, send DM fra Instagram."
+   },
+   "name": {
+      "message": "App Client for Instagram™ - InLoad"
+   },
+   "rateDialogDesc": {
+      "message": "Please rate us! It is very important for us! Thank you:)"
+   },
+   "rateDialogNo": {
+      "message": "Maybe next time"
+   },
+   "rateDialogTitle": {
+      "message": "Our extension is useful for you?"
+   },
+   "rateDialogYes": {
+      "message": "Yes, of course"
+   }
+}

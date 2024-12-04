@@ -1,0 +1,9 @@
+[MainWindow]
+3 screens: Height=854
+3 screens: Width=1198
+3 screens: XPosition=4249
+3 screens: YPosition=230
+DP-0 DP-2 DP-4=DP-2
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAAkcAAAGQAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled

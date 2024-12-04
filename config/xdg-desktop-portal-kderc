@@ -1,0 +1,10 @@
+[FileDialogSize]
+2 screens: Height=790
+2 screens: Width=1567
+3 screens: Height=1440
+3 screens: Width=2228
+
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME/Downloads/OBS-Studio-30.2.3-Ubuntu-24.04-x86_64.deb,file:$HOME/Downloads/obs-studio-30.2.3.zip
+Recent URLs[$e]=file:$HOME/Documents/,file:$HOME/,file:$HOME/Downloads/
+detailViewIconSize=16

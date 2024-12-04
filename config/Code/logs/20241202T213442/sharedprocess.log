@@ -1,0 +1,31 @@
+2024-12-02 21:34:43.405 [info] github.copilot 1.246.0 Running post uninstall script
+2024-12-02 21:34:43.806 [info] Finished running post uninstall script github.copilot 1.246.0
+2024-12-02 21:34:43.813 [info] Deleted uninstalled extension from disk github.copilot-chat /home/a7z1lu7h/.vscode/extensions/github.copilot-chat-0.22.4
+2024-12-02 21:34:43.813 [info] Deleted uninstalled extension from disk ms-vscode.azure-repos /home/a7z1lu7h/.vscode/extensions/ms-vscode.azure-repos-0.40.0
+2024-12-02 21:34:43.815 [info] Deleted uninstalled extension from disk github.copilot /home/a7z1lu7h/.vscode/extensions/github.copilot-1.246.0
+2024-12-02 21:38:07.704 [info] Getting Manifest... beardedbear.beardedtheme
+2024-12-02 21:38:07.850 [info] Installing extension: beardedbear.beardedtheme {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/a7z1lu7h/.vscode/extensions/extensions.json","path":"/home/a7z1lu7h/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.95.3","date":"2024-11-13T14:50:04.152Z"}}
+2024-12-02 21:38:08.919 [info] Getting Manifest... beardedbear.beardedicons
+2024-12-02 21:38:08.950 [info] Installing extension: beardedbear.beardedicons {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/a7z1lu7h/.vscode/extensions/extensions.json","path":"/home/a7z1lu7h/.vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.95.3","date":"2024-11-13T14:50:04.152Z"}}
+2024-12-02 21:38:09.009 [info] Extension signature verification result for beardedbear.beardedtheme: Success. Executed: true. Duration: 521ms.
+2024-12-02 21:38:09.099 [info] Extracted extension to file:///home/a7z1lu7h/.vscode/extensions/beardedbear.beardedtheme-9.3.0: beardedbear.beardedtheme
+2024-12-02 21:38:09.101 [info] Renamed to /home/a7z1lu7h/.vscode/extensions/beardedbear.beardedtheme-9.3.0
+2024-12-02 21:38:09.110 [info] Extension installed successfully: beardedbear.beardedtheme vscode-userdata:/home/a7z1lu7h/.vscode/extensions/extensions.json
+2024-12-02 21:38:09.180 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/a7z1lu7h/.vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/a7z1lu7h/.vscode/extensions/extensions.json.vsctmp'
+    at hm.create (file:///usr/share/code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:35:39254)
+    at Es (file:///usr/share/code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:35:39361)
+    at Fr.ib (file:///usr/share/code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:71:22677)
+    at Fr.stat (file:///usr/share/code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:71:16010)
+    at async Zl.stat (file:///usr/share/code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:70:84491)
+    at async Jl.yb (file:///usr/share/code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:70:66605)
+2024-12-02 21:38:09.733 [info] Extension signature verification result for beardedbear.beardedicons: Success. Executed: true. Duration: 490ms.
+2024-12-02 21:38:09.854 [info] Extracted extension to file:///home/a7z1lu7h/.vscode/extensions/beardedbear.beardedicons-1.18.0: beardedbear.beardedicons
+2024-12-02 21:38:09.856 [info] Renamed to /home/a7z1lu7h/.vscode/extensions/beardedbear.beardedicons-1.18.0
+2024-12-02 21:38:09.865 [info] Extension installed successfully: beardedbear.beardedicons vscode-userdata:/home/a7z1lu7h/.vscode/extensions/extensions.json
+2024-12-02 21:38:09.924 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/a7z1lu7h/.vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/a7z1lu7h/.vscode/extensions/extensions.json.vsctmp'
+    at hm.create (file:///usr/share/code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:35:39254)
+    at Es (file:///usr/share/code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:35:39361)
+    at Fr.ib (file:///usr/share/code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:71:22677)
+    at Fr.stat (file:///usr/share/code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:71:16010)
+    at async Zl.stat (file:///usr/share/code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:70:84491)
+    at async Jl.yb (file:///usr/share/code/resources/app/out/vs/code/electron-utility/sharedProcess/sharedProcessMain.js:70:66605)

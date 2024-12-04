@@ -1,0 +1,173 @@
+12:26:28.830: Using EGL/X11
+12:26:28.830: CPU Name: AMD Ryzen 9 5900X 12-Core Processor
+12:26:28.830: CPU Speed: 3874.349MHz
+12:26:28.830: Physical Cores: 12, Logical Cores: 24
+12:26:28.830: Physical Memory: 96467MB Total, 82741MB Free
+12:26:28.830: Kernel Version: Linux 6.11.2-amd64
+12:26:28.830: Distribution: "Kali GNU/Linux" "2024.4"
+12:26:28.830: Desktop Environment: 
+12:26:28.830: Session Type: x11
+12:26:28.830: Window System: X11.0, Vendor: The X.Org Foundation, Version: 1.21.1
+12:26:28.831: Qt Version: 6.7.2 (runtime), 6.7.2 (compiled)
+12:26:28.831: Portable mode: false
+12:26:28.874: OBS 30.2.3.1-2+b1 (linux)
+12:26:28.874: ---------------------------------
+12:26:28.874: ---------------------------------
+12:26:28.874: audio settings reset:
+12:26:28.874: 	samples per sec: 48000
+12:26:28.874: 	speakers:        2
+12:26:28.874: 	max buffering:   960 milliseconds
+12:26:28.874: 	buffering type:  dynamically increasing
+12:26:28.875: ---------------------------------
+12:26:28.875: Initializing OpenGL...
+12:26:28.922: Loading up OpenGL on adapter NVIDIA Corporation NVIDIA GeForce RTX 3060 Ti/PCIe/SSE2
+12:26:28.922: OpenGL loaded successfully, version 3.3.0 NVIDIA 550.127.05, shading language 3.30 NVIDIA via Cg compiler
+12:26:29.007: ---------------------------------
+12:26:29.007: video settings reset:
+12:26:29.007: 	base resolution:   1920x1080
+12:26:29.007: 	output resolution: 1280x720
+12:26:29.007: 	downscale filter:  Bicubic
+12:26:29.007: 	fps:               30/1
+12:26:29.007: 	format:            NV12
+12:26:29.007: 	YUV mode:          Rec. 709/Partial
+12:26:29.007: NV12 texture support enabled
+12:26:29.007: P010 texture support not available
+12:26:29.008: Audio monitoring device:
+12:26:29.008: 	name: Por defecto
+12:26:29.008: 	id: default
+12:26:29.008: ---------------------------------
+12:26:29.016: Failed to load 'en-US' text for module: 'decklink-captions.so'
+12:26:29.023: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+12:26:29.030: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+12:26:29.030: Failed to initialize module 'decklink.so'
+12:26:29.108: [pipewire] No capture sources available
+12:26:29.192: NVENC supported
+12:26:29.193: VAAPI: Failed to initialize display in vaapi_device_h264_supported
+12:26:29.193: FFmpeg VAAPI H264 encoding not supported
+12:26:29.193: VAAPI: Failed to initialize display in vaapi_device_av1_supported
+12:26:29.193: FFmpeg VAAPI AV1 encoding not supported
+12:26:29.193: VAAPI: Failed to initialize display in vaapi_device_hevc_supported
+12:26:29.193: FFmpeg VAAPI HEVC encoding not supported
+12:26:29.231: [obs-websocket] [obs_module_load] you can haz websockets (Version: 5.5.2 | RPC Version: 1)
+12:26:29.231: [obs-websocket] [obs_module_load] Qt version (compile-time): 6.7.2 | Qt version (run-time): 6.7.2
+12:26:29.231: [obs-websocket] [obs_module_load] Linked ASIO Version: 103002
+12:26:29.231: [obs-websocket] [Config::Load] Existing configuration not found, using defaults.
+12:26:29.231: [obs-websocket] [Config::Load] (FirstLoad) Generating new server password.
+12:26:29.236: [obs-websocket] [obs_module_load] Module loaded.
+12:26:29.269: [vlc-video]: VLC 3.0.21 Vetinari found, VLC video source enabled
+12:26:29.269: ---------------------------------
+12:26:29.269:   Loaded Modules:
+12:26:29.269:     vlc-video.so
+12:26:29.269:     text-freetype2.so
+12:26:29.269:     rtmp-services.so
+12:26:29.269:     obs-x264.so
+12:26:29.269:     obs-websocket.so
+12:26:29.269:     obs-transitions.so
+12:26:29.269:     obs-outputs.so
+12:26:29.269:     obs-filters.so
+12:26:29.269:     obs-ffmpeg.so
+12:26:29.269:     linux-v4l2.so
+12:26:29.269:     linux-pulseaudio.so
+12:26:29.269:     linux-pipewire.so
+12:26:29.269:     linux-jack.so
+12:26:29.269:     linux-capture.so
+12:26:29.269:     linux-alsa.so
+12:26:29.269:     image-source.so
+12:26:29.269:     frontend-tools.so
+12:26:29.269:     decklink-output-ui.so
+12:26:29.269:     decklink-captions.so
+12:26:29.269: ---------------------------------
+12:26:29.269: ---------------------------------
+12:26:29.269: Available Encoders:
+12:26:29.269:   Video Encoders:
+12:26:29.269: 	- ffmpeg_svt_av1 (SVT-AV1)
+12:26:29.269: 	- ffmpeg_aom_av1 (AOM AV1)
+12:26:29.269: 	- jim_nvenc (NVIDIA NVENC H.264)
+12:26:29.269: 	- jim_hevc_nvenc (NVIDIA NVENC HEVC)
+12:26:29.269: 	- jim_av1_nvenc (NVIDIA NVENC AV1)
+12:26:29.269: 	- obs_x264 (x264)
+12:26:29.269:   Audio Encoders:
+12:26:29.269: 	- ffmpeg_aac (FFmpeg AAC)
+12:26:29.269: 	- ffmpeg_opus (FFmpeg Opus)
+12:26:29.269: 	- ffmpeg_pcm_s16le (FFmpeg PCM (16-bit))
+12:26:29.269: 	- ffmpeg_pcm_s24le (FFmpeg PCM (24-bit))
+12:26:29.269: 	- ffmpeg_pcm_f32le (FFmpeg PCM (32-bit flotante))
+12:26:29.269: 	- ffmpeg_alac (FFmpeg ALAC (24-bit))
+12:26:29.269: 	- ffmpeg_flac (FFmpeg FLAC (16-bit))
+12:26:29.269: ==== Startup complete ===============================================
+12:26:29.272: No scene file found, creating default scene
+12:26:29.322: All scene data cleared
+12:26:29.322: ------------------------------------------------
+12:26:29.329: pulse-input: Server name: 'PulseAudio (on PipeWire 1.2.6) 15.0.0'
+12:26:29.329: pulse-input: Audio format: float32le, 48000 Hz, 2 channels
+12:26:29.329: pulse-input: Started recording from 'auto_null.monitor' (default)
+12:26:29.330: Switched to scene 'Escena'
+12:26:29.330: Failed to glob scene collections
+12:26:29.783: [rtmp-services plugin] Successfully updated file 'services.json' (version 264)
+12:26:29.783: [rtmp-services plugin] Successfully updated package (version 264)
+12:26:29.877: adding 21 milliseconds of audio buffering, total audio buffering is now 21 milliseconds (source: Audio del escritorio)
+12:26:29.877: 
+12:50:53.971: 
+12:50:53.971: ==== Auto-config wizard testing commencing ======
+
+12:50:57.012: Number of remaining views: 1
+12:50:57.012: ---------------------------------
+12:50:57.012: video settings reset:
+12:50:57.012: 	base resolution:   3839x2160
+12:50:57.012: 	output resolution: 1916x1080
+12:50:57.012: 	downscale filter:  Bicubic
+12:50:57.012: 	fps:               60/1
+12:50:57.012: 	format:            NV12
+12:50:57.012: 	YUV mode:          Rec. 709/Partial
+12:50:57.013: NV12 texture support enabled
+12:50:57.013: P010 texture support not available
+12:50:57.015: 
+12:50:57.015: ==== Auto-config wizard testing stopping ========
+
+12:53:09.583: xshm-input: Geometry 3840x2160 @ 3840,115
+12:53:09.585: User added source 'main' (xshm_input) to scene 'Escena'
+12:55:36.841: Get on org.freedesktop.portal.Settings returned an invalid reply
+12:55:36.841: Get on org.freedesktop.portal.Settings returned an invalid reply
+12:55:36.918:   OpenType support missing for "Open Sans", script 11
+12:55:36.927:   OpenType support missing for "Open Sans", script 12
+12:55:36.934:   OpenType support missing for "Open Sans", script 16
+12:55:36.942:   OpenType support missing for "Open Sans", script 20
+12:56:30.567: Number of remaining views: 1
+12:56:30.567: ---------------------------------
+12:56:30.567: video settings reset:
+12:56:30.567: 	base resolution:   3839x2160
+12:56:30.567: 	output resolution: 3836x2160
+12:56:30.567: 	downscale filter:  Bicubic
+12:56:30.567: 	fps:               60/1
+12:56:30.567: 	format:            NV12
+12:56:30.567: 	YUV mode:          Rec. 709/Partial
+12:56:30.567: NV12 texture support enabled
+12:56:30.567: P010 texture support not available
+12:56:30.568: Settings changed (video)
+12:56:30.568: ------------------------------------------------
+12:58:33.256: Settings changed (outputs)
+12:58:33.256: ------------------------------------------------
+12:58:40.970: Get on org.freedesktop.portal.Settings returned an invalid reply
+12:58:43.437: Get on org.freedesktop.portal.Settings returned an invalid reply
+12:58:45.078: Get on org.freedesktop.portal.Settings returned an invalid reply
+12:58:47.577: Get on org.freedesktop.portal.Settings returned an invalid reply
+12:58:49.794: Get on org.freedesktop.portal.Settings returned an invalid reply
+12:58:49.915:   OpenType support missing for "Open Sans", script 11
+12:58:49.915:   OpenType support missing for "Open Sans", script 12
+12:58:49.915:   OpenType support missing for "Open Sans", script 16
+12:58:49.915:   OpenType support missing for "Open Sans", script 20
+12:58:51.487: Get on org.freedesktop.portal.Settings returned an invalid reply
+12:59:08.584: Settings changed (appearance)
+12:59:08.584: ------------------------------------------------
+13:07:41.407: The X11 connection broke (error 1). Did the X11 server die?
+13:07:41.417: Failed to make context current: EGL_BAD_CONTEXT
+13:07:41.417: Failed to make context current: EGL_BAD_CONTEXT
+13:07:41.417: Failed to make context current: EGL_NOT_INITIALIZED
+13:07:41.417: eglSwapInterval failed
+13:07:41.417: Cannot swap EGL buffers: EGL_NOT_INITIALIZED
+13:07:41.417: Failed to make context current: EGL_NOT_INITIALIZED
+13:07:41.417: Failed to make context current: EGL_NOT_INITIALIZED
+13:07:41.417: Failed to make context current: EGL_NOT_INITIALIZED
+13:07:41.417: Failed to make context current: EGL_NOT_INITIALIZED
+13:07:41.417: eglSwapInterval failed
+13:07:41.417: Cannot swap EGL buffers: EGL_NOT_INITIALIZED

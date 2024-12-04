@@ -1,0 +1,15 @@
+2024-12-02 21:34:43.940 [warning] /home/a7z1lu7h/.ssh/config: ENOENT: no such file or directory, open '/home/a7z1lu7h/.ssh/config'
+2024-12-02 21:34:43.940 [info] Activation> Extension version: 0.100.3
+2024-12-02 21:34:44.068 [info] Looking for git repository
+2024-12-02 21:34:44.068 [info] Found 0 repositories during activation
+2024-12-02 21:34:44.068 [info] Git repository found, initializing review manager and pr tree view.
+2024-12-02 21:34:44.070 [info] Registering git provider
+2024-12-02 21:34:44.090 [info] Repo state for file:///home/a7z1lu7h/d35kT0p/r3p0s/47z1Lu7h.github.io changed.
+2024-12-02 21:34:44.090 [info] Repo file:///home/a7z1lu7h/d35kT0p/r3p0s/47z1Lu7h.github.io has already been setup.
+2024-12-02 21:34:44.142 [info] Git initialization state changed: state=initialized
+2024-12-02 21:34:44.142 [info] Review+0> Validate state in progress
+2024-12-02 21:34:44.142 [info] Review+0> Validating state...
+2024-12-02 21:34:44.142 [info] Found GitHub remote for folder /home/a7z1lu7h/d35kT0p/r3p0s/47z1Lu7h.github.io
+2024-12-02 21:34:44.584 [info] Trying to use globalState for assignableUsers.
+2024-12-02 21:34:44.585 [info] Review+0> Branch master is ignored in ignoredPullRequestBranches.
+2024-12-02 21:34:44.618 [info] Using globalState assignableUsers for 2.

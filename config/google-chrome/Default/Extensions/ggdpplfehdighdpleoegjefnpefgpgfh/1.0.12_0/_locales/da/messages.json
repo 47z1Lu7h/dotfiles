@@ -1,0 +1,166 @@
+{
+   "3pGroupAds": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Reklamer"
+   },
+   "3pGroupAnnoyances": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Irritationsmomenter"
+   },
+   "3pGroupDefault": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Standard"
+   },
+   "3pGroupMalware": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Malware-domæner"
+   },
+   "3pGroupMisc": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Diverse"
+   },
+   "3pGroupPrivacy": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Fortrolighed"
+   },
+   "3pGroupRegions": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Regioner, sprog"
+   },
+   "aboutChangelog": {
+      "description": "",
+      "message": "Ændringslog"
+   },
+   "aboutCode": {
+      "description": "English: Source code (GPLv3)",
+      "message": "Kildekode (GPLv3)"
+   },
+   "aboutContributors": {
+      "description": "English: Contributors",
+      "message": "Bidragsydere"
+   },
+   "aboutDependencies": {
+      "description": "Shown in the About pane",
+      "message": "Eksterne afhængigheder (GPLv3-kompatible):"
+   },
+   "aboutFilterLists": {
+      "description": "Link text to uBO's own filter lists repo",
+      "message": "Filterlister"
+   },
+   "aboutPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Om"
+   },
+   "aboutPrivacyPolicy": {
+      "description": "Link to privacy policy on GitHub (English)",
+      "message": "Fortrolighedspolitik"
+   },
+   "aboutSourceCode": {
+      "description": "Link text to source code repo",
+      "message": "Kildekode"
+   },
+   "aboutTranslations": {
+      "description": "Link text to translations repo",
+      "message": "Oversættelser"
+   },
+   "autoReloadLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "Automatisk sidegenindlæsning ved skift af filtreringstilstand"
+   },
+   "basicFilteringModeDescription": {
+      "description": "This describes the 'basic' filtering mode",
+      "message": "Basis netværksfiltrering ud fra valgte filterlister.\n\nTilladelse kræves ikke til at læse og ændre data på websteder."
+   },
+   "behaviorSectionLabel": {
+      "description": "The header text for the 'Behavior' section",
+      "message": "Adfærd"
+   },
+   "completeFilteringModeDescription": {
+      "description": "This describes the 'complete' filtering mode",
+      "message": "Avanceret netværksfiltrering plus specifik og generisk udvidet filtrering ud fra valgte filterlister.\n\nOmfattende tilladelse kræves for at læse og ændre data på alle websteder.\n\nGenerisk, udvidet filtrering kan medføre højere webside-ressourceforbrug."
+   },
+   "dashboardName": {
+      "description": "English: AdBlock Max — Dashboard",
+      "message": "AdBlock Max — Kontrolpanel"
+   },
+   "defaultFilteringModeDescription": {
+      "description": "This describes the default filtering mode setting",
+      "message": "Standardfiltreringstilstanden tilsidesættes af per-websted filtreringstilstande. Filtreringstilstanden kan justeres på ethvert givent websted iht., hvilken tilstand der fungere bedst på det givne websted. Hver tilstand har sine fordele og ulemper."
+   },
+   "defaultFilteringModeSectionLabel": {
+      "description": "The header text for the default filtering mode section",
+      "message": "Standardfiltreringstilstand"
+   },
+   "extName": {
+      "description": "extension name.",
+      "message": "AdBlock Max"
+   },
+   "extName666": {
+      "description": "extension name.",
+      "message": "AdBlock Max - annonceblokker"
+   },
+   "extShortDesc": {
+      "description": "this will be in the Chrome web store: must be 132 characters or less",
+      "message": "En tilladelsesløs indholdsblocker. Blokerer som standard annoncer, trackere, minere mv. straks efter installationen."
+   },
+   "filteringMode0Name": {
+      "description": "Name of blocking mode 0",
+      "message": "ingen filtrering"
+   },
+   "filteringMode1Name": {
+      "description": "Name of blocking mode 1",
+      "message": "basis"
+   },
+   "filteringMode2Name": {
+      "description": "Name of blocking mode 2",
+      "message": "optimal"
+   },
+   "filteringMode3Name": {
+      "description": "Name of blocking mode 3",
+      "message": "fuldstændig"
+   },
+   "firstRunDescription": {
+      "description": "Descriptive text shown at first install time only ",
+      "message": "Du har netop installeret AdBlock Max. Her kan den standardfiltreringstilstand vælges, der skal bruges på alle websteder.\n\nStandardvalget er \u003Cem>Basis\u003C/em>-tilstand, da den ikke kræver tilladelse til at læse og ændre data. Er AdBlock Max betroet, kan den udvidede tilladelse til at læse og ændre data på alle websteder tildeles for som standard at aktivere mere avancerede filtreringsfunktioner for alle websteder."
+   },
+   "firstRunSectionLabel": {
+      "description": "The header text for the welcome message section",
+      "message": "Velkommen"
+   },
+   "noFilteringModeDescription": {
+      "description": "A short description for the editable field which lists trusted sites",
+      "message": "Liste over værtsnavne, for hvilke ingen filtrering vil ske."
+   },
+   "optimalFilteringModeDescription": {
+      "description": "This describes the 'optimal' filtering mode",
+      "message": "Avanceret netværksfiltrering plus specifik udvidet filtrering ud fra valgte filterlister.\n\nOmfattende tilladelse kræves for at læse og ændre data på alle websteder."
+   },
+   "perRulesetStats": {
+      "description": "Appears aside each filter list in the _3rd-party filters_ pane",
+      "message": "{{ruleCount}} regler, konverteret fra {{filterCount}} netværksfiltre"
+   },
+   "popupFilteringModeLabel": {
+      "description": "Label in the popup panel for the current filtering mode",
+      "message": "filtreringstilstand"
+   },
+   "popupLessButton": {
+      "description": "Label to be used to hide popup panel sections",
+      "message": "Færre"
+   },
+   "popupMoreButton": {
+      "description": "Label to be used to show popup panel sections",
+      "message": "Flere"
+   },
+   "popupTipDashboard": {
+      "description": "English: Click to open the dashboard",
+      "message": "Åbn kontrolpanelet"
+   },
+   "settingsPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Indstillinger"
+   },
+   "showBlockedCountLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "Vis antallet af blokerede forespørgsler på værktøjsbjælkeikonet"
+   }
+}

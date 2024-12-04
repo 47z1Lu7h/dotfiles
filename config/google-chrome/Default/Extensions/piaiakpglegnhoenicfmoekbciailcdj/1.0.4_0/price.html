@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Price</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            color: #101010;
+        }
+
+        .price-card {
+            border: 1px solid #ccc;
+            min-width: 200px;
+            min-height: 300px;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .subscription-button {
+            padding: 6px 12px;
+            border-radius: 4px;
+            background-color: rgba(90, 150, 255, 1);
+            color: rgba(255, 255, 255, 1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .price-card.selected {
+            border-color: blue;
+        }
+
+        .icon {
+            font-size: 20px;
+            margin-right: 10px;
+            color: green;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            margin-top: 10px;
+            margin-bottom: 0;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            height: 100%
+        }
+
+        #price-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .t-co {
+            line-height: 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 1);
+            color: rgba(16, 16, 16, 1);
+            text-align: center;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+            min-height: 500px;
+            min-width: 800px;
+        }
+
+        .calltoaction-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 5px;
+            background-color: #f7941e;
+            color: white;
+            padding: 10px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .calltoaction-button:hover {
+            background-color: #fdad4a;
+        }
+
+        .calltoaction-button:active {
+            background-color: #b96f15;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <div class="t-co">
+                <div>
+                    <div style=" display: flex; padding-top: 10px">
+                        <img style="height: 24px;margin-left: 10px;" src="icons/logo.png" alt="logo">
+                        <div style="height: 32px;margin-left: 5px;font-size: 10px;font-weight: bold;color: #2596be;">
+                            BandLab Music Downloader</div>
+                    </div>
+                    <div style="font-size: 20px;font-weight: 600;padding: 10px">
+                        Upgrade now to unlock!
+                    </div>
+                </div>
+                <div id="price-cards-container">
+                </div>
+                <div style="display: flex; align-items: center;justify-content: center;">
+                    <div class="calltoaction-button" id="subscribe-btn">
+                        <span id="sub-pri">
+
+                        </span>
+                        <span>&nbsp; Subscribe Now</span>
+                    </div>
+                </div>
+                <div style="text-align: right;padding-right: 20px;">
+                    <span>
+                        Already purchased?
+                    </span>
+                    <span style="cursor: pointer;color: #2F54EB" id="sub-login">
+                        Sign in now
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="price.js"></script>
+</body>
+
+</html>

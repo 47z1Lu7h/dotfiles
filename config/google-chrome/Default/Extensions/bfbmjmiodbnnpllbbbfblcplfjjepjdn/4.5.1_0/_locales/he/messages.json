@@ -1,0 +1,1649 @@
+{
+   "about": {
+      "message": "אודות"
+   },
+   "activelayertoday": {
+      "message": "מספר הלחיצות היום"
+   },
+   "addbutton": {
+      "message": "הוסף"
+   },
+   "advancedoptions": {
+      "message": "אפשרויות מתקדמות"
+   },
+   "analyticsoption": {
+      "message": "ניתוח"
+   },
+   "areyouhappy": {
+      "message": "האם הינך מרוצה מ-Turn Off the Lights?"
+   },
+   "autostopbannerred": {
+      "message": "הצג דגל אדום"
+   },
+   "autostopbannertrans": {
+      "message": "הצג באנר שקוף"
+   },
+   "autostopblocked": {
+      "message": "חסומה על-ידי-Turn Off the Lights™ - www.turnoffthelights.com"
+   },
+   "autostopclickme": {
+      "message": "תלחץ עליי כדי לראות את סרטון HTML5 זה"
+   },
+   "autostopdetails": {
+      "message": "פרטים"
+   },
+   "autostopenabled": {
+      "message": "AutoStop מופעלת!"
+   },
+   "basicsettings": {
+      "message": "בסיס"
+   },
+   "bottom": {
+      "message": "תחתון"
+   },
+   "btnsharestats": {
+      "message": "שתף נתונים"
+   },
+   "cardavgprevweektime": {
+      "message": "שבוע קודם לכן סה כ זמן (בדקות)"
+   },
+   "cardtexsubscribe": {
+      "message": "הירשם כעת!"
+   },
+   "cardtextfavdayweek": {
+      "message": "היום האהוב עליי השבוע"
+   },
+   "cardtextyestime": {
+      "message": "אתמול סה כ זמן (בדקות)"
+   },
+   "changelog": {
+      "message": "לוג שינויים"
+   },
+   "charttitle30dayssaved": {
+      "message": "אנרגיה שנחסכה ב-30 הימים האחרונים"
+   },
+   "charttitleavgday": {
+      "message": "לוח זמנים יומי ממוצע (כשהאורות מכובים לעתים קרובות)"
+   },
+   "charttitlelayeractive": {
+      "message": "שכבה כהה פעילה (#)"
+   },
+   "charttitlelblenergysaved": {
+      "message": "סך כל האנרגיה השמורה"
+   },
+   "charttitlelblenergytotal": {
+      "message": "סך כל האנרגיה המשומשת"
+   },
+   "charttitlelblwebsiteused": {
+      "message": "אתרים השתמשו בזה ב-30 הימים האחרונים"
+   },
+   "charttitletotaltime": {
+      "message": "סך זמן פעילות השכבה הכהה (דקות)"
+   },
+   "deletebutton": {
+      "message": "למחוק"
+   },
+   "desactions": {
+      "message": "Actions"
+   },
+   "desaddvideobutton": {
+      "message": "הראה את לחצן השמירה לסרטון ה-YouTube הזה"
+   },
+   "desalllightsoff": {
+      "message": "לחיצה על לחצן המנורה יהיה למתג את האורות על כל הכרטיסיות הפתוחות"
+   },
+   "desambilight": {
+      "message": ". אראה לך את השפעת תאורת אווירה משחק הווידאו הנוכחי."
+   },
+   "desambilight4color": {
+      "message": "ארבעת הצבעים הנבחרים סביב הסרטון"
+   },
+   "desambilightfixcolor": {
+      "message": "צבע אחד בלבד"
+   },
+   "desambilightrangeblurradius": {
+      "message": "ערכים נמוכים יותר לחדד את הצל, ערכים גבוהים יותר יגרום להם יותר מטושטשת."
+   },
+   "desambilightrangespreadradius": {
+      "message": "ערכים חיוביים מגדילים את גודל הצל, ערכים שליליים מקטינים אותו."
+   },
+   "desambilightvarcolor": {
+      "message": "חלץ את הצבע מהסרטון"
+   },
+   "desapause": {
+      "message": "השהה"
+   },
+   "desapitext": {
+      "message": "ויקי API עבור מפתח האתר"
+   },
+   "desaplay": {
+      "message": "נגן"
+   },
+   "desastop": {
+      "message": "עצור"
+   },
+   "desatmosfpsauto": {
+      "message": "Synchronized as a best effort with the frame rate of the video playing on screen"
+   },
+   "desatmosfpsmanual": {
+      "message": "ידני"
+   },
+   "desatmosontotlmode": {
+      "message": "הצג את אפקט תאורה של האווירה רק כאשר TOtL מצב מופעל"
+   },
+   "desatmosphereonly": {
+      "message": "השתמש באפשרות תאורת האטמוספרה רק באתרי הווידאו הבאים:"
+   },
+   "desatmossolidcolor": {
+      "message": "לבחור שלך מוצק אחד זוהר אפקט צבע"
+   },
+   "desatmosvivid": {
+      "message": "אפקטי אטמוספרה בהירים"
+   },
+   "desauroraplayer": {
+      "message": "נגן התאורה האווירתית זמין גם בעבור מחשבך."
+   },
+   "desautodim": {
+      "message": "עמעם את הרקע באופן אוטומטי כאשר לוחצים על לחצן הניגון, ולהפך."
+   },
+   "desautodimdelay": {
+      "message": "Brighten the background again when the video has ended after"
+   },
+   "desautodimdelayend": {
+      "message": "שניות"
+   },
+   "desautodimonly": {
+      "message": "עמעום רק באתרי הסרטים הבאים:"
+   },
+   "desautostop": {
+      "message": "עצור את הווידאו באופן אוטומטי כשאני פותח דף אינטרנט"
+   },
+   "desautostopfeatureblack": {
+      "message": "מאפשר את האתרים להלן, אבל חוסם ניגון אוטומטי בכל אתר אחר."
+   },
+   "desautostopfeaturewhite": {
+      "message": "חוסם את האתרים הבאים, אבל מאפשר ניגון אוטומטי בכל אתר אחר."
+   },
+   "desautostoponly": {
+      "message": "הפעל הפסקת ניגון אוטומטי של סרטונים רק באתר(ים) הבא(ים):"
+   },
+   "desbadgeanalytics": {
+      "message": "הצג את התג עם מספר הלחיצות שעמעמת את דף האינטרנט"
+   },
+   "desbrowserextension": {
+      "message": "הרחבת דפדפן"
+   },
+   "desbrowsersupport": {
+      "message": "הדפדפן שלך אינו תומך בתכונה זו עדיין. ודא כי ברשותך הגירסה העדכנית ביותר של דפדפן מותקן במחשב שלך."
+   },
+   "desbrowsertheme": {
+      "message": "ערכת הנושא בדפדפן"
+   },
+   "desbuttonps": {
+      "message": "Button on PlayStation"
+   },
+   "desbuttonxb": {
+      "message": "Button on Xbox"
+   },
+   "descolorfixcolor": {
+      "message": "לבחור את צבע השכבה כהה"
+   },
+   "desconfirmpassword": {
+      "message": "אישור סיסמה"
+   },
+   "desconfirmtime": {
+      "message": "לאשר את מועד"
+   },
+   "desconfirmtimesaver": {
+      "message": "אישור זמן שומר המסך"
+   },
+   "descontextmenus": {
+      "message": "הצג תפריט כדי להתמקד על פריט."
+   },
+   "description": {
+      "message": "הדף כולן יחשיך, כך שתוכלו לצפות בסרטונים כאילו שאתם בקולנוע. עובד עבור YouTube™ ועוד."
+   },
+   "descriptionshort": {
+      "message": "הדף כולו יחשיך, כך שתוכלו לצפות בסרט כאילו שאתם בקולנוע."
+   },
+   "desdarkbrowsertheme": {
+      "message": "החלף לנושא דפדפן כהה"
+   },
+   "desdynamicblocks": {
+      "message": "בלוקים"
+   },
+   "desdynamiccloud": {
+      "message": "עננים מונפשות"
+   },
+   "desdynamicdotscolor": {
+      "message": "נקודות צבעוניות"
+   },
+   "desdynamicfishtank": {
+      "message": "אקווריום"
+   },
+   "desdynamicraindrops": {
+      "message": "טיפות גשם"
+   },
+   "desdynamicsmoke": {
+      "message": "עשן"
+   },
+   "desdynamicspace": {
+      "message": "מרחב היקום"
+   },
+   "desdynamicstars": {
+      "message": "כוכבים"
+   },
+   "desdynamicstorm": {
+      "message": "סערה"
+   },
+   "desdynamictriangulation": {
+      "message": "טריאנגולציה"
+   },
+   "deseastereggs": {
+      "message": "הקשה על מקש T מוסיפה וילון תיאטרון השכבה כהה"
+   },
+   "desenterpassword": {
+      "message": "הזן את הסיסמה בתיבה שלהלן:"
+   },
+   "deseyea": {
+      "message": "עמעם את הרקע אוטומטית כאשר נפתח דף"
+   },
+   "deseyealist": {
+      "message": "באופן אוטומטי לעמעם את הרקע על האתר הבא:"
+   },
+   "deseyen": {
+      "message": "שימוש רגיל (האורות נכבים כאשר לוחצים על סמל הנורה)"
+   },
+   "deseyetimesaver": {
+      "message": "כאשר דף אינו פעיל (קלט ללא עכבר או לוח מקשים) בפעם המפורטים להלן, באופן אוטומטי זה כהה."
+   },
+   "desfadein": {
+      "message": "הראה את אפקט העמעום"
+   },
+   "desfadeout": {
+      "message": "הצג את אפקט הדהייה"
+   },
+   "desflash": {
+      "message": "הצג את כל אובייקטי המולטימדיה"
+   },
+   "desgamepad": {
+      "message": "Control the multimedia with your game controller"
+   },
+   "desgamepaddirdown": {
+      "message": "Directional Down"
+   },
+   "desgamepaddirleft": {
+      "message": "Directional Left"
+   },
+   "desgamepaddirright": {
+      "message": "Directional Right"
+   },
+   "desgamepaddirup": {
+      "message": "Directional Up"
+   },
+   "desgamepadleftstickpress": {
+      "message": "Left Stick Pressed"
+   },
+   "desgamepadonly": {
+      "message": "Activate the Game Controller only on the following site(s):"
+   },
+   "desgamepadoptions": {
+      "message": "אפשרויות"
+   },
+   "desgamepadpslogo": {
+      "message": "PlayStation Logo"
+   },
+   "desgamepadrightstickpress": {
+      "message": "Right Stick Pressed"
+   },
+   "desgamepadshare": {
+      "message": "שתף"
+   },
+   "desgamepadshowaddress": {
+      "message": "Show Address Bar"
+   },
+   "desgamepadshowmenu": {
+      "message": "הצגת תפריט"
+   },
+   "desgamepadsquare": {
+      "message": "ריבוע"
+   },
+   "desgamepadtriangle": {
+      "message": "משולש"
+   },
+   "desgamepadxboxlogo": {
+      "message": "Xbox Logo"
+   },
+   "desgpbuttonbackwardbig": {
+      "message": "play back 3 seconds"
+   },
+   "desgpbuttonbackwardsmall": {
+      "message": "play back 1 second"
+   },
+   "desgpbuttondirdown": {
+      "message": "Move the view down"
+   },
+   "desgpbuttondirleft": {
+      "message": "Move the view left"
+   },
+   "desgpbuttondirreset": {
+      "message": "Reset the zoom view"
+   },
+   "desgpbuttondirright": {
+      "message": "Move the view right"
+   },
+   "desgpbuttondirup": {
+      "message": "Move the view up"
+   },
+   "desgpbuttonforwardbig": {
+      "message": "play forward 3 seconds"
+   },
+   "desgpbuttonforwardsmall": {
+      "message": "play forward 1 second"
+   },
+   "desgpbuttonhome": {
+      "message": "Gamepad video test page"
+   },
+   "desgpbuttonnextvideo": {
+      "message": "Play next YouTube video"
+   },
+   "desgpbuttonplaypause": {
+      "message": "Play/Pause the current video"
+   },
+   "desgpbuttonprevvideo": {
+      "message": "Play previous YouTube video"
+   },
+   "desgpbuttonshare": {
+      "message": "Exit Zoom Edit"
+   },
+   "desgpbuttonvolumedecrease": {
+      "message": "הנמך עוצמה"
+   },
+   "desgpbuttonvolumeincrease": {
+      "message": "הגבר עוצמה"
+   },
+   "desgpbuttonzoominout": {
+      "message": "Zoom in or out"
+   },
+   "desgpbuttonzoompos": {
+      "message": "Zoom position"
+   },
+   "deshardflash": {
+      "message": "Show all multimedia objects, skipping the URL filter. This will fix problems with some video players being hidden, but will also display ads."
+   },
+   "deshead": {
+      "message": "הצג את סרגל הערוצים או השם באתר יוטיוב"
+   },
+   "deshovervideo": {
+      "message": "העבר את העכבר שלך מעל רכיב הוידאו לכמה שניות, לאחריהן דף האינטרנט מתעמעם אוטומטית"
+   },
+   "desinfobar": {
+      "message": "הצג את תאור הסרטון"
+   },
+   "desintroduce": {
+      "message": "כל התכונות שאתה רגיל, עם מותג חדש מראה ותחושה, ואני אישית אליך."
+   },
+   "deslampandnightmode": {
+      "message": "הפעל את אפשרות 'מצב לילה' בלחיצה על כפתור המנורה האפור"
+   },
+   "desleftstick": {
+      "message": "Left stick"
+   },
+   "deslikebar": {
+      "message": "הצגת סרגל ה-אהבתי/לא אהבתי מתחת לסרטוני YouTube."
+   },
+   "deslikebutton": {
+      "message": "הצג את סרגל ה'לייק' / 'דיסלייק' בסרטון הזה"
+   },
+   "desmobileapp": {
+      "message": "Turn Off the Lights זמין גם עבור המכשיר הנייד שלך."
+   },
+   "desmousespotlighta": {
+      "message": "אם האורות כבויים, להציג זרקור סביב סמן העכבר."
+   },
+   "desmousespotlightc": {
+      "message": "אם האור כבוי, ניתן לבחור אזור להתמקדות על פריט."
+   },
+   "desmousespotlighto": {
+      "message": "שימוש רגיל (מנטרל את הגדרות העכבר למטה)"
+   },
+   "desmousespotlights": {
+      "message": "אפשר/י את בהירות המסך, עם אפשרות הלחיצה על הקישורים החיצוניים"
+   },
+   "desmousespotlightt": {
+      "message": "אפשר לחיצה על קישורים כשהמסך מוחשך"
+   },
+   "desmultiopacitynormal": {
+      "message": "כל אתרי האינטרנט יש אותו ערך אטימות"
+   },
+   "desmultiopacitynot": {
+      "message": "If a website is not in the list, the default opacity value will apply."
+   },
+   "desmultiopacitysel": {
+      "message": "The below websites have the selected opacities"
+   },
+   "desnightactivetime": {
+      "message": "המתג יהיה גלוי בין הזמנים הבאים:"
+   },
+   "desnightenabletheme": {
+      "message": "כאשר אתה פותח דף חדש זה הולך אוטומטית מצב לילה."
+   },
+   "desnighthover": {
+      "message": "מציג מתג שקוף בדף האינטרנט"
+   },
+   "desnightmodegesture": {
+      "message": "Make the page go dark or light by long-pressing the current web page"
+   },
+   "desnightmodeimage": {
+      "message": "Dim images"
+   },
+   "desnightmodeimagedarken": {
+      "message": "Darkened"
+   },
+   "desnightmodeimagegrayscale": {
+      "message": "Grayscaled"
+   },
+   "desnightmodeos": {
+      "message": "Automatically switch the current web page to Night Mode if the OS appearance is set to Dark"
+   },
+   "desnightmodeswitchhide": {
+      "message": "Automatically hide the night switch after your chosen seconds"
+   },
+   "desnightonly": {
+      "message": "הצג מצב לילה רק את האתר הבא:"
+   },
+   "desnightowl": {
+      "message": "לחיצה אחת ממירה את העמוד ישירות לתוך נושא בלילה עם היפר-קישור לחיץ. לחץ עליו שוב כדי לחזור לתצוגה רגילה. לחץ על לחצן המנורה שוב כדי לבטל תכונה זו."
+   },
+   "desnighttheme": {
+      "message": "הצג לחצן בורר בלילה מתחת לדף האינטרנט כדי להפוך את העמוד כהים או בהירים."
+   },
+   "desnmautoclock": {
+      "message": "Activate between the following hours:"
+   },
+   "desnoflash": {
+      "message": "לא להשתמש בתכונה זו"
+   },
+   "despassword": {
+      "message": "דרוש סיסמה כדי להזין לפני הפעלת את האורות בחזרה."
+   },
+   "despasswordhide": {
+      "message": "Hide password"
+   },
+   "despasswordshow": {
+      "message": "הצג סיסמה"
+   },
+   "despermissiontab": {
+      "message": "Remove the tab permission"
+   },
+   "despip": {
+      "message": "The Picture-in-Picture allows you to create a floating video window that is always on top of other windows."
+   },
+   "desplaylist": {
+      "message": "הצג את רשימת ההשמעה של יוטיוב באתר יוטיוב"
+   },
+   "desplayrate": {
+      "message": "מהירות ניגון ברירת מחדל"
+   },
+   "desproject": {
+      "message": "פרוייקט"
+   },
+   "desratebad": {
+      "message": "Sorry you have had this bad experience. Please let us know on how we can improve our extension for you."
+   },
+   "desratebadaction": {
+      "message": "Yes, I will give feedback"
+   },
+   "desratebadtitle": {
+      "message": "How can we make it better?"
+   },
+   "desrategood": {
+      "message": "Happy to hear that you love Turn Off the Lights! Will you take a moment to rate us in the browser extension store? Your browser extension store reviews make a difference!"
+   },
+   "desrategoodaction": {
+      "message": "כתוב/י ביקורת"
+   },
+   "desrategoodtitle": {
+      "message": "Thank you!"
+   },
+   "desratenothanks": {
+      "message": "לא, תודה"
+   },
+   "desratenotnowthanks": {
+      "message": "לא עכשיו, תודה"
+   },
+   "desratetitle": {
+      "message": "Do you love this browser extension?"
+   },
+   "desreadera": {
+      "message": "הצג תמיד את סרגל העמימות כאשר האורות כבים."
+   },
+   "desreadern": {
+      "message": "לעולם אל תציג את סרגל העמימות."
+   },
+   "desreflection": {
+      "message": "הצג אפקט השתקפות בכל הסרטונים"
+   },
+   "desregularuser": {
+      "message": "זה ברירת המחדל וההגדרה הרגילה עבור משתמשים חדשים. בעת לחיצה על לחצן אפור המנורה, סגנון זה יחול על דף האינטרנט הנוכחי."
+   },
+   "desrememberpage": {
+      "message": "אל תציג דף תזכורת"
+   },
+   "desremfacebook": {
+      "message": "המלץ בפייסבוק"
+   },
+   "desremrate": {
+      "message": "אם אתה אוהב Turn Off the Lights™, אנא אל תהססו כדי לדרג את הרחבה זו ועד חמישה כוכבים עכשיו. זה נותן לנו האומץ להמשיך לתחזק ולשפר את המוצר הזה בשבילך. כתיבת ביקורת מומלץ, אבל לא חובה. אם אין לך את הזמן כדי לכתוב ביקורת, באפשרותך לדרג זה בעילום שם. חשוב לתת לזה ★★★★★. תודה!"
+   },
+   "desremyoutube": {
+      "message": "הירשם כמנוי ביוטיוב"
+   },
+   "desrightstick": {
+      "message": "Right stick"
+   },
+   "dessaver": {
+      "message": "שומר מסך:"
+   },
+   "desscreenprotection": {
+      "message": "לחיצה אחת גוונים שהדף צבע כתום מרגיע כדי להקטין את מאמץ בעיניים את כל הכרטיסיות הפתוחות. לחץ על לחצן המנורה שוב כדי לבטל תכונה זו."
+   },
+   "desscrolltip": {
+      "message": "You can scroll inside the top navigation bar and the color bars. When you scroll horizontally, you can see more buttons in this bar."
+   },
+   "dessharebutton": {
+      "message": "הצג את לחצן השיתוף של יוטיוב עבור הסרטון הזה"
+   },
+   "desshortcutlight": {
+      "message": "אפשור מקשי קיצור מקלדת שלהלן."
+   },
+   "dessitewhitelist": {
+      "message": "Whitelist this site?"
+   },
+   "desspeedtoolbar": {
+      "message": "להציג את סרגל הכלים של השמעה בנגן וידאו הנוכחי"
+   },
+   "desspotlightradius": {
+      "message": "קוטר הספוטלייט:"
+   },
+   "desstickplaystation": {
+      "message": "Joystick on PlayStation"
+   },
+   "desstickxbox": {
+      "message": "Joystick on Xbox"
+   },
+   "dessuggestions": {
+      "message": "הצג הצעות מאתר YouTube."
+   },
+   "destapstar": {
+      "message": "Tap a star to rate it on the browser extension store."
+   },
+   "destime": {
+      "message": "האורות בזמנים הבאים:"
+   },
+   "destrymotion": {
+      "message": "זה פשוט נהדר, הכי טוב מכל הוא שזה עובד בכל מקום. אפילו ב- YouTube, אתר חדשות, וכו '."
+   },
+   "destrythiswebsite": {
+      "message": "Try this web page"
+   },
+   "desuntil": {
+      "message": "עד ש"
+   },
+   "desvideoheadline": {
+      "message": "הצג והפוך את צבע כותרת הסרטון"
+   },
+   "desvideotool": {
+      "message": "הצגת סרגל הכלים מתחת למסך להתאמה אישית של נגן הווידאו הנוכחי"
+   },
+   "desvideotoolcolor": {
+      "message": "צבע סרגל הכלים"
+   },
+   "desvideotoolonly": {
+      "message": "הפעל את סרגל הכלים של הסרטונים רק באתר(ים) הבא(ים):"
+   },
+   "desvideovolumalt": {
+      "message": "רק אם כפתור Alt לחוץ"
+   },
+   "desvideovolume": {
+      "message": "שלוט בעוצמת הקול של הנגן הנוכחי באמצעות הגלגלת בעכבר"
+   },
+   "desvideovolumecolor": {
+      "message": "צבע הבורר"
+   },
+   "desvideovolumeonly": {
+      "message": "Activate the Mouse Volume Scroll only on the following site(s):"
+   },
+   "desvideovolumhold": {
+      "message": "לחץ קליק שמאלי או ימיני על העכבר והזז את העכבר כדי לשנות את עוצמת הקול"
+   },
+   "desvideozoom": {
+      "message": "להגדיל או להקטין על תוכן וידאו באמצעות לחצן הזום"
+   },
+   "desviewcount": {
+      "message": "הצג את מספר התצוגה עבור וידאו זה."
+   },
+   "desvisopacity": {
+      "message": "האטימות של הרקע ויזואליזציה שמע"
+   },
+   "desvolumelabel": {
+      "message": "הצגת בורר העוצמה (גודל השנתות)"
+   },
+   "desvolumeposa": {
+      "message": "הצג את מד עוצמת הקול במרכז של נגן וידאו הנוכחי"
+   },
+   "desvolumeposb": {
+      "message": "הצג את מד עוצמת הקול במרכז של נגן וידאו הנוכחי"
+   },
+   "desvolumeposc": {
+      "message": "הצג את מד עוצמת הקול במרכז של נגן וידאו הנוכחי"
+   },
+   "desvolumeposd": {
+      "message": "Show the volume meter on top left of the current video player"
+   },
+   "desvolumepose": {
+      "message": "Show the volume meter on top right of the current video player"
+   },
+   "desvolumescrolla": {
+      "message": "Automatically adjust the scroll direction depending on the current operating system"
+   },
+   "desvolumescrollb": {
+      "message": "Scrolling up increases the volume"
+   },
+   "desvolumescrollc": {
+      "message": "Scrolling down increases the volume"
+   },
+   "desvolumesteps": {
+      "message": "מספר הצעדים נפח (ב %) עבור כל דרגה גלגל גלילה"
+   },
+   "desyoutube": {
+      "message": "Uncover the power of the Turn Off the Lights browser extension. Watch it now on YouTube."
+   },
+   "donatepromotext": {
+      "message": "אם תוכלו לתרום, סכום כלשהו, אעריך זאת מאד!"
+   },
+   "downloadtheapp": {
+      "message": "הורד את היישום כעת"
+   },
+   "eastereggsquestion": {
+      "message": "אתה אוהב קולנוע אמיתי?"
+   },
+   "ecoblowdrying": {
+      "message": "השיער שלך ל-10 דקות משתמשת"
+   },
+   "ecobrewsomecoffee": {
+      "message": "להכין קפה, מתבשל אחד כוס קפה"
+   },
+   "ecochargeiphone": {
+      "message": "הטען את האייפון"
+   },
+   "ecochargelaptop": {
+      "message": "לחייב את המחשב הנייד שלך"
+   },
+   "ecochargeteslacar": {
+      "message": "לחייב את מכוניתכם טסלה 20 מייל"
+   },
+   "ecochargeteslacarhundred": {
+      "message": "לחייב את הרכב החשמלי של טסלה ל- 100%"
+   },
+   "ecochargeteslathreetimes": {
+      "message": "לחייב את הרכב החשמלי של טסלה ל- 100%"
+   },
+   "ecoeiffeltoweryear": {
+      "message": "כדי להאיר את מגדל אייפל עבור יום אחד"
+   },
+   "ecoheatingtenshower": {
+      "message": "חימום מים למקלחת 10 דקות"
+   },
+   "ecokeepfridgeday": {
+      "message": "השאר את המקרר פועל ליום"
+   },
+   "ecokeeplightonforsix": {
+      "message": "להשגיח על למשך 6 שעות"
+   },
+   "ecolayear": {
+      "message": "כוח ללוס אנג'לס 1 שנה"
+   },
+   "ecoloadlaundry": {
+      "message": "אחד הכביסות במייבש"
+   },
+   "econothingthisyear": {
+      "message": "שום דבר השנה. ישים את האורות כדי לחסוך באנרגיה"
+   },
+   "ecoplanetearth": {
+      "message": "מוכן להציל את כדור הארץ"
+   },
+   "ecoplayingxbox": {
+      "message": "משחק Xbox 360 משך שעה אחת"
+   },
+   "ecopowerbaseballgame": {
+      "message": "חשמל 1 ג'מבו עבור משחק בייסבול"
+   },
+   "ecopowercamonth": {
+      "message": "מספיק אנרגיה חשמלית במשך חודש בקליפורניה"
+   },
+   "ecopowereiffeltower": {
+      "message": "כדי להאיר את מגדל אייפל עבור יום אחד"
+   },
+   "ecopowereurostar": {
+      "message": "טיול יורוסטאר מבריסל ללונדון"
+   },
+   "ecopowereurostarparis": {
+      "message": "טיול יורוסטאר מבריסל ללונדון"
+   },
+   "ecopowerhawaiimonth": {
+      "message": "מספיק אנרגיה חשמלית במשך חודש בהוואי"
+   },
+   "ecopowernwymonth": {
+      "message": "מספיק אנרגיה חשמלית במשך חודש בניו-יורק"
+   },
+   "ecorunningdishwasher": {
+      "message": "הפעלת למדיח שלך במצב חוסך אנרגיה ישתמש"
+   },
+   "ecosfoyear": {
+      "message": "כוח לסן פרנסיסקו 1 שנה"
+   },
+   "ecothirtyminutes": {
+      "message": "30 דקות של אור הציל"
+   },
+   "ecotoastermaking": {
+      "message": "טוסטר עושה שתי כיכרות טוסט"
+   },
+   "ecotwentyfourghome": {
+      "message": "מספיק להפעלת הבית של Google במשך 24 שעות ביממה"
+   },
+   "ecovacuumingfor": {
+      "message": "שואב אבק במשך 15 דקות"
+   },
+   "ecowashingclothes": {
+      "message": "מכבסת את הבגדים שלך במחזור קר-שטיפה משתמשת"
+   },
+   "ecowatchtvfortwo": {
+      "message": "צפה בטלוויזיה למשך שעתיים"
+   },
+   "ecowififoraday": {
+      "message": "Wi-Fi ליום אחד"
+   },
+   "enjoyshare": {
+      "message": "ליהנות הרחבה זו ולשתף אותו עם אחרים, מי אתה חושב יעריך את זה."
+   },
+   "eyedivoff": {
+      "message": "מכובה"
+   },
+   "eyedivon": {
+      "message": "אן"
+   },
+   "flashembedobject": {
+      "message": "תומך ב: \u003Cobject>, \u003Cembed>, \u003Capplet>, \u003Ciframe>."
+   },
+   "friday": {
+      "message": "יום שישי"
+   },
+   "friendlyremember": {
+      "message": "תזכורת ידידותית..."
+   },
+   "functionactive": {
+      "message": "פונקציה זו מופעל בעת לחיצה על לשונית, או בעת רענון של דף האינטרנט. עם זאת, פונקציה זו מפסיק באופן אוטומטי לאחר 15 שניות."
+   },
+   "gamecontrollerstep1description": {
+      "message": "Connect your Game Controller to your device via USB or Bluetooth."
+   },
+   "gamecontrollerstep2description": {
+      "message": "Enable the Game Controller feature."
+   },
+   "gamecontrollerstep3description": {
+      "message": "Open any web page, and press any button to activate the Game Controller."
+   },
+   "gamecontrollerstep4description": {
+      "message": "Now the Game Controller is active on the current web page."
+   },
+   "gamepadoption": {
+      "message": "Game Controller"
+   },
+   "guide": {
+      "message": ". ברוך הבא TOtL מדריך"
+   },
+   "handytip": {
+      "message": "Handy Tip..."
+   },
+   "help": {
+      "message": "עזרה"
+   },
+   "helpautodim": {
+      "message": "The 'Eye protection' mode is enabled and needs to be disabled first to use the below feature."
+   },
+   "helpeyeprotection": {
+      "message": "הפעלת 'הגנה העין' מבטלות באופן אוטומטי את התכונה 'הפעלה אוטומטית'."
+   },
+   "hoveroptionapply": {
+      "message": "החל"
+   },
+   "hoveroptiondyn5": {
+      "message": "עם מטוסים"
+   },
+   "howworkmotion": {
+      "message": "איך זה עובד?"
+   },
+   "html5andyoutube": {
+      "message": "סרטון HTML5 ו-™YouTube"
+   },
+   "installadblocker": {
+      "message": "אם אתה לא רוצה לראות את המודעות, השתמש הרחבה adblocker."
+   },
+   "lastchecked": {
+      "message": "בדוק עדכוני גרסה בשעה"
+   },
+   "left": {
+      "message": "שמאל"
+   },
+   "lockentername": {
+      "message": "אנא הכנס את סיסמתך."
+   },
+   "lockwrongpassword": {
+      "message": "טעות בסיסמא, אנא הכנס שנית."
+   },
+   "longdonatetext": {
+      "message": ". אני באמת אעריך אם תוכל לתרום לי לשמור על הרחבה זו דפדפן בחיים עבור משתמשים חדשים אחרים. בין אם זה $$ 1 או $100 דולר, מוערכת לאין שיעור התמיכה שלך!"
+   },
+   "monday": {
+      "message": "יום שני"
+   },
+   "name": {
+      "message": "לכבות את האורות"
+   },
+   "nightoptions": {
+      "message": "מצב לילה"
+   },
+   "nightstep1description": {
+      "message": "הפעל את אפשרות מצב הלילה"
+   },
+   "nightstep2description": {
+      "message": "פתח כל עמוד באתר, ואתה תראה את ההחלפה ללילה"
+   },
+   "nightstep3description": {
+      "message": "לחץ על המתג בשביל לראות את העמוד בנושא כהה"
+   },
+   "nmbottomleft": {
+      "message": "למטה משמאל"
+   },
+   "nmbottomright": {
+      "message": "למטה מימין"
+   },
+   "nmcustom": {
+      "message": "מותאם אישית (לחץ, החזק והעבר את המתג למיקום הרצוי במסך)"
+   },
+   "nmtopleft": {
+      "message": "למעלה משמאל"
+   },
+   "nmtopright": {
+      "message": "למעלה מימין"
+   },
+   "nothanks": {
+      "message": "לא, תודה"
+   },
+   "omnidaymode": {
+      "message": "מצב יום"
+   },
+   "omnihelp": {
+      "message": "עזרה"
+   },
+   "omnilightoff": {
+      "message": "אור כבוי"
+   },
+   "omnilighton": {
+      "message": "אור דלוק"
+   },
+   "omninightmode": {
+      "message": "מצב לילה"
+   },
+   "optionecosaversaved": {
+      "message": "שניות נשמר בהצלחה!"
+   },
+   "optionpagetitle": {
+      "message": "Turn Off the Lights - אפשרויות"
+   },
+   "optionpasswordsaved": {
+      "message": "הסיסמה נשמרה בהצלחה!"
+   },
+   "optionprofilesaved": {
+      "message": "פעולה מנורה חדשה נשמר בהצלחה!"
+   },
+   "optiontimesaved": {
+      "message": "הזמן נשמר בהצלחה!"
+   },
+   "optionwrongimg": {
+      "message": "קובץ התמונה לא חוקי!"
+   },
+   "pageatitle": {
+      "message": "לכבות את האורות"
+   },
+   "pagehelp": {
+      "message": "עזרה"
+   },
+   "pagestillloading": {
+      "message": "הדף עדיין עולה?"
+   },
+   "pagetitle": {
+      "message": "הכהה את הדף הנוכחי"
+   },
+   "permissionactivetab": {
+      "message": "This will only dim the web page on the currently open tab page."
+   },
+   "permissionalarms": {
+      "message": "This is to schedule code execution, either periodically or at a specific time in the future."
+   },
+   "permissionallurl": {
+      "message": "This is to control the lamp button on all websites that include http, https, file, and ftp."
+   },
+   "permissioncontextmenu": {
+      "message": "This is to add the \"Darken this page\" menu item in the web browser context menu."
+   },
+   "permissionoption": {
+      "message": "Permission must be enabled to use this feature."
+   },
+   "permissionrequired": {
+      "message": "Current Active Permissions"
+   },
+   "permissionscripting": {
+      "message": "This is to inject JavaScript and CSS code into websites."
+   },
+   "permissionstorage": {
+      "message": "This is to save the settings on your local computer, and to sync it to your web browser account."
+   },
+   "permissiontabs": {
+      "message": "This is needed for the following features: to show you the welcome and guide page, detect the current playing HTML5 video, take a screenshot of the HTML5 video, and to open the Options page."
+   },
+   "permissiontheme": {
+      "message": "This is to change the web browser user interface in a dark or light theme."
+   },
+   "permissionwebnav": {
+      "message": "This is to add the Night Mode immediately before the web page loads."
+   },
+   "productshare": {
+      "message": "שתף"
+   },
+   "promotitle": {
+      "message": "העצה היומית"
+   },
+   "ratedes": {
+      "message": "בבקשה דרג ובקר את הסיומת בחנות. התמיכה שלך מוערכת מאוד."
+   },
+   "rateitema": {
+      "message": "דרג 5 כוכבים"
+   },
+   "ratetitle": {
+      "message": "תודה שהשתמשתם ב\"כבה את האורות\""
+   },
+   "rectext": {
+      "message": "מומלץ"
+   },
+   "rememberrate": {
+      "message": "קצב"
+   },
+   "reportbug": {
+      "message": "דווח על בעיה"
+   },
+   "reportlist": {
+      "message": "(ראה רשימה)"
+   },
+   "resetbrowserextension": {
+      "message": "אפס את הגדרות לכבות את האורות"
+   },
+   "resetlampanalytic": {
+      "message": "אפס את נתוני ניתוח Turn Off the Lights"
+   },
+   "right": {
+      "message": "ימין"
+   },
+   "saturday": {
+      "message": "יום שבת"
+   },
+   "scoregame": {
+      "message": "My amazing high score $scorevalue$ on the HIDDEN easter egg game in the Turn Off the Lights Browser extension. Try it yourself!",
+      "placeholders": {
+         "scorevalue": {
+            "content": "$1",
+            "example": "123"
+         }
+      }
+   },
+   "searchplaceholder": {
+      "message": "חפש"
+   },
+   "settings": {
+      "message": "הגדרות"
+   },
+   "shareanalyticenergy": {
+      "message": "I saved $energyvalue$ kWh thanks to Turn Off the Lights",
+      "placeholders": {
+         "energyvalue": {
+            "content": "$1",
+            "example": "123"
+         }
+      }
+   },
+   "shareanalyticenergyWh": {
+      "message": "חסכתי $energyvalue$ וואט-שעות הודות לכיבוי אורות",
+      "placeholders": {
+         "energyvalue": {
+            "content": "$1",
+            "example": "123"
+         }
+      }
+   },
+   "shareanalyticlove": {
+      "message": "The website I most love is $websiteurl$ with Turn Off the Lights",
+      "placeholders": {
+         "websiteurl": {
+            "content": "$1",
+            "example": "123"
+         }
+      }
+   },
+   "sharemenudonatetitle": {
+      "message": "תרומה כספית"
+   },
+   "sharemenupostonfacebook": {
+      "message": "פרסמו בפייסבוק"
+   },
+   "sharemenupostonqq": {
+      "message": "Post on QQ"
+   },
+   "sharemenupostonvkontakte": {
+      "message": "Post on Vkontakte"
+   },
+   "sharemenupostonweibo": {
+      "message": "Post on Weibo"
+   },
+   "sharemenupostonwhatsapp": {
+      "message": "Post on WhatsApp"
+   },
+   "sharemenuratetitle": {
+      "message": "דירוג הרחבה זו"
+   },
+   "sharemenusharetitle": {
+      "message": "שתפו את זה"
+   },
+   "sharemenutellafriend": {
+      "message": "ספרו לחבר"
+   },
+   "sharemenuwelcomeguidetitle": {
+      "message": ". ברוך הבא מדריך"
+   },
+   "sharetexta": {
+      "message": "השג את תוסף הדפדפן Turn Off the Lights המגניב הזה"
+   },
+   "sharetextb": {
+      "message": "היי, זה מדהים. ניסיתי היום את תוסף הדפדפן Turn Off the Lights "
+   },
+   "sharetextc": {
+      "message": "תוסף הדפדפן הטוב ביותר והמדהים Turn Off the Lights"
+   },
+   "sharetextd": {
+      "message": "Turn Off the Lights' browser extension is the Best Tool for YouTube and beyond. Download it now and try it yourself!"
+   },
+   "shortcutalllights": {
+      "message": "להחליף בין מצב חשוך ומואר בכל הכרטיסיות הפתוחות"
+   },
+   "shortcutbright": {
+      "message": "להבהרת המסך (הפחתת אטימות)"
+   },
+   "shortcutdark": {
+      "message": "להכההת המסך (הגברת טטימות)"
+   },
+   "shortcuteyeprotection": {
+      "message": "כדי להפעיל/לכבות את אפשרות הגנת העין"
+   },
+   "shortcutopacity": {
+      "message": "כדי לשחזר את הגדרת החושך (אטימות) הגדרת"
+   },
+   "shortcutsavingopacity": {
+      "message": "כדי לשמור את ערך אטימות"
+   },
+   "shortcuttotl": {
+      "message": "כדי להחליף את הנורות למצב פעיל/כבוי"
+   },
+   "showremember": {
+      "message": "אל תציג את דף תזכורת זה שוב כאשר אני פותח את האפשרויות"
+   },
+   "skipremember": {
+      "message": "לדלג על זה, פתח את דף אפשרויות עכשיו"
+   },
+   "sunday": {
+      "message": "יום ראשון"
+   },
+   "tellothers": {
+      "message": "הבטח כי דעתך תשמע"
+   },
+   "textfoot": {
+      "message": "התוכנה הזו פועלת תחת רשיון - CC-GNU GPL. בכדי לראות את עותק הרשיון, ראו את"
+   },
+   "thursday": {
+      "message": "יום חמישי"
+   },
+   "titel360youtube": {
+      "message": "מציג את מלוא סרטון 360 המעלות של YouTube בפריים אחד"
+   },
+   "titeladdvideobutton": {
+      "message": "כפתור שמירה"
+   },
+   "titelalllightsoff": {
+      "message": "כל הכרטיסיות הפתוחות"
+   },
+   "titelambilight": {
+      "message": "תאורת אווירה"
+   },
+   "titelapideveloper": {
+      "message": "מפתח API"
+   },
+   "titelautodim": {
+      "message": "עמעום עצמוני"
+   },
+   "titelautostop": {
+      "message": "עצירה אוטומטית"
+   },
+   "titelautowidthyoutube": {
+      "message": "להגדיר באופן אוטומטי את השחקן YouTube לגודל גדול יותר."
+   },
+   "titelblacklist": {
+      "message": "רשימה שחורה"
+   },
+   "titelblock60fps": {
+      "message": "חסום 60fps"
+   },
+   "titelblur": {
+      "message": "לטשטש את השאר"
+   },
+   "titelblurradius": {
+      "message": "רדיוס טשטוש:"
+   },
+   "titelcinemaontop": {
+      "message": "מצב סרט קולנוע: מציג את שכבת ה-'כיבוי אורות' רק בחלק העליון של החלון"
+   },
+   "titelcolor": {
+      "message": "צבע"
+   },
+   "titelcolora": {
+      "message": "צבע א':"
+   },
+   "titelcolorb": {
+      "message": "צבע ב':"
+   },
+   "titelcontextmenus": {
+      "message": "תפריט הקשר"
+   },
+   "titeldeveloper": {
+      "message": "מפתח"
+   },
+   "titeldoesntwork": {
+      "message": "Turn Off the Lights does not work on this web page. Please try another page."
+   },
+   "titeldownloadbutton": {
+      "message": "להוריד את השדרוג!"
+   },
+   "titeldownloadthemeupgrade": {
+      "message": "הוסף נושא כהה לדפדפן כדי להתלבש עליו. הנושא מופיע סביב הגבול של הדפדפן."
+   },
+   "titeldownloadupgrade": {
+      "message": "השדרוג מוסיף תמיכה עבור התמקדות לתמונות הנבחרות, ויציג גלריה של תמונות באתר."
+   },
+   "titeldownloadupgradefinancetoolbar": {
+      "message": "זה מציג לך את פרטי הבורסה בזמן אמת."
+   },
+   "titeldownloadupgradepropermenubar": {
+      "message": "מוסיף בחזרה את שורת התפריט השחורה באתר האינטרנט של גוגל."
+   },
+   "titeldownloadupgradezoom": {
+      "message": "זום פנימה או החוצה על תוכן אינטרנט באמצעות לחצן זום, לקריאה נוחה יותר."
+   },
+   "titeldynamic": {
+      "message": "רקע דינאמי"
+   },
+   "titeleastereggs": {
+      "message": "ביצי פסחא"
+   },
+   "titeleye": {
+      "message": "הגנה לעיניים"
+   },
+   "titelfadein": {
+      "message": "עמעם פנימה"
+   },
+   "titelfadeout": {
+      "message": "לדהות"
+   },
+   "titelgpconnect": {
+      "message": "מחובר"
+   },
+   "titelgpdisconnect": {
+      "message": "מנותק"
+   },
+   "titelhead": {
+      "message": "ערוץ"
+   },
+   "titelhovervideo": {
+      "message": "וידאו צף"
+   },
+   "titelimage": {
+      "message": "תמונת רקע"
+   },
+   "titelinfobar": {
+      "message": "סרגל המידע"
+   },
+   "titelintroduce": {
+      "message": "היכרות עם חדש להפוך את האורות!"
+   },
+   "titellamp": {
+      "message": "נורה"
+   },
+   "titellampchoose": {
+      "message": "בחר את סגנון המנורה האהוב עלייך"
+   },
+   "titellampregular": {
+      "message": "הראה תמיד את אייקון המנורה בשורת הכתובת"
+   },
+   "titellampvideo": {
+      "message": "הראה את אייקון המנורה רק אם אותר וידאו"
+   },
+   "titellessmore": {
+      "message": "הצג פחות"
+   },
+   "titellikebar": {
+      "message": "סרגל ה'לייק'"
+   },
+   "titellikebutton": {
+      "message": "כפתורי 'לייק' ו'דיסלייק'"
+   },
+   "titellinear": {
+      "message": "לינארי"
+   },
+   "titelmaxqualityyoutube": {
+      "message": "באופן אוטומטי מוגדר החלטה זו:"
+   },
+   "titelmouse": {
+      "message": "עכבר"
+   },
+   "titelmultimedia": {
+      "message": "גילוי מולטימדיה"
+   },
+   "titelnightmodebck": {
+      "message": "צבע רקע"
+   },
+   "titelnightmodeborder": {
+      "message": "צבע מסגרת"
+   },
+   "titelnightmodebutton": {
+      "message": "צבע לחצן"
+   },
+   "titelnightmodedomain": {
+      "message": "דומיין"
+   },
+   "titelnightmodehyperlink": {
+      "message": "צבע קישור"
+   },
+   "titelnightmodepage": {
+      "message": "דף אינטרנט"
+   },
+   "titelnightmodeposition": {
+      "message": "מיקום המתג"
+   },
+   "titelnightmodetxt": {
+      "message": "צבע טקסט"
+   },
+   "titelnighttheme": {
+      "message": "מצב לילה"
+   },
+   "titeloff": {
+      "message": "מכובה"
+   },
+   "titelon": {
+      "message": "פועל"
+   },
+   "titelonoff": {
+      "message": "הפעלה/כיבוי"
+   },
+   "titelopacity": {
+      "message": "אטימות"
+   },
+   "titelpageaction": {
+      "message": "הסתרת סמל המנורה"
+   },
+   "titelpassword": {
+      "message": "הגנה באמצעות סיסמה"
+   },
+   "titelpermission": {
+      "message": "הרשאות"
+   },
+   "titelpip": {
+      "message": "תמונה בתוך תמונה"
+   },
+   "titelpiperror": {
+      "message": "No video found on the current web page. Try a different web page."
+   },
+   "titelpipvideo": {
+      "message": "The current Video"
+   },
+   "titelpipvisual": {
+      "message": "ויזואליזציה שמע"
+   },
+   "titelplaylist": {
+      "message": "רשימת השמעה"
+   },
+   "titelpopupoptions": {
+      "message": "אפשרויות"
+   },
+   "titelpopupratestars": {
+      "message": "דרג 5 כוכבים"
+   },
+   "titelpopupsupport": {
+      "message": "תמיכה"
+   },
+   "titelpopupvideo": {
+      "message": "YouTube"
+   },
+   "titelpopupwelcomeguide": {
+      "message": ". ברוך הבא מדריך"
+   },
+   "titelqualityyoutube": {
+      "message": "להגדיר באופן אוטומטי את האיכות של קטעי וידאו."
+   },
+   "titelreader": {
+      "message": "סרגל עמימות"
+   },
+   "titelreflection": {
+      "message": "השתקפות"
+   },
+   "titelrememberpage": {
+      "message": "דף תזכורת"
+   },
+   "titelreset": {
+      "message": "אפס הגדרות"
+   },
+   "titelrightsreserved": {
+      "message": "חלק מהזכויות שמורות."
+   },
+   "titelscreen": {
+      "message": "מסך"
+   },
+   "titelseeonline": {
+      "message": "לקבלת דוגמאות נוספות, ראה באינטרנט"
+   },
+   "titelsharebutton": {
+      "message": "כפתור שתף"
+   },
+   "titelsharethis": {
+      "message": "שתף את זה:"
+   },
+   "titelshortcutlight": {
+      "message": "מקש קיצור"
+   },
+   "titelshowmore": {
+      "message": "הצג יותר"
+   },
+   "titelspreadradius": {
+      "message": "התפשטות רדיוס:"
+   },
+   "titelsuggestions": {
+      "message": "הצעות"
+   },
+   "titelsupportatmos": {
+      "message": "תומך רק ב-\u003CHTML5 \u003Cvideo ובנגן HTML5 של YouTube. הוא גם משתמש ב-GPU מכרטיס המסך שלך."
+   },
+   "titelsync": {
+      "message": "סינכרון"
+   },
+   "titelsyncbrowser": {
+      "message": "לסנכרן את ההגדרות הרחבה לדפדפן אחרים."
+   },
+   "titelupgrade": {
+      "message": "שדרג"
+   },
+   "titelvideoheadline": {
+      "message": "כותרת הסרטון"
+   },
+   "titelvideosample": {
+      "message": "דגימת וידאו"
+   },
+   "titelvideotool": {
+      "message": "סרגל וידאו"
+   },
+   "titelvideotoolbrightness": {
+      "message": "בהירות"
+   },
+   "titelvideotoolcontrast": {
+      "message": "ניגודיות"
+   },
+   "titelvideotoolfilter": {
+      "message": "מסנן"
+   },
+   "titelvideotoolfullwindow": {
+      "message": "מסך מלא"
+   },
+   "titelvideotoolgrayscale": {
+      "message": "גווני אפור"
+   },
+   "titelvideotoolhueroration": {
+      "message": "זווית גוונים"
+   },
+   "titelvideotoolinvert": {
+      "message": "הפוך"
+   },
+   "titelvideotoollike": {
+      "message": "אהבתי"
+   },
+   "titelvideotoolnormal": {
+      "message": "רגיל"
+   },
+   "titelvideotoolrepeat": {
+      "message": "חזור על כך"
+   },
+   "titelvideotoolsaturate": {
+      "message": "רוויה"
+   },
+   "titelvideotoolscreenshot": {
+      "message": "צלם מסך"
+   },
+   "titelvideotoolsepia": {
+      "message": "ספיה"
+   },
+   "titelvideotoolsubscribe": {
+      "message": "הצטרף כמנוי"
+   },
+   "titelviewcount": {
+      "message": "מספר צפיות"
+   },
+   "titelvisblocks": {
+      "message": "בלוקים"
+   },
+   "titelvischoose": {
+      "message": "בחר פריט חזותי שלך שמע"
+   },
+   "titelvisenable": {
+      "message": "הפעל/בטל הפריט החזותי אודיו"
+   },
+   "titelvisfrequency": {
+      "message": "תדירות"
+   },
+   "titelvistunnel": {
+      "message": "מוסיקה המנהרה"
+   },
+   "titelvisualization": {
+      "message": "ויזואליזציה שמע"
+   },
+   "titelvolume": {
+      "message": "בורר עוצמת קול הסרטון"
+   },
+   "titelwebsite": {
+      "message": "אתר"
+   },
+   "titelwhitelist": {
+      "message": "רשימה לבנה"
+   },
+   "titelwikiatmos": {
+      "message": "אתר ויקי אודות תכונת תאורת האטמוספירה"
+   },
+   "titleanalytics": {
+      "message": "ניתוח"
+   },
+   "titleavgdayschedule": {
+      "message": "לוח זמנים יומי ממוצע"
+   },
+   "titlecancel": {
+      "message": "בטל"
+   },
+   "titledarkmodeauto": {
+      "message": "Use device appearance"
+   },
+   "titledarkmodeoff": {
+      "message": "על מצב כהה"
+   },
+   "titledarkmodeon": {
+      "message": "על מצב כהה"
+   },
+   "titledonatebutton": {
+      "message": "תרומה"
+   },
+   "titlegamepad": {
+      "message": "Controller"
+   },
+   "titleinfobx": {
+      "message": "מידע"
+   },
+   "titlelanalyticprivacy": {
+      "message": "לכבות את האורות הדפדפן סיומת לוקח את הפרטיות שלך ברצינות רבה להפוך את האורות Analytics שאתה רואה בדף זה רק מאוחסן באופן מקומי במחשב שלך. את המידע האירוסין האתר האישי שלך לא יהיה מכר, לא להעביר לצד שלישי שאינו מסונף."
+   },
+   "titlelater": {
+      "message": "מאוחר יותר"
+   },
+   "titlelearnmore": {
+      "message": "למידע נוסף"
+   },
+   "titlelprivacy": {
+      "message": "מדיניות פרטיות"
+   },
+   "titlelratenow": {
+      "message": "דרג עכשיו!"
+   },
+   "titlemultiopacity": {
+      "message": "כל אתר אינטרנט, אטימות משלו"
+   },
+   "titlenightowl": {
+      "message": "ינשוף לילה"
+   },
+   "titleok": {
+      "message": "אוקיי"
+   },
+   "titleorigin": {
+      "message": "מקור"
+   },
+   "titleprofile": {
+      "message": "פרופיל"
+   },
+   "titleprofilealwaysscreentab": {
+      "message": "תמיד מופעל לכל הכרטיסיות הפתוחות"
+   },
+   "titleprofilenovideofocus": {
+      "message": "מיקוד הסרטון אינו מופעל"
+   },
+   "titleprofilescreenclick": {
+      "message": "אפשר לחיצה על קישורים כשהמסך מוחשך"
+   },
+   "titleprofilesubmit": {
+      "message": "בחר הגדרות אלו"
+   },
+   "titleprofilevideofocus": {
+      "message": "מיקוד הסרטון מופעל"
+   },
+   "titleratelater": {
+      "message": "מאוחר יותר"
+   },
+   "titleregularuser": {
+      "message": "אוהב סרטונים"
+   },
+   "titlescreenprotection": {
+      "message": "הגנה לעיניים"
+   },
+   "titlesharestats": {
+      "message": "שתף את הנתונים שלך"
+   },
+   "titlesiteengagement": {
+      "message": "התעסקות באתר"
+   },
+   "titlesub": {
+      "message": "הירשם כעת!"
+   },
+   "titletime": {
+      "message": "זמן (דקות)"
+   },
+   "titletipok": {
+      "message": "הבנתי"
+   },
+   "titleuserprofile": {
+      "message": "להלן, בחר את ההגדרות שבהן ברצונך להשתמש בלחיצה על כפתור המנורה האפור. כל פרופיל כולל תכונות משלו."
+   },
+   "titlevideoplayrate": {
+      "message": "מהירות וידאו"
+   },
+   "titleyoutube": {
+      "message": "Join Turn Off the Lights Channel."
+   },
+   "top": {
+      "message": "עליון"
+   },
+   "totalenergysaved": {
+      "message": "אנרגיה חשמלית כוללת שנחסכה"
+   },
+   "translateme": {
+      "message": "עזור לתרגם"
+   },
+   "trymotion": {
+      "message": "נסה זאת בעצמך!"
+   },
+   "tuesday": {
+      "message": "יום שלישי"
+   },
+   "version": {
+      "message": "גירסא"
+   },
+   "videotitle": {
+      "message": "התמקד על הסרטון הזה"
+   },
+   "visualeffects": {
+      "message": "אפקטים חזותיים"
+   },
+   "vtoolalign": {
+      "message": "לחצן למרכוז נגן הווידאו בחלון הדפדפן שלך"
+   },
+   "vtoolfilter": {
+      "message": "לחצן להוספת מסנן בנגן הווידאו הנוכחי"
+   },
+   "vtoolfullscreen": {
+      "message": "לחצן להגדרת נגן הווידאו לגודל החלון המלא"
+   },
+   "vtoolreplay": {
+      "message": "כפתור להפעלה מחודשת של נגן הווידיאו הנוכחי"
+   },
+   "vtoolscreenshot": {
+      "message": "לחצן ליצירת צילום מסך מתוך נגן הווידאו הנוכחי"
+   },
+   "vtoolvisualization": {
+      "message": "כפתור הצגת את audio-visualization על גבי נגן הוידאו הנוכחי"
+   },
+   "warning": {
+      "message": "אזהרה!"
+   },
+   "warningtextambilight": {
+      "message": "כאשר אין אפשרות לקבל נתוני וידאו בגלל כללי האבטחה של האתר, ייעשה שימוש בצבע המוצק הנבחר."
+   },
+   "wednesday": {
+      "message": "יום רביעי"
+   },
+   "wpermissionnotremoved": {
+      "message": "The permissions have already been removed"
+   },
+   "wpermissionremoved": {
+      "message": "The permissions have been removed."
+   },
+   "writeareview": {
+      "message": "כתוב ביקורת"
+   }
+}

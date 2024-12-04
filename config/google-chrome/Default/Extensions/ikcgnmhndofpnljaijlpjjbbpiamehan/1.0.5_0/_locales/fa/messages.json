@@ -1,0 +1,20 @@
+{
+   "description": {
+      "message": "Download stories from Instagram, save any IG video, photo and Reels. Easily repost Instagram Reels to your feed with a few clicks. Get the most out of Instagram with our IG downloader, Instagram video downloader, Instagram photo downloader and Instagram Story Downloader."
+   },
+   "name": {
+      "message": "Instagram Downloader"
+   },
+   "rateDialogDesc": {
+      "message": "Please rate us! It is very important for us! Thank you:)"
+   },
+   "rateDialogNo": {
+      "message": "Maybe next time"
+   },
+   "rateDialogTitle": {
+      "message": "Our extension is useful for you?"
+   },
+   "rateDialogYes": {
+      "message": "Yes, of course"
+   }
+}

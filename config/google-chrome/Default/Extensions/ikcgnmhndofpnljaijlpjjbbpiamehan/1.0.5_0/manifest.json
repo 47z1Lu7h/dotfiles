@@ -1,0 +1,48 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "img/logo.png",
+         "256": "img/logo.png",
+         "32": "img/logo.png",
+         "64": "img/logo.png"
+      },
+      "default_title": "__MSG_name__"
+   },
+   "background": {
+      "service_worker": "worker.js"
+   },
+   "content_scripts": [ {
+      "js": [ "data/change.js" ],
+      "matches": [ "*://www.instagram.com/*" ],
+      "run_at": "document_start"
+   }, {
+      "css": [ "assets/popup.css", "assets/rate.css", "assets/theme.css" ],
+      "js": [ "data/libs/jquery.js", "data/content.js", "data/rate.js", "data/change.js" ],
+      "matches": [ "*://www.instagram.com/*" ]
+   }, {
+      "all_frames": true,
+      "js": [ "data/listenerLink.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_description__",
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "img/logo.png",
+      "256": "img/logo.png",
+      "32": "img/logo.png",
+      "64": "img/logo.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuHF7v34zHNqCzZwyGMyja7Wp9fUFuLiJFZ2pko9NxMtGTFf4QzHLmDM7/4qBvoJy11KD0tx59XrN5s9XZhoETzbyCz/x5Tyg9hos6Lc0jd4vXv1GE3VU6GxVuLSWHuE84bMXcqO51voXUkaLQQmH5i10sPCMGkv4HcJExv8BdxNLpIMwutWomSrqqo5E/AcW/3vxcXtH4PoqZ7eXt4s9VZcpSbOnJOKmz+YaxCiUSuvGZ7dXy9gsXjnIGluVpY8h1RqEVvQjcFW1zIKrruiV7Jcqt+zLsIExdEXOTfvEaS23UhA9GdS8xXttMET4wfPMATLn3kPrEk8HX+9Uq5DBRQIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_name__",
+   "permissions": [ "storage", "downloads", "system.display", "declarativeNetRequest" ],
+   "short_name": "INLoad",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.5",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "assets/images/*", "data/*" ]
+   } ]
+}

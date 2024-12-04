@@ -1,0 +1,453 @@
+{
+   "____________________________________________________________________________________________________": {
+      "description": "This file has been generated automatically. Don't modify manually.",
+      "message": ""
+   },
+   "account": {
+      "message": "Cuenta"
+   },
+   "account_details": {
+      "message": "Detalles de la cuenta"
+   },
+   "account_type_pro": {
+      "message": "Prof."
+   },
+   "add_bookmark": {
+      "message": "Añadir marcador"
+   },
+   "add_description": {
+      "message": "+ Agregar descripción"
+   },
+   "add_feed": {
+      "message": "Agregar Feed"
+   },
+   "add_group": {
+      "message": "Añadir grupo"
+   },
+   "add_tabs": {
+      "message": "Añadir pestañas"
+   },
+   "add_title": {
+      "message": "+ Add title"
+   },
+   "add_to_startme": {
+      "message": "Añadir a start.me"
+   },
+   "add_widget": {
+      "message": "Agregar widget"
+   },
+   "allow_access_to_tabs": {
+      "message": "Para ver todas las pestañas del navegador abiertas, por favor permita el acceso a start.me."
+   },
+   "already_have_startme_account": {
+      "message": "¿Ya tienes una cuenta de start.me?"
+   },
+   "already_saved_in_x_ext": {
+      "message": "Ya guardado en"
+   },
+   "anonymous_user": {
+      "message": "Usuario anónimo"
+   },
+   "app_description": {
+      "message": "Remplaza tus \"Pestañas Nuevas\" con un panel de control personalizado."
+   },
+   "app_name": {
+      "message": "Nueva pestaña de página por start.me"
+   },
+   "app_short_name": {
+      "message": "start.me"
+   },
+   "auto_saving": {
+      "message": "Auto-grabar"
+   },
+   "autosave_in_inbox": {
+      "message": "Auto-save bookmarks (in Inbox)"
+   },
+   "autosaved_in_x_ext": {
+      "message": "Guardado automáticamente en"
+   },
+   "available_feeds": {
+      "message": "Feeds disponibles"
+   },
+   "bookmark": {
+      "message": "Marcador"
+   },
+   "change": {
+      "message": "Cambiar"
+   },
+   "change_description_and_url": {
+      "message": "Cambiar la descripción y URL"
+   },
+   "change_user_settings": {
+      "message": "Cambiar los datos de usuario"
+   },
+   "clear": {
+      "message": "Limpiar"
+   },
+   "clear_cache": {
+      "message": "Limpiar caché"
+   },
+   "clear_extension_cache": {
+      "message": "Limpiar el caché de extensiones"
+   },
+   "click_to_choose_a_different_country": {
+      "message": "Haz clic para escoger un país diferente"
+   },
+   "close": {
+      "message": "Cerrar"
+   },
+   "close_tabs_after_saving": {
+      "message": "Close selected tabs after saving"
+   },
+   "close_window": {
+      "message": "Cerrar ventana"
+   },
+   "create_account": {
+      "message": "Crear una cuenta"
+   },
+   "create_new_bookmark": {
+      "message": "Crear marcador nuevo"
+   },
+   "create_new_free_account": {
+      "message": "Crear una nueva cuenta gratis de start.me"
+   },
+   "create_new_group": {
+      "message": "Crear nuevo grupo"
+   },
+   "create_new_group_on_page_widget_ext": {
+      "message": "Crear nuevo grupo en"
+   },
+   "create_new_widget": {
+      "message": "Crear un nuevo widget"
+   },
+   "create_new_widget_on_page_ext": {
+      "message": "Crear nuevo widget en"
+   },
+   "default_page": {
+      "message": "\u003Cpágina por defecto>"
+   },
+   "description": {
+      "message": "Remplaza tus \"Pestañas Nuevas\" con un panel de control personalizado."
+   },
+   "description_bookmarker": {
+      "message": "Este gestor de marcadores puede usarse para añadir páginas web marcadas a tu página start.me mientras tu navegas la web - start.me"
+   },
+   "done": {
+      "message": "Hecho"
+   },
+   "edit_link": {
+      "message": "Editar Marcador"
+   },
+   "eg_email": {
+      "message": "por ejemplo juan@gmail.com"
+   },
+   "eg_name": {
+      "message": "por ejemplo José López"
+   },
+   "enable": {
+      "message": "Activar"
+   },
+   "enable_autosaving": {
+      "message": "Activar auto-grabado"
+   },
+   "extension_options": {
+      "message": "Opciones de extensión."
+   },
+   "feeds": {
+      "message": "Feeds"
+   },
+   "full_name": {
+      "message": "Nueva pestaña de página por start.me"
+   },
+   "full_name_bookmarker": {
+      "message": "Gestor de marcadores por start.me"
+   },
+   "get_help": {
+      "message": "Conseguir ayuda"
+   },
+   "grant_access": {
+      "message": "Permitir acceso"
+   },
+   "have_startme_account": {
+      "message": "¿Ya tienes una cuenta registrada de start.me?"
+   },
+   "help": {
+      "message": "Ayuda"
+   },
+   "help_and_support": {
+      "message": "Centro de apoyo"
+   },
+   "hide": {
+      "message": "Ocultar"
+   },
+   "hide_description_and_url": {
+      "message": "Ocultar descripción y URL"
+   },
+   "home_name": {
+      "message": "start.me"
+   },
+   "i_may_do_this_later": {
+      "message": "Puedo hacerlo más tarde"
+   },
+   "import": {
+      "message": "Importar"
+   },
+   "import_bookmarks": {
+      "message": "Importar marcadores"
+   },
+   "import_bookmarks_from_chrome": {
+      "message": "Importar marcadores del navegador"
+   },
+   "import_browser_bookmarks": {
+      "message": "Importar marcadores del navegador"
+   },
+   "import_your_bookmarks_question": {
+      "message": "¿Importar marcadores?"
+   },
+   "imported_from_chrome": {
+      "message": "Importado de Chrome"
+   },
+   "importing_your_bookmarks": {
+      "message": "Importando sus marcadores"
+   },
+   "inbox": {
+      "message": "Buzón"
+   },
+   "learn_how_this_works": {
+      "message": "Aprender cómo funciona"
+   },
+   "lets_personalize_it": {
+      "message": "Vamos a personalizarlo. No tardará mucho."
+   },
+   "logout": {
+      "message": "Cerrar sesión"
+   },
+   "logout_confirm": {
+      "message": "¿Estás seguro de que querés cerrar sesión en tu cuenta anónima? Al hacer esto, no podrás iniciar sesión de nuevo. Por favor, registra tu cuenta si quieres tener acceso a tu página en el futuro."
+   },
+   "markdown_supported": {
+      "message": "Marcador soportado"
+   },
+   "my_email_is": {
+      "message": "Mi correo electrónico es"
+   },
+   "my_name_is": {
+      "message": "Mi nombre es"
+   },
+   "my_startme_homepage": {
+      "message": "Mi página principal start.me"
+   },
+   "name_bookmarker": {
+      "message": "Gestor de marcadores de start.me"
+   },
+   "new_tab_page": {
+      "message": "Nueva pestaña"
+   },
+   "new_widget": {
+      "message": "Nuevo widget"
+   },
+   "no": {
+      "message": "No"
+   },
+   "open_browser_tabs": {
+      "message": "Abrir pestañas en el navegdor"
+   },
+   "open_default_chrome_startpage": {
+      "message": "Abrir página de inicio por defecto del navegador"
+   },
+   "open_my_startme_homepage": {
+      "message": "inicia con mi página principal start.me"
+   },
+   "open_pagesmenu": {
+      "message": "Abrir el menú de start.me"
+   },
+   "open_startme_blog": {
+      "message": "Abrir el blog start.me"
+   },
+   "open_startme_homepage": {
+      "message": "Abrir página de inicio de start.me"
+   },
+   "open_tabs": {
+      "message": "Abrir pestañas"
+   },
+   "options": {
+      "message": "Opciones"
+   },
+   "other_preferences": {
+      "message": "Otras preferencias"
+   },
+   "personal_pages": {
+      "message": "Páginas principales"
+   },
+   "please_import_them": {
+      "message": "Por favor, impórtelos"
+   },
+   "please_specify_title": {
+      "message": "Por favor, especifica un título"
+   },
+   "please_try_again_later": {
+      "message": "Lo sentimos mucho. Intente de nuevo más tarde, por favor."
+   },
+   "please_wait_a_moment": {
+      "message": "Esto puede tomar un momento. Espere por favor."
+   },
+   "plus_n_others": {
+      "message": "+%{number} otros"
+   },
+   "preferences": {
+      "message": "Preferencias"
+   },
+   "pro": {
+      "message": "Prof."
+   },
+   "pure_description": {
+      "message": "Descripción"
+   },
+   "refresh": {
+      "message": "Actualizar"
+   },
+   "refresh_data": {
+      "message": "Refresh data"
+   },
+   "refresh_list": {
+      "message": "Refrescar lista"
+   },
+   "remove": {
+      "message": "Remover"
+   },
+   "save": {
+      "message": "Guardar"
+   },
+   "save_bookmark": {
+      "message": "Save bookmark"
+   },
+   "save_bookmarks": {
+      "message": "Save bookmarks"
+   },
+   "save_changes": {
+      "message": "Grabar cambios"
+   },
+   "save_in": {
+      "message": "Guardar en"
+   },
+   "save_selected_tabs": {
+      "message": "Save selected tabs"
+   },
+   "save_tabs": {
+      "message": "Save tabs"
+   },
+   "saved_in": {
+      "message": "Guardado"
+   },
+   "search_bookmarks_from_address_bar": {
+      "message": "Buscar marcadores directamente desde la barra del navegador"
+   },
+   "search_widgets": {
+      "message": "Buscar widgets"
+   },
+   "select_a_widget": {
+      "message": "Selecciona un widget"
+   },
+   "select_all": {
+      "message": "Seleccionar todo"
+   },
+   "select_location": {
+      "message": "Elegir ubicación"
+   },
+   "select_new_tab_page": {
+      "message": "Seleccione una nueva página de pestaña"
+   },
+   "select_your_new_tab_page": {
+      "message": "Elegir tu nueva página de navegar"
+   },
+   "settings": {
+      "message": "Ajustes"
+   },
+   "shake_hands": {
+      "message": "Saludos"
+   },
+   "shortcuts": {
+      "message": "Abreviaturas"
+   },
+   "show_chromes_default_page": {
+      "message": "enseña la página por defecto de Chrome"
+   },
+   "show_my_startme_page": {
+      "message": "Muestra mi página de start.me"
+   },
+   "sign_in_to_startme": {
+      "message": "Inicia sesión en start.me"
+   },
+   "signin_with_email": {
+      "message": "Ingresar con tu dirección de correo electrónico"
+   },
+   "something_went_wrong": {
+      "message": "Algo salió mal"
+   },
+   "take_me_to_start_page": {
+      "message": "¡Lléveme a mi nueva página de inicio!"
+   },
+   "terms": {
+      "message": "Términos"
+   },
+   "title": {
+      "message": "Título"
+   },
+   "title_for_new_group": {
+      "message": "Título del nuevo grupo"
+   },
+   "title_for_new_widget": {
+      "message": "Titulo para nuevo widget"
+   },
+   "unsorted_bookmarks": {
+      "message": "Marcadores desordenados"
+   },
+   "url": {
+      "message": "URL"
+   },
+   "use": {
+      "message": "Usar"
+   },
+   "view_my_account_details": {
+      "message": "Ver los detalles de mi cuenta"
+   },
+   "visit_account_profile": {
+      "message": "Visitar perfil de la cuenta"
+   },
+   "visit_support_centre": {
+      "message": "Visitar el centro de ayuda y soporte"
+   },
+   "welcome_to": {
+      "message": "Bienvenido a"
+   },
+   "welcome_to_startme": {
+      "message": "Bienvenido a start.me"
+   },
+   "what_is_your_name": {
+      "message": "¿Cuál es su nombre?"
+   },
+   "when_browser_tab_is_opened": {
+      "message": "Cuando se abre una nueva pestaña del navegador"
+   },
+   "when_i_open_a_new_chrome_tab": {
+      "message": "Cuando abro una nueva pestaña de Chrome"
+   },
+   "where_do_you_come_from": {
+      "message": "¿De donde viene?"
+   },
+   "which_page_as_your_homepage": {
+      "message": "¿Qué página desea usar como página de inicio?"
+   },
+   "yes": {
+      "message": "Si"
+   },
+   "you_already_saved_this_link": {
+      "message": "Ya has grabado este enlace"
+   },
+   "your_bookmarks_are_being_imported": {
+      "message": "Sus marcadores están siendo importados"
+   },
+   "your_new_tab_page_question": {
+      "message": "¿Su nueva pestaña?"
+   }
+}

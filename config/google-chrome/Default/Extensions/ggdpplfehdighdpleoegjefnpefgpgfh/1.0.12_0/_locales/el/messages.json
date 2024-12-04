@@ -1,0 +1,166 @@
+{
+   "3pGroupAds": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Διαφημίσεις"
+   },
+   "3pGroupAnnoyances": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Ενοχλήσεις"
+   },
+   "3pGroupDefault": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Προεπιλογή"
+   },
+   "3pGroupMalware": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Τομείς κακόβουλου λογισμικού"
+   },
+   "3pGroupMisc": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Διάφορα"
+   },
+   "3pGroupPrivacy": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Απόρρητο"
+   },
+   "3pGroupRegions": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Περιοχές, γλώσσες"
+   },
+   "aboutChangelog": {
+      "description": "",
+      "message": "Αρχείο αλλαγών"
+   },
+   "aboutCode": {
+      "description": "English: Source code (GPLv3)",
+      "message": "Πηγαίος κώδικας (GPLv3)"
+   },
+   "aboutContributors": {
+      "description": "English: Contributors",
+      "message": "Συνεισφέροντες"
+   },
+   "aboutDependencies": {
+      "description": "Shown in the About pane",
+      "message": "Εξωτερικές εξαρτήσεις (συμβατές με GPLv3):"
+   },
+   "aboutFilterLists": {
+      "description": "Link text to uBO's own filter lists repo",
+      "message": "Λίστες φίλτρων"
+   },
+   "aboutPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Σχετικά"
+   },
+   "aboutPrivacyPolicy": {
+      "description": "Link to privacy policy on GitHub (English)",
+      "message": "Πολιτική απορρήτου"
+   },
+   "aboutSourceCode": {
+      "description": "Link text to source code repo",
+      "message": "Πηγαίος κώδικας"
+   },
+   "aboutTranslations": {
+      "description": "Link text to translations repo",
+      "message": "Μεταφράσεις"
+   },
+   "autoReloadLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "Αυτόματη επαναφόρτωση σελίδας κατά την αλλαγή λειτουργίας φιλτραρίσματος"
+   },
+   "basicFilteringModeDescription": {
+      "description": "This describes the 'basic' filtering mode",
+      "message": "Βασικό φιλτράρισμα δικτύου από επιλεγμένες λίστες φίλτρων."
+   },
+   "behaviorSectionLabel": {
+      "description": "The header text for the 'Behavior' section",
+      "message": "Συμπεριφορά"
+   },
+   "completeFilteringModeDescription": {
+      "description": "This describes the 'complete' filtering mode",
+      "message": "Προηγμένο φιλτράρισμα δικτύου και ειδικό και γενικό εκτεταμένο φιλτράρισμα από επιλεγμένες λίστες φίλτρων.\n\nΑπαιτεί ευρεία άδεια για την ανάγνωση και την αλλαγή δεδομένων σε όλους τους ιστότοπους.\n\nΤο γενικό εκτεταμένο φιλτράρισμα μπορεί να προκαλέσει μεγαλύτερη χρήση πόρων ιστοσελίδας."
+   },
+   "dashboardName": {
+      "description": "English: AdBlock Max — Dashboard",
+      "message": "AdBlock Max — Πίνακας ελέγχου"
+   },
+   "defaultFilteringModeDescription": {
+      "description": "This describes the default filtering mode setting",
+      "message": "Η προεπιλεγμένη λειτουργία φιλτραρίσματος θα αντικατασταθεί από τις λειτουργίες φιλτραρίσματος ανά ιστότοπο. Μπορείτε να προσαρμόσετε τη λειτουργία φιλτραρίσματος σε οποιονδήποτε ιστότοπο, σύμφωνα με όποια λειτουργία λειτουργεί καλύτερα σε αυτόν τον ιστότοπο. Κάθε λειτουργία έχει τα πλεονεκτήματα και τα μειονεκτήματά της."
+   },
+   "defaultFilteringModeSectionLabel": {
+      "description": "The header text for the default filtering mode section",
+      "message": "Προεπιλεγμένη λειτουργία φιλτραρίσματος"
+   },
+   "extName": {
+      "description": "extension name.",
+      "message": "AdBlock Max"
+   },
+   "extName666": {
+      "description": "extension name.",
+      "message": "AdBlock Max - πρόγραμμα αποκλεισμού διαφημίσεων"
+   },
+   "extShortDesc": {
+      "description": "this will be in the Chrome web store: must be 132 characters or less",
+      "message": "Ένα πειραματικό εργαλείο φραγής περιεχομένου χωρίς δικαιώματα. Αποκλείει διαφημίσεις, ιχνηλάτες και πολλά άλλα μετά την εγκατάσταση."
+   },
+   "filteringMode0Name": {
+      "description": "Name of blocking mode 0",
+      "message": "χωρίς φιλτράρισμα"
+   },
+   "filteringMode1Name": {
+      "description": "Name of blocking mode 1",
+      "message": "βασικό"
+   },
+   "filteringMode2Name": {
+      "description": "Name of blocking mode 2",
+      "message": "βέλτιστο"
+   },
+   "filteringMode3Name": {
+      "description": "Name of blocking mode 3",
+      "message": "πλήρης"
+   },
+   "firstRunDescription": {
+      "description": "Descriptive text shown at first install time only ",
+      "message": "Μόλις εγκαταστήσατε το AdBlock Max. Μπορείτε να επιλέξετε εδώ την προεπιλεγμένη λειτουργία φιλτραρίσματος για χρήση σε όλους τους ιστότοπους.\n\nΑπό προεπιλογή, έχει επιλεγεί η λειτουργία \u003Cem>Βασική\u003C/em> επειδή δεν απαιτεί άδεια ανάγνωσης και αλλαγής δεδομένων. Εάν εμπιστεύεστε το AdBlock Max, μπορείτε να του δώσετε ευρεία άδεια να διαβάζει και να αλλάζει δεδομένα σε όλους τους ιστότοπους, προκειμένου να ενεργοποιηθούν πιο προηγμένες δυνατότητες φιλτραρίσματος για όλους τους ιστότοπους από προεπιλογή."
+   },
+   "firstRunSectionLabel": {
+      "description": "The header text for the welcome message section",
+      "message": "Καλώς ήρθατε"
+   },
+   "noFilteringModeDescription": {
+      "description": "A short description for the editable field which lists trusted sites",
+      "message": "Λίστα των hostnames για τα οποία δεν θα πραγματοποιηθεί φιλτράρισμα"
+   },
+   "optimalFilteringModeDescription": {
+      "description": "This describes the 'optimal' filtering mode",
+      "message": "Προηγμένο φιλτράρισμα δικτύου και συγκεκριμένο εκτεταμένο φιλτράρισμα από επιλεγμένες λίστες φίλτρων.\n\nΑπαιτεί ευρεία άδεια για την ανάγνωση και την αλλαγή δεδομένων σε όλους τους ιστότοπους."
+   },
+   "perRulesetStats": {
+      "description": "Appears aside each filter list in the _3rd-party filters_ pane",
+      "message": "{{ruleCount}} κανόνες, μετατράπηκαν από {{filterCount}} φίλτρα δικτύου"
+   },
+   "popupFilteringModeLabel": {
+      "description": "Label in the popup panel for the current filtering mode",
+      "message": "λειτουργία φιλτραρίσματος"
+   },
+   "popupLessButton": {
+      "description": "Label to be used to hide popup panel sections",
+      "message": "Λιγότερα"
+   },
+   "popupMoreButton": {
+      "description": "Label to be used to show popup panel sections",
+      "message": "Περισσότερα"
+   },
+   "popupTipDashboard": {
+      "description": "English: Click to open the dashboard",
+      "message": "Ανοίξτε τον πίνακα ελέγχου"
+   },
+   "settingsPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Ρυθμίσεις"
+   },
+   "showBlockedCountLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "Εμφάνιση του αριθμού των αποκλεισμένων αιτημάτων στο εικονίδιο της γραμμής εργαλείων"
+   }
+}

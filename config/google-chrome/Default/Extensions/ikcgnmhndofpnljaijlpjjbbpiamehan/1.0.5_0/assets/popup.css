@@ -1,0 +1,187 @@
+
+html.mobile_mode ::-webkit-scrollbar-button {
+    background-repeat: no-repeat;
+    width: 0;
+    height: 0;
+}
+
+html.mobile_mode ::-webkit-scrollbar-track {
+    background-color: #181e2a;
+    opacity: .5;
+}
+
+html.mobile_mode ::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: #181e2a;
+    opacity: .5;
+}
+
+html.mobile_mode ::-webkit-scrollbar-thumb:hover {
+    background-color: #2f4050;
+}
+
+html.mobile_mode ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+html.mobile_mode .b5itu button {
+    outline: none;
+    border: none;
+    margin: 0 5px;
+}
+
+html.mobile_mode .b5itu button:hover {
+    transition: all .3s;
+    opacity: .5;
+    cursor: pointer;
+}
+
+html.mobile_mode .mTGkH {
+    padding: 0;
+}
+
+html.mobile_mode .icon {
+    /*width: 20px;*/
+    /*height: 20px;*/
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+}
+html.mobile_mode ._ab1a  {
+    margin: 50px;
+}
+.glyphsSpriteDirect__outline__24__grey_9 {
+    width: 20px !important;
+    height: 20px !important;
+    background: url('chrome-extension://__MSG_@@extension_id__/assets/images/icon-direct.png') no-repeat !important;
+    background-size: 20px 20px;
+    margin-left: 21% !important;
+}
+
+html.mobile_mode .icon.icon-back {
+    background: url(chrome-extension://__MSG_@@extension_id__/assets/images/icon-left-arrow.svg) center/80% no-repeat;
+    margin: 0 2px;
+}
+
+html.mobile_mode .icon.icon-forward {
+    background: url(chrome-extension://__MSG_@@extension_id__/assets/images/icon-right-arrow.svg) center/80% no-repeat;
+    margin: 0 2px;
+}
+html.mobile_mode .icon.icon-refresh {
+    background: url(chrome-extension://__MSG_@@extension_id__/assets/images/icon-refresh.svg) center/80% no-repeat;
+    margin-left: 0;
+}
+html.mobile_mode .icon.icon-tv {
+    background: url(chrome-extension://__MSG_@@extension_id__/assets/images/icon-tv.svg) center/90% no-repeat;
+
+}
+html.mobile_mode .icon.icon-moon {
+    background: url(chrome-extension://__MSG_@@extension_id__/assets/images/icon-moon.svg) center/80% no-repeat;
+    margin-right: 2px;
+}
+
+html.mobile_mode .icon.icon-screen {
+    background: url(chrome-extension://__MSG_@@extension_id__/assets/images/icon-screen.png) center/80% no-repeat;
+}
+
+html.mobile_mode .inst-dwn {
+    /*display: none;*/
+    flex-direction: row;
+    align-items: center;
+    border-radius: 90%;
+    position: absolute;
+    top: 6%;
+    right: 7%;
+    z-index: 10;
+    padding: 4px 4px 4px 4px;
+    transition: all .3s ease-in-out;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+html.mobile_mode .inst-dwn .inst-dwn-icon {
+    width: 22px;
+    height: 22px;
+    background: url(chrome-extension://__MSG_@@extension_id__/assets/images/icon-download.svg) center/contain no-repeat ;
+}
+
+html.mobile_mode .inst-dwn .inst-dwn-text {
+    font-size: 11px;
+    color: #000;
+}
+
+html.mobile_mode .inst-dwn:hover {
+    opacity: 1;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+html.mobile_mode ._97aPb:hover .inst-dwn {
+    display: flex;
+}
+
+html.mobile_mode .v1Nh3:hover .inst-dwn {
+    display: flex;
+}
+
+html.mobile_mode section._9eogI._01nki.IyyUN .inst-dwn {
+    display: flex;
+    top: 20px;
+    right: 50px;
+    background: #fff;
+}
+
+html.mobile_mode .b5itu {
+    padding: 0 8px;
+}
+
+html.mobile_mode .glyphsSpriteCamera__outline__24__grey_9.u-__7 {
+    width: 26px;
+    height: 26px;
+    background: url(chrome-extension://__MSG_@@extension_id__/assets/images/icon-camera.svg) center/contain no-repeat;
+}
+
+html.mobile_mode .glyphsSpriteUser_follow__outline__24__grey_9.u-__7 {
+    width: 26px;
+    height: 26px;
+    background: url(chrome-extension://__MSG_@@extension_id__/assets/images/icon-user.svg) center/contain no-repeat;
+}
+
+html.mobile_mode .glyphsSpriteMobile_nav_type_logo.u-__7 {
+    transform: scale(0.8);
+}
+
+html.mobile_mode ._a3gq ._ab16 {
+    padding: 0 5px !important;
+}
+
+._a3gq ._ab1b>*:not(:last-child) {
+    padding-right: 0px!important;
+}
+html.mobile_mode ._ab16 {
+    padding: 0 5px!important;
+}
+
+html.mobile_mode ._ab19>*:not(:first-child) {
+    padding-left: 3px !important;
+}
+
+html.mobile_mode .xn6708d {
+    padding-left: 38px!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

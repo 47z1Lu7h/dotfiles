@@ -1,0 +1,14 @@
+[$Version]
+update_info=spectacle_clipboard.upd:clipboard-settings-change,spectacle_rememberregion.upd:spectacle-migrate-rememberregion
+
+[GuiConfig]
+captureMode=0
+
+[KFileDialog Settings]
+Recent Files[$e]=file:$HOME/.config/neofetch/kali.png,file:$HOME/d35kT0p/h7B/m4Ch1n3s/aCt1v3s/greenHorn/content/Depix/dep.png
+Recent URLs[$e]=file:$HOME/.config/neofetch/,file:$HOME/,file:$HOME/d35kT0p/h7B/m4Ch1n3s/aCt1v3s/greenHorn/content/Depix/
+detailViewIconSize=16
+
+[Save]
+lastSaveAsLocation=file:///home/a7z1lu7h/d35kT0p/h7B/m4Ch1n3s/aCt1v3s/greenHorn/content/Depix/dep.png
+lastSaveLocation=file:///home/a7z1lu7h/d35kT0p/h7B/m4Ch1n3s/aCt1v3s/greenHorn/content/Depix/dep.png

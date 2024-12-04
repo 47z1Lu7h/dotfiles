@@ -1,0 +1,39 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icon-128.52534eb5.png",
+         "16": "icon-16.07b25762.png",
+         "32": "icon-32.12de5702.png",
+         "48": "icon-48.7a902821.png"
+      },
+      "default_popup": "popup.f6f9d9dd.html"
+   },
+   "background": {
+      "service_worker": "background.e1b78a1f.js",
+      "type": "module"
+   },
+   "content_scripts": [ {
+      "css": [  ],
+      "js": [ "content.be709a5a.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Change a page's text, background, and link colors to your liking.",
+   "host_permissions": [ "*://*/*" ],
+   "icons": {
+      "128": "icon-128.52534eb5.png",
+      "16": "icon-16.07b25762.png",
+      "32": "icon-32.12de5702.png",
+      "48": "icon-48.7a902821.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAko1qWjK6w/uMPzbp2Qonh7paVRXqbYZQS+FgpNm7ODkFvE1VQ4nSfmRKQYCBH2uski2CRFO1wc9gnHK/nL6AQMhfeOVImIIg2WqyZN4rX+WZSdnjtp579vXMlXsWEAJpOPZxdz0Poq6jAY2R96jmb/jDbAb0tSi8CAbWbIOqdMI4Qlsvxfq2vWJQuDBw480L866WE0oMVH7pJ7mBavbZVbrK58QEfWC8nPkHr0NBuAtgjo9OU3O128VClBP2izkaWTCmLxti9VagsFOWQW9nedX1s0q270MCiWw80Dm2b503Ki1gDrk0hyhZ6r0BURAFd3CsAjXDrUKBlqiDnoPK6QIDAQAB",
+   "manifest_version": 3,
+   "name": "Color Changer",
+   "permissions": [ "storage", "tabs", "activeTab", "contextMenus" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "4.0.9",
+   "web_accessible_resources": [ {
+      "matches": [ "http://*/*", "https://*/*" ],
+      "resources": [ "icons/icon.svg" ]
+   } ]
+}

@@ -1,0 +1,453 @@
+{
+   "____________________________________________________________________________________________________": {
+      "description": "This file has been generated automatically. Don't modify manually.",
+      "message": ""
+   },
+   "account": {
+      "message": "Аккаунт"
+   },
+   "account_details": {
+      "message": "Детали учетной записи"
+   },
+   "account_type_pro": {
+      "message": "Pro"
+   },
+   "add_bookmark": {
+      "message": "Добавить закладку"
+   },
+   "add_description": {
+      "message": "+ Добавить описание"
+   },
+   "add_feed": {
+      "message": "Добавить источники RSS"
+   },
+   "add_group": {
+      "message": "Добавить группу"
+   },
+   "add_tabs": {
+      "message": "Добавить вкладки"
+   },
+   "add_title": {
+      "message": "+ Add title"
+   },
+   "add_to_startme": {
+      "message": "Добавить в start.me"
+   },
+   "add_widget": {
+      "message": "Добавить виджет"
+   },
+   "allow_access_to_tabs": {
+      "message": "Чтобы просмотреть все открытые вкладки браузера, предоставьте start.me доступ к вкладкам браузера."
+   },
+   "already_have_startme_account": {
+      "message": "Уже есть аккаунт start.me?"
+   },
+   "already_saved_in_x_ext": {
+      "message": "Уже автосохранено в"
+   },
+   "anonymous_user": {
+      "message": "Анонимный пользователь"
+   },
+   "app_description": {
+      "message": "Замените \"Страницу новой вкладки\" персональным дашбордом."
+   },
+   "app_name": {
+      "message": "Страница новой вкладки от start.me"
+   },
+   "app_short_name": {
+      "message": "start.me"
+   },
+   "auto_saving": {
+      "message": "Авто-сохранение"
+   },
+   "autosave_in_inbox": {
+      "message": "Auto-save bookmarks (in Inbox)"
+   },
+   "autosaved_in_x_ext": {
+      "message": "Автосохранено в"
+   },
+   "available_feeds": {
+      "message": "Доступные каналы"
+   },
+   "bookmark": {
+      "message": "Закладка"
+   },
+   "change": {
+      "message": "Изменить"
+   },
+   "change_description_and_url": {
+      "message": "Изменить описание и адрес ссылки"
+   },
+   "change_user_settings": {
+      "message": "Изменить настройки пользователя"
+   },
+   "clear": {
+      "message": "Очистить"
+   },
+   "clear_cache": {
+      "message": "Очистить кэш"
+   },
+   "clear_extension_cache": {
+      "message": "Очистить кеш расширения"
+   },
+   "click_to_choose_a_different_country": {
+      "message": "Нажмите, чтобы выбрать другую страну"
+   },
+   "close": {
+      "message": "Закрыть"
+   },
+   "close_tabs_after_saving": {
+      "message": "Close selected tabs after saving"
+   },
+   "close_window": {
+      "message": "Закрыть окно"
+   },
+   "create_account": {
+      "message": "Создать учетную запись"
+   },
+   "create_new_bookmark": {
+      "message": "Создать новую закладку"
+   },
+   "create_new_free_account": {
+      "message": "Создайте новый бесплатный аккаунт start.me"
+   },
+   "create_new_group": {
+      "message": "Создать новую группу"
+   },
+   "create_new_group_on_page_widget_ext": {
+      "message": "Создать новую группу в"
+   },
+   "create_new_widget": {
+      "message": "Создать новый виджет"
+   },
+   "create_new_widget_on_page_ext": {
+      "message": "Создать новый виджет на странице"
+   },
+   "default_page": {
+      "message": "\u003CСтраница по умолчанию>"
+   },
+   "description": {
+      "message": "Замените \"Страницу новой вкладки\" персональным дашбордом."
+   },
+   "description_bookmarker": {
+      "message": "Закладчик помогает добавлять ссылки на сайты на вашу страницу start.me во время сёрфинга - start.me"
+   },
+   "done": {
+      "message": "Готово"
+   },
+   "edit_link": {
+      "message": "Редактировать закладку"
+   },
+   "eg_email": {
+      "message": "напр. nikita@gmail.com"
+   },
+   "eg_name": {
+      "message": "напр. Максим Волков"
+   },
+   "enable": {
+      "message": "Включено"
+   },
+   "enable_autosaving": {
+      "message": "Включить автосохранение"
+   },
+   "extension_options": {
+      "message": "Варианты расширения"
+   },
+   "feeds": {
+      "message": "Ленты"
+   },
+   "full_name": {
+      "message": "Страница новой вкладки от start.me"
+   },
+   "full_name_bookmarker": {
+      "message": "Закладчик от start.me"
+   },
+   "get_help": {
+      "message": "Помощь"
+   },
+   "grant_access": {
+      "message": "Предоставление доступа"
+   },
+   "have_startme_account": {
+      "message": "У вас уже есть зарегистрированный аккаунт start.me?"
+   },
+   "help": {
+      "message": "Помощь"
+   },
+   "help_and_support": {
+      "message": "Помощь и поддержка"
+   },
+   "hide": {
+      "message": "Скрыть"
+   },
+   "hide_description_and_url": {
+      "message": "Скрыть описание и URL"
+   },
+   "home_name": {
+      "message": "start.me"
+   },
+   "i_may_do_this_later": {
+      "message": "Я могу сделать это позже"
+   },
+   "import": {
+      "message": "Импортировать"
+   },
+   "import_bookmarks": {
+      "message": "Импортировать закладки"
+   },
+   "import_bookmarks_from_chrome": {
+      "message": "Импортировать закладки из браузера"
+   },
+   "import_browser_bookmarks": {
+      "message": "Импортировать закладки браузера"
+   },
+   "import_your_bookmarks_question": {
+      "message": "Импортировать ваши закладки?"
+   },
+   "imported_from_chrome": {
+      "message": "Импортировано из Chrome"
+   },
+   "importing_your_bookmarks": {
+      "message": "Импортируются Ваши закладки"
+   },
+   "inbox": {
+      "message": "Входящие"
+   },
+   "learn_how_this_works": {
+      "message": "Узнайте как это работает"
+   },
+   "lets_personalize_it": {
+      "message": "Давайте настраивать. Это не займет много времени."
+   },
+   "logout": {
+      "message": "Выйти"
+   },
+   "logout_confirm": {
+      "message": "Вы уверены, что хотите выйти из вашего анонимного аккаунта? Вы не сможете больше снова войти в вашу страницу. Пожалуйста зарегистрируйте свой аккаунт, если вы хотите иметь возможность получить доступ к странице в будущем."
+   },
+   "markdown_supported": {
+      "message": "Markdown поддерживается"
+   },
+   "my_email_is": {
+      "message": "Адрес моей электронной почты"
+   },
+   "my_name_is": {
+      "message": "Моё имя"
+   },
+   "my_startme_homepage": {
+      "message": "Моя домашняя страница start.me"
+   },
+   "name_bookmarker": {
+      "message": "Закладчик start.me"
+   },
+   "new_tab_page": {
+      "message": "Страница новой вкладки"
+   },
+   "new_widget": {
+      "message": "Новый виджет"
+   },
+   "no": {
+      "message": "Нет"
+   },
+   "open_browser_tabs": {
+      "message": "Открыть вкладки браузера"
+   },
+   "open_default_chrome_startpage": {
+      "message": "откройте начальную страницу браузера по умолчанию"
+   },
+   "open_my_startme_homepage": {
+      "message": "открыть мою домашнюю страницу start.me"
+   },
+   "open_pagesmenu": {
+      "message": "Открыть меню start.me"
+   },
+   "open_startme_blog": {
+      "message": "Перейти на блог start.me"
+   },
+   "open_startme_homepage": {
+      "message": "Открыть домашнюю страницу start.me"
+   },
+   "open_tabs": {
+      "message": "Открыть вкладки"
+   },
+   "options": {
+      "message": "Опции"
+   },
+   "other_preferences": {
+      "message": "Другие параметры"
+   },
+   "personal_pages": {
+      "message": "Персональные страницы"
+   },
+   "please_import_them": {
+      "message": "Импортируйте их пожалуйста"
+   },
+   "please_specify_title": {
+      "message": "Пожалуйста, укажите заголовок"
+   },
+   "please_try_again_later": {
+      "message": "Нам очень жаль. Пожалуйста, повторите попытку позже."
+   },
+   "please_wait_a_moment": {
+      "message": "Это может занять некоторое время. Пожалуйста подождите."
+   },
+   "plus_n_others": {
+      "message": "+ ещё %{number}"
+   },
+   "preferences": {
+      "message": "Предпочтения"
+   },
+   "pro": {
+      "message": "Pro"
+   },
+   "pure_description": {
+      "message": "Описание"
+   },
+   "refresh": {
+      "message": "Обновить"
+   },
+   "refresh_data": {
+      "message": "Refresh data"
+   },
+   "refresh_list": {
+      "message": "Обновить список"
+   },
+   "remove": {
+      "message": "Удалить"
+   },
+   "save": {
+      "message": "Сохранить"
+   },
+   "save_bookmark": {
+      "message": "Save bookmark"
+   },
+   "save_bookmarks": {
+      "message": "Save bookmarks"
+   },
+   "save_changes": {
+      "message": "Сохранить изменения"
+   },
+   "save_in": {
+      "message": "Сохранить сюда"
+   },
+   "save_selected_tabs": {
+      "message": "Save selected tabs"
+   },
+   "save_tabs": {
+      "message": "Save tabs"
+   },
+   "saved_in": {
+      "message": "Сохранено"
+   },
+   "search_bookmarks_from_address_bar": {
+      "message": "Ищите закладки прямо из адресной строки"
+   },
+   "search_widgets": {
+      "message": "Искать виджеты"
+   },
+   "select_a_widget": {
+      "message": "Выберите виджет"
+   },
+   "select_all": {
+      "message": "Выбрать всё"
+   },
+   "select_location": {
+      "message": "Выберите положение"
+   },
+   "select_new_tab_page": {
+      "message": "Выберите новую вкладку"
+   },
+   "select_your_new_tab_page": {
+      "message": "Выберите страницу новой вкладки"
+   },
+   "settings": {
+      "message": "Настройки"
+   },
+   "shake_hands": {
+      "message": "Познакомимся"
+   },
+   "shortcuts": {
+      "message": "Ярлыки"
+   },
+   "show_chromes_default_page": {
+      "message": "показать страницу браузера по умолчанию"
+   },
+   "show_my_startme_page": {
+      "message": "показать страницу start.me"
+   },
+   "sign_in_to_startme": {
+      "message": "Войти в start.me"
+   },
+   "signin_with_email": {
+      "message": "Войдите используя адрес своей электронной почты."
+   },
+   "something_went_wrong": {
+      "message": "Что-то пошло не так"
+   },
+   "take_me_to_start_page": {
+      "message": "Перейти на мою новую начальную страницу!"
+   },
+   "terms": {
+      "message": "Условия"
+   },
+   "title": {
+      "message": "Заголовок"
+   },
+   "title_for_new_group": {
+      "message": "Название новой группы"
+   },
+   "title_for_new_widget": {
+      "message": "Название нового виджета"
+   },
+   "unsorted_bookmarks": {
+      "message": "Несортированные закладки"
+   },
+   "url": {
+      "message": "URL"
+   },
+   "use": {
+      "message": "Использовать"
+   },
+   "view_my_account_details": {
+      "message": "Показать настройки аккаунта"
+   },
+   "visit_account_profile": {
+      "message": "Посетить профиль аккаунта"
+   },
+   "visit_support_centre": {
+      "message": "Посетить центр поддержки"
+   },
+   "welcome_to": {
+      "message": "Добро пожаловать на"
+   },
+   "welcome_to_startme": {
+      "message": "Добро пожаловать на start.me"
+   },
+   "what_is_your_name": {
+      "message": "Напишите ваше имя"
+   },
+   "when_browser_tab_is_opened": {
+      "message": "При открытии новой вкладки браузера"
+   },
+   "when_i_open_a_new_chrome_tab": {
+      "message": "При открытии новой вкладки"
+   },
+   "where_do_you_come_from": {
+      "message": "Откуда вы?"
+   },
+   "which_page_as_your_homepage": {
+      "message": "Какую страницу вы хотите использовать как домашнюю страницу?"
+   },
+   "yes": {
+      "message": "Да"
+   },
+   "you_already_saved_this_link": {
+      "message": "Вы уже сохранили эту ссылку"
+   },
+   "your_bookmarks_are_being_imported": {
+      "message": "Ваши закладки импортируются..."
+   },
+   "your_new_tab_page_question": {
+      "message": "Ваша страница новой вкладки?"
+   }
+}

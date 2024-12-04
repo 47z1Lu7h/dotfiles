@@ -1,0 +1,20 @@
+{
+   "description": {
+      "message": "Instagram-App - Laden Sie Fotos, Videos, Geschichten und Filmrollen aus dem Internet auf Instagram herunter. Posts planen, DM von Instagram senden."
+   },
+   "name": {
+      "message": "App Client for Instagram™ - InLoad"
+   },
+   "rateDialogDesc": {
+      "message": "Please rate us! It is very important for us! Thank you:)"
+   },
+   "rateDialogNo": {
+      "message": "Maybe next time"
+   },
+   "rateDialogTitle": {
+      "message": "Our extension is useful for you?"
+   },
+   "rateDialogYes": {
+      "message": "Yes, of course"
+   }
+}

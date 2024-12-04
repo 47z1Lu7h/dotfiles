@@ -1,0 +1,35 @@
+{
+   "automatic_save": {
+      "message": "Settings saved."
+   },
+   "description": {
+      "message": "Cliquez avec le bouton droit sur le mot ou l'expression à traduire en utilisant le traducteur Google. Traduction en ligne"
+   },
+   "instruction": {
+      "message": "Instruction"
+   },
+   "name": {
+      "message": "Traducteur web, dictionnaire - traduction simple"
+   },
+   "settings": {
+      "message": "Settings"
+   },
+   "translate": {
+      "message": "Translate"
+   },
+   "translate_to": {
+      "message": "Translate to:"
+   },
+   "view_mode": {
+      "message": "View mode:"
+   },
+   "view_mode_ognt": {
+      "message": "Open and go to a new tab"
+   },
+   "view_mode_ont": {
+      "message": "Open a new tab"
+   },
+   "view_mode_tt": {
+      "message": "Tooltip"
+   }
+}

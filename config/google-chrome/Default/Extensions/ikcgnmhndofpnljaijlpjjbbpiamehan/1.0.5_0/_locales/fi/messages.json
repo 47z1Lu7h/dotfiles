@@ -1,0 +1,20 @@
+{
+   "description": {
+      "message": "Instagram-sovellus - lataa Lähetä valokuvia, videoita, tarinoita ja keloja Instagramiin verkosta. Ajoita postauksia, lähetä DM Instagramista."
+   },
+   "name": {
+      "message": "App Client for Instagram™ - InLoad"
+   },
+   "rateDialogDesc": {
+      "message": "Please rate us! It is very important for us! Thank you:)"
+   },
+   "rateDialogNo": {
+      "message": "Maybe next time"
+   },
+   "rateDialogTitle": {
+      "message": "Our extension is useful for you?"
+   },
+   "rateDialogYes": {
+      "message": "Yes, of course"
+   }
+}

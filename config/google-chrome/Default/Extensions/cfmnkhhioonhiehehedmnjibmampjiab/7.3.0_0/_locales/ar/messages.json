@@ -1,0 +1,453 @@
+{
+   "____________________________________________________________________________________________________": {
+      "description": "This file has been generated automatically. Don't modify manually.",
+      "message": ""
+   },
+   "account": {
+      "message": "Account"
+   },
+   "account_details": {
+      "message": "Account details"
+   },
+   "account_type_pro": {
+      "message": "Pro"
+   },
+   "add_bookmark": {
+      "message": "Add Bookmark"
+   },
+   "add_description": {
+      "message": "+ Add description"
+   },
+   "add_feed": {
+      "message": "Add Feed"
+   },
+   "add_group": {
+      "message": "Add group"
+   },
+   "add_tabs": {
+      "message": "إضافة علامات التبويب"
+   },
+   "add_title": {
+      "message": "+ Add title"
+   },
+   "add_to_startme": {
+      "message": "إضافة إلى start.me"
+   },
+   "add_widget": {
+      "message": "Add widget"
+   },
+   "allow_access_to_tabs": {
+      "message": "يرجى منح start.me الوصول إلى علامات تبويب المتصفح لرؤية جميع علامات تبويب المتصفح المفتوحة."
+   },
+   "already_have_startme_account": {
+      "message": "Already have a start.me account?"
+   },
+   "already_saved_in_x_ext": {
+      "message": "Already saved in"
+   },
+   "anonymous_user": {
+      "message": "Anonymous user"
+   },
+   "app_description": {
+      "message": "صفحة البدء الشخصية النهائية - start.me"
+   },
+   "app_name": {
+      "message": "نافذة جديدة بواسطة start.me"
+   },
+   "app_short_name": {
+      "message": "start.me"
+   },
+   "auto_saving": {
+      "message": "Auto-saving"
+   },
+   "autosave_in_inbox": {
+      "message": "Auto-save bookmarks (in Inbox)"
+   },
+   "autosaved_in_x_ext": {
+      "message": "Auto-saved in"
+   },
+   "available_feeds": {
+      "message": "الخلاصات المتاحة"
+   },
+   "bookmark": {
+      "message": "Bookmark"
+   },
+   "change": {
+      "message": "Change"
+   },
+   "change_description_and_url": {
+      "message": "تغيير الوصف والرابط"
+   },
+   "change_user_settings": {
+      "message": "Change user settings"
+   },
+   "clear": {
+      "message": "تنظيف"
+   },
+   "clear_cache": {
+      "message": "مسح ذاكرة التخزين المؤقت"
+   },
+   "clear_extension_cache": {
+      "message": "Clear extension cache"
+   },
+   "click_to_choose_a_different_country": {
+      "message": "انقر لاختيار بلد مختلف"
+   },
+   "close": {
+      "message": "Close"
+   },
+   "close_tabs_after_saving": {
+      "message": "Close selected tabs after saving"
+   },
+   "close_window": {
+      "message": "Close window"
+   },
+   "create_account": {
+      "message": "Create an account"
+   },
+   "create_new_bookmark": {
+      "message": "Create new bookmark"
+   },
+   "create_new_free_account": {
+      "message": "إنشاء حساب جديد start.me مجانا"
+   },
+   "create_new_group": {
+      "message": "Create new group"
+   },
+   "create_new_group_on_page_widget_ext": {
+      "message": "Create new group in"
+   },
+   "create_new_widget": {
+      "message": "Create new widget"
+   },
+   "create_new_widget_on_page_ext": {
+      "message": "Create new widget on"
+   },
+   "default_page": {
+      "message": "‎‎\u003CDefault page>‎"
+   },
+   "description": {
+      "message": "صفحة البدء الشخصية النهائية - start.me"
+   },
+   "description_bookmarker": {
+      "message": "This Bookmarker can be used to bookmark webpages to your start.me page while you surf - start.me"
+   },
+   "done": {
+      "message": "Done"
+   },
+   "edit_link": {
+      "message": "Edit bookmark"
+   },
+   "eg_email": {
+      "message": "مثال، john@gmail.com"
+   },
+   "eg_name": {
+      "message": "مثال، جون سميث"
+   },
+   "enable": {
+      "message": "Enable"
+   },
+   "enable_autosaving": {
+      "message": "Enable auto-saving"
+   },
+   "extension_options": {
+      "message": "Extension options"
+   },
+   "feeds": {
+      "message": "Feeds"
+   },
+   "full_name": {
+      "message": "نافذة جديدة بواسطة start.me"
+   },
+   "full_name_bookmarker": {
+      "message": "Bookmarker by start.me"
+   },
+   "get_help": {
+      "message": "Get help"
+   },
+   "grant_access": {
+      "message": "منح الوصول"
+   },
+   "have_startme_account": {
+      "message": "هل لديك حساب start.me مسجل بالفعل؟"
+   },
+   "help": {
+      "message": "Help"
+   },
+   "help_and_support": {
+      "message": "Help & Support"
+   },
+   "hide": {
+      "message": "Hide"
+   },
+   "hide_description_and_url": {
+      "message": "إخفاء الوصف والرابط"
+   },
+   "home_name": {
+      "message": "start.me"
+   },
+   "i_may_do_this_later": {
+      "message": "ربما سأقوم بذلك لاحقا"
+   },
+   "import": {
+      "message": "Import"
+   },
+   "import_bookmarks": {
+      "message": "Import bookmarks"
+   },
+   "import_bookmarks_from_chrome": {
+      "message": "استيراد المواقع المرجعية من المتصفح"
+   },
+   "import_browser_bookmarks": {
+      "message": "Import browser bookmarks"
+   },
+   "import_your_bookmarks_question": {
+      "message": "استيراد مواقعك المرجعية؟"
+   },
+   "imported_from_chrome": {
+      "message": "مستورد من كروم"
+   },
+   "importing_your_bookmarks": {
+      "message": "استيراد مواقعك المرجعية"
+   },
+   "inbox": {
+      "message": "Inbox"
+   },
+   "learn_how_this_works": {
+      "message": "Learn how this works"
+   },
+   "lets_personalize_it": {
+      "message": "لنقم بتخصيص ذلك. ولن يستغرق الأمر طويلا."
+   },
+   "logout": {
+      "message": "Sign out"
+   },
+   "logout_confirm": {
+      "message": "Are you sure you want to logout your anonymous account? This means that you won't be able to login to your page again. Please register your account first if you want to be able to access your page in future."
+   },
+   "markdown_supported": {
+      "message": "وضع علامة على المدعومة"
+   },
+   "my_email_is": {
+      "message": "بريدي الالكتروني هو"
+   },
+   "my_name_is": {
+      "message": "إسمي هو"
+   },
+   "my_startme_homepage": {
+      "message": "صفحتي الرئيسة start.me"
+   },
+   "name_bookmarker": {
+      "message": "start.me Bookmarker"
+   },
+   "new_tab_page": {
+      "message": "نافذة جديدة"
+   },
+   "new_widget": {
+      "message": "New widget"
+   },
+   "no": {
+      "message": "No"
+   },
+   "open_browser_tabs": {
+      "message": "علامات تبويب المتصفح المفتوحة"
+   },
+   "open_default_chrome_startpage": {
+      "message": "افتح صفحة البدء الافتراضية للمتصفح"
+   },
+   "open_my_startme_homepage": {
+      "message": "فتح صفحتى start.me الرئيسة"
+   },
+   "open_pagesmenu": {
+      "message": "فتح قائمة start.me"
+   },
+   "open_startme_blog": {
+      "message": "فتح مدونة start.me"
+   },
+   "open_startme_homepage": {
+      "message": "Open start.me homepage"
+   },
+   "open_tabs": {
+      "message": "علامات التبويب المفتوحة"
+   },
+   "options": {
+      "message": "Options"
+   },
+   "other_preferences": {
+      "message": "تفضيلات أخرى"
+   },
+   "personal_pages": {
+      "message": "الصفحات الشخصية"
+   },
+   "please_import_them": {
+      "message": "المرجو استيرادها"
+   },
+   "please_specify_title": {
+      "message": "Please specify a title"
+   },
+   "please_try_again_later": {
+      "message": "We are very sorry. Please try again later."
+   },
+   "please_wait_a_moment": {
+      "message": "This may take a moment. Please wait."
+   },
+   "plus_n_others": {
+      "message": "+%{number} others"
+   },
+   "preferences": {
+      "message": "Preferences"
+   },
+   "pro": {
+      "message": "Pro"
+   },
+   "pure_description": {
+      "message": "الوصف"
+   },
+   "refresh": {
+      "message": "Refresh"
+   },
+   "refresh_data": {
+      "message": "Refresh data"
+   },
+   "refresh_list": {
+      "message": "تحديث اللائحة"
+   },
+   "remove": {
+      "message": "Remove"
+   },
+   "save": {
+      "message": "Save"
+   },
+   "save_bookmark": {
+      "message": "Save bookmark"
+   },
+   "save_bookmarks": {
+      "message": "Save bookmarks"
+   },
+   "save_changes": {
+      "message": "Save changes"
+   },
+   "save_in": {
+      "message": "أحفظ في"
+   },
+   "save_selected_tabs": {
+      "message": "Save selected tabs"
+   },
+   "save_tabs": {
+      "message": "Save tabs"
+   },
+   "saved_in": {
+      "message": "Saved in"
+   },
+   "search_bookmarks_from_address_bar": {
+      "message": "Search bookmarks right from address bar"
+   },
+   "search_widgets": {
+      "message": "Search widgets"
+   },
+   "select_a_widget": {
+      "message": "‎\u003CSelect a widget>‎"
+   },
+   "select_all": {
+      "message": "اختيار الجميع"
+   },
+   "select_location": {
+      "message": "Select location"
+   },
+   "select_new_tab_page": {
+      "message": "اختر صفحة علامة التبويب الجديدة"
+   },
+   "select_your_new_tab_page": {
+      "message": "Select your new tab page"
+   },
+   "settings": {
+      "message": "Settings"
+   },
+   "shake_hands": {
+      "message": "مصافحة"
+   },
+   "shortcuts": {
+      "message": "Shortcuts"
+   },
+   "show_chromes_default_page": {
+      "message": "إظهار صفحة المتصفح الافتراضية"
+   },
+   "show_my_startme_page": {
+      "message": "إظهر صفحة start.me الخصاة بي"
+   },
+   "sign_in_to_startme": {
+      "message": "Sign in to start.me"
+   },
+   "signin_with_email": {
+      "message": "تسجيل الدخول باستخدام عنوان البريد الإلكتروني الخاص بك"
+   },
+   "something_went_wrong": {
+      "message": "Something went wrong"
+   },
+   "take_me_to_start_page": {
+      "message": "خذني إلى صفحة البداية!"
+   },
+   "terms": {
+      "message": "Terms"
+   },
+   "title": {
+      "message": "Title"
+   },
+   "title_for_new_group": {
+      "message": "Title for new group"
+   },
+   "title_for_new_widget": {
+      "message": "Title for new widget"
+   },
+   "unsorted_bookmarks": {
+      "message": "Unsorted bookmarks"
+   },
+   "url": {
+      "message": "URL"
+   },
+   "use": {
+      "message": "Use"
+   },
+   "view_my_account_details": {
+      "message": "View my account details"
+   },
+   "visit_account_profile": {
+      "message": "زيارة الحساب الشخصي"
+   },
+   "visit_support_centre": {
+      "message": "Visit support center"
+   },
+   "welcome_to": {
+      "message": "مرحبا بك في"
+   },
+   "welcome_to_startme": {
+      "message": "مرحبا بك في start.me"
+   },
+   "what_is_your_name": {
+      "message": "ما هو إسمك؟"
+   },
+   "when_browser_tab_is_opened": {
+      "message": "عندما يتم فتح صفحة متصفح جديدة"
+   },
+   "when_i_open_a_new_chrome_tab": {
+      "message": "عنندما أفتح نافذة تصفح جديدة"
+   },
+   "where_do_you_come_from": {
+      "message": "من أي بلد أنت؟"
+   },
+   "which_page_as_your_homepage": {
+      "message": "ما هي الصفحة التي تريد استخدامها كصفحتك الرئيسة؟"
+   },
+   "yes": {
+      "message": "Yes"
+   },
+   "you_already_saved_this_link": {
+      "message": "You already saved this link"
+   },
+   "your_bookmarks_are_being_imported": {
+      "message": "استيراد مواقعك المرجعية جاري الآن..."
+   },
+   "your_new_tab_page_question": {
+      "message": "صفحة تصفحك الجديدة؟"
+   }
+}

@@ -1,0 +1,80 @@
+[
+    {
+        "title": "$4.99/Month",
+        "description": "",
+        "price": "$4.99/Month",
+        "prod_code": "prod_307bc3f48f6d423f",
+        "features": [
+            {
+                "title": "Unlimited Download Music",
+                "is_active": true,
+                "show": true,
+                "style": {
+                    "color": "#565656",
+                    "fontSize": "14px"
+                }
+            },
+            {
+                "title": "Unlimited Download Video",
+                "is_active": true,
+                "show": true,
+                "style": {
+                    "color": "#565656",
+                    "fontSize": "14px"
+                }
+            }
+        ]
+    },
+    {
+        "title": "$9.99/Quarter",
+        "description": "",
+        "price": "$9.99/Quarter",
+        "prod_code": "prod_674b7f931ce249c3",
+        "features": [
+            {
+                "title": "Unlimited Download Music",
+                "is_active": true,
+                "show": true,
+                "style": {
+                    "color": "#565656",
+                    "fontSize": "14px"
+                }
+            },
+            {
+                "title": "Unlimited Download Video",
+                "is_active": true,
+                "show": true,
+                "style": {
+                    "color": "#565656",
+                    "fontSize": "14px"
+                }
+            }
+        ]
+    },
+    {
+        "title": "$69.99/Lifetime",
+        "description": "",
+        "price": "$69.99/Lifetime",
+        "prod_code": "prod_3f048ad566f04be3",
+        "features": [
+            {
+                "title": "Unlimited Download Music",
+                "is_active": true,
+                "show": true,
+                "style": {
+                    "color": "#565656",
+                    "fontSize": "14px"
+                }
+            },
+            {
+                "title": "Unlimited Download Video",
+                "is_active": true,
+                "show": true,
+                "style": {
+                    "color": "#565656",
+                    "fontSize": "14px"
+                }
+            }
+        ]
+    }
+]

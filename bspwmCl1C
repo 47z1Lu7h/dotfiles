@@ -523,7 +523,7 @@ function main(){
 		echo -ne "\n\n\t${bold}${cyan}<|[+]|> ${end}${red}cOd3 ${cyan}d0n3!!\n\n"
 	fi
 
-	#fonts && clipmenu && firefox_esr && htb-Xplorer && nvim && zsh_Plugins && dotfiles
+	fonts && clipmenu && firefox_esr && htb-Xplorer && nvim && zsh_Plugins && dotfiles
 }
 
 ################################################################################################################

@@ -1,0 +1,26 @@
+{
+   "action": {
+      "default_popup": "settings/index.html"
+   },
+   "author": "Mickaël Allonneau",
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "index.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_meta_description__",
+   "homepage_url": "https://github.com/flawyte/fast-scroll",
+   "icons": {
+      "128": "res/icon128.png",
+      "16": "res/icon16.png",
+      "48": "res/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqSoy234Zz/IATGHsOEAKIA5p6D6u/PYdgZVHcflDlWbP49bfjZnO/VSoV6NzVPFFrr3cdwH6bYpgdoooiS1MHvRLtCKyrsEkVnP+rTSMW341eWFdQwzhMleYfLjx6IrCKXFyhGT2MOE5+XBr36+QENzvmmsEnakqv36LGmdEHzlrkDLcyb+8joInesjdMHaZ+6uGE2cYmys/c3/EUyWm5YaEosGihmnBGdUXY284yyCpRxaCCI51hhvavBpwTUEmV62TEtOgGT8YAv6YxheHrZlYMm+Mnmb7jC6WJqVHtDRrxVh6NoPUsBrMnNvQmmS1cFb1ljpSGWku3hWAxwQGRwIDAQAB",
+   "manifest_version": 3,
+   "name": "Fast Scroll",
+   "permissions": [ "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "5.0"
+}

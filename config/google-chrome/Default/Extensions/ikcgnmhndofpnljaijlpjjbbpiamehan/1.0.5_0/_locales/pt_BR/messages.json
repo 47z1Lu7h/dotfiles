@@ -1,0 +1,20 @@
+{
+   "description": {
+      "message": "O downloader do Instagram permite baixar fotos, imagens, vídeos do Instagram, salvar a história. Baixar vídeo do Instagram"
+   },
+   "name": {
+      "message": "App Client for Instagram™ - InLoad"
+   },
+   "rateDialogDesc": {
+      "message": "Please rate us! It is very important for us! Thank you:)"
+   },
+   "rateDialogNo": {
+      "message": "Maybe next time"
+   },
+   "rateDialogTitle": {
+      "message": "Our extension is useful for you?"
+   },
+   "rateDialogYes": {
+      "message": "Yes, of course"
+   }
+}

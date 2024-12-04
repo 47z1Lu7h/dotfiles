@@ -1,0 +1,166 @@
+{
+   "3pGroupAds": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "ಜಾಹೀರಾತುಗಳು"
+   },
+   "3pGroupAnnoyances": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Annoyances"
+   },
+   "3pGroupDefault": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "ಪೂರ್ವನಿಯೋಜಿತ"
+   },
+   "3pGroupMalware": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Malware domains"
+   },
+   "3pGroupMisc": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "ವಿವಿಧ"
+   },
+   "3pGroupPrivacy": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "ಗೌಪ್ಯತೆ"
+   },
+   "3pGroupRegions": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "ಪ್ರದೇಶಗಳು, ಭಾಷೆಗಳು\n"
+   },
+   "aboutChangelog": {
+      "description": "",
+      "message": "ಬದಲಾವಣೆಗಳು"
+   },
+   "aboutCode": {
+      "description": "English: Source code (GPLv3)",
+      "message": "Source code (GPLv3)"
+   },
+   "aboutContributors": {
+      "description": "English: Contributors",
+      "message": "Contributors"
+   },
+   "aboutDependencies": {
+      "description": "Shown in the About pane",
+      "message": "External dependencies (GPLv3-compatible):"
+   },
+   "aboutFilterLists": {
+      "description": "Link text to uBO's own filter lists repo",
+      "message": "ಫಿಲ್ಟರ್ ಪಟ್ಟಿಗಳು"
+   },
+   "aboutPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "ಬಗ್ಗೆ"
+   },
+   "aboutPrivacyPolicy": {
+      "description": "Link to privacy policy on GitHub (English)",
+      "message": "ಗೌಪ್ಯತಾ ನೀತಿ\n"
+   },
+   "aboutSourceCode": {
+      "description": "Link text to source code repo",
+      "message": "ಮೂಲ ಕೊಡ್"
+   },
+   "aboutTranslations": {
+      "description": "Link text to translations repo",
+      "message": "ಅನುವಾದ"
+   },
+   "autoReloadLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "Automatically reload page when changing filtering mode"
+   },
+   "basicFilteringModeDescription": {
+      "description": "This describes the 'basic' filtering mode",
+      "message": "Basic network filtering from selected filter lists.\n\nDoes not require permission to read and modify data on websites."
+   },
+   "behaviorSectionLabel": {
+      "description": "The header text for the 'Behavior' section",
+      "message": "Behavior"
+   },
+   "completeFilteringModeDescription": {
+      "description": "This describes the 'complete' filtering mode",
+      "message": "Advanced network filtering plus specific and generic extended filtering from selected filter lists.\n\nRequires broad permission to read and modify data on all websites.\n\nGeneric extended filtering may cause higher webpage resources usage."
+   },
+   "dashboardName": {
+      "description": "English: AdBlock Max — Dashboard",
+      "message": "\nಯುಬಿಒ ಲೈಟ್ - ಡ್ಯಾಶ್‌ಬೋರ್ಡ್\n"
+   },
+   "defaultFilteringModeDescription": {
+      "description": "This describes the default filtering mode setting",
+      "message": "The default filtering mode will be overridden by per-website filtering modes. You can adjust the filtering mode on any given website according to whichever mode works best on that website. Each mode has its advantages and disadvantages."
+   },
+   "defaultFilteringModeSectionLabel": {
+      "description": "The header text for the default filtering mode section",
+      "message": "Default filtering mode"
+   },
+   "extName": {
+      "description": "extension name.",
+      "message": "AdBlock Max"
+   },
+   "extName666": {
+      "description": "extension name.",
+      "message": "AdBlock Max - ಜಾಹೀರಾತು ಬ್ಲಾಕರ್"
+   },
+   "extShortDesc": {
+      "description": "this will be in the Chrome web store: must be 132 characters or less",
+      "message": "ಅನುಮತಿ-ಕಡಿಮೆ ವಿಷಯ ಬ್ಲಾಕರ್. ಅನುಸ್ಥಾಪನೆಯ ತಕ್ಷಣವೇ ಜಾಹೀರಾತುಗಳು, ಟ್ರ್ಯಾಕರ್‌ಗಳು, ಗಣಿಗಾರರು ಮತ್ತು ಹೆಚ್ಚಿನದನ್ನು ನಿರ್ಬಂಧಿಸುತ್ತದೆ."
+   },
+   "filteringMode0Name": {
+      "description": "Name of blocking mode 0",
+      "message": "no filtering"
+   },
+   "filteringMode1Name": {
+      "description": "Name of blocking mode 1",
+      "message": "ಸಾಮಾನ್ಯ"
+   },
+   "filteringMode2Name": {
+      "description": "Name of blocking mode 2",
+      "message": "optimal"
+   },
+   "filteringMode3Name": {
+      "description": "Name of blocking mode 3",
+      "message": "ಪೂರ್ಣ"
+   },
+   "firstRunDescription": {
+      "description": "Descriptive text shown at first install time only ",
+      "message": "You have just installed AdBlock Max. Here you can choose the default filtering mode to use on all websites.\n\nBy default, \u003Cem>Basic\u003C/em> mode is selected because it does not require the permission to read and modify data. If you trust AdBlock Max, you can give it broad permission to read and modify data on all websites in order to enable more advanced filtering capabilities for all websites by default."
+   },
+   "firstRunSectionLabel": {
+      "description": "The header text for the welcome message section",
+      "message": "ಸ್ವಾಗತ"
+   },
+   "noFilteringModeDescription": {
+      "description": "A short description for the editable field which lists trusted sites",
+      "message": "List of hostnames for which no filtering will take place."
+   },
+   "optimalFilteringModeDescription": {
+      "description": "This describes the 'optimal' filtering mode",
+      "message": "Advanced network filtering plus specific extended filtering from selected filter lists.\n\nRequires broad permission to read and modify data on all websites."
+   },
+   "perRulesetStats": {
+      "description": "Appears aside each filter list in the _3rd-party filters_ pane",
+      "message": "{{ruleCount}} rules, converted from {{filterCount}} network filters"
+   },
+   "popupFilteringModeLabel": {
+      "description": "Label in the popup panel for the current filtering mode",
+      "message": "filtering mode"
+   },
+   "popupLessButton": {
+      "description": "Label to be used to hide popup panel sections",
+      "message": "ಕಡಿಮೆ"
+   },
+   "popupMoreButton": {
+      "description": "Label to be used to show popup panel sections",
+      "message": "ಇನ್ನಷ್ಟು"
+   },
+   "popupTipDashboard": {
+      "description": "English: Click to open the dashboard",
+      "message": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ತೆರೆಯಿರಿ"
+   },
+   "settingsPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "ಸಂಯೋಜನೆಗಳು"
+   },
+   "showBlockedCountLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "Show the number of blocked requests on the toolbar icon"
+   }
+}

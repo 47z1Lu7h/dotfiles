@@ -1,0 +1,14 @@
+2024/11/29-19:41:55.648 b0cd Reusing MANIFEST /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_outlook.live.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/11/29-19:41:55.648 b0cd Recovering log #59
+2024/11/29-19:41:55.648 b0cd Reusing old log /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_outlook.live.com_0.indexeddb.leveldb/000059.log 
+2024/11/29-19:41:55.648 b0cd Delete type=2 #58
+2024/11/29-19:41:55.651 b0cd Level-0 table #64: started
+2024/11/29-19:41:55.651 b0cd Level-0 table #64: 552 bytes OK
+2024/11/29-19:41:55.652 b0cd Delete type=0 #59
+2024/11/29-19:41:55.652 b0cd Manual compaction at level-0 from '\x00\x14\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x15\x00\x00\x00' @ 0 : 0; will stop at '\x00\x14\x00\x00\x05' @ 982 : 1
+2024/11/29-19:41:55.652 b0cd Compacting 1@0 + 1@1 files
+2024/11/29-19:41:55.653 b0cd Generated table #65@0: 16 keys, 582 bytes
+2024/11/29-19:41:55.653 b0cd Compacted 1@0 + 1@1 files => 582 bytes
+2024/11/29-19:41:55.654 b0cd compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/11/29-19:41:55.654 b0cd Delete type=2 #64
+2024/11/29-19:41:55.654 b0cd Manual compaction at level-0 from '\x00\x14\x00\x00\x05' @ 982 : 1 .. '\x00\x15\x00\x00\x00' @ 0 : 0; will stop at (end)

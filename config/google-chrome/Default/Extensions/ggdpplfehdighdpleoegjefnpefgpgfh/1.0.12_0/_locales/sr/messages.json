@@ -1,0 +1,166 @@
+{
+   "3pGroupAds": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Рекламе"
+   },
+   "3pGroupAnnoyances": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Сметње"
+   },
+   "3pGroupDefault": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Подразумевано"
+   },
+   "3pGroupMalware": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Злонамерни домени"
+   },
+   "3pGroupMisc": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Разно"
+   },
+   "3pGroupPrivacy": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Приватност"
+   },
+   "3pGroupRegions": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "Регионални, језички"
+   },
+   "aboutChangelog": {
+      "description": "",
+      "message": "Списак измена"
+   },
+   "aboutCode": {
+      "description": "English: Source code (GPLv3)",
+      "message": "Изворни код (GPLv3)"
+   },
+   "aboutContributors": {
+      "description": "English: Contributors",
+      "message": "Сарадници"
+   },
+   "aboutDependencies": {
+      "description": "Shown in the About pane",
+      "message": "Спољне зависности (компатибилно са GPLv3):"
+   },
+   "aboutFilterLists": {
+      "description": "Link text to uBO's own filter lists repo",
+      "message": "Листе филтера"
+   },
+   "aboutPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "О апликацији"
+   },
+   "aboutPrivacyPolicy": {
+      "description": "Link to privacy policy on GitHub (English)",
+      "message": "Политика приватности"
+   },
+   "aboutSourceCode": {
+      "description": "Link text to source code repo",
+      "message": "Изворни код"
+   },
+   "aboutTranslations": {
+      "description": "Link text to translations repo",
+      "message": "Преводи"
+   },
+   "autoReloadLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "Аутоматски поново учитај страницу при промени режима филтрирања"
+   },
+   "basicFilteringModeDescription": {
+      "description": "This describes the 'basic' filtering mode",
+      "message": "Основно мрежно филтрирање са изабраних листа филтера.\n\nНе захтева дозволу за читање и мењање података на сајтовима."
+   },
+   "behaviorSectionLabel": {
+      "description": "The header text for the 'Behavior' section",
+      "message": "Понашање"
+   },
+   "completeFilteringModeDescription": {
+      "description": "This describes the 'complete' filtering mode",
+      "message": "Напредно мрежно и специфично и генеричко проширено филтрирање са изабраних листа филтера.\n\nЗахтева широку дозволу за читање и мењање података на свим сајтовима.\n\nГенеричко филтрирање може довести до већег коришћења ресурса веб странице."
+   },
+   "dashboardName": {
+      "description": "English: AdBlock Max — Dashboard",
+      "message": "AdBlock Max — Контролна табла"
+   },
+   "defaultFilteringModeDescription": {
+      "description": "This describes the default filtering mode setting",
+      "message": "Подразумевани режим филтрирања ће бити замењен режимима филтрирања по појединачним веб сајтовима. Можете прилагодити режим филтрирања на било ком веб сајту у складу са режимом који најбоље функционише на том веб сајту. Сваки режим има своје предности и мане."
+   },
+   "defaultFilteringModeSectionLabel": {
+      "description": "The header text for the default filtering mode section",
+      "message": "Подразумевани режим филтрирања"
+   },
+   "extName": {
+      "description": "extension name.",
+      "message": "AdBlock Max"
+   },
+   "extName666": {
+      "description": "extension name.",
+      "message": "AdBlock Max - оглас блокер"
+   },
+   "extShortDesc": {
+      "description": "this will be in the Chrome web store: must be 132 characters or less",
+      "message": "Блокатор садржаја који не захтева дозволе. Блокира рекламе, праћења, рударе криптовалута и друго."
+   },
+   "filteringMode0Name": {
+      "description": "Name of blocking mode 0",
+      "message": "без филтрирања"
+   },
+   "filteringMode1Name": {
+      "description": "Name of blocking mode 1",
+      "message": "основно"
+   },
+   "filteringMode2Name": {
+      "description": "Name of blocking mode 2",
+      "message": "оптимално"
+   },
+   "filteringMode3Name": {
+      "description": "Name of blocking mode 3",
+      "message": "комплетно"
+   },
+   "firstRunDescription": {
+      "description": "Descriptive text shown at first install time only ",
+      "message": "Управо сте инсталирали AdBlock Max. Овде можете изабрати подразумевани режим филтрирања који ће се користити на свим сајтовима.\n\nПодразумевано је изабран \u003Cem>основни\u003C/em> режим јер он не захтева дозволу за читање и мењање података. Ако верујете AdBlock Max-у, можете му дати широку дозволу за читање и мењање података како би се подразумевано омогућиле напредније могућности филтрирања за све сајтове."
+   },
+   "firstRunSectionLabel": {
+      "description": "The header text for the welcome message section",
+      "message": "Добродошли"
+   },
+   "noFilteringModeDescription": {
+      "description": "A short description for the editable field which lists trusted sites",
+      "message": "Листа имена хостова за које се неће вршити филтрирање"
+   },
+   "optimalFilteringModeDescription": {
+      "description": "This describes the 'optimal' filtering mode",
+      "message": "Напредно мрежно и специфично проширено филтрирање са изабраних листа филтера.\n\nЗахтева широку дозволу за читање и мењање података на свим сајтовима."
+   },
+   "perRulesetStats": {
+      "description": "Appears aside each filter list in the _3rd-party filters_ pane",
+      "message": "{{ruleCount}} правила, конвертована из {{filterCount}} мрежних филтера"
+   },
+   "popupFilteringModeLabel": {
+      "description": "Label in the popup panel for the current filtering mode",
+      "message": "режим филтрирања"
+   },
+   "popupLessButton": {
+      "description": "Label to be used to hide popup panel sections",
+      "message": "Мање"
+   },
+   "popupMoreButton": {
+      "description": "Label to be used to show popup panel sections",
+      "message": "Више"
+   },
+   "popupTipDashboard": {
+      "description": "English: Click to open the dashboard",
+      "message": "Отвори контролну таблу"
+   },
+   "settingsPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "Подешавања"
+   },
+   "showBlockedCountLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "Прикажи број блокираних захтева на иконици на траци алата"
+   }
+}

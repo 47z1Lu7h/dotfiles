@@ -1,0 +1,18 @@
+[General]
+LockSidebar=true
+ShowSidebar=true
+
+[MainWindow]
+2 screens: Height=2080
+2 screens: Width=1833
+2 screens: XPosition=2000
+2 screens: YPosition=73
+3 screens: Height=2080
+3 screens: Width=1833
+3 screens: XPosition=5840
+3 screens: YPosition=7
+DP-0 DP-2 DP-4=DP-2
+DP-0 DP-4=DP-0
+State=AAAA/wAAAAD9AAAAAQAAAAEAAAL+AAAH2vwCAAAAAfsAAAAWAGEAcgBrAF8AcwBpAGQAZQBiAGEAcgEAAABGAAAH2gAAAKoBAAACAAAEKgAAB9oAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+StatusBar=Disabled
+ToolBarsMovable=Disabled

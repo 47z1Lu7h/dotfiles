@@ -1,0 +1,166 @@
+{
+   "3pGroupAds": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "廣告"
+   },
+   "3pGroupAnnoyances": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "嫌惡元素"
+   },
+   "3pGroupDefault": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "預設"
+   },
+   "3pGroupMalware": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "惡意網域"
+   },
+   "3pGroupMisc": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "其他"
+   },
+   "3pGroupPrivacy": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "隱私"
+   },
+   "3pGroupRegions": {
+      "description": "Header for a ruleset section in 'Filter lists pane'",
+      "message": "地區及語言"
+   },
+   "aboutChangelog": {
+      "description": "",
+      "message": "變更日誌"
+   },
+   "aboutCode": {
+      "description": "English: Source code (GPLv3)",
+      "message": "原始碼（GPLv3）"
+   },
+   "aboutContributors": {
+      "description": "English: Contributors",
+      "message": "貢獻者"
+   },
+   "aboutDependencies": {
+      "description": "Shown in the About pane",
+      "message": "外部相依套件（與 GPLv3 相容）："
+   },
+   "aboutFilterLists": {
+      "description": "Link text to uBO's own filter lists repo",
+      "message": "過濾規則清單"
+   },
+   "aboutPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "關於"
+   },
+   "aboutPrivacyPolicy": {
+      "description": "Link to privacy policy on GitHub (English)",
+      "message": "隱私權政策"
+   },
+   "aboutSourceCode": {
+      "description": "Link text to source code repo",
+      "message": "原始碼"
+   },
+   "aboutTranslations": {
+      "description": "Link text to translations repo",
+      "message": "翻譯"
+   },
+   "autoReloadLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "變更過濾模式時自動重新載入頁面"
+   },
+   "basicFilteringModeDescription": {
+      "description": "This describes the 'basic' filtering mode",
+      "message": "來自選定過濾條件清單的基礎網路過濾。\n\n不需要讀取與變更網站資料的權限。"
+   },
+   "behaviorSectionLabel": {
+      "description": "The header text for the 'Behavior' section",
+      "message": "行為"
+   },
+   "completeFilteringModeDescription": {
+      "description": "This describes the 'complete' filtering mode",
+      "message": "進階網路過濾以及來自選定過濾條件清單的特定與通用擴展過濾條件。\n\n需要在所有網站上讀取並變更資料的廣泛權限。\n\n通用擴展過濾可能會導致更高的網頁資源使用率。"
+   },
+   "dashboardName": {
+      "description": "English: AdBlock Max — Dashboard",
+      "message": "AdBlock Max — 控制台"
+   },
+   "defaultFilteringModeDescription": {
+      "description": "This describes the default filtering mode setting",
+      "message": "預設過濾模式將被每個網站的過濾模式覆寫。您可以根據在該網站上最有效的模式為任何指定的網站調整過濾模式。每種模式都有其優缺點。"
+   },
+   "defaultFilteringModeSectionLabel": {
+      "description": "The header text for the default filtering mode section",
+      "message": "預設過濾模式"
+   },
+   "extName": {
+      "description": "extension name.",
+      "message": "AdBlock Max"
+   },
+   "extName666": {
+      "description": "extension name.",
+      "message": "AdBlock Max - 廣告攔截器"
+   },
+   "extShortDesc": {
+      "description": "this will be in the Chrome web store: must be 132 characters or less",
+      "message": "一個無須任何權限的內容阻擋器。安裝即可阻擋廣告、追蹤器、挖礦程式等網頁內容。"
+   },
+   "filteringMode0Name": {
+      "description": "Name of blocking mode 0",
+      "message": "不過濾"
+   },
+   "filteringMode1Name": {
+      "description": "Name of blocking mode 1",
+      "message": "基礎"
+   },
+   "filteringMode2Name": {
+      "description": "Name of blocking mode 2",
+      "message": "最佳化"
+   },
+   "filteringMode3Name": {
+      "description": "Name of blocking mode 3",
+      "message": "完整"
+   },
+   "firstRunDescription": {
+      "description": "Descriptive text shown at first install time only ",
+      "message": "您剛安裝了 AdBlock Max。您可以在此處選擇要在所有網站上使用的預設過濾模式。\n\n預設情況下將會選取\u003Cem>基礎\u003C/em>模式，因為其不需要讀取與變更資料的權限。若您信任 AdBlock Max，您可以給予其讀取並變更在所有網站上資料的廣泛權限，以便為所有網站啟用更進階的過濾功能。"
+   },
+   "firstRunSectionLabel": {
+      "description": "The header text for the welcome message section",
+      "message": "歡迎"
+   },
+   "noFilteringModeDescription": {
+      "description": "A short description for the editable field which lists trusted sites",
+      "message": "不進行過濾的主機名稱列表"
+   },
+   "optimalFilteringModeDescription": {
+      "description": "This describes the 'optimal' filtering mode",
+      "message": "進階網路過濾以及來自選定過濾條件清單的特定擴展過濾條件。\n\n需要在所有網站上讀取並變更資料的廣泛權限。"
+   },
+   "perRulesetStats": {
+      "description": "Appears aside each filter list in the _3rd-party filters_ pane",
+      "message": "{{ruleCount}} 條規則，轉換自 {{filterCount}} 條網路過濾規則"
+   },
+   "popupFilteringModeLabel": {
+      "description": "Label in the popup panel for the current filtering mode",
+      "message": "過濾模式"
+   },
+   "popupLessButton": {
+      "description": "Label to be used to hide popup panel sections",
+      "message": "更少"
+   },
+   "popupMoreButton": {
+      "description": "Label to be used to show popup panel sections",
+      "message": "更多"
+   },
+   "popupTipDashboard": {
+      "description": "English: Click to open the dashboard",
+      "message": "開啟控制台"
+   },
+   "settingsPageName": {
+      "description": "appears as tab name in dashboard",
+      "message": "設定"
+   },
+   "showBlockedCountLabel": {
+      "description": "Label for a checkbox in the options page",
+      "message": "在工具列圖示上顯示被阻擋的連線請求的數量"
+   }
+}

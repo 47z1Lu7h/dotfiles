@@ -1,0 +1,13 @@
+2024-12-03 19:53:12.640 [warning] /home/a7z1lu7h/.ssh/config: ENOENT: no such file or directory, open '/home/a7z1lu7h/.ssh/config'
+2024-12-03 19:53:12.640 [info] Activation> Extension version: 0.100.3
+2024-12-03 19:53:12.652 [info] Looking for git repository
+2024-12-03 19:53:12.652 [info] Found 0 repositories during activation
+2024-12-03 19:53:12.652 [info] Git repository found, initializing review manager and pr tree view.
+2024-12-03 19:53:12.654 [info] Registering git provider
+2024-12-03 19:53:12.654 [info] Review+0> Validate state in progress
+2024-12-03 19:53:12.654 [info] Review+0> Validating state...
+2024-12-03 19:53:12.663 [info] Found GitHub remote for folder /home/a7z1lu7h/d35kT0p/r3p0s/47z1lu7h.github.io
+2024-12-03 19:53:13.209 [info] Trying to use globalState for assignableUsers.
+2024-12-03 19:53:13.242 [info] Review+0> No matching pull request metadata found locally for current branch main
+2024-12-03 19:53:13.251 [info] No globalState for assignableUsers.
+2024-12-03 19:53:13.662 [info] Review+0> No matching pull request metadata found on GitHub for current branch main
