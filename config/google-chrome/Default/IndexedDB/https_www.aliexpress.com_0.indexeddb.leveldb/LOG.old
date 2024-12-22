@@ -1,6 +1,0 @@
-2024/11/27-16:04:01.626 3d3e2 Creating DB /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_www.aliexpress.com_0.indexeddb.leveldb since it was missing.
-2024/11/27-16:04:01.628 3d3e2 Reusing MANIFEST /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_www.aliexpress.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/11/27-16:04:05.741 3d3e1 Level-0 table #5: started
-2024/11/27-16:04:05.742 3d3e1 Level-0 table #5: 875 bytes OK
-2024/11/27-16:04:05.743 3d3e1 Delete type=0 #3
-2024/11/27-16:04:05.743 3d3e1 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

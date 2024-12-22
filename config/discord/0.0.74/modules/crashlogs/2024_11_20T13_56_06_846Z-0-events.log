@@ -1,9 +1,0 @@
-2024-11-20T13:56:06.850Z 0: 
-
-----------------------------------------------
-2024-11-20T13:56:06.854Z 1: Discord starting: {"releaseChannel":"stable","version":"0.0.74"}, modulepath: /home/a7z1lu7h/.config/discord/0.0.74/modules
-2024-11-20T13:56:06.855Z 2: ✅ webContents.created web1 ""
-2024-11-20T13:56:06.856Z 3: ✅ window.created win1 "discord"
-2024-11-20T13:56:07.678Z 4: ✅ webContents.did-finish-load web1
-2024-11-20T13:56:12.166Z 5: before-quit
-2024-11-20T13:56:12.174Z 6: window.close win1

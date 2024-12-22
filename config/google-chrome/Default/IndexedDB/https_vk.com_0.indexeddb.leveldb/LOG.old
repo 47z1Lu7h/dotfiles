@@ -1,6 +1,0 @@
-2024/11/29-22:37:31.076 b0cd Creating DB /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_vk.com_0.indexeddb.leveldb since it was missing.
-2024/11/29-22:37:31.078 b0cd Reusing MANIFEST /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_vk.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/11/29-22:38:03.080 b0ce Level-0 table #5: started
-2024/11/29-22:38:03.080 b0ce Level-0 table #5: 1071 bytes OK
-2024/11/29-22:38:03.081 b0ce Delete type=0 #3
-2024/11/29-22:38:03.081 b0ce Manual compaction at level-0 from (begin) .. (end); will stop at (end)

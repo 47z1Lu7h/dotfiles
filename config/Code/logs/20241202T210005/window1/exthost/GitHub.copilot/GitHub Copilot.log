@@ -1,5 +1,0 @@
-2024-12-02 21:22:18.008 [info] [certificates] Removed 1 expired certificates
-2024-12-02 21:25:05.865 [info] [auth] Invalid copilot token: missing token: 403 
-2024-12-02 21:25:05.879 [info] [auth] Invalid copilot token: missing token: 403 
-2024-12-02 21:25:06.076 [info] [auth] Invalid copilot token: missing token: 403 
-2024-12-02 21:26:17.963 [error] [auth] Canceled

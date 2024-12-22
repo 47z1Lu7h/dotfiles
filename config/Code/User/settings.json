@@ -18,7 +18,7 @@
   "editor.inlineSuggest.enabled": true,
   "editor.smoothScrolling": true,
   "editor.suggestSelection": "first",
-  "editor.fontFamily": "IosevkaTerm Nerd Font",
+  "editor.fontFamily": "IosevkaTermSlab Nerd Font",
   "editor.fontLigatures": true,
   "editor.fontSize": 15,
   "workbench.list.smoothScrolling": true,

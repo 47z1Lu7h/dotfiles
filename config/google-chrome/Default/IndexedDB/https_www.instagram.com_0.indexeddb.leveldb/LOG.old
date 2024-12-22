@@ -1,6 +1,0 @@
-2024/12/03-11:32:28.846 4403b Creating DB /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_www.instagram.com_0.indexeddb.leveldb since it was missing.
-2024/12/03-11:32:28.849 4403b Reusing MANIFEST /home/a7z1lu7h/.config/google-chrome/Default/IndexedDB/https_www.instagram.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/12/03-11:32:49.198 4403c Level-0 table #5: started
-2024/12/03-11:32:49.200 4403c Level-0 table #5: 119083 bytes OK
-2024/12/03-11:32:49.201 4403c Delete type=0 #3
-2024/12/03-11:32:49.201 4403c Manual compaction at level-0 from (begin) .. (end); will stop at (end)

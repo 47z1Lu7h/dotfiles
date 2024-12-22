@@ -2,8 +2,15 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc	monitor	DP-0 -d I II
-bspc	monitor	DP-4 -d I II III IV V
+#bspc	monitor -d 󰬺 󰬻 󰬼 󰬽 󰬾 󰬿 󰭀 󰭁 󰭂 󰿩
+bspc	monitor -d 󰫶 󱂉 󱂊 󱂋 󰬃 󱂍 󱂎 󱂏  󱂐 󰬅
+#bspc	monitor -d 󰲡 󰲣 󰲥 󰲧 󰲩 󰲫 󰲭 󰲯 󰲱 󰿭
+#bspc	monitor -d 󰲠 󰲢 󰲤 󰲦 󰲨 󰲪 󰲬 󰲮 󰲰 󰿬
+#bspc	monitor -d 󰎦 󰎩 󰎬 󰎮 󰎰 󰎵 󰎸 󰎻 󰎾 󰽾
+#bspc	monitor -d 󰎤 󰎧 󰎪 󰎭 󰎱 󰎳 󰎶 󰎹 󰎼 󰽽
+
+bspc	monitor	DP-0 -d 󰫶 󱂉
+bspc	monitor	DP-4 -d 󰫶 󱂉 󱂊 󱂋 󰬃
 
 bspc config	border_width        7
 bspc config	window_gap          7
@@ -13,6 +20,11 @@ bspc config	gapless_monocle      true
 bspc config	border_width         0.5
 bspc config	focus_follows_pointer true
 
+bspc rule -a	'*' state=floating follow=on
+bspc rule -a	code-oss state=tiled follow=on
+bspc rule -a	firefox-esr state=tiled follow=on
+bspc rule -a	Google-chrome state=tiled follow=on
+bspc rule -a	kitty state=tiled follow=on
 bspc rule -a	Gimp desktop='^8' state=floating follow=on
 bspc rule -a	Chromium desktop='^2'
 bspc rule -a	mplayer2 state=floating
