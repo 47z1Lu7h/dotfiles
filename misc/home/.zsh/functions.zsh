@@ -39,7 +39,8 @@ function set_linux_colors(){
 set_linux_colors()
 
 	# - Some git alias
-function g1t { git add -A; git commit -a -m $1; git push }
+function eeee { eeee }
+function gt { git add -A; git commit -a -m init; git push }
 function gs { git status }
 function gd { git diff }
 function ge { git commit --allow-empty -m "Empty commit" }
@@ -315,13 +316,9 @@ function extractPorts(){
 	batcat -lruby  extractPorts.tmp; rm extractPorts.tmp
 }
 
-function set-api_token-htbXplorer() {
-	echo -ne "\t${light-blue}~~~> ${yellow}Enter your ${green}HTB ${red}API_TOKEN ${yellow}:\n\t${light-blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> ${cyan}\n\n"
-	echo -e "\n  ~ Enter your HTB API_TOKEN:"
-	read API;
-	sudo sed -i 's/declare -r API_TOKEN=".*"/declare -r API_TOKEN="'$API'"/g' /opt/h4Ck/htbXplorer-Plus/htbXplorer
-	sleep 1
-	echo -ne "\t${light-blue}~~~> ${yellow} Done${red}!!\n\n"
+function set-api_token-htbXplorer() { echo -ne "\t${blue}~~~> ${yellow}Enter your ${green}HTB ${red}API_TOKEN ${yellow}:\n\t${light-blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> 
+	${cyan}\n\n" echo -e "\n ~ Enter your HTB API_TOKEN:" read API; sudo sed -i 's/declare -r API_TOKEN=".*"/declare -r API_TOKEN="'$API'"/g' /opt/h4Ck/htbXplorer-Plus/htbXplorer sleep 1 echo -ne 
+	"\t${light-blue}~~~> ${yellow} Done${red}!!\n\n"
 }
 
 function set-dpi_polybar() {
@@ -358,6 +355,7 @@ function settarget() {
 	machine_name=$2
 	echo "$ip_address $machine_name" > ~/.config/polybar/scripts/target
 }
+
 function rrf() {
 	scrub -p dod $1
 	shred -zun 10 -v $1
@@ -370,6 +368,11 @@ function sC4n-nM4p() {
 	nmap -sCV -vv -p${ports} $1 -oN targeted && /usr/bin/batcat targeted -ljava
 }
 
-function entry-2-h0sTs() { echo $1 | sudo tee -a /etc/hosts }
+function entry-2-h0sTs() {
+	machine_adress=$1
+	machine_name=$2
+
+	echo -ne "$1\t$2\n" | sudo tee -a /etc/hosts
+}
 
 function matrix() { echo -e "\e[1;40m" ; clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|awk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4;        letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}' }

@@ -21,7 +21,7 @@ alias	llta='lsd -lha --tree --group-dirs=first --depth'
 
 alias   '..'='cd ../'
 alias	s='sudo'
-alias	n='neofetch'
+alias	n='neowofetch'
 alias	na='nano'
 alias	rr='trash -frv'
 alias	nv='nvim'
@@ -89,7 +89,10 @@ alias netCons='lsof -i'                         # Show all open TCP/IP sockets
 alias lsock='sudo lsof -i -P'                   # Display open sockets
 alias lsockU='sudo lsof -nP | grep UDP'         # Display only open UDP sockets
 alias lsockT='sudo lsof -nP | grep TCP'         # Display only open TCP sockets
-alias openPorts='sudo lsof -i | grep LISTEN'    # openPorts:    All listening connections
+alias openPorts='sudo lsof -i | grep LISTEN'    # Display all listening connections
+
+alias venv='python3 -m venv .venv && sleep 2 && source .venv/bin/activate'
+alias waqch='watch -n 1'
 
 #   findPid: find out the pid of a specified process
 #   -----------------------------------------------------
