@@ -20,7 +20,15 @@ super + d
 
 	# window switcher
 alt + Tab
-	~/.config/rofi/windowSwitcher
+	~/.config/rofi/scripts/windowSwitcher
+
+	# rofi bluethooth
+super + alt + n
+	~/.config/rofi/scripts/bluetoothmenu
+
+	# MouseWheel
+super + alt + m
+	python3 ~/.config/bspwm/scripts/mousewheel.py
 
 	# make sxhkd reload its configuration files:
 control + Escape
@@ -51,8 +59,8 @@ super + z
 	~/.config/bspwm/scripts/hide
 
 	# Powermenu
-suoer + alt + p
-	~/.config/rofi/powermenu/type-4/powermenu.sh
+super + alt + p
+	~/.config/rofi/scripts/powermenu.sh
 
         # Color Picker
 super + alt + c
@@ -187,7 +195,7 @@ XF86AudioStop
 
         # Lab seassonal htb
 super + alt + l
-        sudo openvpn ~/d35kT0p/h7B/vp3n3s/lab_47z1Lu7h.ovpn
+        sudo openvpn ~/d35kT0p/h7B/vp3n3s/*.ovpn
 
         # Kill openOvpn
 super + alt + k
@@ -198,14 +206,14 @@ super + alt + o
 	sudo killall polybar
 
 super + ctrl + 1
-	sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/pentest.ini
+	sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/47z1.ini
 
 super + ctrl + 2
-	sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/simple.ini
+	sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/pentest.ini
 
 super + ctrl + 3
-	sudo killall polybar; polybar -q right  -c ~/.config/polybar/themes/plasma.ini & disown; polybar -q left -c ~/.config/polybar/themes/plasma.ini
+	sudo killall polybar; polybar -q top -c ~/.config/polybar/themes/simple.ini
 
 super + ctrl + 4
-	sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/47z1.ini
+	sudo killall polybar; polybar -q right  -c ~/.config/polybar/themes/plasma.ini & disown; polybar -q left -c ~/.config/polybar/themes/plasma.ini
 

@@ -70,7 +70,7 @@ function guz { gu $@; gz }
 	# stash
 function gc { git stash clear }
 function gl { git stash list }
-function gss { git add --all; git stash save }
+function gSS { git add --all; git stash save }
 function gstah { git stash apply "stash@{${@:-0}}" }
 
 function fshow(){
@@ -371,7 +371,6 @@ function sC4n-nM4p() {
 function entry-2-h0sTs() {
 	machine_adress=$1
 	machine_name=$2
-
 	echo -ne "$1\t$2\n" | sudo tee -a /etc/hosts
 }
 
