@@ -1,7 +1,7 @@
 
 <h1 align="center">✨ 47z!'s Dofiles! ✨</h1>
 <div align="center">
-    <img src=".github/assets/iomage.png" width="100%" height="100%" >
+    <img src=".github/assets/image.png" width="100%" height="100%" >
 </div>
 
 ## **Thanks for dropping by!**
