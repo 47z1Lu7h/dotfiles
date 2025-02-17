@@ -1,4 +1,4 @@
-<img src='.github/assets/image.jpg'>
+<img src='.github/assets/image.png'>
 
 <h1 align="center">✨ 47z!'s Dofiles! ✨</h1>
 
