@@ -17,9 +17,9 @@ Here are some details about my current setup:
 + **Shell**: [zsh](https://wiki.archlinux.org/index.php/Zsh)
 + **Terminal**: [kitty](https://github.com/kovidgoyal/kitty)
 + **Editor**: [NvChad](https://github.com/NvChad/NvChad)
-<!--+ **File Manager**: [nnn](https://github.com/jarun/nnn) and [Nemo](https://github.com/linuxmint/nemo)-->
 + **Launcher**: [rofi](https://github.com/davatorium/rofi/)
 + **Browser**: Firefox, Google-Chrome
+<!--+ **File Manager**: [nnn](https://github.com/jarun/nnn) and [Nemo](https://github.com/linuxmint/nemo)-->
 
 <br>
 
