@@ -1,10 +1,12 @@
 
 <h1 align="center">✨ 47z!'s Dofiles! ✨</h1>
-
+<div align="center">
+    <img src=".github/assets/iomage.png" width="100%" height="100%" >
+</div>
 
 ## **Thanks for dropping by!**
 
-<img src="https://raw.githubusercontent.com/47z1Lu7h/dotfiles/refs/heads/main/.github/assets/image.png" alt="img" align="right" width="400px">
+<!--<img src="https://raw.githubusercontent.com/47z1Lu7h/dotfiles/refs/heads/main/.github/assets/image.png" alt="img" align="right" width="400px">-->
 
 Hey 
 
@@ -27,7 +29,7 @@ Here are some details about my current setup:
 ## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
 
 <details>
-<summary><b>Kitty mapping (<a href="~/.config/kitty/cnf/mapping.ini">kitty keys</a>)</b></summary>
+<summary><b>Kitty mapping (<a href="config/kitty/cnf/mapping.ini">~/.config/kitty/cnf/mapping.ini</a>)</b></summary>
 
 | Key                                                                         | Action                                              |
 |:----------------------------------------------------------------------------|:----------------------------------------------------|
@@ -101,15 +103,13 @@ Here are some details about my current setup:
 | <kbd>alt</kbd> + <kbd>9</kbd>                                              | Goto tab 9                                           |
 |                                                                            |                                                     |
 
-
-
-> **LEGEND**  
+> **LEGEND**
 > [<kbd>super</kbd>](https://en.wikipedia.org/wiki/Super_key_(keyboard_button))
 
 </details>
 
 <details>
-<summary><b>sxhkdrc (<a href="./config/sxhkd/sxhkdrc">~/.config/sxhkd/sxhkdrc</a>)</b></summary>
+<summary><b>sxhkdrc (<a href="config/sxhkd/sxhkdrc">~/.config/sxhkd/sxhkdrc</a>)</b></summary>
 
 | Key                                                              | Action                                        |
 |:-----------------------------------------------------------------|:----------------------------------------------|
