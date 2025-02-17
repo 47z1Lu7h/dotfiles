@@ -4,10 +4,7 @@
 
 
 ## **Thanks for dropping by!**
-
-<img src="https://raw.githubusercontent.com/wiki/elenapan/dotfiles/assets/aphelion.png" alt="img" align="right" width="400px">
-
-This is my personal collection of configuration files that forms the desktop you see on the right.
+Hey 
 
 Here are some details about my current setup:
 
@@ -20,11 +17,9 @@ Here are some details about my current setup:
 + **Editor**: [NvChad](https://github.com/NvChad/NvChad)
 <!--+ **File Manager**: [nnn](https://github.com/jarun/nnn) and [Nemo](https://github.com/linuxmint/nemo)-->
 + **Launcher**: [rofi](https://github.com/davatorium/rofi/)
-+ **Browser**: Firefox
++ **Browser**: Firefox, Google-Chrome
 
 <br>
-<br>
-s://github.com/morenoled)
 
 <a id="keybinds"></a>
 ## :four_leaf_clover: ‎ <samp>KEY BINDINGS</samp>
