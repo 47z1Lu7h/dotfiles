@@ -90,7 +90,7 @@ toggle_pairable() {
     fi
 }
 
-# Checks if controller is discoverable by other devices
+ # Checks if controller is discoverable by other devices
 discoverable_on() {
     if bluetoothctl show | grep -q "Discoverable: yes"; then
         echo "Discoverable: on"
@@ -209,7 +209,7 @@ print_status() {
         done
         printf "\n"
     else
-        echo ""
+        echo "%{T0}%{F#93a2b9} "
     fi
 }
 

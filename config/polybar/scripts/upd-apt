@@ -3,7 +3,7 @@
 updates=$(apt list --upgradable 2> /dev/null | grep -c upgradable);
 
 if [ "$updates" -gt 0 ]; then
-    echo "%{T6}%{F#93a2b9} %{T6}%{F#888A}󰨃%{T6}%{F#888A}$updates"
+    echo "%{T6}%{F#93a2b9} %{T6}%{F#888A}󰨃%{T6}%{F#339CFF}$updates"
 else
     echo ""
 fi
