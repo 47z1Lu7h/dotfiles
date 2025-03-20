@@ -149,10 +149,5 @@ source ~/.zsh/functions.zsh
 source /usr/share/zsh/sudo.plugin.zsh
 source /usr/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-#source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
-. /home/a7z1lu7h/.asdf/asdf.sh
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
