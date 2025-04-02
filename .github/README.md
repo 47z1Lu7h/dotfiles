@@ -1,5 +1,5 @@
 
-<h1 align="center">✨ 47z!'s Dofiles! ✨</h1>
+<h1 align="center">✨ 47z!'s D0f1les! ✨</h1>
 <div align="center">
     <img src="https://raw.githubusercontent.com/47z1Lu7h/dotfiles/refs/heads/main/.github/assets/image.png" width="100%" height="100%" >
 </div>
