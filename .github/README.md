@@ -1,7 +1,7 @@
 
-<h1 align="center">✨ 47z!'s D0f1les! ✨</h1>
+<h1 align="center">✨ 47z!'s d0t~f1l3s ✨</h1>
 <div align="center">
- # 👾
+# 👾
 </div>
 
 ## **Thanks for dropping by!**
