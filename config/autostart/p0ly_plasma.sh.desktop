@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=/home/a7z1lu7h/.config/polybar/scripts/p0ly_plasma.sh
-Icon=dialog-scripts
+Icon=application-x-shellscript
 Name=p0ly_plasma.sh
 Type=Application
 X-KDE-AutostartScript=true

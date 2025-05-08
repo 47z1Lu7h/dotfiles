@@ -9,8 +9,9 @@ bspc	monitor -d 󰫶 󱂉 󱂊 󱂋 󰬃
 #bspc	monitor -d 󰎦 󰎩 󰎬 󰎮 󰎰 󰎵 󰎸 󰎻 󰎾 󰽾
 #bspc	monitor -d 󰎤 󰎧 󰎪 󰎭 󰎱 󰎳 󰎶 󰎹 󰎼 󰽽
 
-bspc	monitor	DP-0 -d 󰫶 󱂉
-bspc	monitor	DP-4 -d 󰫶 󱂉 󱂊 󱂋 󰬃
+bspc	monitor	DP-2 -d 󰫶 󱂉
+bspc	monitor	DP-0 -d 󰫶 󱂉 󱂊 󱂋 󰬃
+bspc	monitor	DP-5 -d 󰫶 󱂉
 
 bspc config	border_width        7
 bspc config	window_gap          7

@@ -316,37 +316,37 @@ function extractPorts(){
 	batcat -lruby  extractPorts.tmp; rm extractPorts.tmp
 }
 
-function set-api_token-htbXplorer() { echo -ne "\t${blue}~~~> ${yellow}Enter your ${green}HTB ${red}API_TOKEN ${yellow}:\n\t${light-blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> 
+function set-api_token-htbXplorer() { echo -ne "\t${blue}~~~> ${yellow}Enter your ${green}HTB ${red}API_TOKEN ${yellow}:\n\t${blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> 
 	${cyan}\n\n" echo -e "\n ~ Enter your HTB API_TOKEN:" read API; sudo sed -i 's/declare -r API_TOKEN=".*"/declare -r API_TOKEN="'$API'"/g' /opt/h4Ck/htbXplorer-Plus/htbXplorer sleep 1 echo -ne 
-	"\t${light-blue}~~~> ${yellow} Done${red}!!\n\n"
+	"\t${blue}~~~> ${yellow} Done${red}!!\n\n"
 }
 
 function set-dpi_polybar() {
 	dpi=$(cat ~/.config/polybar/cnf/*.ini | grep dpi | head -1)
-	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}DPI ${yellow}to resice Polybar${light-blue} ~~>${cyan}\n\t\t\t"
+	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}DPI ${yellow}to resice Polybar${blue} ~~>${cyan}\n\t\t\t"
 	read NEW_DPI;
 	new_dpi="dpi = ${NEW_DPI}"
 	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/cnf/*.ini &&
-	echo -ne "\t${light-blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your settings.ini\n\t${light-blue}~~~> ${yellow}${red}Reload ${yellow}your polybar\n\n"
+	echo -ne "\t${blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your settings.ini\n\t${blue}~~~> ${yellow}${red}Reload ${yellow}your polybar\n\n"
 	sleep 0.5
 }
 
 function set-height_polybar () {
 	height=$(cat ~/.config/polybar/cnf/*.ini | grep height | head -1)
-	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}height ${yellow}to resice Polybar${light-blue} ~~>${cyan}\n\t\t\t"
+	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}height ${yellow}to resice Polybar${blue} ~~>${cyan}\n\t\t\t"
 	read NEW_height
 	new_height="height = ${NEW_height}%"
 	sed -i "s/${height}/${new_height}/g" ~/.config/polybar/cnf/*.ini
-	echo -ne "\t${light-blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your settings.ini\n\t${light-blue}~~~> ${yellow}Just ${red}relanuch ${yellow}your polybar\n\n"
+	echo -ne "\t${blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your settings.ini\n\t${blue}~~~> ${yellow}Just ${red}relanuch ${yellow}your polybar\n\n"
 	sleep 1
 }
 
 #function set-default_background_in_bspwm() {
-#	echo -ne "\t${light-blue}~~~> ${yellow}Set a default ${red} wallpaper ${yellow}in bspwm \n\t${light-blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> ${cyan}\n\n"
+#	echo -ne "\t${blue}~~~> ${yellow}Set a default ${red} wallpaper ${yellow}in bspwm \n\t${blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> ${cyan}\n\n"
 #	read image;
 #	echo -ne "\t${image}\n"
 #	sed -i "s/fill */fill '" ${image} "'/g" ~/.config/bspwm/bspwmrc
-#	echo -ne "\t${light-blue}~~~> ${yellow}Setting new wallpaper \n\t${light-blue}~~~> ${yellow}Just press ${red}'ctrl+alt+r' ${yellow}to restart bspwm\n\n"
+#	echo -ne "\t${blue}~~~> ${yellow}Setting new wallpaper \n\t${blue}~~~> ${yellow}Just press ${red}'ctrl+alt+r' ${yellow}to restart bspwm\n\n"
 #	sleep 1
 #}
 
