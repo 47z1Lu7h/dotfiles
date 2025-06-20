@@ -66,6 +66,7 @@ alias	lab-HTB='sudo openvpn ~/Desktop/h7b/vpenes/lab_47z1Lu7h.ovpn & disown'
 alias	lab-Seassonal-HTB='sudo openvpn ~/Desktop/h7b/vpenes/competitive_47z1Lu7h.ovpn & disown'
 alias	lab-Fortress-HTB='sudo openvpn ~/Desktop/h7b/vpenes/fortresses_47z1Lu7h.ovpn & disown'
 alias	lab-Strtng-Point-HTB='sudo openvpn ~/Desktop/h7b/vpenes/starting_point_47z1Lu7h.ovpn & disown'
+alias	lab-Pr0-HTB='sudo openvpn ~/Desktop/h7b/vpenes/pro_labs_47z1Lu7h.ovpn & disown '
 alias	kill-oP3Nvpn='sudo killall openvpn'
 alias	kill-p0lyb4r='sudo killall polybar'
 

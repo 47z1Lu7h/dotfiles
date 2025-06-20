@@ -55,7 +55,7 @@ super + alt + q
 	google-chrome --profile-directory=Default --app-id=lodlkdfmihgonocnmddehnfgiljnadcf "--app-launch-url-for-shortcuts-menu-item=https://x.com/explore?utm_source=jumplist&utm_medium=shortcut"
 
 	# Telegram
-super + alt + t
+super + shift + t
 	telegram
 
 	# firefox
