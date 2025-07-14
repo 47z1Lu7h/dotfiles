@@ -300,8 +300,8 @@
   #
 
      typeset -g POWERLEVEL9K_DIR_CLASSES=(
-       '~/d35kT0p/r3p0s(|/*)'	REPOS	''
-       '~/d35kT0p/h7B(|/*)'	HTB	''
+       '~/Desktop/repos(|/*)'	REPOS	''
+       '~/Desktop/h7b(|/*)'	HTB	''
        '~/.config(|/*)'		CNF	''
        '/etc(|/*)'		ETC	''
        '/(|/*)'			SYS	''

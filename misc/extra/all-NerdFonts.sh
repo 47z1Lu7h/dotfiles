@@ -5,7 +5,7 @@ if [ "$EUID" == 0 ];then
     exit 1
 fi
 
-version='3.2.1'
+version='3.4.0'
 
 #declare -a fonts=( 0xProto 3270 Agave AnonymousPro Arimo AurulentSansMono BigBlueTerminal BitstreamVeraSansMono CascadiaCode CascadiaMono CodeNewRoman ComicShannsMono CommitMono Cousine D2Coding DaddyTimeMono DejaVuSansMono DroidSansMono EnvyCodeR FantasqueSansMono FiraCode FiraMono FontPatcher GeistMono Go-Mono Gohu Hack Hasklig HeavyData Hermit iA-Writer IBMPlexMono Inconsolata InconsolataGo InconsolataLGC IntelOneMono Iosevka IosevkaTerm IosevkaTermSlab JetBrainsMono Lekton LiberationMono Lilex MartianMono Meslo Monaspace Monofur Monoid Mononoki MPlus NerdFontsSymbolsOnly Noto OpenDyslexic Overpass ProFont ProggyClean Recursive RobotoMono ShareTechMono SourceCodePro SpaceMono Terminus Tinos Ubuntu UbuntuMono UbuntuSans VictorMono ZedMono )
 
