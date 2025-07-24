@@ -305,25 +305,6 @@ function color-GR1D() {
 done
 }
 
-function kit {
-  themedir="$HOME/.config/kitty/themes"
-  theme=`/bin/ls $themedir | grep -v README | sed 's/.conf//' | grep --color='none' "$1" | fzf -1 --exact`
-  kitten @ set-colors "$themedir/$theme.conf"
-}
-
-function ncol {
-    if [[ $1 == *.tsv* ]]; then
-        csvgrep -n -t $1 | wc -l
-    elif [[ $1 == *.csv* ]]; then
-        csvgrep -n $1 | wc -l
-    elif [[ $1 == *.feather ]]; then
-        python -c \
-          "import sys; import pandas as pd; print(pd.read_feather(sys.argv[1]).shape[1])" $1
-    else
-        echo "Unsupported format..."
-    fi
-}
-
 function extractPorts(){
 	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
 	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"

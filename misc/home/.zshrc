@@ -151,7 +151,3 @@ source /usr/share/zsh/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
-
- export FUZZ=/usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
- export DNS=/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
- export r0CkT0u=/usr/share/wordlists/rockyou.txt
