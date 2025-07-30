@@ -1,3 +1,4 @@
+
 ###############################################################################
 #░░░░░   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░#
 #▒▒▒  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒   ▒▒▒▒  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒#
@@ -12,6 +13,52 @@
 
 function hacker_quote(){
 	ZSH_HACKER_QUOTES_ENABLE_WHEN_INTERACTIVE= zsh -i
+}
+
+function cU5l() {
+  read proto server path <<<$(echo ${1//// })
+  DOC=/${path// //}
+  HOST=${server//:*}
+  PORT=${server//*:}
+  [[ x"${HOST}" == x"${PORT}" ]] && PORT=80
+
+  exec 3<>/dev/tcp/${HOST}/$PORT
+  echo -en "GET ${DOC} HTTP/1.0\r\nHost: ${HOST}\r\n\r\n" >&3
+  (while read line; do
+   [[ "$line" == $'\r' ]] && break
+  done && cat) <&3
+  exec 3>&-
+}
+
+function wG3t(){
+    : ${DEBUG:=0}
+    local URL=$1
+    local tag="Connection: close"
+    local mark=0
+
+    if [ -z "${URL}" ]; then
+        printf "Usage: %s \"URL\" [e.g.: %s http://www.google.com/]" \
+               "${FUNCNAME[0]}" "${FUNCNAME[0]}"
+        return 1;
+    fi
+    read proto server path <<<$(echo ${URL//// })
+    DOC=/${path// //}
+    HOST=${server//:*}
+    PORT=${server//*:}
+    [[ x"${HOST}" == x"${PORT}" ]] && PORT=80
+    [[ $DEBUG -eq 1 ]] && echo "HOST=$HOST"
+    [[ $DEBUG -eq 1 ]] && echo "PORT=$PORT"
+    [[ $DEBUG -eq 1 ]] && echo "DOC =$DOC"
+
+    exec 3<>/dev/tcp/${HOST}/$PORT
+    echo -en "GET ${DOC} HTTP/1.1\r\nHost: ${HOST}\r\n${tag}\r\n\r\n" >&3
+    while read line; do
+        [[ $mark -eq 1 ]] && echo $line
+        if [[ "${line}" =~ "${tag}" ]]; then
+            mark=1
+        fi
+    done <&3
+    exec 3>&-
 }
 
 	# - Set Linux terminal/framebuffer color scheme
@@ -303,6 +350,25 @@ function color-GR1D() {
 	iter=$[$iter+1]
 	printf '\r\n'
 done
+}
+
+function kit {
+  themedir="$HOME/.config/kitty/themes"
+  theme=`/bin/ls $themedir | grep -v README | sed 's/.conf//' | grep --color='none' "$1" | fzf -1 --exact`
+  kitten @ set-colors "$themedir/$theme.conf"
+}
+
+function ncol {
+    if [[ $1 == *.tsv* ]]; then
+        csvgrep -n -t $1 | wc -l
+    elif [[ $1 == *.csv* ]]; then
+        csvgrep -n $1 | wc -l
+    elif [[ $1 == *.feather ]]; then
+        python -c \
+          "import sys; import pandas as pd; print(pd.read_feather(sys.argv[1]).shape[1])" $1
+    else
+        echo "Unsupported format..."
+    fi
 }
 
 function extractPorts(){
