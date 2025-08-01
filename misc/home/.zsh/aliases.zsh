@@ -19,7 +19,7 @@ alias	lta='lsd -ha --tree --group-dirs=first --depth'
 alias	llt='lsd -lh --tree --group-dirs=first --depth'
 alias	llta='lsd -lha --tree --group-dirs=first --depth'
 
-alias   '..'='cd ../'
+alias   ..='cd ../'
 alias	s='sudo'
 alias	n='neowofetch'
 alias	na='nano'
@@ -73,6 +73,8 @@ alias	kill-p0lyb4r='sudo killall polybar'
 alias	set-backgroung='feh --bg-fill $1'
 alias	mkl='mkdir nmap content exploits'
 alias	htb-Xpl0r3r='sudo /opt/h4Ck/htbXplorer-Plus/htbXplorer $1 $2 $3'
+alias   venv='python3 -m venv .venv && sleep 2 && source .venv/bin/activate'
+alias   waqch='watch -n 1'
 
 alias   set-n3w-p0lYbar='~/.config/polybar/launch'
 alias	p0Ly-47z1='sudo killall polybar; polybar -q bottom -c ~/.config/polybar/themes/47z1.ini & disown'
@@ -86,14 +88,11 @@ alias	kitty-daddy='kitty -c ~/.config/kitty/themes/daddy.conf & disown'
 alias	kitty-goMono='kitty -c ~/.config/kitty/themes/goMono.conf & disown'
 alias	kitty-hack='kitty -c ~/.config/kitty/themes/hack.conf & disown'
 
-alias netCons='lsof -i'                         # Show all open TCP/IP sockets
-alias lsock='sudo lsof -i -P'                   # Display open sockets
-alias lsockU='sudo lsof -nP | grep UDP'         # Display only open UDP sockets
-alias lsockT='sudo lsof -nP | grep TCP'         # Display only open TCP sockets
-alias openPorts='sudo lsof -i | grep LISTEN'    # Display all listening connections
-
-alias venv='python3 -m venv .venv && sleep 2 && source .venv/bin/activate'
-alias waqch='watch -n 1'
+alias   netCons='lsof -i'                         # Show all open TCP/IP sockets
+alias   lsock='sudo lsof -i -P'                   # Display open sockets
+alias   lsockU='sudo lsof -nP | grep UDP'         # Display only open UDP sockets
+alias   lsockT='sudo lsof -nP | grep TCP'         # Display only open TCP sockets
+alias   penPorts='sudo lsof -i | grep LISTEN'    # Display all listening connections
 
 #   findPid: find out the pid of a specified process
 #   -----------------------------------------------------
@@ -116,15 +115,4 @@ alias waqch='watch -n 1'
 #   -----------------------------------------------------
     alias topForever='top -d 10 -o %CPU'
 
-#   ii:  display useful host related informaton
-#   -------------------------------------------------------------------
-    ii() {
-        echo -e "\nYou are logged on ${Icyan}$HOST"
-        echo -e "\n\tAdditionnal information:$NC " ; uname -a
-        echo -e "\n${Igreen}Users logged on:$NC " ; w -h
-        echo -e "\n\t${white}Current date :$NC " ; date
-        echo -e "${Bred}Machine stats :$NC " ; uptime
-        echo -e "\n\t${BIcyan}Current network location :$NC  " ; curl ipinfo.io
-        echo -e "\t\n${BIyellow}Public facing IP Address :$NC   " ; myIp
-    }
 

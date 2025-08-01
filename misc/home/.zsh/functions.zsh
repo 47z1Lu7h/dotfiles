@@ -15,52 +15,6 @@ function hacker_quote(){
 	ZSH_HACKER_QUOTES_ENABLE_WHEN_INTERACTIVE= zsh -i
 }
 
-function cU5l() {
-  read proto server path <<<$(echo ${1//// })
-  DOC=/${path// //}
-  HOST=${server//:*}
-  PORT=${server//*:}
-  [[ x"${HOST}" == x"${PORT}" ]] && PORT=80
-
-  exec 3<>/dev/tcp/${HOST}/$PORT
-  echo -en "GET ${DOC} HTTP/1.0\r\nHost: ${HOST}\r\n\r\n" >&3
-  (while read line; do
-   [[ "$line" == $'\r' ]] && break
-  done && cat) <&3
-  exec 3>&-
-}
-
-function wG3t(){
-    : ${DEBUG:=0}
-    local URL=$1
-    local tag="Connection: close"
-    local mark=0
-
-    if [ -z "${URL}" ]; then
-        printf "Usage: %s \"URL\" [e.g.: %s http://www.google.com/]" \
-               "${FUNCNAME[0]}" "${FUNCNAME[0]}"
-        return 1;
-    fi
-    read proto server path <<<$(echo ${URL//// })
-    DOC=/${path// //}
-    HOST=${server//:*}
-    PORT=${server//*:}
-    [[ x"${HOST}" == x"${PORT}" ]] && PORT=80
-    [[ $DEBUG -eq 1 ]] && echo "HOST=$HOST"
-    [[ $DEBUG -eq 1 ]] && echo "PORT=$PORT"
-    [[ $DEBUG -eq 1 ]] && echo "DOC =$DOC"
-
-    exec 3<>/dev/tcp/${HOST}/$PORT
-    echo -en "GET ${DOC} HTTP/1.1\r\nHost: ${HOST}\r\n${tag}\r\n\r\n" >&3
-    while read line; do
-        [[ $mark -eq 1 ]] && echo $line
-        if [[ "${line}" =~ "${tag}" ]]; then
-            mark=1
-        fi
-    done <&3
-    exec 3>&-
-}
-
 	# - Set Linux terminal/framebuffer color scheme
 function set_linux_colors(){
    if [[ $TERM == 'linux' ]] ; then
@@ -120,6 +74,62 @@ function gl { git stash list }
 function gSS { git add --all; git stash save }
 function gstah { git stash apply "stash@{${@:-0}}" }
 
+function ii() {
+	echo -e "\nYou are logged on ${Icyan}$HOST"
+	echo -e "\n\tAdditionnal information:$NC " ; uname -a
+	echo -e "\n${Igreen}Users logged on:$NC " ; w -h
+	echo -e "\n\t${white}Current date :$NC " ; date
+	echo -e "${Bred}Machine stats :$NC " ; uptime
+	echo -e "\n\t${BIcyan}Current network location :$NC  " ; curl ipinfo.io
+	echo -e "\t\n${BIyellow}Public facing IP Address :$NC   " ; myIp
+}
+
+function cu5l() {
+	read proto server path <<<$(echo ${1//// })
+	DOC=/${path// //}
+	HOST=${server//:*}
+	PORT=${server//*:}
+	[[ x"${HOST}" == x"${PORT}" ]] && PORT=80
+
+	exec 3<>/dev/tcp/${HOST}/$PORT
+	echo -en "GET ${DOC} HTTP/1.0\r\nHost: ${HOST}\r\n\r\n" >&3
+	(while read line; do
+	[[ "$line" == $'\r' ]] && break
+	done && cat) <&3
+	exec 3>&-
+}
+
+function wGEt(){
+	: ${DEBUG:=0}
+	local URL=$1
+	local tag="Connection: close"
+	local mark=0
+
+	if [ -z "${URL}" ]; then
+		printf "Usage: %s \"URL\" [e.g.: %s http://www.google.com/]" \
+				"${FUNCNAME[0]}" "${FUNCNAME[0]}"
+		return 1;
+	fi
+	read proto server path <<<$(echo ${URL//// })
+	DOC=/${path// //}
+	HOST=${server//:*}
+	PORT=${server//*:}
+	[[ x"${HOST}" == x"${PORT}" ]] && PORT=80
+	[[ $DEBUG -eq 1 ]] && echo "HOST=$HOST"
+	[[ $DEBUG -eq 1 ]] && echo "PORT=$PORT"
+	[[ $DEBUG -eq 1 ]] && echo "DOC =$DOC"
+
+	exec 3<>/dev/tcp/${HOST}/$PORT
+	echo -en "GET ${DOC} HTTP/1.1\r\nHost: ${HOST}\r\n${tag}\r\n\r\n" >&3
+	while read line; do
+		[[ $mark -eq 1 ]] && echo $line
+		if [[ "${line}" =~ "${tag}" ]]; then
+			mark=1
+		fi
+	done <&3
+	exec 3>&-
+}
+
 function fshow(){
   git log --graph --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" \
@@ -152,8 +162,7 @@ function  mans(){
       | less -R)"
 }
 
- 	# - Set M4N colors
-function man() {
+function m4n() {
     env \
     LESS_TERMCAP_mb=$'\e[01;31m' \
     LESS_TERMCAP_md=$'\e[01;31m' \
@@ -165,7 +174,121 @@ function man() {
     man "$@"
 }
 
-	# - Function extraction Multiple files
+function color-G51D_BACKGR0UNDS() {
+	echo -e "\n${On_IBlack}${UBlue}${IBlue}=============${On_ICyan}${BIBlue}   fuNCt10n  ~>  Color~Grid   
+	${end}${On_IBlack}${UBlue}${IBlue}================\n===========================================================${end}\n"; sleep 0.2
+	for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}  ${(l:3::0:)i}%f   " ${${(M)$((i%6)):#3}:+$'\n'}; done 
+}
+
+function color-G51D() {
+	echo -e "\n${On_IBlack}${UBlue}${IBlue}=============${On_ICyan}${BIBlue}   fuNCt10n  ~>  Color~Grid   ${end}${On_IBlack}${UBlue}${IBlue}================\n===========================================================${end}\n"
+	sleep 0.2
+
+	iter=16
+	while [ $iter -lt 52 ];do
+	second=$[$iter+36]
+	third=$[$second+36]
+	four=$[$third+36]
+	five=$[$four+36]
+	six=$[$five+36]
+	seven=$[$six+36]
+
+	if [ $seven -gt 250 ];then seven=$[$seven-251]; fi
+		echo -en "\033[38;5;$(echo $iter)m "
+		printf "%03d" $iter
+		echo -en "   \033[38;5;$(echo $second)m "
+		printf "%03d" $second
+		echo -en "   \033[38;5;$(echo $third)m "
+		printf "%03d" $third
+		echo -en "   \033[38;5;$(echo $four)m "
+		printf "%03d" $four
+		echo -en "   \033[38;5;$(echo $five)m "
+		printf "%03d" $five
+		echo -en "   \033[38;5;$(echo $six)m "
+		printf "%03d" $six
+		echo -en "   \033[38;5;$(echo $seven)m "
+		printf "%03d" $seven
+
+	iter=$[$iter+1]
+	printf '\r\n'
+done
+}
+
+function extractPorts(){
+	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
+	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
+	echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
+	echo -e "\t[*] IP Address: $ip_address"  >> extractPorts.tmp
+	echo -e "\t[*] Open ports: $ports\n"  >> extractPorts.tmp
+	echo $ports | tr -d '\n' | xclip -sel clip
+	echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
+	batcat -lruby  extractPorts.tmp; rm extractPorts.tmp
+}
+
+function set-api_token-htbXplorer() { echo -ne "\t${blue}~~~> ${yellow}Enter your ${green}HTB ${red}API_TOKEN ${yellow}:\n\t${blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> 
+	${cyan}\n\n" echo -e "\n ~ Enter your HTB API_TOKEN:" read API; sudo sed -i 's/declare -r API_TOKEN=".*"/declare -r API_TOKEN="'$API'"/g' /opt/h4Ck/htbXplorer-Plus/htbXplorer sleep 1 echo -ne 
+	"\t${blue}~~~> ${yellow} Done${red}!!\n\n"
+}
+
+function set-dpi_polybar() {
+	dpi=$(cat ~/.config/polybar/cnf/*.ini | grep dpi | head -1)
+	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}DPI ${yellow}to resice Polybar${blue} ~~>${cyan}\n\t\t\t"
+	read NEW_DPI;
+	new_dpi="dpi = ${NEW_DPI}"
+	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/cnf/*.ini &&
+	echo -ne "\t${blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your settings.ini\n\t${blue}~~~> ${yellow}${red}Reload ${yellow}your polybar\n\n"
+	sleep 0.5
+}
+
+function set-height_polybar () {
+	height=$(cat ~/.config/polybar/cnf/*.ini | grep height | head -1)
+	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}height ${yellow}to resice Polybar${blue} ~~>${cyan}\n\t\t\t"
+	read NEW_height
+	new_height="height = ${NEW_height}%"
+	sed -i "s/${height}/${new_height}/g" ~/.config/polybar/cnf/*.ini
+	echo -ne "\t${blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your settings.ini\n\t${blue}~~~> ${yellow}Just ${red}relanuch ${yellow}your polybar\n\n"
+	sleep 1
+}
+
+#function set-default_background_in_bspwm() {
+#	echo -ne "\t${blue}~~~> ${yellow}Set a default ${red} wallpaper ${yellow}in bspwm \n\t${blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> ${cyan}\n\n"
+#	read image;
+#	echo -ne "\t${image}\n"
+#	sed -i "s/fill */fill '" ${image} "'/g" ~/.config/bspwm/bspwmrc
+#	echo -ne "\t${blue}~~~> ${yellow}Setting new wallpaper \n\t${blue}~~~> ${yellow}Just press ${red}'ctrl+alt+r' ${yellow}to restart bspwm\n\n"
+#	sleep 1
+#}
+
+function rrf() {
+	scrub -p dod $1
+	shred -zun 10 -v $1
+}
+
+function settarget() {
+	ip_address=$1
+	machine_name=$2
+	echo "$ip_address $machine_name" > ~/.config/polybar/scripts/target
+}
+
+function sC4n-nM4p() {
+	sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn $1 -oG allPorts && sleep 2
+	ports="$(cat allPorts | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
+	nmap -sCV -vv -p${ports} $1 -oN targeted && /usr/bin/batcat targeted -ljava
+}
+
+function entry-2-h0sTs() {
+	machine_adress=$1
+	machine_name=$2
+	echo -ne "$1\t$2\n" | sudo tee -a /etc/hosts
+}
+
+function matrix() { echo -e "\e[1;40m" ; clear; 
+	while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 ));sleep 0.05; done|
+	awk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4;
+		letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; 
+		printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}' 
+}
+
 function xTr4Ct() {
 	local remove_archive
 	local success
@@ -237,29 +360,29 @@ function xTr4Ct() {
 }
 
 	# - FZF
-function nice-FZF(){
+function nice-fZf(){
 
 	if [ "$1" = "h" ]; then
 		fzf -m --reverse --preview-window down:20 --preview '[[ $(file --mime {}) =~ binary ]] &&
-	               echo {} is a binary file ||
-	                (bat --style=numbers --color=always {} ||
-	                 highlight -O ansi -l {} ||
-	                 coderay {} ||
-	                 rougify {} ||
-	                 cat {}) 2> /dev/null | head -500'
+			echo {} is a binary file ||
+			(bat --style=numbers --color=always {} ||
+			highlight -O ansi -l {} ||
+			coderay {} ||
+			rougify {} ||
+			cat {}) 2> /dev/null | head -500'
 
 	else
-	       fzf -m --preview '[[ $(file --mime {}) =~ binary ]] &&
-	                        echo {} is a binary file ||
-	                        (bat --style=numbers --color=always {} ||
-	                         highlight -O ansi -l {} ||
-	                         coderay {} ||
-	                         rougify {} ||
-	                         cat {}) 2> /dev/null | head -500'
+		fzf -m --preview '[[ $(file --mime {}) =~ binary ]] &&
+			echo {} is a binary file ||
+			(bat --style=numbers --color=always {} ||
+			highlight -O ansi -l {} ||
+			coderay {} ||
+			rougify {} ||
+			cat {}) 2> /dev/null | head -500'
 	fi
 }
 
-function ranger_cd() {
+function ranger_CD() {
     tmp="$(mktemp)"
     ranger --choosedir="$tmp" "$@"
     if [ -f "$tmp" ]; then
@@ -269,20 +392,20 @@ function ranger_cd() {
     fi
 }
 
-function up() {
-         uptime=$(awk -F. '{print $1}' /proc/uptime)
-         secs=$((${uptime}%60))
-         mins=$((${uptime}/60%60))
-         hours=$((${uptime}/3600%24))
-         days=$((${uptime}/86400))
-         uptime="${mins}m"
-         if [ "${hours}" -ne "0" ]; then
-                uptime="${hours}h ${uptime}"
-                if [ "${days}" -ne "0" ]; then
-                uptime="${days}d ${uptime}"
-                fi
-        fi
-        echo ${uptime}
+function uP() {
+	uptime=$(awk -F. '{print $1}' /proc/uptime)
+	secs=$((${uptime}%60))
+	mins=$((${uptime}/60%60))
+	hours=$((${uptime}/3600%24))
+	days=$((${uptime}/86400))
+	uptime="${mins}m"
+	if [ "${hours}" -ne "0" ]; then
+		uptime="${hours}h ${uptime}"
+		if [ "${days}" -ne "0" ]; then
+		uptime="${days}d ${uptime}"
+		fi
+	fi
+		echo ${uptime}
 }
 
 function xp() {
@@ -292,10 +415,10 @@ function xp() {
 }
 
 function fzf-pre() {
-fzf -m --height 50% --layout=reverse --inline-info \
-  --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200' \
-  --preview-window 'right,50%,+{2}+3/3,~3,noborder' \
-  --bind '?:toggle-preview'
+	fzf -m --height 50% --layout=reverse --inline-info \
+	--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200' \
+	--preview-window 'right,50%,+{2}+3/3,~3,noborder' \
+	--bind '?:toggle-preview'
 }
 
 function rga-fzf() {
@@ -310,46 +433,6 @@ function rga-fzf() {
 	)" &&
 	echo "opening $fiole" &&
 	xdg-open "$file"
-}
-
-function color-GR1D_BACKGR0UNDS() {
-	echo -e "\n${On_IBlack}${UBlue}${IBlue}=============${On_ICyan}${BIBlue}   fuNCt10n  ~>  Color~Grid   ${end}${On_IBlack}${UBlue}${IBlue}================\n===========================================================${end}\n"
-	sleep 0.2
-	for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}  ${(l:3::0:)i}%f   " ${${(M)$((i%6)):#3}:+$'\n'}; done 
-}
-
-function color-GR1D() {
-	echo -e "\n${On_IBlack}${UBlue}${IBlue}=============${On_ICyan}${BIBlue}   fuNCt10n  ~>  Color~Grid   ${end}${On_IBlack}${UBlue}${IBlue}================\n===========================================================${end}\n"
-	sleep 0.2
-
-	iter=16
-	while [ $iter -lt 52 ];do
-	second=$[$iter+36]
-	third=$[$second+36]
-	four=$[$third+36]
-	five=$[$four+36]
-	six=$[$five+36]
-	seven=$[$six+36]
-
-	if [ $seven -gt 250 ];then seven=$[$seven-251]; fi
-		echo -en "\033[38;5;$(echo $iter)m "
-		printf "%03d" $iter
-		echo -en "   \033[38;5;$(echo $second)m "
-		printf "%03d" $second
-		echo -en "   \033[38;5;$(echo $third)m "
-		printf "%03d" $third
-		echo -en "   \033[38;5;$(echo $four)m "
-		printf "%03d" $four
-		echo -en "   \033[38;5;$(echo $five)m "
-		printf "%03d" $five
-		echo -en "   \033[38;5;$(echo $six)m "
-		printf "%03d" $six
-		echo -en "   \033[38;5;$(echo $seven)m "
-		printf "%03d" $seven
-
-	iter=$[$iter+1]
-	printf '\r\n'
-done
 }
 
 function kit {
@@ -370,74 +453,3 @@ function ncol {
         echo "Unsupported format..."
     fi
 }
-
-function extractPorts(){
-	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
-	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
-	echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
-	echo -e "\t[*] IP Address: $ip_address"  >> extractPorts.tmp
-	echo -e "\t[*] Open ports: $ports\n"  >> extractPorts.tmp
-	echo $ports | tr -d '\n' | xclip -sel clip
-	echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
-	batcat -lruby  extractPorts.tmp; rm extractPorts.tmp
-}
-
-function set-api_token-htbXplorer() { echo -ne "\t${blue}~~~> ${yellow}Enter your ${green}HTB ${red}API_TOKEN ${yellow}:\n\t${blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> 
-	${cyan}\n\n" echo -e "\n ~ Enter your HTB API_TOKEN:" read API; sudo sed -i 's/declare -r API_TOKEN=".*"/declare -r API_TOKEN="'$API'"/g' /opt/h4Ck/htbXplorer-Plus/htbXplorer sleep 1 echo -ne 
-	"\t${blue}~~~> ${yellow} Done${red}!!\n\n"
-}
-
-function set-dpi_polybar() {
-	dpi=$(cat ~/.config/polybar/cnf/*.ini | grep dpi | head -1)
-	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}DPI ${yellow}to resice Polybar${blue} ~~>${cyan}\n\t\t\t"
-	read NEW_DPI;
-	new_dpi="dpi = ${NEW_DPI}"
-	sed -i "s/${dpi}/${new_dpi}/g" ~/.config/polybar/cnf/*.ini &&
-	echo -ne "\t${blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your settings.ini\n\t${blue}~~~> ${yellow}${red}Reload ${yellow}your polybar\n\n"
-	sleep 0.5
-}
-
-function set-height_polybar () {
-	height=$(cat ~/.config/polybar/cnf/*.ini | grep height | head -1)
-	echo -e "\n\n\t\t${yellow}~ Current ${dpi}\n\t\t~ Enter a new ${red}height ${yellow}to resice Polybar${blue} ~~>${cyan}\n\t\t\t"
-	read NEW_height
-	new_height="height = ${NEW_height}%"
-	sed -i "s/${height}/${new_height}/g" ~/.config/polybar/cnf/*.ini
-	echo -ne "\t${blue}~~~> ${yellow}Setting ${red}$new_dpi ${yellow}in your settings.ini\n\t${blue}~~~> ${yellow}Just ${red}relanuch ${yellow}your polybar\n\n"
-	sleep 1
-}
-
-#function set-default_background_in_bspwm() {
-#	echo -ne "\t${blue}~~~> ${yellow}Set a default ${red} wallpaper ${yellow}in bspwm \n\t${blue}~~~> ${yellow} Enter the ${red}full path ${yellow}of a image: ~~> ${cyan}\n\n"
-#	read image;
-#	echo -ne "\t${image}\n"
-#	sed -i "s/fill */fill '" ${image} "'/g" ~/.config/bspwm/bspwmrc
-#	echo -ne "\t${blue}~~~> ${yellow}Setting new wallpaper \n\t${blue}~~~> ${yellow}Just press ${red}'ctrl+alt+r' ${yellow}to restart bspwm\n\n"
-#	sleep 1
-#}
-
-function settarget() {
-	ip_address=$1
-	machine_name=$2
-	echo "$ip_address $machine_name" > ~/.config/polybar/scripts/target
-}
-
-function rrf() {
-	scrub -p dod $1
-	shred -zun 10 -v $1
-}
-
-	# ~~> Function Nmap full ports-scan
-function sC4n-nM4p() {
-	sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn $1 -oG allPorts && sleep 2
-	ports="$(cat allPorts | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
-	nmap -sCV -vv -p${ports} $1 -oN targeted && /usr/bin/batcat targeted -ljava
-}
-
-function entry-2-h0sTs() {
-	machine_adress=$1
-	machine_name=$2
-	echo -ne "$1\t$2\n" | sudo tee -a /etc/hosts
-}
-
-function matrix() { echo -e "\e[1;40m" ; clear ; while :; do echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;sleep 0.05; done|awk '{ letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()"; c=$4;        letter=substr(letters,c,1);a[$3]=0;for (x in a) {o=a[x];a[x]=a[x]+1; printf "\033[%s;%sH\033[2;32m%s",o,x,letter; printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;if (a[x] >= $1) { a[x]=0; } }}' }
